@@ -34,7 +34,19 @@
             newPopularToolStripMenuItem = new ToolStripMenuItem();
             myListToolStripMenuItem = new ToolStripMenuItem();
             miLogin = new ToolStripMenuItem();
+            panel1 = new Panel();
+            panel2 = new Panel();
+            panel3 = new Panel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            label2 = new Label();
+            button1 = new Button();
+            button2 = new Button();
+            button3 = new Button();
             menuStrip1.SuspendLayout();
+            panel1.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -44,7 +56,7 @@
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new Padding(8, 3, 0, 3);
-            menuStrip1.Size = new Size(689, 35);
+            menuStrip1.Size = new Size(909, 35);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -80,11 +92,102 @@
             miLogin.Text = "Sign In";
             miLogin.Click += miLogin_Click;
             // 
+            // panel1
+            // 
+            panel1.BackColor = SystemColors.ControlDarkDark;
+            panel1.Controls.Add(button3);
+            panel1.Controls.Add(button2);
+            panel1.Controls.Add(button1);
+            panel1.Controls.Add(panel3);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(672, 35);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(237, 508);
+            panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 35);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(672, 508);
+            panel2.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            panel3.BackColor = SystemColors.AppWorkspace;
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label1);
+            panel3.Controls.Add(pictureBox1);
+            panel3.Dock = DockStyle.Top;
+            panel3.Location = new Point(0, 0);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(237, 92);
+            panel3.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Location = new Point(16, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(69, 61);
+            pictureBox1.TabIndex = 0;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(109, 15);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 21);
+            label1.TabIndex = 1;
+            label1.Text = "label1";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(109, 55);
+            label2.Name = "label2";
+            label2.Size = new Size(52, 21);
+            label2.TabIndex = 2;
+            label2.Text = "label2";
+            // 
+            // button1
+            // 
+            button1.Dock = DockStyle.Top;
+            button1.Location = new Point(0, 92);
+            button1.Name = "button1";
+            button1.Size = new Size(237, 50);
+            button1.TabIndex = 1;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            button2.Dock = DockStyle.Top;
+            button2.Location = new Point(0, 142);
+            button2.Name = "button2";
+            button2.Size = new Size(237, 50);
+            button2.TabIndex = 2;
+            button2.Text = "button2";
+            button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            button3.Dock = DockStyle.Top;
+            button3.Location = new Point(0, 192);
+            button3.Name = "button3";
+            button3.Size = new Size(237, 50);
+            button3.TabIndex = 3;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(689, 543);
+            ClientSize = new Size(909, 543);
+            Controls.Add(panel2);
+            Controls.Add(panel1);
             Controls.Add(menuStrip1);
             Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MainMenuStrip = menuStrip1;
@@ -93,6 +196,10 @@
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            panel1.ResumeLayout(false);
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -105,5 +212,14 @@
         private ToolStripMenuItem newPopularToolStripMenuItem;
         private ToolStripMenuItem myListToolStripMenuItem;
         private ToolStripMenuItem miLogin;
+        private Panel panel1;
+        private Panel panel2;
+        private Panel panel3;
+        private PictureBox pictureBox1;
+        private Button button3;
+        private Button button2;
+        private Button button1;
+        private Label label2;
+        private Label label1;
     }
 }
