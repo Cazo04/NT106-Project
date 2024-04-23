@@ -43,6 +43,7 @@
             // lbOrsigninwith
             // 
             lbOrsigninwith.AutoSize = true;
+            lbOrsigninwith.ForeColor = SystemColors.ControlLightLight;
             lbOrsigninwith.Location = new Point(147, 368);
             lbOrsigninwith.Name = "lbOrsigninwith";
             lbOrsigninwith.Size = new Size(84, 15);
@@ -52,6 +53,8 @@
             // linkLabel1
             // 
             linkLabel1.AutoSize = true;
+            linkLabel1.ForeColor = Color.White;
+            linkLabel1.LinkColor = Color.White;
             linkLabel1.Location = new Point(97, 324);
             linkLabel1.Name = "linkLabel1";
             linkLabel1.Size = new Size(174, 15);
@@ -61,16 +64,21 @@
             // 
             // btnGetStarted
             // 
+            btnGetStarted.BackColor = Color.Gray;
+            btnGetStarted.FlatAppearance.BorderColor = Color.Gray;
+            btnGetStarted.FlatStyle = FlatStyle.Flat;
             btnGetStarted.Location = new Point(45, 275);
             btnGetStarted.Name = "btnGetStarted";
             btnGetStarted.Size = new Size(287, 29);
             btnGetStarted.TabIndex = 16;
             btnGetStarted.Text = "Get Started";
-            btnGetStarted.UseVisualStyleBackColor = true;
+            btnGetStarted.UseVisualStyleBackColor = false;
             // 
             // llbForgotPassword
             // 
             llbForgotPassword.AutoSize = true;
+            llbForgotPassword.ForeColor = Color.White;
+            llbForgotPassword.LinkColor = Color.White;
             llbForgotPassword.Location = new Point(242, 232);
             llbForgotPassword.Name = "llbForgotPassword";
             llbForgotPassword.Size = new Size(100, 15);
@@ -81,6 +89,7 @@
             // cbRememberme
             // 
             cbRememberme.AutoSize = true;
+            cbRememberme.ForeColor = SystemColors.ControlLightLight;
             cbRememberme.Location = new Point(48, 229);
             cbRememberme.Name = "cbRememberme";
             cbRememberme.Size = new Size(104, 19);
@@ -90,6 +99,7 @@
             // 
             // txtPassword
             // 
+            txtPassword.BackColor = Color.FromArgb(64, 64, 64);
             txtPassword.Location = new Point(45, 179);
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(287, 23);
@@ -97,6 +107,7 @@
             // 
             // txtUsernameorEmailaddress
             // 
+            txtUsernameorEmailaddress.BackColor = Color.FromArgb(64, 64, 64);
             txtUsernameorEmailaddress.Location = new Point(45, 106);
             txtUsernameorEmailaddress.Name = "txtUsernameorEmailaddress";
             txtUsernameorEmailaddress.Size = new Size(287, 23);
@@ -105,6 +116,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(45, 149);
             label3.Name = "label3";
             label3.Size = new Size(57, 15);
@@ -114,6 +126,7 @@
             // lbUsernameorEmailaddress
             // 
             lbUsernameorEmailaddress.AutoSize = true;
+            lbUsernameorEmailaddress.ForeColor = SystemColors.ControlLightLight;
             lbUsernameorEmailaddress.Location = new Point(45, 75);
             lbUsernameorEmailaddress.Name = "lbUsernameorEmailaddress";
             lbUsernameorEmailaddress.Size = new Size(149, 15);
@@ -124,6 +137,7 @@
             // 
             lbSignIn.AutoSize = true;
             lbSignIn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSignIn.ForeColor = SystemColors.ControlLightLight;
             lbSignIn.Location = new Point(45, 28);
             lbSignIn.Name = "lbSignIn";
             lbSignIn.Size = new Size(58, 21);
@@ -134,6 +148,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(64, 64, 64);
             Controls.Add(lbOrsigninwith);
             Controls.Add(linkLabel1);
             Controls.Add(btnGetStarted);
@@ -145,7 +160,7 @@
             Controls.Add(lbUsernameorEmailaddress);
             Controls.Add(lbSignIn);
             Name = "LoginControl";
-            Size = new Size(386, 444);
+            Size = new Size(386, 451);
             ResumeLayout(false);
             PerformLayout();
         }

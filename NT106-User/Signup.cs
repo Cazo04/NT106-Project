@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace NT106_User
 {
-    public partial class LoginControl : UserControl
+    public partial class Signup : UserControl
     {
-        public LoginControl()
+        public Signup()
         {
-            InitializeComponent(); 
-            
+            InitializeComponent();
+            this.Width = 386;
+            this.Height = 444;
         }
-
     }
 }
