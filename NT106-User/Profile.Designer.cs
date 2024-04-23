@@ -47,8 +47,8 @@
             textBox7 = new TextBox();
             btnChangepassword = new Button();
             panel1 = new Panel();
-            btnProfile = new Button();
             btnlogout = new Button();
+            btnProfile = new Button();
             lbUsername = new Label();
             btnEdit = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -148,6 +148,7 @@
             // btnSave
             // 
             btnSave.BackColor = SystemColors.ActiveCaption;
+            btnSave.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Segoe UI", 11.25F);
             btnSave.ForeColor = SystemColors.ControlLightLight;
@@ -252,22 +253,6 @@
             panel1.Size = new Size(143, 977);
             panel1.TabIndex = 18;
             // 
-            // btnProfile
-            // 
-            btnProfile.BackColor = Color.FromArgb(64, 64, 64);
-            btnProfile.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            btnProfile.FlatAppearance.MouseDownBackColor = Color.White;
-            btnProfile.FlatAppearance.MouseOverBackColor = Color.White;
-            btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Segoe UI", 11.25F);
-            btnProfile.ForeColor = SystemColors.ControlLightLight;
-            btnProfile.Location = new Point(0, 0);
-            btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(138, 53);
-            btnProfile.TabIndex = 0;
-            btnProfile.Text = "Profile";
-            btnProfile.UseVisualStyleBackColor = false;
-            // 
             // btnlogout
             // 
             btnlogout.BackColor = Color.FromArgb(192, 192, 0);
@@ -283,6 +268,22 @@
             btnlogout.TabIndex = 1;
             btnlogout.Text = "Logout";
             btnlogout.UseVisualStyleBackColor = false;
+            // 
+            // btnProfile
+            // 
+            btnProfile.BackColor = Color.FromArgb(64, 64, 64);
+            btnProfile.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnProfile.FlatAppearance.MouseDownBackColor = Color.White;
+            btnProfile.FlatAppearance.MouseOverBackColor = Color.White;
+            btnProfile.FlatStyle = FlatStyle.Flat;
+            btnProfile.Font = new Font("Segoe UI", 11.25F);
+            btnProfile.ForeColor = SystemColors.ControlLightLight;
+            btnProfile.Location = new Point(0, 0);
+            btnProfile.Name = "btnProfile";
+            btnProfile.Size = new Size(138, 53);
+            btnProfile.TabIndex = 0;
+            btnProfile.Text = "Profile";
+            btnProfile.UseVisualStyleBackColor = false;
             // 
             // lbUsername
             // 
