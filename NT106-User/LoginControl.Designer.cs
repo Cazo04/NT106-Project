@@ -79,7 +79,7 @@
             llbForgotPassword.AutoSize = true;
             llbForgotPassword.ForeColor = Color.White;
             llbForgotPassword.LinkColor = Color.White;
-            llbForgotPassword.Location = new Point(242, 232);
+            llbForgotPassword.Location = new Point(232, 233);
             llbForgotPassword.Name = "llbForgotPassword";
             llbForgotPassword.Size = new Size(100, 15);
             llbForgotPassword.TabIndex = 15;
@@ -136,11 +136,11 @@
             // lbSignIn
             // 
             lbSignIn.AutoSize = true;
-            lbSignIn.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSignIn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbSignIn.ForeColor = SystemColors.ControlLightLight;
             lbSignIn.Location = new Point(45, 28);
             lbSignIn.Name = "lbSignIn";
-            lbSignIn.Size = new Size(58, 21);
+            lbSignIn.Size = new Size(70, 25);
             lbSignIn.TabIndex = 9;
             lbSignIn.Text = "Sign In";
             // 

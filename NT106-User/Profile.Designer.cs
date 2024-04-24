@@ -313,7 +313,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(696, 976);
+            ClientSize = new Size(696, 979);
             Controls.Add(btnEdit);
             Controls.Add(lbUsername);
             Controls.Add(panel1);
@@ -335,6 +335,7 @@
             Controls.Add(lbEmail);
             Controls.Add(lbName);
             Controls.Add(pictureBox1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "Profile";
             Text = "Profile";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
