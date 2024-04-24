@@ -239,7 +239,7 @@
             btnChangepassword.ForeColor = SystemColors.ControlLightLight;
             btnChangepassword.Location = new Point(183, 892);
             btnChangepassword.Name = "btnChangepassword";
-            btnChangepassword.Size = new Size(133, 34);
+            btnChangepassword.Size = new Size(159, 34);
             btnChangepassword.TabIndex = 17;
             btnChangepassword.Text = "Change Password";
             btnChangepassword.UseVisualStyleBackColor = false;
