@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             menuStrip1 = new MenuStrip();
-            homeToolStripMenuItem = new ToolStripMenuItem();
+            miHome = new ToolStripMenuItem();
             tVShowsToolStripMenuItem = new ToolStripMenuItem();
             newPopularToolStripMenuItem = new ToolStripMenuItem();
             myListToolStripMenuItem = new ToolStripMenuItem();
@@ -53,19 +53,20 @@
             // 
             menuStrip1.BackColor = Color.Black;
             menuStrip1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { homeToolStripMenuItem, tVShowsToolStripMenuItem, newPopularToolStripMenuItem, myListToolStripMenuItem, miLogin });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { miHome, tVShowsToolStripMenuItem, newPopularToolStripMenuItem, myListToolStripMenuItem, miLogin });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1038, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
-            // homeToolStripMenuItem
+            // miHome
             // 
-            homeToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
-            homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            homeToolStripMenuItem.Size = new Size(74, 29);
-            homeToolStripMenuItem.Text = "Home";
+            miHome.ForeColor = SystemColors.ControlLightLight;
+            miHome.Name = "miHome";
+            miHome.Size = new Size(74, 29);
+            miHome.Text = "Home";
+            miHome.Click += miHome_Click;
             // 
             // tVShowsToolStripMenuItem
             // 
@@ -221,7 +222,7 @@
         #endregion
 
         private MenuStrip menuStrip1;
-        private ToolStripMenuItem homeToolStripMenuItem;
+        private ToolStripMenuItem miHome;
         private ToolStripMenuItem tVShowsToolStripMenuItem;
         private ToolStripMenuItem newPopularToolStripMenuItem;
         private ToolStripMenuItem myListToolStripMenuItem;

@@ -5,7 +5,7 @@ namespace NT106_User
     public partial class Main : Form
     {
 
-        private LoginControl loginControl;
+        public LoginControl loginControl;
 
         public Main()
         {
@@ -39,6 +39,28 @@ namespace NT106_User
             }
         }
 
-       
+        private void ShowOriginalControls()
+        {
+            foreach (Control control in this.Controls)
+            {
+                control.Visible = true;
+            }
+        }
+
+        private void miHome_Click(object sender, EventArgs e)
+        {
+            ShowOriginalControls();
+
+            if (loginControl != null)
+            {
+                loginControl.Visible = false;
+
+            }
+
+            if (loginControl != null && loginControl.signUpControl != null)
+            {
+                loginControl.signUpControl.Visible = false;
+            }
+        }
     }
 }

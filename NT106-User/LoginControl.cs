@@ -12,7 +12,8 @@ namespace NT106_User
 {
     public partial class LoginControl : UserControl
     {
-        private Signup signUpControl;
+        public Signup signUpControl;
+
         public LoginControl()
         {
             InitializeComponent();
@@ -40,6 +41,7 @@ namespace NT106_User
             {
                 signUpControl.Visible = true;
             }
+
         }
     }
 }
