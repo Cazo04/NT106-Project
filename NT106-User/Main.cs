@@ -6,7 +6,6 @@ namespace NT106_User
     {
 
         private LoginControl loginControl;
-        private bool loginControlVisible = false;
 
         public Main()
         {
@@ -15,26 +14,14 @@ namespace NT106_User
 
         private void miLogin_Click(object sender, EventArgs e)
         {
-            if (!loginControlVisible)
-            {
-                ShowLoginControl();
-            }
-            else
-            {
-                HideLoginControl();
-            }
-        }
-
-        private void ShowLoginControl()
-        {
             foreach (Control control in this.Controls)
             {
-                if (control != menuStrip1) 
+                if (control != menuStrip1)
                 {
                     control.Visible = false;
                 }
             }
-      
+
             if (loginControl == null)
             {
 
@@ -47,30 +34,11 @@ namespace NT106_User
             }
             else
             {
-               
+
                 loginControl.Visible = true;
             }
-
-            loginControlVisible = true; 
         }
 
-        private void HideLoginControl()
-        {
-            loginControl.Visible = false;
-
-            ShowOriginalControls();
-
-            loginControlVisible = false; 
-        }
-
-        private void ShowOriginalControls()
-        {
-            foreach (Control control in this.Controls)
-            {
-                control.Visible = true;
-            }
-        }
-
-
+       
     }
 }

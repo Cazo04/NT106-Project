@@ -56,7 +56,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { homeToolStripMenuItem, tVShowsToolStripMenuItem, newPopularToolStripMenuItem, myListToolStripMenuItem, miLogin });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(887, 33);
+            menuStrip1.Size = new Size(1038, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -105,17 +105,17 @@
             panel1.Controls.Add(button1);
             panel1.Controls.Add(panel3);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(703, 33);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Location = new Point(854, 33);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(184, 487);
+            panel1.Size = new Size(184, 687);
             panel1.TabIndex = 1;
             // 
             // button3
             // 
             button3.Dock = DockStyle.Top;
             button3.Location = new Point(0, 138);
-            button3.Margin = new Padding(2, 2, 2, 2);
+            button3.Margin = new Padding(2);
             button3.Name = "button3";
             button3.Size = new Size(184, 36);
             button3.TabIndex = 3;
@@ -126,7 +126,7 @@
             // 
             button2.Dock = DockStyle.Top;
             button2.Location = new Point(0, 102);
-            button2.Margin = new Padding(2, 2, 2, 2);
+            button2.Margin = new Padding(2);
             button2.Name = "button2";
             button2.Size = new Size(184, 36);
             button2.TabIndex = 2;
@@ -137,7 +137,7 @@
             // 
             button1.Dock = DockStyle.Top;
             button1.Location = new Point(0, 66);
-            button1.Margin = new Padding(2, 2, 2, 2);
+            button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(184, 36);
             button1.TabIndex = 1;
@@ -152,7 +152,7 @@
             panel3.Controls.Add(pictureBox1);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(184, 66);
             panel3.TabIndex = 0;
@@ -180,7 +180,7 @@
             // pictureBox1
             // 
             pictureBox1.Location = new Point(12, 11);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(54, 44);
             pictureBox1.TabIndex = 0;
@@ -190,9 +190,9 @@
             // 
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 33);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(703, 487);
+            panel2.Size = new Size(854, 687);
             panel2.TabIndex = 2;
             // 
             // Main
@@ -200,7 +200,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(887, 520);
+            ClientSize = new Size(1038, 720);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Controls.Add(menuStrip1);

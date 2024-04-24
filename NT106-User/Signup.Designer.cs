@@ -46,7 +46,6 @@
             // 
             // lbSignup
             // 
-            lbSignup.AutoSize = true;
             lbSignup.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbSignup.ForeColor = SystemColors.ControlLightLight;
             lbSignup.Location = new Point(38, 19);
@@ -57,7 +56,6 @@
             // 
             // lbFullname
             // 
-            lbFullname.AutoSize = true;
             lbFullname.Font = new Font("Segoe UI", 11.25F);
             lbFullname.ForeColor = SystemColors.ControlLightLight;
             lbFullname.Location = new Point(38, 63);
@@ -68,7 +66,6 @@
             // 
             // lbDateofbirth
             // 
-            lbDateofbirth.AutoSize = true;
             lbDateofbirth.Font = new Font("Segoe UI", 11.25F);
             lbDateofbirth.ForeColor = SystemColors.ControlLightLight;
             lbDateofbirth.Location = new Point(38, 138);
@@ -79,7 +76,6 @@
             // 
             // lbUsername
             // 
-            lbUsername.AutoSize = true;
             lbUsername.Font = new Font("Segoe UI", 11.25F);
             lbUsername.ForeColor = SystemColors.ControlLightLight;
             lbUsername.Location = new Point(38, 214);
@@ -90,7 +86,6 @@
             // 
             // lbEmailaddress
             // 
-            lbEmailaddress.AutoSize = true;
             lbEmailaddress.Font = new Font("Segoe UI", 11.25F);
             lbEmailaddress.ForeColor = SystemColors.ControlLightLight;
             lbEmailaddress.Location = new Point(38, 289);
@@ -101,7 +96,6 @@
             // 
             // lbPassword
             // 
-            lbPassword.AutoSize = true;
             lbPassword.Font = new Font("Segoe UI", 11.25F);
             lbPassword.ForeColor = SystemColors.ControlLightLight;
             lbPassword.Location = new Point(38, 353);
@@ -112,7 +106,6 @@
             // 
             // lbConfirmpassword
             // 
-            lbConfirmpassword.AutoSize = true;
             lbConfirmpassword.Font = new Font("Segoe UI", 11.25F);
             lbConfirmpassword.ForeColor = SystemColors.ControlLightLight;
             lbConfirmpassword.Location = new Point(38, 433);
@@ -209,7 +202,7 @@
             Controls.Add(lbFullname);
             Controls.Add(lbSignup);
             Name = "Signup";
-            Size = new Size(472, 594);
+            Size = new Size(451, 591);
             ResumeLayout(false);
             PerformLayout();
         }

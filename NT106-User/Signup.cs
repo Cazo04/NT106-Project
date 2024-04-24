@@ -15,8 +15,7 @@ namespace NT106_User
         public Signup()
         {
             InitializeComponent();
-            this.Width = 386;
-            this.Height = 444;
+
         }
     }
 }

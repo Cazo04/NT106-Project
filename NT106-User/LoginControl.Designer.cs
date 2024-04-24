@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             lbOrsigninwith = new Label();
-            linkLabel1 = new LinkLabel();
+            llbSignup = new LinkLabel();
             btnGetStarted = new Button();
             llbForgotPassword = new LinkLabel();
             cbRememberme = new CheckBox();
@@ -43,24 +43,27 @@
             // lbOrsigninwith
             // 
             lbOrsigninwith.AutoSize = true;
+            lbOrsigninwith.Font = new Font("Segoe UI", 11.25F);
             lbOrsigninwith.ForeColor = SystemColors.ControlLightLight;
             lbOrsigninwith.Location = new Point(147, 368);
             lbOrsigninwith.Name = "lbOrsigninwith";
-            lbOrsigninwith.Size = new Size(84, 15);
+            lbOrsigninwith.Size = new Size(104, 20);
             lbOrsigninwith.TabIndex = 18;
             lbOrsigninwith.Text = "Or sign in with";
             // 
-            // linkLabel1
+            // llbSignup
             // 
-            linkLabel1.AutoSize = true;
-            linkLabel1.ForeColor = Color.White;
-            linkLabel1.LinkColor = Color.White;
-            linkLabel1.Location = new Point(97, 324);
-            linkLabel1.Name = "linkLabel1";
-            linkLabel1.Size = new Size(174, 15);
-            linkLabel1.TabIndex = 17;
-            linkLabel1.TabStop = true;
-            linkLabel1.Text = "Don't have an account? Sign up";
+            llbSignup.AutoSize = true;
+            llbSignup.Font = new Font("Segoe UI", 11.25F);
+            llbSignup.ForeColor = Color.White;
+            llbSignup.LinkColor = Color.White;
+            llbSignup.Location = new Point(111, 329);
+            llbSignup.Name = "llbSignup";
+            llbSignup.Size = new Size(217, 20);
+            llbSignup.TabIndex = 17;
+            llbSignup.TabStop = true;
+            llbSignup.Text = "Don't have an account? Sign up";
+            llbSignup.LinkClicked += llbSignup_LinkClicked;
             // 
             // btnGetStarted
             // 
@@ -69,7 +72,7 @@
             btnGetStarted.FlatStyle = FlatStyle.Flat;
             btnGetStarted.Location = new Point(45, 275);
             btnGetStarted.Name = "btnGetStarted";
-            btnGetStarted.Size = new Size(287, 29);
+            btnGetStarted.Size = new Size(320, 28);
             btnGetStarted.TabIndex = 16;
             btnGetStarted.Text = "Get Started";
             btnGetStarted.UseVisualStyleBackColor = false;
@@ -77,11 +80,12 @@
             // llbForgotPassword
             // 
             llbForgotPassword.AutoSize = true;
+            llbForgotPassword.Font = new Font("Segoe UI", 11.25F);
             llbForgotPassword.ForeColor = Color.White;
             llbForgotPassword.LinkColor = Color.White;
-            llbForgotPassword.Location = new Point(232, 233);
+            llbForgotPassword.Location = new Point(238, 233);
             llbForgotPassword.Name = "llbForgotPassword";
-            llbForgotPassword.Size = new Size(100, 15);
+            llbForgotPassword.Size = new Size(127, 20);
             llbForgotPassword.TabIndex = 15;
             llbForgotPassword.TabStop = true;
             llbForgotPassword.Text = "Forgot password?";
@@ -89,10 +93,11 @@
             // cbRememberme
             // 
             cbRememberme.AutoSize = true;
+            cbRememberme.Font = new Font("Segoe UI", 11.25F);
             cbRememberme.ForeColor = SystemColors.ControlLightLight;
             cbRememberme.Location = new Point(48, 229);
             cbRememberme.Name = "cbRememberme";
-            cbRememberme.Size = new Size(104, 19);
+            cbRememberme.Size = new Size(126, 24);
             cbRememberme.TabIndex = 14;
             cbRememberme.Text = "Remember me";
             cbRememberme.UseVisualStyleBackColor = true;
@@ -101,35 +106,39 @@
             // 
             txtPassword.BackColor = Color.FromArgb(64, 64, 64);
             txtPassword.Location = new Point(45, 179);
+            txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(287, 23);
+            txtPassword.Size = new Size(320, 28);
             txtPassword.TabIndex = 13;
             // 
             // txtUsernameorEmailaddress
             // 
             txtUsernameorEmailaddress.BackColor = Color.FromArgb(64, 64, 64);
             txtUsernameorEmailaddress.Location = new Point(45, 106);
+            txtUsernameorEmailaddress.Multiline = true;
             txtUsernameorEmailaddress.Name = "txtUsernameorEmailaddress";
-            txtUsernameorEmailaddress.Size = new Size(287, 23);
+            txtUsernameorEmailaddress.Size = new Size(320, 28);
             txtUsernameorEmailaddress.TabIndex = 12;
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 11.25F);
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(45, 149);
             label3.Name = "label3";
-            label3.Size = new Size(57, 15);
+            label3.Size = new Size(70, 20);
             label3.TabIndex = 10;
             label3.Text = "Password";
             // 
             // lbUsernameorEmailaddress
             // 
             lbUsernameorEmailaddress.AutoSize = true;
+            lbUsernameorEmailaddress.Font = new Font("Segoe UI", 11.25F);
             lbUsernameorEmailaddress.ForeColor = SystemColors.ControlLightLight;
             lbUsernameorEmailaddress.Location = new Point(45, 75);
             lbUsernameorEmailaddress.Name = "lbUsernameorEmailaddress";
-            lbUsernameorEmailaddress.Size = new Size(149, 15);
+            lbUsernameorEmailaddress.Size = new Size(189, 20);
             lbUsernameorEmailaddress.TabIndex = 11;
             lbUsernameorEmailaddress.Text = "Username or Email address";
             // 
@@ -150,7 +159,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             Controls.Add(lbOrsigninwith);
-            Controls.Add(linkLabel1);
+            Controls.Add(llbSignup);
             Controls.Add(btnGetStarted);
             Controls.Add(llbForgotPassword);
             Controls.Add(cbRememberme);
@@ -160,7 +169,7 @@
             Controls.Add(lbUsernameorEmailaddress);
             Controls.Add(lbSignIn);
             Name = "LoginControl";
-            Size = new Size(386, 451);
+            Size = new Size(410, 462);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -168,7 +177,7 @@
         #endregion
 
         private Label lbOrsigninwith;
-        private LinkLabel linkLabel1;
+        private LinkLabel llbSignup;
         private Button btnGetStarted;
         private LinkLabel llbForgotPassword;
         private CheckBox cbRememberme;
