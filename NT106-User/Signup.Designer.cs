@@ -187,6 +187,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
+            BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(btnSignup);
             Controls.Add(txtPassword);
             Controls.Add(txtEmailaddress);
@@ -202,7 +203,8 @@
             Controls.Add(lbFullname);
             Controls.Add(lbSignup);
             Name = "Signup";
-            Size = new Size(451, 591);
+            Padding = new Padding(5);
+            Size = new Size(449, 589);
             ResumeLayout(false);
             PerformLayout();
         }
