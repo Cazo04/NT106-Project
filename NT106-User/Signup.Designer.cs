@@ -37,11 +37,11 @@
             lbConfirmpassword = new Label();
             txtFullname = new TextBox();
             txtUsername = new TextBox();
-            txtDateofbirth = new TextBox();
             txtCofirmpassword = new TextBox();
             txtEmailaddress = new TextBox();
             txtPassword = new TextBox();
             btnSignup = new Button();
+            dtpDateOfBirth = new DateTimePicker();
             SuspendLayout();
             // 
             // lbSignup
@@ -132,15 +132,6 @@
             txtUsername.Size = new Size(364, 29);
             txtUsername.TabIndex = 8;
             // 
-            // txtDateofbirth
-            // 
-            txtDateofbirth.BackColor = Color.FromArgb(64, 64, 64);
-            txtDateofbirth.Location = new Point(38, 171);
-            txtDateofbirth.Multiline = true;
-            txtDateofbirth.Name = "txtDateofbirth";
-            txtDateofbirth.Size = new Size(364, 29);
-            txtDateofbirth.TabIndex = 9;
-            // 
             // txtCofirmpassword
             // 
             txtCofirmpassword.BackColor = Color.FromArgb(64, 64, 64);
@@ -182,17 +173,25 @@
             btnSignup.Text = "Sign Up";
             btnSignup.UseVisualStyleBackColor = false;
             // 
+            // dtpDateOfBirth
+            // 
+            dtpDateOfBirth.Format = DateTimePickerFormat.Short;
+            dtpDateOfBirth.Location = new Point(38, 176);
+            dtpDateOfBirth.Name = "dtpDateOfBirth";
+            dtpDateOfBirth.Size = new Size(364, 23);
+            dtpDateOfBirth.TabIndex = 14;
+            // 
             // Signup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(dtpDateOfBirth);
             Controls.Add(btnSignup);
             Controls.Add(txtPassword);
             Controls.Add(txtEmailaddress);
             Controls.Add(txtCofirmpassword);
-            Controls.Add(txtDateofbirth);
             Controls.Add(txtUsername);
             Controls.Add(txtFullname);
             Controls.Add(lbConfirmpassword);
@@ -220,10 +219,10 @@
         private Label lbConfirmpassword;
         private TextBox txtFullname;
         private TextBox txtUsername;
-        private TextBox txtDateofbirth;
         private TextBox txtCofirmpassword;
         private TextBox txtEmailaddress;
         private TextBox txtPassword;
         private Button btnSignup;
+        private DateTimePicker dtpDateOfBirth;
     }
 }
