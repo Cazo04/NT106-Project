@@ -24,22 +24,31 @@ namespace NT106_User
         {
             this.Visible = false;
 
-            if(signUpControl == null)
+            if (signUpControl == null)
             {
                 signUpControl = new Signup();
 
-                if (this.Parent != null)
+                if (Parent != null)
                 {
-                    this.Parent.Controls.Add(signUpControl);
+                    Parent.Controls.Add(signUpControl);
                     signUpControl.Visible = true;
                     signUpControl.BringToFront();
-                    signUpControl.Left = (this.Parent.ClientSize.Width - signUpControl.Width) / 2;
-                    signUpControl.Top = (this.Parent.ClientSize.Height - signUpControl.Height) / 2;
-                }               
+                    signUpControl.Left = (Parent.ClientSize.Width - signUpControl.Width) / 2;
+                    signUpControl.Top = (Parent.ClientSize.Height - signUpControl.Height) / 2;
+                }
             }
             else
             {
                 signUpControl.Visible = true;
+            }
+
+        }
+
+        private void btnGetStarted_Click(object sender, EventArgs e)
+        {
+            if (ParentForm != null && ParentForm is Main mainForm)
+            {
+                mainForm.UpdateSignInButton();
             }
 
         }

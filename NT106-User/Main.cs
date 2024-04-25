@@ -12,7 +12,7 @@ namespace NT106_User
             InitializeComponent();
         }
 
-        private void miLogin_Click(object sender, EventArgs e)
+        private void miLogin_Click(object? sender, EventArgs e)
         {
             foreach (Control control in this.Controls)
             {
@@ -27,8 +27,6 @@ namespace NT106_User
 
                 loginControl = new LoginControl();
                 this.Controls.Add(loginControl);
-
-
                 loginControl.Left = (this.ClientSize.Width - loginControl.Width) / 2;
                 loginControl.Top = (this.ClientSize.Height - loginControl.Height) / 2;
             }
@@ -39,12 +37,20 @@ namespace NT106_User
             }
         }
 
+        private void miUser_Click(object? sender, EventArgs e)
+        {
+            pnUser.Visible = true;
+        }
+
+
+
         private void ShowOriginalControls()
         {
             foreach (Control control in this.Controls)
             {
                 control.Visible = true;
             }
+            pnUser.Visible = false;
         }
 
         private void miHome_Click(object sender, EventArgs e)
@@ -55,12 +61,38 @@ namespace NT106_User
             {
                 loginControl.Visible = false;
 
+                if (loginControl.signUpControl != null)
+                {
+                    loginControl.signUpControl.Visible = false;
+                }
             }
 
-            if (loginControl != null && loginControl.signUpControl != null)
+
+        }
+
+        public void UpdateSignInButton()
+        {
+
+            if (miLogin != null)
             {
-                loginControl.signUpControl.Visible = false;
+                miLogin.Text = "User";
+                miLogin.Click -= miLogin_Click;
+                miLogin.Click += miUser_Click;
             }
+
+            foreach (Control control in this.Controls)
+            {
+                if (control != menuStrip1)
+                {
+                    control.Visible = false;
+                }
+            }
+        }
+
+        private void btnProfile_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.ShowDialog();
         }
     }
 }

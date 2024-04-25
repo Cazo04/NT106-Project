@@ -45,7 +45,7 @@
             lbOrsigninwith.AutoSize = true;
             lbOrsigninwith.Font = new Font("Segoe UI", 11.25F);
             lbOrsigninwith.ForeColor = SystemColors.ControlLightLight;
-            lbOrsigninwith.Location = new Point(152, 373);
+            lbOrsigninwith.Location = new Point(148, 373);
             lbOrsigninwith.Name = "lbOrsigninwith";
             lbOrsigninwith.Size = new Size(104, 20);
             lbOrsigninwith.TabIndex = 18;
@@ -57,7 +57,7 @@
             llbSignup.Font = new Font("Segoe UI", 11.25F);
             llbSignup.ForeColor = Color.White;
             llbSignup.LinkColor = Color.White;
-            llbSignup.Location = new Point(116, 334);
+            llbSignup.Location = new Point(97, 334);
             llbSignup.Name = "llbSignup";
             llbSignup.Size = new Size(217, 20);
             llbSignup.TabIndex = 17;
@@ -76,6 +76,7 @@
             btnGetStarted.TabIndex = 16;
             btnGetStarted.Text = "Get Started";
             btnGetStarted.UseVisualStyleBackColor = false;
+            btnGetStarted.Click += btnGetStarted_Click;
             // 
             // llbForgotPassword
             // 
@@ -171,7 +172,7 @@
             Controls.Add(lbSignIn);
             Name = "LoginControl";
             Padding = new Padding(5);
-            Size = new Size(408, 460);
+            Size = new Size(408, 467);
             ResumeLayout(false);
             PerformLayout();
         }

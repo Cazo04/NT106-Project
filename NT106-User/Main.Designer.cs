@@ -28,25 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             menuStrip1 = new MenuStrip();
             miHome = new ToolStripMenuItem();
             tVShowsToolStripMenuItem = new ToolStripMenuItem();
             newPopularToolStripMenuItem = new ToolStripMenuItem();
             myListToolStripMenuItem = new ToolStripMenuItem();
             miLogin = new ToolStripMenuItem();
-            panel1 = new Panel();
-            button3 = new Button();
-            button2 = new Button();
-            button1 = new Button();
+            pnUser = new Panel();
+            btnLogout = new Button();
+            btnProfile = new Button();
+            btnWatctlist = new Button();
             panel3 = new Panel();
             label2 = new Label();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
+            lbUser = new Label();
+            imgUser = new PictureBox();
             panel2 = new Panel();
             menuStrip1.SuspendLayout();
-            panel1.SuspendLayout();
+            pnUser.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             SuspendLayout();
             // 
             // menuStrip1
@@ -98,59 +99,76 @@
             miLogin.Text = "Sign In";
             miLogin.Click += miLogin_Click;
             // 
-            // panel1
+            // pnUser
             // 
-            panel1.BackColor = Color.FromArgb(64, 64, 64);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button2);
-            panel1.Controls.Add(button1);
-            panel1.Controls.Add(panel3);
-            panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(854, 33);
-            panel1.Margin = new Padding(2);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(184, 687);
-            panel1.TabIndex = 1;
+            pnUser.BackColor = Color.FromArgb(64, 64, 64);
+            pnUser.Controls.Add(btnLogout);
+            pnUser.Controls.Add(btnProfile);
+            pnUser.Controls.Add(btnWatctlist);
+            pnUser.Controls.Add(panel3);
+            pnUser.Dock = DockStyle.Right;
+            pnUser.Location = new Point(854, 33);
+            pnUser.Margin = new Padding(2);
+            pnUser.Name = "pnUser";
+            pnUser.Size = new Size(184, 687);
+            pnUser.TabIndex = 1;
+            pnUser.Visible = false;
             // 
-            // button3
+            // btnLogout
             // 
-            button3.Dock = DockStyle.Top;
-            button3.Location = new Point(0, 138);
-            button3.Margin = new Padding(2);
-            button3.Name = "button3";
-            button3.Size = new Size(184, 36);
-            button3.TabIndex = 3;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            btnLogout.BackColor = Color.FromArgb(64, 64, 64);
+            btnLogout.Dock = DockStyle.Top;
+            btnLogout.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 12F);
+            btnLogout.ForeColor = SystemColors.ControlLightLight;
+            btnLogout.Location = new Point(0, 138);
+            btnLogout.Margin = new Padding(2);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(184, 36);
+            btnLogout.TabIndex = 3;
+            btnLogout.Text = "Logout";
+            btnLogout.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnProfile
             // 
-            button2.Dock = DockStyle.Top;
-            button2.Location = new Point(0, 102);
-            button2.Margin = new Padding(2);
-            button2.Name = "button2";
-            button2.Size = new Size(184, 36);
-            button2.TabIndex = 2;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
+            btnProfile.BackColor = Color.FromArgb(64, 64, 64);
+            btnProfile.Dock = DockStyle.Top;
+            btnProfile.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnProfile.FlatStyle = FlatStyle.Flat;
+            btnProfile.Font = new Font("Segoe UI", 12F);
+            btnProfile.ForeColor = SystemColors.ControlLightLight;
+            btnProfile.Location = new Point(0, 102);
+            btnProfile.Margin = new Padding(2);
+            btnProfile.Name = "btnProfile";
+            btnProfile.Size = new Size(184, 36);
+            btnProfile.TabIndex = 2;
+            btnProfile.Text = "Profile";
+            btnProfile.UseVisualStyleBackColor = false;
+            btnProfile.Click += btnProfile_Click;
             // 
-            // button1
+            // btnWatctlist
             // 
-            button1.Dock = DockStyle.Top;
-            button1.Location = new Point(0, 66);
-            button1.Margin = new Padding(2);
-            button1.Name = "button1";
-            button1.Size = new Size(184, 36);
-            button1.TabIndex = 1;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            btnWatctlist.BackColor = Color.FromArgb(64, 64, 64);
+            btnWatctlist.Dock = DockStyle.Top;
+            btnWatctlist.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnWatctlist.FlatStyle = FlatStyle.Flat;
+            btnWatctlist.Font = new Font("Segoe UI", 12F);
+            btnWatctlist.ForeColor = SystemColors.ControlLightLight;
+            btnWatctlist.Location = new Point(0, 66);
+            btnWatctlist.Margin = new Padding(2);
+            btnWatctlist.Name = "btnWatctlist";
+            btnWatctlist.Size = new Size(184, 36);
+            btnWatctlist.TabIndex = 1;
+            btnWatctlist.Text = "Watchlist";
+            btnWatctlist.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(64, 64, 64);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(label1);
-            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(lbUser);
+            panel3.Controls.Add(imgUser);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
             panel3.Margin = new Padding(2);
@@ -161,31 +179,38 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.BackColor = Color.Gray;
+            label2.Font = new Font("Segoe UI", 9.75F);
+            label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(85, 39);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
+            label2.Size = new Size(33, 17);
             label2.TabIndex = 2;
-            label2.Text = "label2";
+            label2.Text = "Free";
             // 
-            // label1
+            // lbUser
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(85, 11);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
+            lbUser.AutoSize = true;
+            lbUser.Font = new Font("Segoe UI", 9.75F);
+            lbUser.ForeColor = SystemColors.ControlLightLight;
+            lbUser.Location = new Point(85, 11);
+            lbUser.Margin = new Padding(2, 0, 2, 0);
+            lbUser.Name = "lbUser";
+            lbUser.Size = new Size(35, 17);
+            lbUser.TabIndex = 1;
+            lbUser.Text = "User";
             // 
-            // pictureBox1
+            // imgUser
             // 
-            pictureBox1.Location = new Point(12, 11);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(54, 44);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            imgUser.Image = (Image)resources.GetObject("imgUser.Image");
+            imgUser.Location = new Point(12, 11);
+            imgUser.Margin = new Padding(2);
+            imgUser.Name = "imgUser";
+            imgUser.Size = new Size(54, 44);
+            imgUser.SizeMode = PictureBoxSizeMode.Zoom;
+            imgUser.TabIndex = 0;
+            imgUser.TabStop = false;
             // 
             // panel2
             // 
@@ -203,7 +228,7 @@
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);
             Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(pnUser);
             Controls.Add(menuStrip1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             MainMenuStrip = menuStrip1;
@@ -211,10 +236,10 @@
             Text = "Form1";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            panel1.ResumeLayout(false);
+            pnUser.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -227,14 +252,14 @@
         private ToolStripMenuItem newPopularToolStripMenuItem;
         private ToolStripMenuItem myListToolStripMenuItem;
         private ToolStripMenuItem miLogin;
-        private Panel panel1;
+        private Panel pnUser;
         private Panel panel2;
         private Panel panel3;
-        private PictureBox pictureBox1;
-        private Button button3;
-        private Button button2;
-        private Button button1;
+        private PictureBox imgUser;
+        private Button btnLogout;
+        private Button btnProfile;
+        private Button btnWatctlist;
         private Label label2;
-        private Label label1;
+        private Label lbUser;
     }
 }

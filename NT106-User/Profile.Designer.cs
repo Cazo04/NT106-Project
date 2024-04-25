@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            imgUser = new PictureBox();
             lbName = new Label();
             lbEmail = new Label();
             lbSMS = new Label();
@@ -51,19 +51,19 @@
             btnProfile = new Button();
             lbUsername = new Label();
             btnEdit = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // imgUser
             // 
-            pictureBox1.Image = Properties.Resources.avatar_fb;
-            pictureBox1.Location = new Point(183, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(185, 121);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            imgUser.Image = Properties.Resources.avatar_fb;
+            imgUser.Location = new Point(183, 12);
+            imgUser.Name = "imgUser";
+            imgUser.Size = new Size(185, 121);
+            imgUser.SizeMode = PictureBoxSizeMode.Zoom;
+            imgUser.TabIndex = 0;
+            imgUser.TabStop = false;
             // 
             // lbName
             // 
@@ -334,11 +334,11 @@
             Controls.Add(lbSMS);
             Controls.Add(lbEmail);
             Controls.Add(lbName);
-            Controls.Add(pictureBox1);
+            Controls.Add(imgUser);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "Profile";
             Text = "Profile";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -346,7 +346,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox imgUser;
         private Label lbName;
         private Label lbEmail;
         private Label lbSMS;
