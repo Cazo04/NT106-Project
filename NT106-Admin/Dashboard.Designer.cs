@@ -63,6 +63,7 @@ namespace NT106_Admin
             // panel2
             // 
             panel2.AutoScroll = true;
+            panel2.BackColor = SystemColors.AppWorkspace;
             panel2.Controls.Add(btnLogout);
             panel2.Controls.Add(btnPersons);
             panel2.Controls.Add(btnMovies);
