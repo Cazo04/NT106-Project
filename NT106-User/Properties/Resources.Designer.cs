@@ -73,6 +73,26 @@ namespace NT106_User.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_google_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-google-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_outlook_24 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-outlook-24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap user_pic {
             get {
                 object obj = ResourceManager.GetObject("user pic", resourceCulture);

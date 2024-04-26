@@ -121,7 +121,7 @@
             txtFullname.Multiline = true;
             txtFullname.Name = "txtFullname";
             txtFullname.Size = new Size(364, 29);
-            txtFullname.TabIndex = 7;
+            txtFullname.TabIndex = 0;
             // 
             // txtUsername
             // 
@@ -130,7 +130,7 @@
             txtUsername.Multiline = true;
             txtUsername.Name = "txtUsername";
             txtUsername.Size = new Size(364, 29);
-            txtUsername.TabIndex = 8;
+            txtUsername.TabIndex = 2;
             // 
             // txtCofirmpassword
             // 
@@ -139,7 +139,7 @@
             txtCofirmpassword.Multiline = true;
             txtCofirmpassword.Name = "txtCofirmpassword";
             txtCofirmpassword.Size = new Size(364, 29);
-            txtCofirmpassword.TabIndex = 10;
+            txtCofirmpassword.TabIndex = 5;
             // 
             // txtEmailaddress
             // 
@@ -148,7 +148,7 @@
             txtEmailaddress.Multiline = true;
             txtEmailaddress.Name = "txtEmailaddress";
             txtEmailaddress.Size = new Size(364, 29);
-            txtEmailaddress.TabIndex = 11;
+            txtEmailaddress.TabIndex = 3;
             // 
             // txtPassword
             // 
@@ -157,7 +157,7 @@
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(364, 29);
-            txtPassword.TabIndex = 12;
+            txtPassword.TabIndex = 4;
             // 
             // btnSignup
             // 
@@ -169,7 +169,7 @@
             btnSignup.Location = new Point(38, 539);
             btnSignup.Name = "btnSignup";
             btnSignup.Size = new Size(364, 29);
-            btnSignup.TabIndex = 13;
+            btnSignup.TabIndex = 6;
             btnSignup.Text = "Sign Up";
             btnSignup.UseVisualStyleBackColor = false;
             // 
@@ -179,7 +179,7 @@
             dtpDateOfBirth.Location = new Point(38, 176);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
             dtpDateOfBirth.Size = new Size(364, 23);
-            dtpDateOfBirth.TabIndex = 14;
+            dtpDateOfBirth.TabIndex = 1;
             // 
             // Signup
             // 

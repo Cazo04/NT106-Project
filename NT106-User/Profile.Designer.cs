@@ -210,7 +210,7 @@
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(362, 36);
-            textBox5.TabIndex = 14;
+            textBox5.TabIndex = 10;
             // 
             // textBox6
             // 
@@ -219,7 +219,7 @@
             textBox6.Multiline = true;
             textBox6.Name = "textBox6";
             textBox6.Size = new Size(362, 36);
-            textBox6.TabIndex = 15;
+            textBox6.TabIndex = 11;
             // 
             // textBox7
             // 
@@ -228,7 +228,7 @@
             textBox7.Multiline = true;
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(362, 36);
-            textBox7.TabIndex = 16;
+            textBox7.TabIndex = 12;
             // 
             // btnChangepassword
             // 
@@ -240,7 +240,7 @@
             btnChangepassword.Location = new Point(183, 892);
             btnChangepassword.Name = "btnChangepassword";
             btnChangepassword.Size = new Size(159, 34);
-            btnChangepassword.TabIndex = 17;
+            btnChangepassword.TabIndex = 13;
             btnChangepassword.Text = "Change Password";
             btnChangepassword.UseVisualStyleBackColor = false;
             // 
@@ -265,7 +265,7 @@
             btnlogout.Location = new Point(0, 924);
             btnlogout.Name = "btnlogout";
             btnlogout.Size = new Size(138, 53);
-            btnlogout.TabIndex = 1;
+            btnlogout.TabIndex = 14;
             btnlogout.Text = "Logout";
             btnlogout.UseVisualStyleBackColor = false;
             btnlogout.Click += btnlogout_Click;

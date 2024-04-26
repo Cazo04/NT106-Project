@@ -38,6 +38,8 @@
             label3 = new Label();
             lbUsernameorEmailaddress = new Label();
             lbSignIn = new Label();
+            btnGoogle = new Button();
+            btnOutlock = new Button();
             SuspendLayout();
             // 
             // lbOrsigninwith
@@ -70,6 +72,8 @@
             btnGetStarted.BackColor = Color.Gray;
             btnGetStarted.FlatAppearance.BorderColor = Color.Gray;
             btnGetStarted.FlatStyle = FlatStyle.Flat;
+            btnGetStarted.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGetStarted.ForeColor = SystemColors.ControlLightLight;
             btnGetStarted.Location = new Point(45, 275);
             btnGetStarted.Name = "btnGetStarted";
             btnGetStarted.Size = new Size(320, 28);
@@ -154,12 +158,44 @@
             lbSignIn.TabIndex = 9;
             lbSignIn.Text = "Sign In";
             // 
+            // btnGoogle
+            // 
+            btnGoogle.BackgroundImageLayout = ImageLayout.Zoom;
+            btnGoogle.FlatAppearance.BorderColor = Color.FromArgb(255, 128, 128);
+            btnGoogle.FlatStyle = FlatStyle.Flat;
+            btnGoogle.Font = new Font("Segoe UI", 12F);
+            btnGoogle.ForeColor = Color.FromArgb(255, 128, 128);
+            btnGoogle.Image = Properties.Resources.icons8_google_24;
+            btnGoogle.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGoogle.Location = new Point(45, 412);
+            btnGoogle.Name = "btnGoogle";
+            btnGoogle.Size = new Size(134, 39);
+            btnGoogle.TabIndex = 19;
+            btnGoogle.Text = "Google";
+            btnGoogle.UseVisualStyleBackColor = true;
+            // 
+            // btnOutlock
+            // 
+            btnOutlock.FlatStyle = FlatStyle.Flat;
+            btnOutlock.Font = new Font("Segoe UI", 12F);
+            btnOutlock.ForeColor = Color.Cyan;
+            btnOutlock.Image = Properties.Resources.icons8_outlook_24;
+            btnOutlock.ImageAlign = ContentAlignment.MiddleLeft;
+            btnOutlock.Location = new Point(231, 412);
+            btnOutlock.Name = "btnOutlock";
+            btnOutlock.Size = new Size(134, 39);
+            btnOutlock.TabIndex = 20;
+            btnOutlock.Text = "Outlock";
+            btnOutlock.UseVisualStyleBackColor = true;
+            // 
             // LoginControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             BorderStyle = BorderStyle.FixedSingle;
+            Controls.Add(btnOutlock);
+            Controls.Add(btnGoogle);
             Controls.Add(lbOrsigninwith);
             Controls.Add(llbSignup);
             Controls.Add(btnGetStarted);
@@ -189,5 +225,7 @@
         private Label label3;
         private Label lbUsernameorEmailaddress;
         private Label lbSignIn;
+        private Button btnGoogle;
+        private Button btnOutlock;
     }
 }
