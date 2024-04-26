@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace NT106_User
 {
-    public partial class Profile : Form
+    public partial class Authentication : Form
     {
-        public Profile()
+        public Authentication()
         {
             InitializeComponent();
-        }
-
-        private void btnlogout_Click(object sender, EventArgs e)
-        {
-            Close();
         }
     }
 }

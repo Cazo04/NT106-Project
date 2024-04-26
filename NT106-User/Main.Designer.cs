@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            menuStrip1 = new MenuStrip();
-            miHome = new ToolStripMenuItem();
-            tVShowsToolStripMenuItem = new ToolStripMenuItem();
-            newPopularToolStripMenuItem = new ToolStripMenuItem();
-            myListToolStripMenuItem = new ToolStripMenuItem();
-            miLogin = new ToolStripMenuItem();
             pnUser = new Panel();
             btnLogout = new Button();
             btnProfile = new Button();
@@ -44,60 +38,18 @@
             lbUser = new Label();
             imgUser = new PictureBox();
             panel2 = new Panel();
-            menuStrip1.SuspendLayout();
+            panel1 = new Panel();
+            btnMylist = new Button();
+            btnNewandpopular = new Button();
+            btnSignin = new Button();
+            btnMovies = new Button();
+            btnTvshows = new Button();
+            btnHome = new Button();
             pnUser.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            menuStrip1.BackColor = Color.Black;
-            menuStrip1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { miHome, tVShowsToolStripMenuItem, newPopularToolStripMenuItem, myListToolStripMenuItem, miLogin });
-            menuStrip1.Location = new Point(0, 0);
-            menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1038, 33);
-            menuStrip1.TabIndex = 0;
-            menuStrip1.Text = "menuStrip1";
-            // 
-            // miHome
-            // 
-            miHome.ForeColor = SystemColors.ControlLightLight;
-            miHome.Name = "miHome";
-            miHome.Size = new Size(74, 29);
-            miHome.Text = "Home";
-            miHome.Click += miHome_Click;
-            // 
-            // tVShowsToolStripMenuItem
-            // 
-            tVShowsToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
-            tVShowsToolStripMenuItem.Name = "tVShowsToolStripMenuItem";
-            tVShowsToolStripMenuItem.Size = new Size(105, 29);
-            tVShowsToolStripMenuItem.Text = "TV Shows";
-            // 
-            // newPopularToolStripMenuItem
-            // 
-            newPopularToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
-            newPopularToolStripMenuItem.Name = "newPopularToolStripMenuItem";
-            newPopularToolStripMenuItem.Size = new Size(152, 29);
-            newPopularToolStripMenuItem.Text = "New && Popular";
-            // 
-            // myListToolStripMenuItem
-            // 
-            myListToolStripMenuItem.ForeColor = SystemColors.ControlLightLight;
-            myListToolStripMenuItem.Name = "myListToolStripMenuItem";
-            myListToolStripMenuItem.Size = new Size(83, 29);
-            myListToolStripMenuItem.Text = "My List";
-            // 
-            // miLogin
-            // 
-            miLogin.Alignment = ToolStripItemAlignment.Right;
-            miLogin.ForeColor = SystemColors.ControlLightLight;
-            miLogin.Name = "miLogin";
-            miLogin.Size = new Size(82, 29);
-            miLogin.Text = "Sign In";
-            miLogin.Click += miLogin_Click;
             // 
             // pnUser
             // 
@@ -106,7 +58,6 @@
             pnUser.Controls.Add(btnProfile);
             pnUser.Controls.Add(btnWatctlist);
             pnUser.Controls.Add(panel3);
-            pnUser.Dock = DockStyle.Right;
             pnUser.Location = new Point(854, 33);
             pnUser.Margin = new Padding(2);
             pnUser.Name = "pnUser";
@@ -214,12 +165,110 @@
             // 
             // panel2
             // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 33);
+            panel2.Location = new Point(0, 35);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(854, 687);
+            panel2.Size = new Size(854, 685);
             panel2.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            panel1.BackColor = Color.Black;
+            panel1.Controls.Add(btnMylist);
+            panel1.Controls.Add(btnNewandpopular);
+            panel1.Controls.Add(btnSignin);
+            panel1.Controls.Add(btnMovies);
+            panel1.Controls.Add(btnTvshows);
+            panel1.Controls.Add(btnHome);
+            panel1.Location = new Point(0, -2);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1038, 39);
+            panel1.TabIndex = 3;
+            // 
+            // btnMylist
+            // 
+            btnMylist.BackColor = Color.Black;
+            btnMylist.FlatAppearance.BorderColor = Color.Black;
+            btnMylist.FlatStyle = FlatStyle.Flat;
+            btnMylist.Font = new Font("Segoe UI", 12F);
+            btnMylist.ForeColor = SystemColors.ControlLightLight;
+            btnMylist.Location = new Point(431, 3);
+            btnMylist.Name = "btnMylist";
+            btnMylist.Size = new Size(86, 36);
+            btnMylist.TabIndex = 4;
+            btnMylist.Text = "My List";
+            btnMylist.UseVisualStyleBackColor = false;
+            // 
+            // btnNewandpopular
+            // 
+            btnNewandpopular.BackColor = Color.Black;
+            btnNewandpopular.FlatAppearance.BorderColor = Color.Black;
+            btnNewandpopular.FlatStyle = FlatStyle.Flat;
+            btnNewandpopular.Font = new Font("Segoe UI", 12F);
+            btnNewandpopular.ForeColor = SystemColors.ControlLightLight;
+            btnNewandpopular.Location = new Point(288, 3);
+            btnNewandpopular.Name = "btnNewandpopular";
+            btnNewandpopular.Size = new Size(137, 36);
+            btnNewandpopular.TabIndex = 3;
+            btnNewandpopular.Text = "New && Popular";
+            btnNewandpopular.UseVisualStyleBackColor = false;
+            // 
+            // btnSignin
+            // 
+            btnSignin.BackColor = Color.Black;
+            btnSignin.FlatAppearance.BorderColor = Color.Black;
+            btnSignin.FlatStyle = FlatStyle.Flat;
+            btnSignin.Font = new Font("Segoe UI", 12F);
+            btnSignin.ForeColor = SystemColors.ControlLightLight;
+            btnSignin.Location = new Point(859, 0);
+            btnSignin.Name = "btnSignin";
+            btnSignin.Size = new Size(86, 39);
+            btnSignin.TabIndex = 5;
+            btnSignin.Text = "Sign in";
+            btnSignin.UseVisualStyleBackColor = false;
+            btnSignin.Click += btnSignin_Click;
+            // 
+            // btnMovies
+            // 
+            btnMovies.BackColor = Color.Black;
+            btnMovies.FlatAppearance.BorderColor = Color.Black;
+            btnMovies.FlatStyle = FlatStyle.Flat;
+            btnMovies.Font = new Font("Segoe UI", 12F);
+            btnMovies.ForeColor = SystemColors.ControlLightLight;
+            btnMovies.Location = new Point(196, 3);
+            btnMovies.Name = "btnMovies";
+            btnMovies.Size = new Size(86, 33);
+            btnMovies.TabIndex = 2;
+            btnMovies.Text = "Movies";
+            btnMovies.UseVisualStyleBackColor = false;
+            // 
+            // btnTvshows
+            // 
+            btnTvshows.BackColor = Color.Black;
+            btnTvshows.FlatAppearance.BorderColor = Color.Black;
+            btnTvshows.FlatStyle = FlatStyle.Flat;
+            btnTvshows.Font = new Font("Segoe UI", 12F);
+            btnTvshows.ForeColor = SystemColors.ControlLightLight;
+            btnTvshows.Location = new Point(92, 3);
+            btnTvshows.Name = "btnTvshows";
+            btnTvshows.Size = new Size(98, 34);
+            btnTvshows.TabIndex = 1;
+            btnTvshows.Text = "TV Shows";
+            btnTvshows.UseVisualStyleBackColor = false;
+            // 
+            // btnHome
+            // 
+            btnHome.BackColor = Color.Black;
+            btnHome.FlatAppearance.BorderColor = Color.Black;
+            btnHome.FlatStyle = FlatStyle.Flat;
+            btnHome.Font = new Font("Segoe UI", 12F);
+            btnHome.ForeColor = SystemColors.ControlLightLight;
+            btnHome.Location = new Point(0, 3);
+            btnHome.Name = "btnHome";
+            btnHome.Size = new Size(86, 34);
+            btnHome.TabIndex = 0;
+            btnHome.Text = "Home";
+            btnHome.UseVisualStyleBackColor = false;
             // 
             // Main
             // 
@@ -227,31 +276,21 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);
+            Controls.Add(panel1);
             Controls.Add(panel2);
             Controls.Add(pnUser);
-            Controls.Add(menuStrip1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MainMenuStrip = menuStrip1;
             Name = "Main";
             Text = "Form1";
-            menuStrip1.ResumeLayout(false);
-            menuStrip1.PerformLayout();
             pnUser.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
-
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem miHome;
-        private ToolStripMenuItem tVShowsToolStripMenuItem;
-        private ToolStripMenuItem newPopularToolStripMenuItem;
-        private ToolStripMenuItem myListToolStripMenuItem;
-        private ToolStripMenuItem miLogin;
         private Panel pnUser;
         private Panel panel2;
         private Panel panel3;
@@ -261,5 +300,12 @@
         private Button btnWatctlist;
         private Label label2;
         private Label lbUser;
+        private Panel panel1;
+        private Button btnNewandpopular;
+        private Button btnMovies;
+        private Button btnTvshows;
+        private Button btnHome;
+        private Button btnSignin;
+        private Button btnMylist;
     }
 }
