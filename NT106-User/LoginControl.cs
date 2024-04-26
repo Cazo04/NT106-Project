@@ -12,7 +12,7 @@ namespace NT106_User
 {
     public partial class LoginControl : UserControl
     {
-        public Signup signUpControl;
+        private Signup signUpControl;
 
         public LoginControl()
         {
@@ -46,10 +46,6 @@ namespace NT106_User
 
         private void btnGetStarted_Click(object sender, EventArgs e)
         {
-            if (ParentForm != null && ParentForm is Main mainForm)
-            {
-                mainForm.UpdateSignInButton();
-            }
 
         }
     }
