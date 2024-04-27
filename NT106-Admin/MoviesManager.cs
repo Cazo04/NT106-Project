@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using NT106_Admin.Models;
+using NT106_WebServer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +15,8 @@ namespace NT106_Admin
 {
     public partial class MoviesManager : Form
     {
-        public MoviesManager()
+        public AdminToken _adminToken;
+        public MoviesManager(AdminToken _adminToken)
         {
             InitializeComponent();
 
@@ -33,8 +37,48 @@ namespace NT106_Admin
             cbbContentRating.Items.Add("Other: Not - Not Yet Rated");
 
             cbbContentRating.SelectedIndex = 0;
+
+            this._adminToken = _adminToken;
         }
 
+        private async void LoadListMovies(int offset = 0)
+        {
+            dgvMovies.Rows.Clear();
+            int moviesCount = 0;
+            HttpClientService service = new HttpClientService(_adminToken.Token);
+            string response = await service.GetAsync("/admin/moviesmanager?offset="+ offset.ToString());
+            if (response.Contains("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                List<MovieModel.Movie> movies = JsonConvert.DeserializeObject<List<MovieModel.Movie>>(response);
+                foreach (var movie in movies)
+                {
+                    dgvMovies.Rows.Add(movie.MovieId, movie.MovieName, movie.ReleaseDate.ToString("yyyy-MM-dd"), movie.Duration, movie.ContentRating, movie.IMDbScore, movie.IsTVShows);
+                }
+                moviesCount = movies.Count + offset * 100;
+            }
+            response = await service.GetAsync("/admin/moviescount");
+            if (response.Contains("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                int totalMovies = JsonConvert.DeserializeObject<int>(response);
+                lbCountMovies.Text = $"{moviesCount}/{totalMovies} Movies";
+                lbPageMovies.Text = $"Page: {offset + 1}";
+            }
 
+        }
+
+        private void MoviesManager_Load(object sender, EventArgs e)
+        {
+            LoadListMovies();
+        }
     }
 }

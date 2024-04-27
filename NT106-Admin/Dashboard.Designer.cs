@@ -37,6 +37,7 @@ namespace NT106_Admin
             btnMovies = new Button();
             btnUsers = new Button();
             btnHome = new Button();
+            btnCheckConnection = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -64,6 +65,7 @@ namespace NT106_Admin
             // 
             panel2.AutoScroll = true;
             panel2.BackColor = SystemColors.AppWorkspace;
+            panel2.Controls.Add(btnCheckConnection);
             panel2.Controls.Add(btnLogout);
             panel2.Controls.Add(btnPersons);
             panel2.Controls.Add(btnMovies);
@@ -84,6 +86,7 @@ namespace NT106_Admin
             btnLogout.TabIndex = 4;
             btnLogout.Text = "Log out";
             btnLogout.UseVisualStyleBackColor = true;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnPersons
             // 
@@ -126,6 +129,17 @@ namespace NT106_Admin
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = true;
             // 
+            // btnCheckConnection
+            // 
+            btnCheckConnection.Dock = DockStyle.Left;
+            btnCheckConnection.Location = new Point(397, 0);
+            btnCheckConnection.Name = "btnCheckConnection";
+            btnCheckConnection.Size = new Size(103, 40);
+            btnCheckConnection.TabIndex = 5;
+            btnCheckConnection.Text = "Check Connection";
+            btnCheckConnection.UseVisualStyleBackColor = true;
+            btnCheckConnection.Click += btnCheckConnection_Click;
+            // 
             // Dashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -134,6 +148,7 @@ namespace NT106_Admin
             Controls.Add(panel1);
             Name = "Dashboard";
             Text = "Form1";
+            Load += Dashboard_Load;
             panel1.ResumeLayout(false);
             panel2.ResumeLayout(false);
             ResumeLayout(false);
@@ -148,5 +163,6 @@ namespace NT106_Admin
         private Button btnUsers;
         private Button btnHome;
         private Panel pnMain;
+        private Button btnCheckConnection;
     }
 }

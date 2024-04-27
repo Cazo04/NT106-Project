@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoviesManager));
-            dataGridView1 = new DataGridView();
+            dgvMovies = new DataGridView();
             cMovieID = new DataGridViewTextBoxColumn();
             cMovieName = new DataGridViewTextBoxColumn();
             cReleaseDate = new DataGridViewTextBoxColumn();
@@ -42,6 +42,10 @@
             panel1 = new Panel();
             panel3 = new Panel();
             panel2 = new Panel();
+            panel23 = new Panel();
+            tableLayoutPanel22 = new TableLayoutPanel();
+            lbCountMovies = new Label();
+            lbPageMovies = new Label();
             btnRefreshMovies = new Button();
             panel4 = new Panel();
             panel10 = new Panel();
@@ -199,10 +203,13 @@
             cCastCharacter = new DataGridViewTextBoxColumn();
             cCastDel = new DataGridViewButtonColumn();
             label34 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            textBox1 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dgvMovies).BeginInit();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
+            panel23.SuspendLayout();
+            tableLayoutPanel22.SuspendLayout();
             panel4.SuspendLayout();
             panel10.SuspendLayout();
             tableLayoutPanel12.SuspendLayout();
@@ -263,18 +270,18 @@
             ((System.ComponentModel.ISupportInitialize)dgvEpCasts).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // dgvMovies
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { cMovieID, cMovieName, cReleaseDate, cDuration, cContentRating, cIMDbScore, cIsTVShows, cView, cDel });
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.Size = new Size(926, 1346);
-            dataGridView1.TabIndex = 0;
+            dgvMovies.AllowUserToAddRows = false;
+            dgvMovies.AllowUserToDeleteRows = false;
+            dgvMovies.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvMovies.Columns.AddRange(new DataGridViewColumn[] { cMovieID, cMovieName, cReleaseDate, cDuration, cContentRating, cIMDbScore, cIsTVShows, cView, cDel });
+            dgvMovies.Dock = DockStyle.Fill;
+            dgvMovies.Location = new Point(0, 0);
+            dgvMovies.Name = "dgvMovies";
+            dgvMovies.ReadOnly = true;
+            dgvMovies.Size = new Size(926, 1346);
+            dgvMovies.TabIndex = 0;
             // 
             // cMovieID
             // 
@@ -342,7 +349,7 @@
             // 
             // panel3
             // 
-            panel3.Controls.Add(dataGridView1);
+            panel3.Controls.Add(dgvMovies);
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(0, 37);
             panel3.Name = "panel3";
@@ -351,12 +358,61 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(panel23);
             panel2.Controls.Add(btnRefreshMovies);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
             panel2.Size = new Size(926, 37);
             panel2.TabIndex = 2;
+            // 
+            // panel23
+            // 
+            panel23.Controls.Add(tableLayoutPanel22);
+            panel23.Dock = DockStyle.Right;
+            panel23.Location = new Point(490, 0);
+            panel23.Name = "panel23";
+            panel23.Size = new Size(436, 37);
+            panel23.TabIndex = 1;
+            // 
+            // tableLayoutPanel22
+            // 
+            tableLayoutPanel22.ColumnCount = 3;
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.87302F));
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34.1269836F));
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 46F));
+            tableLayoutPanel22.Controls.Add(lbCountMovies, 0, 0);
+            tableLayoutPanel22.Controls.Add(lbPageMovies, 1, 0);
+            tableLayoutPanel22.Controls.Add(textBox1, 2, 0);
+            tableLayoutPanel22.Dock = DockStyle.Left;
+            tableLayoutPanel22.Location = new Point(0, 0);
+            tableLayoutPanel22.Name = "tableLayoutPanel22";
+            tableLayoutPanel22.RowCount = 1;
+            tableLayoutPanel22.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel22.Size = new Size(187, 37);
+            tableLayoutPanel22.TabIndex = 0;
+            // 
+            // lbCountMovies
+            // 
+            lbCountMovies.AutoSize = true;
+            lbCountMovies.Dock = DockStyle.Left;
+            lbCountMovies.Location = new Point(3, 0);
+            lbCountMovies.Name = "lbCountMovies";
+            lbCountMovies.Size = new Size(73, 37);
+            lbCountMovies.TabIndex = 0;
+            lbCountMovies.Text = "??/?? Movies";
+            lbCountMovies.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbPageMovies
+            // 
+            lbPageMovies.AutoSize = true;
+            lbPageMovies.Dock = DockStyle.Right;
+            lbPageMovies.Location = new Point(101, 0);
+            lbPageMovies.Name = "lbPageMovies";
+            lbPageMovies.Size = new Size(36, 37);
+            lbPageMovies.TabIndex = 1;
+            lbPageMovies.Text = "Page:";
+            lbPageMovies.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btnRefreshMovies
             // 
@@ -1965,6 +2021,13 @@
             label34.TabIndex = 1;
             label34.Text = "Casts";
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(143, 3);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(32, 23);
+            textBox1.TabIndex = 1;
+            // 
             // MoviesManager
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -1982,10 +2045,14 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "MoviesManager";
             Text = "MoviesManager";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += MoviesManager_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvMovies).EndInit();
             panel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel23.ResumeLayout(false);
+            tableLayoutPanel22.ResumeLayout(false);
+            tableLayoutPanel22.PerformLayout();
             panel4.ResumeLayout(false);
             panel10.ResumeLayout(false);
             tableLayoutPanel12.ResumeLayout(false);
@@ -2084,7 +2151,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dgvMovies;
         private Panel panel1;
         private DataGridViewTextBoxColumn cMovieID;
         private DataGridViewTextBoxColumn cMovieName;
@@ -2254,5 +2321,10 @@
         private TableLayoutPanel tableLayoutPanel18;
         private Button btnEpSubmit;
         private Button btnEpUpdate;
+        private Panel panel23;
+        private TableLayoutPanel tableLayoutPanel22;
+        private Label lbCountMovies;
+        private Label lbPageMovies;
+        private TextBox textBox1;
     }
 }
