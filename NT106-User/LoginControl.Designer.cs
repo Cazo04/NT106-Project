@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             lbOrsigninwith = new Label();
-            llbSignup = new LinkLabel();
             btnGetStarted = new Button();
             llbForgotPassword = new LinkLabel();
             cbRememberme = new CheckBox();
@@ -47,25 +46,11 @@
             lbOrsigninwith.AutoSize = true;
             lbOrsigninwith.Font = new Font("Segoe UI", 11.25F);
             lbOrsigninwith.ForeColor = SystemColors.ControlLightLight;
-            lbOrsigninwith.Location = new Point(148, 373);
+            lbOrsigninwith.Location = new Point(164, 446);
             lbOrsigninwith.Name = "lbOrsigninwith";
             lbOrsigninwith.Size = new Size(104, 20);
             lbOrsigninwith.TabIndex = 18;
             lbOrsigninwith.Text = "Or sign in with";
-            // 
-            // llbSignup
-            // 
-            llbSignup.AutoSize = true;
-            llbSignup.Font = new Font("Segoe UI", 11.25F);
-            llbSignup.ForeColor = Color.White;
-            llbSignup.LinkColor = Color.White;
-            llbSignup.Location = new Point(97, 334);
-            llbSignup.Name = "llbSignup";
-            llbSignup.Size = new Size(217, 20);
-            llbSignup.TabIndex = 17;
-            llbSignup.TabStop = true;
-            llbSignup.Text = "Don't have an account? Sign up";
-            llbSignup.LinkClicked += llbSignup_LinkClicked;
             // 
             // btnGetStarted
             // 
@@ -74,9 +59,9 @@
             btnGetStarted.FlatStyle = FlatStyle.Flat;
             btnGetStarted.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGetStarted.ForeColor = SystemColors.ControlLightLight;
-            btnGetStarted.Location = new Point(45, 275);
+            btnGetStarted.Location = new Point(46, 371);
             btnGetStarted.Name = "btnGetStarted";
-            btnGetStarted.Size = new Size(320, 28);
+            btnGetStarted.Size = new Size(348, 33);
             btnGetStarted.TabIndex = 16;
             btnGetStarted.Text = "Get Started";
             btnGetStarted.UseVisualStyleBackColor = false;
@@ -88,7 +73,7 @@
             llbForgotPassword.Font = new Font("Segoe UI", 11.25F);
             llbForgotPassword.ForeColor = Color.White;
             llbForgotPassword.LinkColor = Color.White;
-            llbForgotPassword.Location = new Point(243, 238);
+            llbForgotPassword.Location = new Point(267, 314);
             llbForgotPassword.Name = "llbForgotPassword";
             llbForgotPassword.Size = new Size(127, 20);
             llbForgotPassword.TabIndex = 15;
@@ -100,7 +85,7 @@
             cbRememberme.AutoSize = true;
             cbRememberme.Font = new Font("Segoe UI", 11.25F);
             cbRememberme.ForeColor = SystemColors.ControlLightLight;
-            cbRememberme.Location = new Point(53, 234);
+            cbRememberme.Location = new Point(46, 310);
             cbRememberme.Name = "cbRememberme";
             cbRememberme.Size = new Size(126, 24);
             cbRememberme.TabIndex = 14;
@@ -110,19 +95,19 @@
             // txtPassword
             // 
             txtPassword.BackColor = Color.FromArgb(64, 64, 64);
-            txtPassword.Location = new Point(45, 179);
+            txtPassword.Location = new Point(46, 244);
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(320, 28);
+            txtPassword.Size = new Size(348, 33);
             txtPassword.TabIndex = 13;
             // 
             // txtUsernameorEmailaddress
             // 
             txtUsernameorEmailaddress.BackColor = Color.FromArgb(64, 64, 64);
-            txtUsernameorEmailaddress.Location = new Point(45, 106);
+            txtUsernameorEmailaddress.Location = new Point(46, 141);
             txtUsernameorEmailaddress.Multiline = true;
             txtUsernameorEmailaddress.Name = "txtUsernameorEmailaddress";
-            txtUsernameorEmailaddress.Size = new Size(320, 28);
+            txtUsernameorEmailaddress.Size = new Size(348, 33);
             txtUsernameorEmailaddress.TabIndex = 12;
             // 
             // label3
@@ -130,7 +115,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 11.25F);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(50, 154);
+            label3.Location = new Point(46, 207);
             label3.Name = "label3";
             label3.Size = new Size(70, 20);
             label3.TabIndex = 10;
@@ -141,7 +126,7 @@
             lbUsernameorEmailaddress.AutoSize = true;
             lbUsernameorEmailaddress.Font = new Font("Segoe UI", 11.25F);
             lbUsernameorEmailaddress.ForeColor = SystemColors.ControlLightLight;
-            lbUsernameorEmailaddress.Location = new Point(50, 80);
+            lbUsernameorEmailaddress.Location = new Point(46, 105);
             lbUsernameorEmailaddress.Name = "lbUsernameorEmailaddress";
             lbUsernameorEmailaddress.Size = new Size(189, 20);
             lbUsernameorEmailaddress.TabIndex = 11;
@@ -150,11 +135,11 @@
             // lbSignIn
             // 
             lbSignIn.AutoSize = true;
-            lbSignIn.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbSignIn.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbSignIn.ForeColor = SystemColors.ControlLightLight;
             lbSignIn.Location = new Point(50, 33);
             lbSignIn.Name = "lbSignIn";
-            lbSignIn.Size = new Size(70, 25);
+            lbSignIn.Size = new Size(77, 30);
             lbSignIn.TabIndex = 9;
             lbSignIn.Text = "Sign In";
             // 
@@ -167,7 +152,7 @@
             btnGoogle.ForeColor = Color.FromArgb(255, 128, 128);
             btnGoogle.Image = Properties.Resources.icons8_google_24;
             btnGoogle.ImageAlign = ContentAlignment.MiddleLeft;
-            btnGoogle.Location = new Point(45, 412);
+            btnGoogle.Location = new Point(46, 503);
             btnGoogle.Name = "btnGoogle";
             btnGoogle.Size = new Size(134, 39);
             btnGoogle.TabIndex = 19;
@@ -181,7 +166,7 @@
             btnOutlock.ForeColor = Color.Cyan;
             btnOutlock.Image = Properties.Resources.icons8_outlook_24;
             btnOutlock.ImageAlign = ContentAlignment.MiddleLeft;
-            btnOutlock.Location = new Point(231, 412);
+            btnOutlock.Location = new Point(260, 503);
             btnOutlock.Name = "btnOutlock";
             btnOutlock.Size = new Size(134, 39);
             btnOutlock.TabIndex = 20;
@@ -197,7 +182,6 @@
             Controls.Add(btnOutlock);
             Controls.Add(btnGoogle);
             Controls.Add(lbOrsigninwith);
-            Controls.Add(llbSignup);
             Controls.Add(btnGetStarted);
             Controls.Add(llbForgotPassword);
             Controls.Add(cbRememberme);
@@ -208,7 +192,7 @@
             Controls.Add(lbSignIn);
             Name = "LoginControl";
             Padding = new Padding(5);
-            Size = new Size(408, 467);
+            Size = new Size(449, 589);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,7 +200,6 @@
         #endregion
 
         private Label lbOrsigninwith;
-        private LinkLabel llbSignup;
         private Button btnGetStarted;
         private LinkLabel llbForgotPassword;
         private CheckBox cbRememberme;
