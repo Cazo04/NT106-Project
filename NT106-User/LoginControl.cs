@@ -32,9 +32,8 @@ namespace NT106_User
                 {
                     Parent.Controls.Add(signUpControl);
                     signUpControl.Visible = true;
-                    signUpControl.BringToFront();
-                    signUpControl.Left = (Parent.ClientSize.Width - signUpControl.Width) / 2;
-                    signUpControl.Top = (Parent.ClientSize.Height - signUpControl.Height) / 2;
+                    signUpControl.Left = (ClientSize.Width - signUpControl.Width) / 2;
+                    signUpControl.Top = (ClientSize.Height - signUpControl.Height) / 2;
                 }
             }
             else

@@ -41,10 +41,11 @@
             panel1 = new Panel();
             btnMylist = new Button();
             btnNewandpopular = new Button();
-            btnSignin = new Button();
             btnMovies = new Button();
             btnTvshows = new Button();
+            btnLogo = new Button();
             btnHome = new Button();
+            btnSignin = new Button();
             pnUser.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
@@ -58,10 +59,11 @@
             pnUser.Controls.Add(btnProfile);
             pnUser.Controls.Add(btnWatctlist);
             pnUser.Controls.Add(panel3);
-            pnUser.Location = new Point(854, 33);
+            pnUser.Dock = DockStyle.Right;
+            pnUser.Location = new Point(854, 0);
             pnUser.Margin = new Padding(2);
             pnUser.Name = "pnUser";
-            pnUser.Size = new Size(184, 687);
+            pnUser.Size = new Size(184, 720);
             pnUser.TabIndex = 1;
             pnUser.Visible = false;
             // 
@@ -165,6 +167,7 @@
             // 
             // panel2
             // 
+            panel2.Dock = DockStyle.Bottom;
             panel2.Location = new Point(0, 35);
             panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
@@ -176,13 +179,15 @@
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(btnMylist);
             panel1.Controls.Add(btnNewandpopular);
-            panel1.Controls.Add(btnSignin);
             panel1.Controls.Add(btnMovies);
             panel1.Controls.Add(btnTvshows);
+            panel1.Controls.Add(btnLogo);
             panel1.Controls.Add(btnHome);
-            panel1.Location = new Point(0, -2);
+            panel1.Controls.Add(btnSignin);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1038, 39);
+            panel1.Size = new Size(854, 39);
             panel1.TabIndex = 3;
             // 
             // btnMylist
@@ -192,7 +197,7 @@
             btnMylist.FlatStyle = FlatStyle.Flat;
             btnMylist.Font = new Font("Segoe UI", 12F);
             btnMylist.ForeColor = SystemColors.ControlLightLight;
-            btnMylist.Location = new Point(431, 3);
+            btnMylist.Location = new Point(491, 2);
             btnMylist.Name = "btnMylist";
             btnMylist.Size = new Size(86, 36);
             btnMylist.TabIndex = 4;
@@ -206,27 +211,12 @@
             btnNewandpopular.FlatStyle = FlatStyle.Flat;
             btnNewandpopular.Font = new Font("Segoe UI", 12F);
             btnNewandpopular.ForeColor = SystemColors.ControlLightLight;
-            btnNewandpopular.Location = new Point(288, 3);
+            btnNewandpopular.Location = new Point(348, 2);
             btnNewandpopular.Name = "btnNewandpopular";
             btnNewandpopular.Size = new Size(137, 36);
             btnNewandpopular.TabIndex = 3;
             btnNewandpopular.Text = "New && Popular";
             btnNewandpopular.UseVisualStyleBackColor = false;
-            // 
-            // btnSignin
-            // 
-            btnSignin.BackColor = Color.Black;
-            btnSignin.FlatAppearance.BorderColor = Color.Black;
-            btnSignin.FlatStyle = FlatStyle.Flat;
-            btnSignin.Font = new Font("Segoe UI", 12F);
-            btnSignin.ForeColor = SystemColors.ControlLightLight;
-            btnSignin.Location = new Point(859, 0);
-            btnSignin.Name = "btnSignin";
-            btnSignin.Size = new Size(86, 39);
-            btnSignin.TabIndex = 5;
-            btnSignin.Text = "Sign in";
-            btnSignin.UseVisualStyleBackColor = false;
-            btnSignin.Click += btnSignin_Click;
             // 
             // btnMovies
             // 
@@ -235,7 +225,7 @@
             btnMovies.FlatStyle = FlatStyle.Flat;
             btnMovies.Font = new Font("Segoe UI", 12F);
             btnMovies.ForeColor = SystemColors.ControlLightLight;
-            btnMovies.Location = new Point(196, 3);
+            btnMovies.Location = new Point(256, 4);
             btnMovies.Name = "btnMovies";
             btnMovies.Size = new Size(86, 33);
             btnMovies.TabIndex = 2;
@@ -249,12 +239,26 @@
             btnTvshows.FlatStyle = FlatStyle.Flat;
             btnTvshows.Font = new Font("Segoe UI", 12F);
             btnTvshows.ForeColor = SystemColors.ControlLightLight;
-            btnTvshows.Location = new Point(92, 3);
+            btnTvshows.Location = new Point(164, 3);
             btnTvshows.Name = "btnTvshows";
             btnTvshows.Size = new Size(98, 34);
             btnTvshows.TabIndex = 1;
             btnTvshows.Text = "TV Shows";
             btnTvshows.UseVisualStyleBackColor = false;
+            // 
+            // btnLogo
+            // 
+            btnLogo.BackColor = Color.Black;
+            btnLogo.FlatAppearance.BorderColor = Color.Black;
+            btnLogo.FlatStyle = FlatStyle.Flat;
+            btnLogo.Font = new Font("Segoe UI", 12F);
+            btnLogo.ForeColor = SystemColors.ControlLightLight;
+            btnLogo.Location = new Point(0, 3);
+            btnLogo.Name = "btnLogo";
+            btnLogo.Size = new Size(86, 34);
+            btnLogo.TabIndex = 1;
+            btnLogo.Text = "Logo";
+            btnLogo.UseVisualStyleBackColor = false;
             // 
             // btnHome
             // 
@@ -263,12 +267,27 @@
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe UI", 12F);
             btnHome.ForeColor = SystemColors.ControlLightLight;
-            btnHome.Location = new Point(0, 3);
+            btnHome.Location = new Point(83, 2);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(86, 34);
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
+            // 
+            // btnSignin
+            // 
+            btnSignin.BackColor = Color.Black;
+            btnSignin.FlatAppearance.BorderColor = Color.Black;
+            btnSignin.FlatStyle = FlatStyle.Flat;
+            btnSignin.Font = new Font("Segoe UI", 12F);
+            btnSignin.ForeColor = SystemColors.ControlLightLight;
+            btnSignin.Location = new Point(768, 0);
+            btnSignin.Name = "btnSignin";
+            btnSignin.Size = new Size(86, 39);
+            btnSignin.TabIndex = 5;
+            btnSignin.Text = "Sign in";
+            btnSignin.UseVisualStyleBackColor = false;
+            btnSignin.Click += btnSignin_Click;
             // 
             // Main
             // 
@@ -307,5 +326,6 @@
         private Button btnHome;
         private Button btnSignin;
         private Button btnMylist;
+        private Button btnLogo;
     }
 }
