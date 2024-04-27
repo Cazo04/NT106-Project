@@ -38,7 +38,6 @@
             // 
             // pnAuthentication
             // 
-            pnAuthentication.AutoScroll = true;
             pnAuthentication.Controls.Add(lbOr);
             pnAuthentication.Controls.Add(btnSignup);
             pnAuthentication.Controls.Add(btnSignin);
