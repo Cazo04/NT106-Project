@@ -28,32 +28,88 @@
         /// </summary>
         private void InitializeComponent()
         {
-            loginControl = new LoginControl();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Authentication));
+            pnAuthentication = new Panel();
+            lbOr = new Label();
+            btnSignup = new Button();
+            btnSignin = new Button();
+            pnAuthentication.SuspendLayout();
             SuspendLayout();
             // 
-            // loginControl
+            // pnAuthentication
             // 
-            loginControl.BackColor = Color.FromArgb(64, 64, 64);
-            loginControl.BorderStyle = BorderStyle.FixedSingle;
-            loginControl.Location = new Point(48, 81);
-            loginControl.Name = "loginControl";
-            loginControl.Padding = new Padding(5);
-            loginControl.Size = new Size(408, 467);
-            loginControl.TabIndex = 0;
+            pnAuthentication.Controls.Add(lbOr);
+            pnAuthentication.Controls.Add(btnSignup);
+            pnAuthentication.Controls.Add(btnSignin);
+            pnAuthentication.Dock = DockStyle.Fill;
+            pnAuthentication.Location = new Point(0, 0);
+            pnAuthentication.Name = "pnAuthentication";
+            pnAuthentication.Size = new Size(472, 593);
+            pnAuthentication.TabIndex = 0;
+            // 
+            // lbOr
+            // 
+            lbOr.AutoSize = true;
+            lbOr.Font = new Font("Segoe UI", 15.75F);
+            lbOr.ForeColor = SystemColors.ControlLightLight;
+            lbOr.Location = new Point(212, 254);
+            lbOr.Name = "lbOr";
+            lbOr.Size = new Size(36, 30);
+            lbOr.TabIndex = 11;
+            lbOr.Text = "Or";
+            // 
+            // btnSignup
+            // 
+            btnSignup.BackColor = Color.FromArgb(64, 64, 64);
+            btnSignup.FlatAppearance.BorderColor = Color.FromArgb(255, 255, 128);
+            btnSignup.FlatStyle = FlatStyle.Flat;
+            btnSignup.Font = new Font("Segoe UI", 15.75F);
+            btnSignup.ForeColor = Color.FromArgb(255, 255, 128);
+            btnSignup.Image = Properties.Resources.icons8_sign_up_50;
+            btnSignup.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSignup.Location = new Point(120, 327);
+            btnSignup.Name = "btnSignup";
+            btnSignup.Size = new Size(223, 80);
+            btnSignup.TabIndex = 10;
+            btnSignup.Text = "Sign Up";
+            btnSignup.UseVisualStyleBackColor = false;
+            btnSignup.Click += btnSignup_Click;
+            // 
+            // btnSignin
+            // 
+            btnSignin.BackColor = Color.FromArgb(64, 64, 64);
+            btnSignin.FlatAppearance.BorderColor = Color.FromArgb(128, 255, 255);
+            btnSignin.FlatStyle = FlatStyle.Flat;
+            btnSignin.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSignin.ForeColor = Color.FromArgb(128, 255, 255);
+            btnSignin.Image = (Image)resources.GetObject("btnSignin.Image");
+            btnSignin.ImageAlign = ContentAlignment.MiddleLeft;
+            btnSignin.Location = new Point(120, 132);
+            btnSignin.Name = "btnSignin";
+            btnSignin.Size = new Size(223, 80);
+            btnSignin.TabIndex = 9;
+            btnSignin.Text = "Sign In";
+            btnSignin.UseVisualStyleBackColor = false;
+            btnSignin.Click += btnSignin_Click;
             // 
             // Authentication
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(508, 633);
-            Controls.Add(loginControl);
+            ClientSize = new Size(472, 593);
+            Controls.Add(pnAuthentication);
             Name = "Authentication";
+            pnAuthentication.ResumeLayout(false);
+            pnAuthentication.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private LoginControl loginControl;
+        private Panel pnAuthentication;
+        private Label lbOr;
+        private Button btnSignup;
+        private Button btnSignin;
     }
 }
