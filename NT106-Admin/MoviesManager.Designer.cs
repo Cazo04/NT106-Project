@@ -43,9 +43,14 @@
             panel3 = new Panel();
             panel2 = new Panel();
             panel23 = new Panel();
+            btnPreviousPage = new Button();
+            btnNextPage = new Button();
             tableLayoutPanel22 = new TableLayoutPanel();
             lbCountMovies = new Label();
+            panel24 = new Panel();
+            btnGoToPage = new Button();
             lbPageMovies = new Label();
+            tbPageNumber = new TextBox();
             btnRefreshMovies = new Button();
             panel4 = new Panel();
             panel10 = new Panel();
@@ -72,6 +77,9 @@
             flowLayoutPanel1 = new FlowLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label4 = new Label();
+            tbMovieId = new TextBox();
+            tableLayoutPanel27 = new TableLayoutPanel();
+            label36 = new Label();
             tbMovieName = new TextBox();
             tableLayoutPanel1 = new TableLayoutPanel();
             label2 = new Label();
@@ -113,7 +121,7 @@
             dgvSeasons = new DataGridView();
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            cEdit = new DataGridViewButtonColumn();
+            cSeasonEdit = new DataGridViewButtonColumn();
             label16 = new Label();
             panel12 = new Panel();
             dgvEpisodes = new DataGridView();
@@ -126,8 +134,8 @@
             cEpTitle = new DataGridViewTextBoxColumn();
             cEpAggregateRating = new DataGridViewTextBoxColumn();
             cEpVoteCount = new DataGridViewTextBoxColumn();
-            cEpDel = new DataGridViewButtonColumn();
             cEpEdit = new DataGridViewButtonColumn();
+            cEpDel = new DataGridViewButtonColumn();
             label17 = new Label();
             panel13 = new Panel();
             panel14 = new Panel();
@@ -143,6 +151,9 @@
             flowLayoutPanel2 = new FlowLayoutPanel();
             tableLayoutPanel15 = new TableLayoutPanel();
             label20 = new Label();
+            tbEpId = new TextBox();
+            tableLayoutPanel28 = new TableLayoutPanel();
+            label37 = new Label();
             tbEpisode = new TextBox();
             tableLayoutPanel25 = new TableLayoutPanel();
             label31 = new Label();
@@ -155,14 +166,14 @@
             tbEpDuration = new TextBox();
             tableLayoutPanel19 = new TableLayoutPanel();
             label24 = new Label();
-            tbEpIMDbScore = new TextBox();
+            tbEpAggregateRating = new TextBox();
             tableLayoutPanel20 = new TableLayoutPanel();
             label25 = new Label();
-            tbEpRatingCount = new TextBox();
+            tbEpVoteCount = new TextBox();
             tableLayoutPanel21 = new TableLayoutPanel();
             label26 = new Label();
-            tbEpImageURL = new TextBox();
-            pictureBox1 = new PictureBox();
+            tbEpImage = new TextBox();
+            imgEpPreviewImage = new PictureBox();
             tableLayoutPanel23 = new TableLayoutPanel();
             label28 = new Label();
             tbEpImageCaption = new TextBox();
@@ -173,6 +184,14 @@
             btnEpSubmit = new Button();
             btnEpUpdate = new Button();
             label29 = new Label();
+            panel25 = new Panel();
+            tableLayoutPanel29 = new TableLayoutPanel();
+            btnEpGetData = new Button();
+            btnEpGoToWebsite = new Button();
+            tableLayoutPanel30 = new TableLayoutPanel();
+            label38 = new Label();
+            tbEpURL = new TextBox();
+            label39 = new Label();
             panel17 = new Panel();
             panel21 = new Panel();
             dgvEpGenres = new DataGridView();
@@ -203,6 +222,8 @@
             cCastCharacter = new DataGridViewTextBoxColumn();
             cCastDel = new DataGridViewButtonColumn();
             label34 = new Label();
+            tableLayoutPanel26 = new TableLayoutPanel();
+            label35 = new Label();
             textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvMovies).BeginInit();
             panel1.SuspendLayout();
@@ -210,6 +231,7 @@
             panel2.SuspendLayout();
             panel23.SuspendLayout();
             tableLayoutPanel22.SuspendLayout();
+            panel24.SuspendLayout();
             panel4.SuspendLayout();
             panel10.SuspendLayout();
             tableLayoutPanel12.SuspendLayout();
@@ -222,6 +244,7 @@
             panel5.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            tableLayoutPanel27.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
@@ -247,16 +270,20 @@
             panel16.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             tableLayoutPanel15.SuspendLayout();
+            tableLayoutPanel28.SuspendLayout();
             tableLayoutPanel25.SuspendLayout();
             tableLayoutPanel16.SuspendLayout();
             tableLayoutPanel17.SuspendLayout();
             tableLayoutPanel19.SuspendLayout();
             tableLayoutPanel20.SuspendLayout();
             tableLayoutPanel21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imgEpPreviewImage).BeginInit();
             tableLayoutPanel23.SuspendLayout();
             tableLayoutPanel24.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
+            panel25.SuspendLayout();
+            tableLayoutPanel29.SuspendLayout();
+            tableLayoutPanel30.SuspendLayout();
             panel17.SuspendLayout();
             panel21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEpGenres).BeginInit();
@@ -268,6 +295,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvEpCreators).BeginInit();
             panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEpCasts).BeginInit();
+            tableLayoutPanel26.SuspendLayout();
             SuspendLayout();
             // 
             // dgvMovies
@@ -282,6 +310,7 @@
             dgvMovies.ReadOnly = true;
             dgvMovies.Size = new Size(926, 1346);
             dgvMovies.TabIndex = 0;
+            dgvMovies.CellContentClick += dgvMovies_CellContentClick;
             // 
             // cMovieID
             // 
@@ -330,12 +359,14 @@
             cView.HeaderText = "View";
             cView.Name = "cView";
             cView.ReadOnly = true;
+            cView.Text = "View";
             // 
             // cDel
             // 
             cDel.HeaderText = "Del";
             cDel.Name = "cDel";
             cDel.ReadOnly = true;
+            cDel.Text = "Del";
             // 
             // panel1
             // 
@@ -368,28 +399,48 @@
             // 
             // panel23
             // 
+            panel23.Controls.Add(btnPreviousPage);
+            panel23.Controls.Add(btnNextPage);
             panel23.Controls.Add(tableLayoutPanel22);
             panel23.Dock = DockStyle.Right;
-            panel23.Location = new Point(490, 0);
+            panel23.Location = new Point(537, 0);
             panel23.Name = "panel23";
-            panel23.Size = new Size(436, 37);
+            panel23.Size = new Size(389, 37);
             panel23.TabIndex = 1;
+            // 
+            // btnPreviousPage
+            // 
+            btnPreviousPage.Location = new Point(251, 8);
+            btnPreviousPage.Name = "btnPreviousPage";
+            btnPreviousPage.Size = new Size(60, 23);
+            btnPreviousPage.TabIndex = 2;
+            btnPreviousPage.Text = "Previous";
+            btnPreviousPage.UseVisualStyleBackColor = true;
+            btnPreviousPage.Click += btnPreviousPage_Click;
+            // 
+            // btnNextPage
+            // 
+            btnNextPage.Location = new Point(321, 8);
+            btnNextPage.Name = "btnNextPage";
+            btnNextPage.Size = new Size(62, 23);
+            btnNextPage.TabIndex = 1;
+            btnNextPage.Text = "Next";
+            btnNextPage.UseVisualStyleBackColor = true;
+            btnNextPage.Click += btnNextPage_Click;
             // 
             // tableLayoutPanel22
             // 
-            tableLayoutPanel22.ColumnCount = 3;
-            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 65.87302F));
-            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 34.1269836F));
-            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 46F));
+            tableLayoutPanel22.ColumnCount = 2;
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 42.8571434F));
+            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 57.1428566F));
             tableLayoutPanel22.Controls.Add(lbCountMovies, 0, 0);
-            tableLayoutPanel22.Controls.Add(lbPageMovies, 1, 0);
-            tableLayoutPanel22.Controls.Add(textBox1, 2, 0);
+            tableLayoutPanel22.Controls.Add(panel24, 1, 0);
             tableLayoutPanel22.Dock = DockStyle.Left;
             tableLayoutPanel22.Location = new Point(0, 0);
             tableLayoutPanel22.Name = "tableLayoutPanel22";
             tableLayoutPanel22.RowCount = 1;
             tableLayoutPanel22.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel22.Size = new Size(187, 37);
+            tableLayoutPanel22.Size = new Size(245, 37);
             tableLayoutPanel22.TabIndex = 0;
             // 
             // lbCountMovies
@@ -403,16 +454,43 @@
             lbCountMovies.Text = "??/?? Movies";
             lbCountMovies.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // panel24
+            // 
+            panel24.Controls.Add(btnGoToPage);
+            panel24.Controls.Add(lbPageMovies);
+            panel24.Controls.Add(tbPageNumber);
+            panel24.Location = new Point(108, 3);
+            panel24.Name = "panel24";
+            panel24.Size = new Size(134, 31);
+            panel24.TabIndex = 1;
+            // 
+            // btnGoToPage
+            // 
+            btnGoToPage.Location = new Point(79, 4);
+            btnGoToPage.Name = "btnGoToPage";
+            btnGoToPage.Size = new Size(39, 23);
+            btnGoToPage.TabIndex = 1;
+            btnGoToPage.Text = "Go";
+            btnGoToPage.UseVisualStyleBackColor = true;
+            btnGoToPage.Click += btnGoToPage_Click;
+            // 
             // lbPageMovies
             // 
             lbPageMovies.AutoSize = true;
-            lbPageMovies.Dock = DockStyle.Right;
-            lbPageMovies.Location = new Point(101, 0);
+            lbPageMovies.Location = new Point(3, 8);
             lbPageMovies.Name = "lbPageMovies";
-            lbPageMovies.Size = new Size(36, 37);
+            lbPageMovies.Size = new Size(36, 15);
             lbPageMovies.TabIndex = 1;
             lbPageMovies.Text = "Page:";
             lbPageMovies.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // tbPageNumber
+            // 
+            tbPageNumber.Location = new Point(41, 5);
+            tbPageNumber.Name = "tbPageNumber";
+            tbPageNumber.Size = new Size(32, 23);
+            tbPageNumber.TabIndex = 1;
+            tbPageNumber.KeyPress += tbPageNumber_KeyPress;
             // 
             // btnRefreshMovies
             // 
@@ -444,7 +522,7 @@
             // 
             panel10.Controls.Add(tableLayoutPanel12);
             panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(5, 1957);
+            panel10.Location = new Point(5, 2023);
             panel10.Name = "panel10";
             panel10.Size = new Size(365, 48);
             panel10.TabIndex = 5;
@@ -501,7 +579,7 @@
             panel8.Controls.Add(dgvWriters);
             panel8.Controls.Add(label15);
             panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(5, 1735);
+            panel8.Location = new Point(5, 1801);
             panel8.Name = "panel8";
             panel8.Size = new Size(365, 222);
             panel8.TabIndex = 3;
@@ -547,7 +625,7 @@
             panel7.Controls.Add(dgvDirectors);
             panel7.Controls.Add(label14);
             panel7.Dock = DockStyle.Top;
-            panel7.Location = new Point(5, 1510);
+            panel7.Location = new Point(5, 1576);
             panel7.Name = "panel7";
             panel7.Size = new Size(365, 225);
             panel7.TabIndex = 2;
@@ -593,7 +671,7 @@
             panel6.Controls.Add(dgvCreators);
             panel6.Controls.Add(label13);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(5, 1296);
+            panel6.Location = new Point(5, 1362);
             panel6.Name = "panel6";
             panel6.Size = new Size(365, 214);
             panel6.TabIndex = 1;
@@ -644,12 +722,13 @@
             panel5.Location = new Point(5, 139);
             panel5.Margin = new Padding(3, 5, 3, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(365, 1157);
+            panel5.Size = new Size(365, 1223);
             panel5.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(tableLayoutPanel3);
+            flowLayoutPanel1.Controls.Add(tableLayoutPanel27);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel1);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel2);
             flowLayoutPanel1.Controls.Add(tableLayoutPanel4);
@@ -664,7 +743,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 25);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(363, 1130);
+            flowLayoutPanel1.Size = new Size(363, 1196);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -672,7 +751,7 @@
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(label4, 0, 0);
-            tableLayoutPanel3.Controls.Add(tbMovieName, 0, 1);
+            tableLayoutPanel3.Controls.Add(tbMovieId, 0, 1);
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
@@ -687,10 +766,43 @@
             label4.Dock = DockStyle.Left;
             label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(78, 25);
+            label4.Size = new Size(20, 25);
             label4.TabIndex = 1;
-            label4.Text = "Movie Name:";
+            label4.Text = "Id:";
             label4.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // tbMovieId
+            // 
+            tbMovieId.Dock = DockStyle.Fill;
+            tbMovieId.Location = new Point(3, 28);
+            tbMovieId.Name = "tbMovieId";
+            tbMovieId.Size = new Size(321, 23);
+            tbMovieId.TabIndex = 2;
+            // 
+            // tableLayoutPanel27
+            // 
+            tableLayoutPanel27.ColumnCount = 1;
+            tableLayoutPanel27.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel27.Controls.Add(label36, 0, 0);
+            tableLayoutPanel27.Controls.Add(tbMovieName, 0, 1);
+            tableLayoutPanel27.Location = new Point(3, 65);
+            tableLayoutPanel27.Name = "tableLayoutPanel27";
+            tableLayoutPanel27.RowCount = 2;
+            tableLayoutPanel27.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
+            tableLayoutPanel27.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
+            tableLayoutPanel27.Size = new Size(327, 56);
+            tableLayoutPanel27.TabIndex = 3;
+            // 
+            // label36
+            // 
+            label36.AutoSize = true;
+            label36.Dock = DockStyle.Left;
+            label36.Location = new Point(3, 0);
+            label36.Name = "label36";
+            label36.Size = new Size(78, 25);
+            label36.TabIndex = 1;
+            label36.Text = "Movie Name:";
+            label36.TextAlign = ContentAlignment.BottomLeft;
             // 
             // tbMovieName
             // 
@@ -706,7 +818,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(dtpReleaseDate, 0, 1);
-            tableLayoutPanel1.Location = new Point(3, 65);
+            tableLayoutPanel1.Location = new Point(3, 127);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -740,7 +852,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(label3, 0, 0);
             tableLayoutPanel2.Controls.Add(tbDuration, 0, 1);
-            tableLayoutPanel2.Location = new Point(3, 127);
+            tableLayoutPanel2.Location = new Point(3, 189);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -773,7 +885,7 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel4.Controls.Add(label5, 0, 0);
             tableLayoutPanel4.Controls.Add(cbbContentRating, 0, 1);
-            tableLayoutPanel4.Location = new Point(3, 189);
+            tableLayoutPanel4.Location = new Point(3, 251);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -807,7 +919,7 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.Controls.Add(label8, 0, 0);
             tableLayoutPanel7.Controls.Add(tbIMDbScore, 0, 1);
-            tableLayoutPanel7.Location = new Point(3, 251);
+            tableLayoutPanel7.Location = new Point(3, 313);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -840,7 +952,7 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel6.Controls.Add(label7, 0, 0);
             tableLayoutPanel6.Controls.Add(tbRatingCount, 0, 1);
-            tableLayoutPanel6.Location = new Point(3, 313);
+            tableLayoutPanel6.Location = new Point(3, 375);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -873,7 +985,7 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.Controls.Add(label6, 0, 0);
             tableLayoutPanel5.Controls.Add(tbPosterURL, 0, 1);
-            tableLayoutPanel5.Location = new Point(3, 375);
+            tableLayoutPanel5.Location = new Point(3, 437);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -903,7 +1015,7 @@
             // imgPreviewPoster
             // 
             imgPreviewPoster.Image = Properties.Resources.Oppenheimer;
-            imgPreviewPoster.Location = new Point(3, 437);
+            imgPreviewPoster.Location = new Point(3, 499);
             imgPreviewPoster.Name = "imgPreviewPoster";
             imgPreviewPoster.Size = new Size(359, 226);
             imgPreviewPoster.SizeMode = PictureBoxSizeMode.Zoom;
@@ -916,7 +1028,7 @@
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel8.Controls.Add(label9, 0, 0);
             tableLayoutPanel8.Controls.Add(tbTrailerURL, 0, 1);
-            tableLayoutPanel8.Location = new Point(3, 669);
+            tableLayoutPanel8.Location = new Point(3, 731);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 2;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -946,7 +1058,7 @@
             // wmpPreviewTrailer
             // 
             wmpPreviewTrailer.Enabled = true;
-            wmpPreviewTrailer.Location = new Point(3, 731);
+            wmpPreviewTrailer.Location = new Point(3, 793);
             wmpPreviewTrailer.Name = "wmpPreviewTrailer";
             wmpPreviewTrailer.OcxState = (AxHost.State)resources.GetObject("wmpPreviewTrailer.OcxState");
             wmpPreviewTrailer.Size = new Size(359, 222);
@@ -958,7 +1070,7 @@
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel9.Controls.Add(label10, 0, 0);
             tableLayoutPanel9.Controls.Add(tbDescription, 0, 1);
-            tableLayoutPanel9.Location = new Point(3, 959);
+            tableLayoutPanel9.Location = new Point(3, 1021);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 18.84058F));
@@ -989,7 +1101,7 @@
             // cbIsTVShows
             // 
             cbIsTVShows.AutoSize = true;
-            cbIsTVShows.Location = new Point(3, 1103);
+            cbIsTVShows.Location = new Point(3, 1165);
             cbIsTVShows.Name = "cbIsTVShows";
             cbIsTVShows.Size = new Size(76, 19);
             cbIsTVShows.TabIndex = 6;
@@ -1044,6 +1156,7 @@
             btnGetDataUrl.TabIndex = 0;
             btnGetDataUrl.Text = "Get Data";
             btnGetDataUrl.UseVisualStyleBackColor = true;
+            btnGetDataUrl.Click += btnGetDataUrl_Click;
             // 
             // btnGoToWeb
             // 
@@ -1115,13 +1228,14 @@
             dgvSeasons.AllowUserToAddRows = false;
             dgvSeasons.AllowUserToDeleteRows = false;
             dgvSeasons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvSeasons.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, cEdit });
+            dgvSeasons.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, cSeasonEdit });
             dgvSeasons.Dock = DockStyle.Fill;
             dgvSeasons.Location = new Point(0, 25);
             dgvSeasons.Name = "dgvSeasons";
             dgvSeasons.ReadOnly = true;
             dgvSeasons.Size = new Size(303, 1358);
             dgvSeasons.TabIndex = 8;
+            dgvSeasons.CellContentClick += dgvSeasons_CellContentClick;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1135,12 +1249,12 @@
             dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // cEdit
+            // cSeasonEdit
             // 
-            cEdit.HeaderText = "Edit";
-            cEdit.Name = "cEdit";
-            cEdit.ReadOnly = true;
-            cEdit.Text = "Edit";
+            cSeasonEdit.HeaderText = "Edit";
+            cSeasonEdit.Name = "cSeasonEdit";
+            cSeasonEdit.ReadOnly = true;
+            cSeasonEdit.Text = "Edit";
             // 
             // label16
             // 
@@ -1168,13 +1282,15 @@
             dgvEpisodes.AllowUserToAddRows = false;
             dgvEpisodes.AllowUserToDeleteRows = false;
             dgvEpisodes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEpisodes.Columns.AddRange(new DataGridViewColumn[] { cEpId, cNumber, cEpReleaseDate, cEpDuration, cEpImage, cPreviewImage, cEpTitle, cEpAggregateRating, cEpVoteCount, cEpDel, cEpEdit });
+            dgvEpisodes.Columns.AddRange(new DataGridViewColumn[] { cEpId, cNumber, cEpReleaseDate, cEpDuration, cEpImage, cPreviewImage, cEpTitle, cEpAggregateRating, cEpVoteCount, cEpEdit, cEpDel });
             dgvEpisodes.Dock = DockStyle.Fill;
             dgvEpisodes.Location = new Point(0, 25);
             dgvEpisodes.Name = "dgvEpisodes";
             dgvEpisodes.ReadOnly = true;
+            dgvEpisodes.RowTemplate.Height = 100;
             dgvEpisodes.Size = new Size(1139, 1358);
             dgvEpisodes.TabIndex = 8;
+            dgvEpisodes.CellContentClick += dgvEpisodes_CellContentClick;
             // 
             // cEpId
             // 
@@ -1209,8 +1325,10 @@
             // cPreviewImage
             // 
             cPreviewImage.HeaderText = "Preview Image";
+            cPreviewImage.ImageLayout = DataGridViewImageCellLayout.Zoom;
             cPreviewImage.Name = "cPreviewImage";
             cPreviewImage.ReadOnly = true;
+            cPreviewImage.Width = 200;
             // 
             // cEpTitle
             // 
@@ -1230,18 +1348,18 @@
             cEpVoteCount.Name = "cEpVoteCount";
             cEpVoteCount.ReadOnly = true;
             // 
-            // cEpDel
-            // 
-            cEpDel.HeaderText = "Del";
-            cEpDel.Name = "cEpDel";
-            cEpDel.ReadOnly = true;
-            // 
             // cEpEdit
             // 
             cEpEdit.HeaderText = "Edit";
             cEpEdit.Name = "cEpEdit";
             cEpEdit.ReadOnly = true;
             cEpEdit.Text = "Edit";
+            // 
+            // cEpDel
+            // 
+            cEpDel.HeaderText = "Del";
+            cEpDel.Name = "cEpDel";
+            cEpDel.ReadOnly = true;
             // 
             // label17
             // 
@@ -1362,6 +1480,7 @@
             // 
             panel15.AutoScroll = true;
             panel15.Controls.Add(panel16);
+            panel15.Controls.Add(panel25);
             panel15.Dock = DockStyle.Left;
             panel15.Location = new Point(3084, 0);
             panel15.Name = "panel15";
@@ -1375,29 +1494,29 @@
             panel16.Controls.Add(flowLayoutPanel2);
             panel16.Controls.Add(label29);
             panel16.Dock = DockStyle.Top;
-            panel16.Location = new Point(0, 0);
+            panel16.Location = new Point(0, 139);
             panel16.Margin = new Padding(3, 5, 3, 3);
             panel16.Name = "panel16";
-            panel16.Size = new Size(368, 1157);
+            panel16.Size = new Size(368, 1165);
             panel16.TabIndex = 1;
             // 
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.Controls.Add(tableLayoutPanel15);
+            flowLayoutPanel2.Controls.Add(tableLayoutPanel28);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel25);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel16);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel17);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel19);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel20);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel21);
-            flowLayoutPanel2.Controls.Add(pictureBox1);
+            flowLayoutPanel2.Controls.Add(imgEpPreviewImage);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel23);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel24);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel18);
-            flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.Location = new Point(0, 25);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(366, 1130);
+            flowLayoutPanel2.Size = new Size(366, 1105);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel15
@@ -1405,7 +1524,7 @@
             tableLayoutPanel15.ColumnCount = 1;
             tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel15.Controls.Add(label20, 0, 0);
-            tableLayoutPanel15.Controls.Add(tbEpisode, 0, 1);
+            tableLayoutPanel15.Controls.Add(tbEpId, 0, 1);
             tableLayoutPanel15.Location = new Point(3, 3);
             tableLayoutPanel15.Name = "tableLayoutPanel15";
             tableLayoutPanel15.RowCount = 2;
@@ -1420,10 +1539,43 @@
             label20.Dock = DockStyle.Left;
             label20.Location = new Point(3, 0);
             label20.Name = "label20";
-            label20.Size = new Size(51, 25);
+            label20.Size = new Size(20, 25);
             label20.TabIndex = 1;
-            label20.Text = "Episode:";
+            label20.Text = "Id:";
             label20.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // tbEpId
+            // 
+            tbEpId.Dock = DockStyle.Fill;
+            tbEpId.Location = new Point(3, 28);
+            tbEpId.Name = "tbEpId";
+            tbEpId.Size = new Size(321, 23);
+            tbEpId.TabIndex = 2;
+            // 
+            // tableLayoutPanel28
+            // 
+            tableLayoutPanel28.ColumnCount = 1;
+            tableLayoutPanel28.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel28.Controls.Add(label37, 0, 0);
+            tableLayoutPanel28.Controls.Add(tbEpisode, 0, 1);
+            tableLayoutPanel28.Location = new Point(3, 65);
+            tableLayoutPanel28.Name = "tableLayoutPanel28";
+            tableLayoutPanel28.RowCount = 2;
+            tableLayoutPanel28.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
+            tableLayoutPanel28.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
+            tableLayoutPanel28.Size = new Size(327, 56);
+            tableLayoutPanel28.TabIndex = 3;
+            // 
+            // label37
+            // 
+            label37.AutoSize = true;
+            label37.Dock = DockStyle.Left;
+            label37.Location = new Point(3, 0);
+            label37.Name = "label37";
+            label37.Size = new Size(51, 25);
+            label37.TabIndex = 1;
+            label37.Text = "Episode:";
+            label37.TextAlign = ContentAlignment.BottomLeft;
             // 
             // tbEpisode
             // 
@@ -1439,7 +1591,7 @@
             tableLayoutPanel25.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel25.Controls.Add(label31, 0, 0);
             tableLayoutPanel25.Controls.Add(tbEpTitle, 0, 1);
-            tableLayoutPanel25.Location = new Point(3, 65);
+            tableLayoutPanel25.Location = new Point(3, 127);
             tableLayoutPanel25.Name = "tableLayoutPanel25";
             tableLayoutPanel25.RowCount = 2;
             tableLayoutPanel25.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -1472,7 +1624,7 @@
             tableLayoutPanel16.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel16.Controls.Add(label21, 0, 0);
             tableLayoutPanel16.Controls.Add(dtpEpReleaseDate, 0, 1);
-            tableLayoutPanel16.Location = new Point(3, 127);
+            tableLayoutPanel16.Location = new Point(3, 189);
             tableLayoutPanel16.Name = "tableLayoutPanel16";
             tableLayoutPanel16.RowCount = 2;
             tableLayoutPanel16.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -1506,7 +1658,7 @@
             tableLayoutPanel17.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel17.Controls.Add(label22, 0, 0);
             tableLayoutPanel17.Controls.Add(tbEpDuration, 0, 1);
-            tableLayoutPanel17.Location = new Point(3, 189);
+            tableLayoutPanel17.Location = new Point(3, 251);
             tableLayoutPanel17.Name = "tableLayoutPanel17";
             tableLayoutPanel17.RowCount = 2;
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -1538,8 +1690,8 @@
             tableLayoutPanel19.ColumnCount = 1;
             tableLayoutPanel19.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel19.Controls.Add(label24, 0, 0);
-            tableLayoutPanel19.Controls.Add(tbEpIMDbScore, 0, 1);
-            tableLayoutPanel19.Location = new Point(3, 251);
+            tableLayoutPanel19.Controls.Add(tbEpAggregateRating, 0, 1);
+            tableLayoutPanel19.Location = new Point(3, 313);
             tableLayoutPanel19.Name = "tableLayoutPanel19";
             tableLayoutPanel19.RowCount = 2;
             tableLayoutPanel19.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -1558,21 +1710,21 @@
             label24.Text = "IMDb Score:";
             label24.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // tbEpIMDbScore
+            // tbEpAggregateRating
             // 
-            tbEpIMDbScore.Dock = DockStyle.Fill;
-            tbEpIMDbScore.Location = new Point(3, 28);
-            tbEpIMDbScore.Name = "tbEpIMDbScore";
-            tbEpIMDbScore.Size = new Size(321, 23);
-            tbEpIMDbScore.TabIndex = 2;
+            tbEpAggregateRating.Dock = DockStyle.Fill;
+            tbEpAggregateRating.Location = new Point(3, 28);
+            tbEpAggregateRating.Name = "tbEpAggregateRating";
+            tbEpAggregateRating.Size = new Size(321, 23);
+            tbEpAggregateRating.TabIndex = 2;
             // 
             // tableLayoutPanel20
             // 
             tableLayoutPanel20.ColumnCount = 1;
             tableLayoutPanel20.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel20.Controls.Add(label25, 0, 0);
-            tableLayoutPanel20.Controls.Add(tbEpRatingCount, 0, 1);
-            tableLayoutPanel20.Location = new Point(3, 313);
+            tableLayoutPanel20.Controls.Add(tbEpVoteCount, 0, 1);
+            tableLayoutPanel20.Location = new Point(3, 375);
             tableLayoutPanel20.Name = "tableLayoutPanel20";
             tableLayoutPanel20.RowCount = 2;
             tableLayoutPanel20.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -1591,21 +1743,21 @@
             label25.Text = "Rating Count:";
             label25.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // tbEpRatingCount
+            // tbEpVoteCount
             // 
-            tbEpRatingCount.Dock = DockStyle.Fill;
-            tbEpRatingCount.Location = new Point(3, 28);
-            tbEpRatingCount.Name = "tbEpRatingCount";
-            tbEpRatingCount.Size = new Size(321, 23);
-            tbEpRatingCount.TabIndex = 2;
+            tbEpVoteCount.Dock = DockStyle.Fill;
+            tbEpVoteCount.Location = new Point(3, 28);
+            tbEpVoteCount.Name = "tbEpVoteCount";
+            tbEpVoteCount.Size = new Size(321, 23);
+            tbEpVoteCount.TabIndex = 2;
             // 
             // tableLayoutPanel21
             // 
             tableLayoutPanel21.ColumnCount = 1;
             tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel21.Controls.Add(label26, 0, 0);
-            tableLayoutPanel21.Controls.Add(tbEpImageURL, 0, 1);
-            tableLayoutPanel21.Location = new Point(3, 375);
+            tableLayoutPanel21.Controls.Add(tbEpImage, 0, 1);
+            tableLayoutPanel21.Location = new Point(3, 437);
             tableLayoutPanel21.Name = "tableLayoutPanel21";
             tableLayoutPanel21.RowCount = 2;
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
@@ -1624,23 +1776,23 @@
             label26.Text = "Image URL:";
             label26.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // tbEpImageURL
+            // tbEpImage
             // 
-            tbEpImageURL.Dock = DockStyle.Fill;
-            tbEpImageURL.Location = new Point(3, 28);
-            tbEpImageURL.Name = "tbEpImageURL";
-            tbEpImageURL.Size = new Size(321, 23);
-            tbEpImageURL.TabIndex = 2;
+            tbEpImage.Dock = DockStyle.Fill;
+            tbEpImage.Location = new Point(3, 28);
+            tbEpImage.Name = "tbEpImage";
+            tbEpImage.Size = new Size(321, 23);
+            tbEpImage.TabIndex = 2;
             // 
-            // pictureBox1
+            // imgEpPreviewImage
             // 
-            pictureBox1.Image = Properties.Resources.Oppenheimer;
-            pictureBox1.Location = new Point(3, 437);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(359, 226);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 4;
-            pictureBox1.TabStop = false;
+            imgEpPreviewImage.Image = Properties.Resources.Oppenheimer;
+            imgEpPreviewImage.Location = new Point(3, 499);
+            imgEpPreviewImage.Name = "imgEpPreviewImage";
+            imgEpPreviewImage.Size = new Size(359, 226);
+            imgEpPreviewImage.SizeMode = PictureBoxSizeMode.Zoom;
+            imgEpPreviewImage.TabIndex = 4;
+            imgEpPreviewImage.TabStop = false;
             // 
             // tableLayoutPanel23
             // 
@@ -1648,7 +1800,7 @@
             tableLayoutPanel23.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel23.Controls.Add(label28, 0, 0);
             tableLayoutPanel23.Controls.Add(tbEpImageCaption, 0, 1);
-            tableLayoutPanel23.Location = new Point(3, 669);
+            tableLayoutPanel23.Location = new Point(3, 731);
             tableLayoutPanel23.Name = "tableLayoutPanel23";
             tableLayoutPanel23.RowCount = 2;
             tableLayoutPanel23.RowStyles.Add(new RowStyle(SizeType.Percent, 18.84058F));
@@ -1682,7 +1834,7 @@
             tableLayoutPanel24.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel24.Controls.Add(label30, 0, 0);
             tableLayoutPanel24.Controls.Add(tbEpPlot, 0, 1);
-            tableLayoutPanel24.Location = new Point(3, 813);
+            tableLayoutPanel24.Location = new Point(3, 875);
             tableLayoutPanel24.Name = "tableLayoutPanel24";
             tableLayoutPanel24.RowCount = 2;
             tableLayoutPanel24.RowStyles.Add(new RowStyle(SizeType.Percent, 18.84058F));
@@ -1717,7 +1869,7 @@
             tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.49438F));
             tableLayoutPanel18.Controls.Add(btnEpSubmit, 0, 0);
             tableLayoutPanel18.Controls.Add(btnEpUpdate, 1, 0);
-            tableLayoutPanel18.Location = new Point(3, 957);
+            tableLayoutPanel18.Location = new Point(3, 1019);
             tableLayoutPanel18.Name = "tableLayoutPanel18";
             tableLayoutPanel18.RowCount = 1;
             tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
@@ -1754,6 +1906,99 @@
             label29.Size = new Size(162, 25);
             label29.TabIndex = 0;
             label29.Text = "Episode Data Entry";
+            // 
+            // panel25
+            // 
+            panel25.BackColor = SystemColors.ControlDark;
+            panel25.BorderStyle = BorderStyle.FixedSingle;
+            panel25.Controls.Add(tableLayoutPanel29);
+            panel25.Controls.Add(tableLayoutPanel30);
+            panel25.Controls.Add(label39);
+            panel25.Dock = DockStyle.Top;
+            panel25.Location = new Point(0, 0);
+            panel25.Name = "panel25";
+            panel25.Size = new Size(368, 139);
+            panel25.TabIndex = 7;
+            // 
+            // tableLayoutPanel29
+            // 
+            tableLayoutPanel29.ColumnCount = 2;
+            tableLayoutPanel29.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25.7534256F));
+            tableLayoutPanel29.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 74.2465744F));
+            tableLayoutPanel29.Controls.Add(btnEpGetData, 0, 0);
+            tableLayoutPanel29.Controls.Add(btnEpGoToWebsite, 1, 0);
+            tableLayoutPanel29.Dock = DockStyle.Top;
+            tableLayoutPanel29.Location = new Point(0, 92);
+            tableLayoutPanel29.Name = "tableLayoutPanel29";
+            tableLayoutPanel29.RowCount = 1;
+            tableLayoutPanel29.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel29.Size = new Size(366, 34);
+            tableLayoutPanel29.TabIndex = 4;
+            // 
+            // btnEpGetData
+            // 
+            btnEpGetData.Dock = DockStyle.Left;
+            btnEpGetData.Location = new Point(3, 3);
+            btnEpGetData.Name = "btnEpGetData";
+            btnEpGetData.Size = new Size(75, 28);
+            btnEpGetData.TabIndex = 0;
+            btnEpGetData.Text = "Get Data";
+            btnEpGetData.UseVisualStyleBackColor = true;
+            // 
+            // btnEpGoToWebsite
+            // 
+            btnEpGoToWebsite.Dock = DockStyle.Left;
+            btnEpGoToWebsite.Location = new Point(97, 3);
+            btnEpGoToWebsite.Name = "btnEpGoToWebsite";
+            btnEpGoToWebsite.Size = new Size(114, 28);
+            btnEpGoToWebsite.TabIndex = 1;
+            btnEpGoToWebsite.Text = "Go to website";
+            btnEpGoToWebsite.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel30
+            // 
+            tableLayoutPanel30.ColumnCount = 1;
+            tableLayoutPanel30.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel30.Controls.Add(label38, 0, 0);
+            tableLayoutPanel30.Controls.Add(tbEpURL, 0, 1);
+            tableLayoutPanel30.Dock = DockStyle.Top;
+            tableLayoutPanel30.Location = new Point(0, 25);
+            tableLayoutPanel30.Name = "tableLayoutPanel30";
+            tableLayoutPanel30.RowCount = 2;
+            tableLayoutPanel30.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
+            tableLayoutPanel30.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
+            tableLayoutPanel30.Size = new Size(366, 67);
+            tableLayoutPanel30.TabIndex = 3;
+            // 
+            // label38
+            // 
+            label38.AutoSize = true;
+            label38.Dock = DockStyle.Left;
+            label38.Location = new Point(3, 0);
+            label38.Name = "label38";
+            label38.Size = new Size(107, 29);
+            label38.TabIndex = 1;
+            label38.Text = "IMDb Episode URL:";
+            label38.TextAlign = ContentAlignment.BottomLeft;
+            // 
+            // tbEpURL
+            // 
+            tbEpURL.Dock = DockStyle.Fill;
+            tbEpURL.Location = new Point(3, 32);
+            tbEpURL.Name = "tbEpURL";
+            tbEpURL.Size = new Size(360, 23);
+            tbEpURL.TabIndex = 2;
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            label39.Dock = DockStyle.Top;
+            label39.Font = new Font("Segoe UI", 13F);
+            label39.Location = new Point(0, 0);
+            label39.Name = "label39";
+            label39.Size = new Size(246, 25);
+            label39.TabIndex = 1;
+            label39.Text = "Get Episode Data From IMDb";
             // 
             // panel17
             // 
@@ -1971,6 +2216,7 @@
             dgvEpCasts.Location = new Point(0, 25);
             dgvEpCasts.Name = "dgvEpCasts";
             dgvEpCasts.ReadOnly = true;
+            dgvEpCasts.RowTemplate.Height = 200;
             dgvEpCasts.Size = new Size(608, 1358);
             dgvEpCasts.TabIndex = 2;
             // 
@@ -1995,6 +2241,7 @@
             // cCastPreviewImage
             // 
             cCastPreviewImage.HeaderText = "Preview Image";
+            cCastPreviewImage.ImageLayout = DataGridViewImageCellLayout.Zoom;
             cCastPreviewImage.Name = "cCastPreviewImage";
             cCastPreviewImage.ReadOnly = true;
             // 
@@ -2021,12 +2268,37 @@
             label34.TabIndex = 1;
             label34.Text = "Casts";
             // 
+            // tableLayoutPanel26
+            // 
+            tableLayoutPanel26.ColumnCount = 1;
+            tableLayoutPanel26.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel26.Controls.Add(label35, 0, 0);
+            tableLayoutPanel26.Location = new Point(0, 0);
+            tableLayoutPanel26.Name = "tableLayoutPanel26";
+            tableLayoutPanel26.RowCount = 2;
+            tableLayoutPanel26.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel26.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel26.Size = new Size(200, 100);
+            tableLayoutPanel26.TabIndex = 0;
+            // 
+            // label35
+            // 
+            label35.AutoSize = true;
+            label35.Dock = DockStyle.Left;
+            label35.Location = new Point(3, 0);
+            label35.Name = "label35";
+            label35.Size = new Size(78, 20);
+            label35.TabIndex = 1;
+            label35.Text = "Movie Name:";
+            label35.TextAlign = ContentAlignment.BottomLeft;
+            // 
             // textBox1
             // 
-            textBox1.Location = new Point(143, 3);
+            textBox1.Dock = DockStyle.Fill;
+            textBox1.Location = new Point(3, 18);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(32, 23);
-            textBox1.TabIndex = 1;
+            textBox1.Size = new Size(194, 23);
+            textBox1.TabIndex = 2;
             // 
             // MoviesManager
             // 
@@ -2053,6 +2325,8 @@
             panel23.ResumeLayout(false);
             tableLayoutPanel22.ResumeLayout(false);
             tableLayoutPanel22.PerformLayout();
+            panel24.ResumeLayout(false);
+            panel24.PerformLayout();
             panel4.ResumeLayout(false);
             panel10.ResumeLayout(false);
             tableLayoutPanel12.ResumeLayout(false);
@@ -2071,6 +2345,8 @@
             flowLayoutPanel1.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            tableLayoutPanel27.ResumeLayout(false);
+            tableLayoutPanel27.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
@@ -2112,6 +2388,8 @@
             flowLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel15.ResumeLayout(false);
             tableLayoutPanel15.PerformLayout();
+            tableLayoutPanel28.ResumeLayout(false);
+            tableLayoutPanel28.PerformLayout();
             tableLayoutPanel25.ResumeLayout(false);
             tableLayoutPanel25.PerformLayout();
             tableLayoutPanel16.ResumeLayout(false);
@@ -2124,12 +2402,17 @@
             tableLayoutPanel20.PerformLayout();
             tableLayoutPanel21.ResumeLayout(false);
             tableLayoutPanel21.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imgEpPreviewImage).EndInit();
             tableLayoutPanel23.ResumeLayout(false);
             tableLayoutPanel23.PerformLayout();
             tableLayoutPanel24.ResumeLayout(false);
             tableLayoutPanel24.PerformLayout();
             tableLayoutPanel18.ResumeLayout(false);
+            panel25.ResumeLayout(false);
+            panel25.PerformLayout();
+            tableLayoutPanel29.ResumeLayout(false);
+            tableLayoutPanel30.ResumeLayout(false);
+            tableLayoutPanel30.PerformLayout();
             panel17.ResumeLayout(false);
             panel21.ResumeLayout(false);
             panel21.PerformLayout();
@@ -2146,6 +2429,8 @@
             panel22.ResumeLayout(false);
             panel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvEpCasts).EndInit();
+            tableLayoutPanel26.ResumeLayout(false);
+            tableLayoutPanel26.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -2153,15 +2438,6 @@
 
         private DataGridView dgvMovies;
         private Panel panel1;
-        private DataGridViewTextBoxColumn cMovieID;
-        private DataGridViewTextBoxColumn cMovieName;
-        private DataGridViewTextBoxColumn cReleaseDate;
-        private DataGridViewTextBoxColumn cDuration;
-        private DataGridViewTextBoxColumn cContentRating;
-        private DataGridViewTextBoxColumn cIMDbScore;
-        private DataGridViewCheckBoxColumn cIsTVShows;
-        private DataGridViewButtonColumn cView;
-        private DataGridViewButtonColumn cDel;
         private Panel panel2;
         private Button btnRefreshMovies;
         private Panel panel3;
@@ -2171,7 +2447,7 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label4;
-        private TextBox tbMovieName;
+        private TextBox tbMovieId;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label2;
         private TableLayoutPanel tableLayoutPanel2;
@@ -2230,23 +2506,9 @@
         private Button btnSubmit;
         private DateTimePicker dtpReleaseDate;
         private ComboBox cbbContentRating;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewButtonColumn cEdit;
         private Panel panel12;
         private DataGridView dgvEpisodes;
         private Label label17;
-        private DataGridViewTextBoxColumn cEpId;
-        private DataGridViewTextBoxColumn cNumber;
-        private DataGridViewTextBoxColumn cEpReleaseDate;
-        private DataGridViewTextBoxColumn cEpDuration;
-        private DataGridViewTextBoxColumn cEpImage;
-        private DataGridViewImageColumn cPreviewImage;
-        private DataGridViewTextBoxColumn cEpTitle;
-        private DataGridViewTextBoxColumn cEpAggregateRating;
-        private DataGridViewTextBoxColumn cEpVoteCount;
-        private DataGridViewButtonColumn cEpDel;
-        private DataGridViewButtonColumn cEpEdit;
         private Panel panel13;
         private Panel panel14;
         private TableLayoutPanel tableLayoutPanel13;
@@ -2261,7 +2523,7 @@
         private FlowLayoutPanel flowLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel15;
         private Label label20;
-        private TextBox tbEpisode;
+        private TextBox tbEpId;
         private TableLayoutPanel tableLayoutPanel16;
         private Label label21;
         private DateTimePicker dtpEpReleaseDate;
@@ -2270,14 +2532,14 @@
         private TextBox tbEpDuration;
         private TableLayoutPanel tableLayoutPanel19;
         private Label label24;
-        private TextBox tbEpIMDbScore;
+        private TextBox tbEpAggregateRating;
         private TableLayoutPanel tableLayoutPanel20;
         private Label label25;
-        private TextBox tbEpRatingCount;
+        private TextBox tbEpVoteCount;
         private TableLayoutPanel tableLayoutPanel21;
         private Label label26;
-        private TextBox tbEpImageURL;
-        private PictureBox pictureBox1;
+        private TextBox tbEpImage;
+        private PictureBox imgEpPreviewImage;
         private TableLayoutPanel tableLayoutPanel23;
         private Label label28;
         private TextBox tbEpImageCaption;
@@ -2312,12 +2574,6 @@
         private Panel panel22;
         private DataGridView dgvEpCasts;
         private Label label34;
-        private DataGridViewTextBoxColumn cCastId;
-        private DataGridViewTextBoxColumn cCastName;
-        private DataGridViewTextBoxColumn cCastImage;
-        private DataGridViewImageColumn cCastPreviewImage;
-        private DataGridViewTextBoxColumn cCastCharacter;
-        private DataGridViewButtonColumn cCastDel;
         private TableLayoutPanel tableLayoutPanel18;
         private Button btnEpSubmit;
         private Button btnEpUpdate;
@@ -2325,6 +2581,56 @@
         private TableLayoutPanel tableLayoutPanel22;
         private Label lbCountMovies;
         private Label lbPageMovies;
+        private TextBox tbPageNumber;
+        private Panel panel24;
+        private Button btnGoToPage;
+        private Button btnPreviousPage;
+        private Button btnNextPage;
+        private TableLayoutPanel tableLayoutPanel27;
+        private Label label36;
+        private TextBox tbMovieName;
+        private TableLayoutPanel tableLayoutPanel26;
+        private Label label35;
         private TextBox textBox1;
+        private DataGridViewTextBoxColumn cMovieID;
+        private DataGridViewTextBoxColumn cMovieName;
+        private DataGridViewTextBoxColumn cReleaseDate;
+        private DataGridViewTextBoxColumn cDuration;
+        private DataGridViewTextBoxColumn cContentRating;
+        private DataGridViewTextBoxColumn cIMDbScore;
+        private DataGridViewCheckBoxColumn cIsTVShows;
+        private DataGridViewButtonColumn cView;
+        private DataGridViewButtonColumn cDel;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewButtonColumn cSeasonEdit;
+        private TableLayoutPanel tableLayoutPanel28;
+        private Label label37;
+        private TextBox tbEpisode;
+        private DataGridViewTextBoxColumn cEpId;
+        private DataGridViewTextBoxColumn cNumber;
+        private DataGridViewTextBoxColumn cEpReleaseDate;
+        private DataGridViewTextBoxColumn cEpDuration;
+        private DataGridViewTextBoxColumn cEpImage;
+        private DataGridViewImageColumn cPreviewImage;
+        private DataGridViewTextBoxColumn cEpTitle;
+        private DataGridViewTextBoxColumn cEpAggregateRating;
+        private DataGridViewTextBoxColumn cEpVoteCount;
+        private DataGridViewButtonColumn cEpEdit;
+        private DataGridViewButtonColumn cEpDel;
+        private DataGridViewTextBoxColumn cCastId;
+        private DataGridViewTextBoxColumn cCastName;
+        private DataGridViewTextBoxColumn cCastImage;
+        private DataGridViewImageColumn cCastPreviewImage;
+        private DataGridViewTextBoxColumn cCastCharacter;
+        private DataGridViewButtonColumn cCastDel;
+        private Panel panel25;
+        private TableLayoutPanel tableLayoutPanel29;
+        private Button btnEpGetData;
+        private Button btnEpGoToWebsite;
+        private TableLayoutPanel tableLayoutPanel30;
+        private Label label38;
+        private TextBox tbEpURL;
+        private Label label39;
     }
 }

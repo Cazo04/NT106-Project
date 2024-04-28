@@ -30,7 +30,7 @@
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             progressBar1 = new ProgressBar();
-            label1 = new Label();
+            lblMessage = new Label();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,7 +41,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30F));
             tableLayoutPanel1.Controls.Add(progressBar1, 1, 0);
-            tableLayoutPanel1.Controls.Add(label1, 1, 1);
+            tableLayoutPanel1.Controls.Add(lblMessage, 1, 1);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -60,15 +60,15 @@
             progressBar1.Style = ProgressBarStyle.Marquee;
             progressBar1.TabIndex = 0;
             // 
-            // label1
+            // lblMessage
             // 
-            label1.Dock = DockStyle.Top;
-            label1.Location = new Point(94, 61);
-            label1.Name = "label1";
-            label1.Size = new Size(116, 31);
-            label1.TabIndex = 1;
-            label1.Text = "Loading...";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            lblMessage.Dock = DockStyle.Top;
+            lblMessage.Location = new Point(94, 61);
+            lblMessage.Name = "lblMessage";
+            lblMessage.Size = new Size(116, 31);
+            lblMessage.TabIndex = 1;
+            lblMessage.Text = "Loading...";
+            lblMessage.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ProgressDialogForm
             // 
@@ -89,6 +89,6 @@
 
         private TableLayoutPanel tableLayoutPanel1;
         private ProgressBar progressBar1;
-        private Label label1;
+        private Label lblMessage;
     }
 }
