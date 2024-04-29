@@ -140,7 +140,9 @@ namespace NT106_WebServer.Models
             using (var connection = MySQLServer.GetWorkingConnection())
             {
                 const string query = @"INSERT INTO Episodes (Id, MovieId, Season, Episode, ReleaseDate, Duration, Image, ImageCaption, Title, Plot, AggregateRating, VoteCount) 
-                                   VALUES (@Id, @MovieId, @Season, @Episode, @ReleaseDate, @Duration, @Image, @ImageCaption, @Title, @Plot, @AggregateRating, @VoteCount)";
+                                   VALUES (@Id, @MovieId, @Season, @Episode, @ReleaseDate, @Duration, @Image, @ImageCaption, @Title, @Plot, @AggregateRating, @VoteCount)
+                                    ON DUPLICATE KEY UPDATE 
+                       ReleaseDate=@ReleaseDate, Image=@Image, Title=@Title, AggregateRating=@AggregateRating;";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Id", episode.Id);

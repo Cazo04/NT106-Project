@@ -139,6 +139,7 @@
             label17 = new Label();
             panel13 = new Panel();
             panel14 = new Panel();
+            btnSubmitEpisodes = new Button();
             tableLayoutPanel13 = new TableLayoutPanel();
             btnResolveHTML = new Button();
             btnRefreshEpisodes = new Button();
@@ -501,6 +502,7 @@
             btnRefreshMovies.TabIndex = 0;
             btnRefreshMovies.Text = "Refresh";
             btnRefreshMovies.UseVisualStyleBackColor = true;
+            btnRefreshMovies.Click += btnRefreshMovies_Click;
             // 
             // panel4
             // 
@@ -563,6 +565,7 @@
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // btnSubmit
             // 
@@ -573,6 +576,7 @@
             btnSubmit.TabIndex = 0;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
+            btnSubmit.Click += btnSubmit_Click;
             // 
             // panel8
             // 
@@ -1385,14 +1389,25 @@
             // 
             panel14.BackColor = SystemColors.ControlDark;
             panel14.BorderStyle = BorderStyle.FixedSingle;
+            panel14.Controls.Add(btnSubmitEpisodes);
             panel14.Controls.Add(tableLayoutPanel13);
             panel14.Controls.Add(tableLayoutPanel14);
             panel14.Controls.Add(label19);
             panel14.Dock = DockStyle.Top;
             panel14.Location = new Point(0, 0);
             panel14.Name = "panel14";
-            panel14.Size = new Size(329, 405);
+            panel14.Size = new Size(329, 467);
             panel14.TabIndex = 7;
+            // 
+            // btnSubmitEpisodes
+            // 
+            btnSubmitEpisodes.Location = new Point(3, 397);
+            btnSubmitEpisodes.Name = "btnSubmitEpisodes";
+            btnSubmitEpisodes.Size = new Size(75, 23);
+            btnSubmitEpisodes.TabIndex = 5;
+            btnSubmitEpisodes.Text = "Submit";
+            btnSubmitEpisodes.UseVisualStyleBackColor = true;
+            btnSubmitEpisodes.Click += btnSubmitEpisodes_Click;
             // 
             // tableLayoutPanel13
             // 
@@ -1418,6 +1433,7 @@
             btnResolveHTML.TabIndex = 0;
             btnResolveHTML.Text = "Resolve HTML";
             btnResolveHTML.UseVisualStyleBackColor = true;
+            btnResolveHTML.Click += btnResolveHTML_Click;
             // 
             // btnRefreshEpisodes
             // 
@@ -1459,6 +1475,7 @@
             // 
             tbEpisodeHTML.Dock = DockStyle.Fill;
             tbEpisodeHTML.Location = new Point(3, 36);
+            tbEpisodeHTML.MaxLength = 200767;
             tbEpisodeHTML.Multiline = true;
             tbEpisodeHTML.Name = "tbEpisodeHTML";
             tbEpisodeHTML.ScrollBars = ScrollBars.Vertical;
@@ -1944,6 +1961,7 @@
             btnEpGetData.TabIndex = 0;
             btnEpGetData.Text = "Get Data";
             btnEpGetData.UseVisualStyleBackColor = true;
+            btnEpGetData.Click += btnEpGetData_Click;
             // 
             // btnEpGoToWebsite
             // 
@@ -2632,5 +2650,6 @@
         private Label label38;
         private TextBox tbEpURL;
         private Label label39;
+        private Button btnSubmitEpisodes;
     }
 }

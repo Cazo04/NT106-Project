@@ -6,17 +6,19 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using HtmlAgilityPack;
 
 namespace NT106_Admin
 {
     public partial class MoviesManager : Form
     {
         public AdminToken _adminToken;
+        private const string IMDb_BASE_URL = "https://www.imdb.com/title/";
         public MoviesManager(AdminToken _adminToken)
         {
             InitializeComponent();
@@ -56,6 +58,17 @@ namespace NT106_Admin
             tbTrailerURL.ReadOnly = true;
             tbDescription.ReadOnly = true;
 
+            tbEpId.ReadOnly = true;
+            tbEpisode.ReadOnly = true;
+            tbEpDuration.ReadOnly = true;
+            tbEpImage.ReadOnly = true;
+            tbEpImageCaption.ReadOnly = true;
+            tbEpTitle.ReadOnly = true;
+            tbEpPlot.ReadOnly = true;
+            tbEpAggregateRating.ReadOnly = true;
+            tbEpVoteCount.ReadOnly = true;
+
+
             // CheckBox
             cbIsTVShows.Enabled = false;
 
@@ -64,12 +77,52 @@ namespace NT106_Admin
 
             // DateTimePicker
             dtpReleaseDate.Enabled = false;
+
+            dtpEpReleaseDate.Enabled = false;
+        }
+        private void ClearEpisodeDetail(bool isFromDatabase = true)
+        {
+            if (isFromDatabase)
+            {
+                tbEpId.Text = "";
+                tbEpisode.Text = "";
+                tbEpTitle.Text = "";
+            }
+            tbEpURL.Text = "";                      
+            dtpEpReleaseDate.Value = DateTime.Now;
+            tbEpDuration.Text = "";
+            tbEpImage.Text = "";
+            tbEpImageCaption.Text = "";           
+            tbEpPlot.Text = "";
+            tbEpAggregateRating.Text = "";
+            tbEpVoteCount.Text = "";
+
+            imgEpPreviewImage.Image = null;
+
+            dgvEpCreators.Rows.Clear();
+            dgvEpDirectors.Rows.Clear();
+            dgvEpWriters.Rows.Clear();
+            dgvEpGenres.Rows.Clear();
+            dgvEpCasts.Rows.Clear();
+        }
+        private void ClearEpisodes()
+        {
+            seasonNow = "";
+            dgvEpisodes.Rows.Clear();
+            ClearEpisodeDetail();
         }
 
         private async void LoadListMovies(int offset = 0)
         {
             ProgressDialogForm progressDialog = new ProgressDialogForm();
             progressDialog.ShowProgress(this, "Loading movies, please wait...");
+
+            if (offset < 0)
+            {
+                MessageBox.Show("Invalid offset", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                progressDialog.CloseProgress(this);
+                return;
+            }
 
             int moviesCount = 0;
             HttpClientService service = new HttpClientService(_adminToken.Token);
@@ -97,6 +150,8 @@ namespace NT106_Admin
                 }
                 moviesCount = movies.Count + offset * 100;
             }
+            tbPageNumber.Text = (offset + 1).ToString();
+            lastOffset = offset;
             response = await service.GetAsync("/admin/moviescount");
             if (response.Contains("Error"))
             {
@@ -108,8 +163,6 @@ namespace NT106_Admin
             {
                 int totalMovies = JsonConvert.DeserializeObject<int>(response);
                 lbCountMovies.Text = $"{moviesCount}/{totalMovies} Movies";
-                tbPageNumber.Text = (offset + 1).ToString();
-                lastOffset = offset;
             }
 
             progressDialog.CloseProgress(this);
@@ -137,10 +190,13 @@ namespace NT106_Admin
             }
 
             progressDialog.CloseProgress(this);
+
+            ClearEpisodes();
         }
 
         private void LoadMovieDetail(MovieModel movie)
         {
+            tbIMDbURL.Text = IMDb_BASE_URL + movie.MovieInfo.MovieId;
             tbMovieId.Text = movie.MovieInfo.MovieId;
             tbMovieName.Text = movie.MovieInfo.MovieName;
             dtpReleaseDate.Value = movie.MovieInfo.ReleaseDate;
@@ -190,6 +246,24 @@ namespace NT106_Admin
             foreach (var season in movie.Seasons)
             {
                 dgvSeasons.Rows.Add(++j, season.Name);
+            }
+
+            if (!movie.MovieInfo.IsTVShows)
+            {
+                panel12.Visible = false;
+                panel13.Visible = false;
+                panel18.Visible = false;
+                panel19.Visible = false;
+                panel20.Visible = false;
+                panel16.Visible = false;
+            } else
+            {
+                panel12.Visible = true;
+                panel13.Visible = true;
+                panel18.Visible = true;
+                panel19.Visible = true;
+                panel20.Visible = true;
+                panel16.Visible = true;
             }
         }
 
@@ -313,6 +387,7 @@ namespace NT106_Admin
                 string imageUrl = dgvEpisodes.Rows[i].Cells[4].Value.ToString();
                 LoadImageIntoDataGridViewAsync(imageUrl, i, 5, dgvEpisodes);
             }
+            ClearEpisodeDetail();
         }
         public async Task LoadImageIntoDataGridViewAsync(string imageUrl, int rowIndex, int colIndex, DataGridView dgv)
         {
@@ -346,7 +421,15 @@ namespace NT106_Admin
                 if (dgvSeasons.Columns[e.ColumnIndex].HeaderText == "Edit")
                 {
                     string seasonId = dgvSeasons.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    seasonNow = seasonId;
+
+                    if (!cbIsTVShows.Checked)
+                    {
+                        LoadEpisode(tbMovieId.Text, false);
+                    } else
+
                     LoadListEpisodes(tbMovieId.Text, seasonId);
+
 
                     foreach (DataGridViewRow row in dgvSeasons.Rows)
                     {
@@ -357,7 +440,7 @@ namespace NT106_Admin
                 }
             }
         }
-        private async void LoadEpisode(string episodeId)
+        private async void LoadEpisode(string episodeId, bool isTVShow = true)
         {
             ProgressDialogForm progressDialog = new ProgressDialogForm();
             progressDialog.ShowProgress(this, "Loading episode details, please wait...");
@@ -373,25 +456,34 @@ namespace NT106_Admin
             else
             {
                 MovieModel.Episodes episode = JsonConvert.DeserializeObject<MovieModel.Episodes>(response);
-                LoadEpisodeDetail(episode);
+                LoadEpisodeDetail(episode,true,isTVShow);
             }
 
             progressDialog.CloseProgress(this);
         }
-        private void LoadEpisodeDetail(MovieModel.Episodes episode)
+        private void LoadEpisodeDetail(MovieModel.Episodes episode, bool isFromDatabase = true, bool isTVShow = true)
         {
-            tbEpId.Text = episode.Id;
-            tbEpisode.Text = episode.Episode;
-            dtpEpReleaseDate.Value = (DateTime)episode.ReleaseDate;
-            tbEpDuration.Text = episode.Duration.ToString();
-            tbEpImage.Text = episode.Image;
-            tbEpImageCaption.Text = episode.ImageCaption;
-            tbEpTitle.Text = episode.Title;
-            tbEpPlot.Text = episode.Plot;
-            tbEpAggregateRating.Text = episode.AggregateRating.ToString();
-            tbEpVoteCount.Text = episode.VoteCount.ToString();
+            ClearEpisodeDetail(isFromDatabase);
 
-            LoadImageFromURL(episode.Image, imgEpPreviewImage);
+            tbEpURL.Text = IMDb_BASE_URL + episode.Id;
+            if (isTVShow)
+            {
+                if (isFromDatabase)
+                {                   
+                    tbEpId.Text = episode.Id;
+                    tbEpisode.Text = episode.Episode;
+                    tbEpTitle.Text = episode.Title;
+                }
+                dtpEpReleaseDate.Value = (DateTime)episode.ReleaseDate;
+                tbEpDuration.Text = episode.Duration.ToString();
+                tbEpImage.Text = episode.Image;
+                tbEpImageCaption.Text = episode.ImageCaption;
+                tbEpPlot.Text = episode.Plot;
+                tbEpAggregateRating.Text = episode.AggregateRating.ToString();
+                tbEpVoteCount.Text = episode.VoteCount.ToString();
+
+                LoadImageFromURL(episode.Image, imgEpPreviewImage);
+            }
 
             dgvEpCreators.Rows.Clear();
             foreach (var creator in episode.Creators)
@@ -421,6 +513,10 @@ namespace NT106_Admin
             }
             for (int i = 0; i < dgvEpCasts.Rows.Count; i++)
             {
+                if (dgvEpCasts.Rows[i].Cells[2].Value == null)
+                {
+                    continue;
+                }
                 string imageUrl = dgvEpCasts.Rows[i].Cells[2].Value.ToString();
                 LoadImageIntoDataGridViewAsync(imageUrl, i, 3, dgvEpCasts);
             }
@@ -432,6 +528,274 @@ namespace NT106_Admin
                 string episodeId = dgvEpisodes.Rows[e.RowIndex].Cells[0].Value.ToString();
                 LoadEpisode(episodeId);
             }
+        }
+
+        private async void btnEpGetData_Click(object sender, EventArgs e)
+        {
+            string url = tbEpURL.Text.Trim();
+            url = WebUtility.UrlEncode(url);
+
+            ProgressDialogForm progressDialog = new ProgressDialogForm();
+            progressDialog.ShowProgress(this, "Loading episode details, please wait...");
+
+            HttpClientService service = new HttpClientService(_adminToken.Token);
+            string response = await service.GetAsync("/admin/getepisodedatafromimdb?url=" + url);
+
+            if (response.Contains("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                progressDialog.CloseProgress(this);
+                return;
+            }
+            else
+            {
+                //MessageBox.Show(response, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MovieModel.Episodes episode = JsonConvert.DeserializeObject<MovieModel.Episodes>(response);
+                LoadEpisodeDetail(episode, false);
+                progressDialog.CloseProgress(this);
+            }
+        }
+        private async void UploadMovieData(string method = "update")
+        {
+            ProgressDialogForm progressDialog = new ProgressDialogForm();
+            progressDialog.ShowProgress(this, "Uploading movie details, please wait...");
+
+            MovieModel movie = new MovieModel();
+            movie.MovieInfo = new MovieModel.Movie();
+            movie.MovieInfo.MovieId = tbMovieId.Text;
+            movie.MovieInfo.MovieName = tbMovieName.Text;
+            movie.MovieInfo.ReleaseDate = dtpReleaseDate.Value;
+            movie.MovieInfo.Duration = int.Parse(tbDuration.Text);
+            movie.MovieInfo.ContentRating = cbbContentRating.SelectedItem.ToString().Split(' ')[1].Trim();
+            movie.MovieInfo.IMDbScore = double.Parse(tbIMDbScore.Text);
+            movie.MovieInfo.RatingCount = int.Parse(tbRatingCount.Text);
+            movie.MovieInfo.PosterURL = tbPosterURL.Text;
+            movie.MovieInfo.TrailerURL = tbTrailerURL.Text;
+            movie.MovieInfo.Description = tbDescription.Text;
+            movie.MovieInfo.IsTVShows = cbIsTVShows.Checked;
+
+            foreach (DataGridViewRow row in dgvCreators.Rows)
+            {
+                movie.Creators.Add(new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() });
+            }
+            foreach (DataGridViewRow row in dgvDirectors.Rows)
+            {
+                movie.Directors.Add(new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() });
+            }
+            foreach (DataGridViewRow row in dgvWriters.Rows)
+            {
+                movie.Writers.Add(new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() });
+            }
+            foreach (DataGridViewRow row in dgvSeasons.Rows)
+            {
+                movie.Seasons.Add(new MovieModel.Season { Name = row.Cells[1].Value.ToString() });
+            }
+
+            HttpClientService service = new HttpClientService(_adminToken.Token);
+            string json = JsonConvert.SerializeObject(movie);
+            string response = await service.PostAsync("/admin/uploadbasicdataimdb?method=" + method, json);
+            if (response.Contains("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //MessageBox.Show(response, "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            progressDialog.CloseProgress(this);
+
+            btnRefreshMovies.PerformClick();
+        }
+
+        private void btnRefreshMovies_Click(object sender, EventArgs e)
+        {
+            LoadListMovies(lastOffset);
+        }
+
+        private void btnSubmit_Click(object sender, EventArgs e)
+        {
+            UploadMovieData("insert");
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UploadMovieData();
+        }
+
+        private string seasonNow = "";
+
+        private void btnResolveHTML_Click(object sender, EventArgs e)
+        {
+            string htmlContent = tbEpisodeHTML.Text;
+
+            HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+            doc.LoadHtml(htmlContent);
+
+            var episodeNodes = doc.DocumentNode.SelectNodes("//article[contains(@class,'episode-item-wrapper')]");
+
+            if (episodeNodes != null)
+            {
+                dgvEpisodes.Rows.Clear();
+                foreach (var episode in episodeNodes)
+                {
+                    var imgSrc = episode.SelectSingleNode(".//img[contains(@class,'ipc-image')]")?.GetAttributeValue("src", string.Empty);
+                    var hrefValue = episode.SelectSingleNode(".//a[contains(@class,'ipc-title-link-wrapper')]")?.GetAttributeValue("href", string.Empty);
+                    var extractedId = System.Text.RegularExpressions.Regex.Match(hrefValue, @"/title/(tt\d+)/").Groups[1].Value;
+
+                    var descriptionNode = episode.SelectSingleNode(".//div[contains(@class,'ipc-html-content-inner-div')]");
+                    var description = descriptionNode != null ? descriptionNode.InnerText : "";
+
+                    var releaseDate = episode.SelectSingleNode(".//span[contains(@class,'sc-aafba987-10')]")?.InnerText;
+                    DateTime date = DateTime.Parse(releaseDate);
+                    var formattedDate = date.ToString("yyyy-MM-dd");
+
+                    var episodeTitle = episode.SelectSingleNode(".//div[contains(@class,'ipc-title__text')]")?.InnerText;
+
+                    string title = "", seasonEpisode = "", seasonNumber = "", epNumber = "";
+                    if (seasonNow == "Unknown")
+                    {
+                        title = episodeTitle;
+                    }
+                    else
+                    {
+                        var parts = episodeTitle.Split('∙').Select(p => p.Trim()).ToArray();
+                        seasonEpisode = parts[0];
+                        title = parts[1];
+                        var match = System.Text.RegularExpressions.Regex.Match(seasonEpisode, @"S(\d+)\.E(\d+)");
+                        seasonNumber = match.Groups[1].Value;
+                        epNumber = match.Groups[2].Value;
+
+                        if (seasonNumber != seasonNow)
+                        {
+                            MessageBox.Show($"Season number is not {seasonNow}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    var imdbRating = episode.SelectSingleNode(".//span[contains(@class,'ipc-rating-star--imdb')]")?.GetAttributeValue("aria-label", string.Empty);
+                    var ratingMatch = System.Text.RegularExpressions.Regex.Match(imdbRating, @"\d+\.\d+");
+                    var imdbRatingValue = ratingMatch.Value;
+
+                    // Add data to DataGridView
+                    dgvEpisodes.Rows.Add(extractedId, epNumber, formattedDate, null, imgSrc, null, title, imdbRatingValue, null, null, null);
+                }
+                foreach (DataGridViewRow row in dgvEpisodes.Rows)
+                {
+                    string imageUrl = row.Cells[4].Value.ToString();
+                    LoadImageIntoDataGridViewAsync(imageUrl, row.Index, 5, dgvEpisodes);
+                }
+            }
+        }
+
+        private async void UploadEpisodesData()
+        {
+            ProgressDialogForm dialogForm = new ProgressDialogForm();
+            dialogForm.ShowProgress(this, "Uploading episodes data, please wait...");
+
+            List<MovieModel.Episodes> episodes = new List<MovieModel.Episodes>();
+            foreach (DataGridViewRow row in dgvEpisodes.Rows)
+            {
+                MovieModel.Episodes episode = new MovieModel.Episodes();
+                episode.MovieId = tbMovieId.Text;
+                episode.Season = seasonNow;
+                episode.Id = row.Cells[0].Value.ToString();
+                episode.Episode = row.Cells[1].Value.ToString();
+                episode.ReleaseDate = DateTime.Parse(row.Cells[2].Value.ToString());
+                episode.Image = row.Cells[4].Value.ToString();
+                episode.Title = row.Cells[6].Value.ToString();
+                episode.AggregateRating = double.Parse(row.Cells[7].Value.ToString());
+
+                episodes.Add(episode);
+            }
+
+            HttpClientService service = new HttpClientService(_adminToken.Token);
+            string json = JsonConvert.SerializeObject(episodes);
+            string response = await service.PostAsync("/admin/uploadepisodesdata", json);
+            if (response.Contains("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dialogForm.CloseProgress(this);
+                return;
+            }
+            else
+            {
+                //MessageBox.Show("Upload done!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            dialogForm.CloseProgress(this);
+
+            LoadListEpisodes(tbMovieId.Text, seasonNow);
+        }
+
+        private void btnSubmitEpisodes_Click(object sender, EventArgs e)
+        {
+            UploadEpisodesData();
+        }
+
+        private async void btnEpSubmit_Click(object sender, EventArgs e)
+        {
+            ProgressDialogForm dialogForm = new ProgressDialogForm();
+            dialogForm.ShowProgress(this, "Uploading episode detail, please wait...");
+
+            MovieModel.Episodes episode = new MovieModel.Episodes();
+            episode.MovieId = tbMovieId.Text;
+            episode.Season = seasonNow;
+            episode.Id = tbEpId.Text;
+            episode.Episode = tbEpisode.Text;
+            episode.ReleaseDate = dtpEpReleaseDate.Value;
+            episode.Duration = int.Parse(tbEpDuration.Text);
+            episode.Image = tbEpImage.Text;
+            episode.ImageCaption = tbEpImageCaption.Text;
+            episode.Title = tbEpTitle.Text;
+            episode.Plot = tbEpPlot.Text;
+            episode.AggregateRating = double.Parse(tbEpAggregateRating.Text);
+            episode.VoteCount = int.Parse(tbEpVoteCount.Text);
+
+            episode.Creators = new List<MovieModel.EpisodeCreator>();
+            foreach (DataGridViewRow row in dgvEpCreators.Rows)
+            {
+                episode.Creators.Add(new MovieModel.EpisodeCreator { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() } });
+            }
+            episode.Directors = new List<MovieModel.EpisodeDirectors>();
+            foreach (DataGridViewRow row in dgvEpDirectors.Rows)
+            {
+                episode.Directors.Add(new MovieModel.EpisodeDirectors { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() } });
+            }
+            episode.Writers = new List<MovieModel.EpisodeWriters>();
+            foreach (DataGridViewRow row in dgvEpWriters.Rows)
+            {
+                episode.Writers.Add(new MovieModel.EpisodeWriters { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() } });
+            }
+            episode.Genres = new List<MovieModel.EpisodeGenres>();
+            foreach (DataGridViewRow row in dgvEpGenres.Rows)
+            {
+                episode.Genres.Add(new MovieModel.EpisodeGenres { Name = row.Cells[1].Value.ToString() });
+            }
+            episode.Casts = new List<MovieModel.Cast>();
+            foreach (DataGridViewRow row in dgvEpCasts.Rows)
+            {
+                episode.Casts.Add(new MovieModel.Cast { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString(), Image = (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) ? null : row.Cells[2].Value.ToString())}, CharacterName = row.Cells[4].Value.ToString() });
+            }
+
+            HttpClientService service = new HttpClientService(_adminToken.Token);
+            string json = JsonConvert.SerializeObject(episode);
+            string response = await service.PostAsync("/admin/uploadepisodedata", json);
+
+            if (response.Contains("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                dialogForm.CloseProgress(this);
+                return;
+            }
+            else
+            {
+                //MessageBox.Show("Upload done!", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            dialogForm.CloseProgress(this);
+
+            LoadListEpisodes(tbMovieId.Text, seasonNow);
+
         }
     }
 }

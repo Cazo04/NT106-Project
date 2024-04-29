@@ -1,6 +1,7 @@
 ﻿using HtmlAgilityPack;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NT106_WebServer.Models;
 using System.Xml;
@@ -218,6 +219,52 @@ namespace NT106_API_Server.Controllers
 
             return Ok(movieModel);
         }
+        [Route("uploadbasicdataimdb")]
+        [HttpPost]
+        [AdminValidateToken]
+        public IActionResult UploadBasicDataIMDb([FromBody] MovieModel movieModel, [FromQuery] string method)
+        {
+            if (ModelState.IsValid)
+            {
+                if (method == "update")
+                {
+                    MovieModel.UpdateMovie(movieModel);
+                    return Ok();
+                }
+                if (method == "insert")
+                {
+                    movieModel.InsertMovie(movieModel.MovieInfo);
+                    MovieModel.InsertSeason(movieModel.MovieInfo.MovieId, null, movieModel.Seasons);
+                    if (!movieModel.MovieInfo.IsTVShows)
+                    {
+                        MovieModel.InsertEpisode(new MovieModel.Episodes()
+                        {
+                            Id = movieModel.MovieInfo.MovieId,
+                            MovieId = movieModel.MovieInfo.MovieId,
+                            Season = "0"
+                        });
+                    }
+                    foreach (var director in movieModel.Directors)
+                    {
+                        MovieModel.InsertOrUpdatePerson(director);
+                        movieModel.InsertMovieDirector(new MovieModel.MovieDirectors() { MovieId = movieModel.MovieInfo.MovieId, PersonId = director.Id });
+                    }
+                    foreach (var writer in movieModel.Writers)
+                    {
+                        MovieModel.InsertOrUpdatePerson(writer);
+                        movieModel.InsertMovieWriter(new MovieModel.MovieWriters() { MovieId = movieModel.MovieInfo.MovieId, PersonId = writer.Id });
+                    }
+                    foreach (var creator in movieModel.Creators)
+                    {
+                        MovieModel.InsertOrUpdatePerson(creator);
+                        movieModel.InsertMovieCreator(new MovieModel.MovieCreator() { MovieId = movieModel.MovieInfo.MovieId, PersonId = creator.Id });
+                    }
+                    return Ok("{}");
+                }
+                return NotFound();
+            }
+            return BadRequest(String.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)));
+        }
         [Route("episodesmanager")]
         [HttpGet]
         [AdminValidateToken]
@@ -242,6 +289,149 @@ namespace NT106_API_Server.Controllers
             }
             MovieModel.Episodes episode = MovieModel.GetEpisode(episodeId);
             return Ok(episode);
+        }
+        [Route("getepisodedatafromimdb")]
+        [HttpGet]
+        [AdminValidateToken]
+        public async Task<IActionResult> GetEpisodeDataFromIMDb(string url)
+        {
+            if (url == null)
+            {
+                return NotFound();
+            }
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("accept-language", "en-US");
+            HttpResponseMessage message = await client.GetAsync(url);
+            message.EnsureSuccessStatusCode();
+            string htmltext = await message.Content.ReadAsStringAsync();
+            HtmlDocument htmldocument = new HtmlDocument();
+            htmldocument.LoadHtml(htmltext);
+
+            HtmlNode node = htmldocument.GetElementbyId("__NEXT_DATA__");
+
+            JToken episodeId = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["id"];
+            JToken episodeRuntime = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["runtime"]["seconds"];
+            JToken episodeVoteCount = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["ratingsSummary"]["voteCount"];
+            JToken episodeImageCaption = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["primaryImage"]["caption"]["plainText"];
+            JToken episodePlot = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["plot"]["plotText"]["plainText"];
+            JToken episodeReleaseDay = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["releaseDate"]["day"];
+            JToken episodeReleaseMonth = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["releaseDate"]["month"];
+            JToken episodeReleaseYear = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["releaseDate"]["year"];
+            JToken episodeAggregateRating = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["ratingsSummary"]["aggregateRating"];
+            JToken episodePrimaryImage = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["primaryImage"]["url"];
+
+            JToken genres = JObject.Parse(node.InnerText)["props"]["pageProps"]["aboveTheFoldData"]["genres"]["genres"];
+            List<MovieModel.EpisodeGenres> genreList = new List<MovieModel.EpisodeGenres>();
+            foreach (JToken genre in genres)
+            {
+                genreList.Add(new MovieModel.EpisodeGenres()
+                {
+                    Name = genre["text"].ToString()
+                });
+            }
+            List<MovieModel.EpisodeDirectors> directors = new List<MovieModel.EpisodeDirectors>();
+            if (JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["directors"].Count() > 0)
+                foreach (var director in JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["directors"][0]["credits"])
+                {
+                    directors.Add(new MovieModel.EpisodeDirectors()
+                    {
+                        Person = new MovieModel.Person
+                        {
+                            Id = director["name"]["id"].ToString(),
+                            Name = director["name"]["nameText"]["text"].ToString()
+                        }
+                    });
+                }
+            List<MovieModel.EpisodeWriters> writers = new List<MovieModel.EpisodeWriters>();
+            if (JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["writers"].Count() > 0)
+                foreach (var writer in JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["writers"][0]["credits"])
+                {
+                    writers.Add(new MovieModel.EpisodeWriters()
+                    {
+                        Person = new MovieModel.Person
+                        {
+                            Id = writer["name"]["id"].ToString(),
+                            Name = writer["name"]["nameText"]["text"].ToString()
+                        }
+                    });
+                }
+            List<MovieModel.EpisodeCreator> creators = new List<MovieModel.EpisodeCreator>();
+            if (JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["creators"].Count() > 0)
+                foreach (var creator in JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["creators"][0]["credits"])
+                {
+                    creators.Add(new MovieModel.EpisodeCreator()
+                    {
+                        Person = new MovieModel.Person
+                        {
+                            Id = creator["name"]["id"].ToString(),
+                            Name = creator["name"]["nameText"]["text"].ToString()
+                        }
+                    });
+                }
+            List<MovieModel.Cast> casts = new List<MovieModel.Cast>();
+            if (JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["cast"]["edges"].Count() > 0)
+                foreach (var cast in JObject.Parse(node.InnerText)["props"]["pageProps"]["mainColumnData"]["cast"]["edges"])
+                {
+                    foreach (var character in cast["node"]["characters"])
+                    {
+                        casts.Add(new MovieModel.Cast()
+                        {
+                            Person = new MovieModel.Person
+                            {
+                                Id = cast["node"]["name"]["id"].ToString(),
+                                Name = cast["node"]["name"]["nameText"]["text"].ToString(),
+                                Image = cast["node"]["name"]["primaryImage"].HasValues ? cast["node"]["name"]["primaryImage"]["url"].ToString() : null
+                            },
+                            CharacterName = character["name"].ToString()
+                        });
+                    }
+                }
+
+            MovieModel.Episodes episode = new MovieModel.Episodes();
+            episode.Id = episodeId.ToString();
+            episode.Plot = episodePlot.ToString();
+            episode.Duration = int.Parse(episodeRuntime.ToString());
+            episode.ReleaseDate = new DateTime(int.Parse(episodeReleaseYear.ToString()), int.Parse(episodeReleaseMonth.ToString()), int.Parse(episodeReleaseDay.ToString()));
+            episode.AggregateRating = double.Parse(episodeAggregateRating.ToString());
+            episode.VoteCount = int.Parse(episodeVoteCount.ToString());
+            episode.Image = episodePrimaryImage.ToString();
+            episode.ImageCaption = episodeImageCaption.ToString();
+            episode.Genres = genreList;
+            episode.Directors = directors;
+            episode.Writers = writers;
+            episode.Creators = creators;
+            episode.Casts = casts;
+
+            return Ok(episode);
+        }
+        [Route("uploadepisodesdata")]
+        [HttpPost]
+        [AdminValidateToken]
+        public IActionResult UploadEpisodesData([FromBody] List<MovieModel.Episodes> episodes)
+        {
+            if (ModelState.IsValid)
+            {
+                foreach (var episode in episodes)
+                {
+                    MovieModel.InsertEpisode(episode);
+                }
+                return Ok("{}");
+            }
+            return BadRequest(String.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)));
+        }
+        [Route("uploadepisodedata")]
+        [HttpPost]
+        [AdminValidateToken]
+        public IActionResult UploadEpisodeData([FromBody] MovieModel.Episodes episode)
+        {
+            if (ModelState.IsValid)
+            {
+                MovieModel.UpdateEpisode(episode);
+                return Ok("{}");
+            }
+            return BadRequest(String.Join("; ", ModelState.Values
+                                            .SelectMany(v => v.Errors)
+                                            .Select(e => e.ErrorMessage)));
         }
     }
 
