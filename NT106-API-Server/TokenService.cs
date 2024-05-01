@@ -16,7 +16,7 @@ namespace NT106_API_Server
             return randomString;
         }
         public static string TempToken { get; set; }
-        public static void InsertUserToken(string userId)
+        public static bool InsertUserToken(UserToken user)
         {
             using (var connection = MySQLServer.GetWorkingConnection())
             {
@@ -27,18 +27,20 @@ namespace NT106_API_Server
                     try
                     {
                         TempToken = GenerateUUID();
-                        command.Parameters.AddWithValue("@UserId", userId);
-                        command.Parameters.AddWithValue("@Token", TempToken);
+                        command.Parameters.AddWithValue("@UserId", user.UserId);
+                        command.Parameters.AddWithValue("@Token", user.Token);
                         command.Parameters.AddWithValue("@Expires", DateTime.Now.AddDays(30));
                         command.Parameters.AddWithValue("@IsRevoked", false);
 
                         command.ExecuteNonQuery();
+                        return true;
                     }
                     catch (MySqlException ex)
                     {
                         if (ex.Number == 1062)
                         {
                             //Console.WriteLine("A record with the same PRIMARY KEY or UNIQUE value already exists.");
+                            return false;
                         }
                         else
                         {

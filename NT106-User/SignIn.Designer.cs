@@ -34,12 +34,12 @@
             btnGetStarted = new Button();
             llbForgotPassword = new LinkLabel();
             cbRememberme = new CheckBox();
-            txtPassword = new TextBox();
-            txtUsernameorEmailaddress = new TextBox();
+            tbUsernameOrEmail = new TextBox();
             label3 = new Label();
             lbUsernameorEmailaddress = new Label();
             lbSignIn = new Label();
             llbSignup = new LinkLabel();
+            tbPassword = new TextBox();
             SuspendLayout();
             // 
             // btnOutlock
@@ -96,6 +96,7 @@
             btnGetStarted.TabIndex = 28;
             btnGetStarted.Text = "Get Started";
             btnGetStarted.UseVisualStyleBackColor = false;
+            btnGetStarted.Click += btnGetStarted_Click;
             // 
             // llbForgotPassword
             // 
@@ -122,23 +123,15 @@
             cbRememberme.Text = "Remember me";
             cbRememberme.UseVisualStyleBackColor = true;
             // 
-            // txtPassword
+            // tbUsernameOrEmail
             // 
-            txtPassword.BackColor = Color.FromArgb(64, 64, 64);
-            txtPassword.Location = new Point(12, 224);
-            txtPassword.Multiline = true;
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(348, 33);
-            txtPassword.TabIndex = 25;
-            // 
-            // txtUsernameorEmailaddress
-            // 
-            txtUsernameorEmailaddress.BackColor = Color.FromArgb(64, 64, 64);
-            txtUsernameorEmailaddress.Location = new Point(12, 121);
-            txtUsernameorEmailaddress.Multiline = true;
-            txtUsernameorEmailaddress.Name = "txtUsernameorEmailaddress";
-            txtUsernameorEmailaddress.Size = new Size(348, 33);
-            txtUsernameorEmailaddress.TabIndex = 24;
+            tbUsernameOrEmail.BackColor = Color.FromArgb(64, 64, 64);
+            tbUsernameOrEmail.ForeColor = SystemColors.Window;
+            tbUsernameOrEmail.Location = new Point(12, 121);
+            tbUsernameOrEmail.Multiline = true;
+            tbUsernameOrEmail.Name = "tbUsernameOrEmail";
+            tbUsernameOrEmail.Size = new Size(348, 33);
+            tbUsernameOrEmail.TabIndex = 24;
             // 
             // label3
             // 
@@ -187,12 +180,21 @@
             llbSignup.Text = "Don't have an account? Sign up";
             llbSignup.LinkClicked += llbSignup_LinkClicked;
             // 
+            // tbPassword
+            // 
+            tbPassword.Location = new Point(12, 226);
+            tbPassword.Name = "tbPassword";
+            tbPassword.Size = new Size(348, 23);
+            tbPassword.TabIndex = 32;
+            tbPassword.UseSystemPasswordChar = true;
+            // 
             // SignIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(382, 548);
+            Controls.Add(tbPassword);
             Controls.Add(btnOutlock);
             Controls.Add(btnGoogle);
             Controls.Add(lbOrsigninwith);
@@ -200,8 +202,7 @@
             Controls.Add(llbSignup);
             Controls.Add(llbForgotPassword);
             Controls.Add(cbRememberme);
-            Controls.Add(txtPassword);
-            Controls.Add(txtUsernameorEmailaddress);
+            Controls.Add(tbUsernameOrEmail);
             Controls.Add(label3);
             Controls.Add(lbUsernameorEmailaddress);
             Controls.Add(lbSignIn);
@@ -219,11 +220,11 @@
         private Button btnGetStarted;
         private LinkLabel llbForgotPassword;
         private CheckBox cbRememberme;
-        private TextBox txtPassword;
-        private TextBox txtUsernameorEmailaddress;
+        private TextBox tbUsernameOrEmail;
         private Label label3;
         private Label lbUsernameorEmailaddress;
         private Label lbSignIn;
         private LinkLabel llbSignup;
+        private TextBox tbPassword;
     }
 }

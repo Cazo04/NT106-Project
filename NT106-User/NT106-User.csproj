@@ -10,6 +10,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NT106-Admin\NT106-Admin.csproj" />
+    <ProjectReference Include="..\NT106-API-Server\NT106-API-Server.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ProgressDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

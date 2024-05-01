@@ -30,11 +30,11 @@
         {
             dtpDateOfBirth = new DateTimePicker();
             btnSignup = new Button();
-            txtPassword = new TextBox();
-            txtEmailaddress = new TextBox();
-            txtCofirmpassword = new TextBox();
-            txtUsername = new TextBox();
-            txtFullname = new TextBox();
+            tbPassword = new TextBox();
+            tbEmail = new TextBox();
+            tbCofirmpassword = new TextBox();
+            tbUsername = new TextBox();
+            tbFullName = new TextBox();
             lbConfirmpassword = new Label();
             lbPassword = new Label();
             lbEmailaddress = new Label();
@@ -65,56 +65,57 @@
             btnSignup.TabIndex = 19;
             btnSignup.Text = "Sign Up";
             btnSignup.UseVisualStyleBackColor = false;
+            btnSignup.Click += btnSignup_Click;
             // 
-            // txtPassword
+            // tbPassword
             // 
-            txtPassword.BackColor = Color.FromArgb(64, 64, 64);
-            txtPassword.ForeColor = SystemColors.Window;
-            txtPassword.Location = new Point(12, 382);
-            txtPassword.Multiline = true;
-            txtPassword.Name = "txtPassword";
-            txtPassword.Size = new Size(364, 29);
-            txtPassword.TabIndex = 15;
+            tbPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbPassword.ForeColor = SystemColors.Window;
+            tbPassword.Location = new Point(12, 382);
+            tbPassword.Multiline = true;
+            tbPassword.Name = "tbPassword";
+            tbPassword.Size = new Size(364, 29);
+            tbPassword.TabIndex = 15;
             // 
-            // txtEmailaddress
+            // tbEmail
             // 
-            txtEmailaddress.BackColor = Color.FromArgb(64, 64, 64);
-            txtEmailaddress.ForeColor = SystemColors.Window;
-            txtEmailaddress.Location = new Point(12, 314);
-            txtEmailaddress.Multiline = true;
-            txtEmailaddress.Name = "txtEmailaddress";
-            txtEmailaddress.Size = new Size(364, 29);
-            txtEmailaddress.TabIndex = 13;
+            tbEmail.BackColor = Color.FromArgb(64, 64, 64);
+            tbEmail.ForeColor = SystemColors.Window;
+            tbEmail.Location = new Point(12, 314);
+            tbEmail.Multiline = true;
+            tbEmail.Name = "tbEmail";
+            tbEmail.Size = new Size(364, 29);
+            tbEmail.TabIndex = 13;
             // 
-            // txtCofirmpassword
+            // tbCofirmpassword
             // 
-            txtCofirmpassword.BackColor = Color.FromArgb(64, 64, 64);
-            txtCofirmpassword.ForeColor = SystemColors.Window;
-            txtCofirmpassword.Location = new Point(12, 459);
-            txtCofirmpassword.Multiline = true;
-            txtCofirmpassword.Name = "txtCofirmpassword";
-            txtCofirmpassword.Size = new Size(364, 29);
-            txtCofirmpassword.TabIndex = 17;
+            tbCofirmpassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbCofirmpassword.ForeColor = SystemColors.Window;
+            tbCofirmpassword.Location = new Point(12, 459);
+            tbCofirmpassword.Multiline = true;
+            tbCofirmpassword.Name = "tbCofirmpassword";
+            tbCofirmpassword.Size = new Size(364, 29);
+            tbCofirmpassword.TabIndex = 17;
             // 
-            // txtUsername
+            // tbUsername
             // 
-            txtUsername.BackColor = Color.FromArgb(64, 64, 64);
-            txtUsername.ForeColor = SystemColors.Window;
-            txtUsername.Location = new Point(12, 240);
-            txtUsername.Multiline = true;
-            txtUsername.Name = "txtUsername";
-            txtUsername.Size = new Size(364, 29);
-            txtUsername.TabIndex = 11;
+            tbUsername.BackColor = Color.FromArgb(64, 64, 64);
+            tbUsername.ForeColor = SystemColors.Window;
+            tbUsername.Location = new Point(12, 240);
+            tbUsername.Multiline = true;
+            tbUsername.Name = "tbUsername";
+            tbUsername.Size = new Size(364, 29);
+            tbUsername.TabIndex = 11;
             // 
-            // txtFullname
+            // tbFullName
             // 
-            txtFullname.BackColor = Color.FromArgb(64, 64, 64);
-            txtFullname.ForeColor = SystemColors.Window;
-            txtFullname.Location = new Point(12, 85);
-            txtFullname.Multiline = true;
-            txtFullname.Name = "txtFullname";
-            txtFullname.Size = new Size(364, 29);
-            txtFullname.TabIndex = 7;
+            tbFullName.BackColor = Color.FromArgb(64, 64, 64);
+            tbFullName.ForeColor = SystemColors.Window;
+            tbFullName.Location = new Point(12, 85);
+            tbFullName.Multiline = true;
+            tbFullName.Name = "tbFullName";
+            tbFullName.Size = new Size(364, 29);
+            tbFullName.TabIndex = 7;
             // 
             // lbConfirmpassword
             // 
@@ -194,11 +195,11 @@
             ClientSize = new Size(394, 575);
             Controls.Add(dtpDateOfBirth);
             Controls.Add(btnSignup);
-            Controls.Add(txtPassword);
-            Controls.Add(txtEmailaddress);
-            Controls.Add(txtCofirmpassword);
-            Controls.Add(txtUsername);
-            Controls.Add(txtFullname);
+            Controls.Add(tbPassword);
+            Controls.Add(tbEmail);
+            Controls.Add(tbCofirmpassword);
+            Controls.Add(tbUsername);
+            Controls.Add(tbFullName);
             Controls.Add(lbConfirmpassword);
             Controls.Add(lbPassword);
             Controls.Add(lbEmailaddress);
@@ -216,11 +217,11 @@
 
         private DateTimePicker dtpDateOfBirth;
         private Button btnSignup;
-        private TextBox txtPassword;
-        private TextBox txtEmailaddress;
-        private TextBox txtCofirmpassword;
-        private TextBox txtUsername;
-        private TextBox txtFullname;
+        private TextBox tbPassword;
+        private TextBox tbEmail;
+        private TextBox tbCofirmpassword;
+        private TextBox tbUsername;
+        private TextBox tbFullName;
         private Label lbConfirmpassword;
         private Label lbPassword;
         private Label lbEmailaddress;

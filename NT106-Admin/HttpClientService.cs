@@ -12,7 +12,7 @@ namespace NT106_Admin
         private readonly HttpClient _httpClient;
         private readonly string _baseUri;        
 
-        public HttpClientService(string accessToken, string baseUri = "https://localhost:7204")
+        public HttpClientService(string accessToken = "None", string baseUri = "https://localhost:7204")
         {
             _baseUri = baseUri;
             _httpClient = new HttpClient
@@ -27,7 +27,7 @@ namespace NT106_Admin
             try
             {
                 var response = await _httpClient.GetAsync(url);
-                response.EnsureSuccessStatusCode();
+                //response.EnsureSuccessStatusCode();
                 if (response.IsSuccessStatusCode)
                 {
                     return await response.Content.ReadAsStringAsync();

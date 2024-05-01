@@ -126,6 +126,37 @@ namespace NT106_WebServer.Models
                 }
             }
         }
+        public static UserModel? GetVeryBasicUserByToken(string token)
+        {
+            using (var conn = MySQLServer.GetWorkingConnection())
+            {
+                try
+                {
+                    var query = "SELECT Id, Username FROM User WHERE Id = (SELECT UserId FROM UserToken WHERE Token = @Token)";
+
+                    using (var cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Token", token);
+                        using (var reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                return new UserModel
+                                {
+                                    //Id = reader.GetString("Id"),
+                                    Username = reader.GetString("Username")
+                                };
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception($"GetVeryBasicUserByToken: {ex.Message}");
+                }
+            }
+            return null;
+        }
         public static UserModel? GetUser(string id)
         {
             using (var conn = MySQLServer.GetWorkingConnection())

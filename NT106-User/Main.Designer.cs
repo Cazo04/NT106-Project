@@ -35,13 +35,13 @@
             btnWatctlist = new Button();
             panel3 = new Panel();
             label2 = new Label();
-            lbUser = new Label();
+            lbUsername = new Label();
             imgUser = new PictureBox();
             panel2 = new Panel();
             panel1 = new Panel();
             tlpnMiniUser = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
-            label1 = new Label();
+            imgMiniAvatar = new PictureBox();
+            lbMiniUsername = new Label();
             btnMylist = new Button();
             btnNewandpopular = new Button();
             btnMovies = new Button();
@@ -54,12 +54,12 @@
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel1.SuspendLayout();
             tlpnMiniUser.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imgMiniAvatar).BeginInit();
             SuspendLayout();
             // 
             // pnUser
             // 
-            pnUser.BackColor = Color.FromArgb(64, 64, 64);
+            pnUser.BackColor = Color.FromArgb(25, 27, 29);
             pnUser.Controls.Add(btnLogout);
             pnUser.Controls.Add(btnProfile);
             pnUser.Controls.Add(btnWatctlist);
@@ -74,23 +74,24 @@
             // 
             // btnLogout
             // 
-            btnLogout.BackColor = Color.FromArgb(64, 64, 64);
-            btnLogout.Dock = DockStyle.Top;
+            btnLogout.BackColor = Color.FromArgb(42, 44, 49);
+            btnLogout.Dock = DockStyle.Bottom;
             btnLogout.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
             btnLogout.FlatStyle = FlatStyle.Flat;
             btnLogout.Font = new Font("Segoe UI", 12F);
             btnLogout.ForeColor = SystemColors.ControlLightLight;
-            btnLogout.Location = new Point(0, 138);
+            btnLogout.Location = new Point(0, 684);
             btnLogout.Margin = new Padding(2);
             btnLogout.Name = "btnLogout";
             btnLogout.Size = new Size(184, 36);
             btnLogout.TabIndex = 3;
             btnLogout.Text = "Logout";
             btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnProfile
             // 
-            btnProfile.BackColor = Color.FromArgb(64, 64, 64);
+            btnProfile.BackColor = Color.FromArgb(42, 44, 49);
             btnProfile.Dock = DockStyle.Top;
             btnProfile.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
             btnProfile.FlatStyle = FlatStyle.Flat;
@@ -107,7 +108,7 @@
             // 
             // btnWatctlist
             // 
-            btnWatctlist.BackColor = Color.FromArgb(64, 64, 64);
+            btnWatctlist.BackColor = Color.FromArgb(42, 44, 49);
             btnWatctlist.Dock = DockStyle.Top;
             btnWatctlist.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
             btnWatctlist.FlatStyle = FlatStyle.Flat;
@@ -123,9 +124,9 @@
             // 
             // panel3
             // 
-            panel3.BackColor = Color.FromArgb(64, 64, 64);
+            panel3.BackColor = Color.FromArgb(42, 44, 49);
             panel3.Controls.Add(label2);
-            panel3.Controls.Add(lbUser);
+            panel3.Controls.Add(lbUsername);
             panel3.Controls.Add(imgUser);
             panel3.Dock = DockStyle.Top;
             panel3.Location = new Point(0, 0);
@@ -147,17 +148,17 @@
             label2.TabIndex = 2;
             label2.Text = "Free";
             // 
-            // lbUser
+            // lbUsername
             // 
-            lbUser.AutoSize = true;
-            lbUser.Font = new Font("Segoe UI", 9.75F);
-            lbUser.ForeColor = SystemColors.ControlLightLight;
-            lbUser.Location = new Point(85, 11);
-            lbUser.Margin = new Padding(2, 0, 2, 0);
-            lbUser.Name = "lbUser";
-            lbUser.Size = new Size(35, 17);
-            lbUser.TabIndex = 1;
-            lbUser.Text = "User";
+            lbUsername.AutoSize = true;
+            lbUsername.Font = new Font("Segoe UI", 9.75F);
+            lbUsername.ForeColor = SystemColors.ControlLightLight;
+            lbUsername.Location = new Point(85, 11);
+            lbUsername.Margin = new Padding(2, 0, 2, 0);
+            lbUsername.Name = "lbUsername";
+            lbUsername.Size = new Size(35, 17);
+            lbUsername.TabIndex = 1;
+            lbUsername.Text = "User";
             // 
             // imgUser
             // 
@@ -199,45 +200,48 @@
             // tlpnMiniUser
             // 
             tlpnMiniUser.ColumnCount = 2;
-            tlpnMiniUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.5783119F));
-            tlpnMiniUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55.4216881F));
-            tlpnMiniUser.Controls.Add(pictureBox1, 0, 0);
-            tlpnMiniUser.Controls.Add(label1, 1, 0);
+            tlpnMiniUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 28.4482765F));
+            tlpnMiniUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 71.55173F));
+            tlpnMiniUser.Controls.Add(imgMiniAvatar, 0, 0);
+            tlpnMiniUser.Controls.Add(lbMiniUsername, 1, 0);
             tlpnMiniUser.Dock = DockStyle.Right;
-            tlpnMiniUser.Location = new Point(691, 0);
+            tlpnMiniUser.Location = new Point(648, 0);
             tlpnMiniUser.Name = "tlpnMiniUser";
             tlpnMiniUser.Padding = new Padding(2);
             tlpnMiniUser.RowCount = 1;
             tlpnMiniUser.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpnMiniUser.Size = new Size(77, 39);
+            tlpnMiniUser.Size = new Size(120, 39);
             tlpnMiniUser.TabIndex = 6;
             tlpnMiniUser.Visible = false;
+            tlpnMiniUser.Click += tlpnMiniUser_Click;
             // 
-            // pictureBox1
+            // imgMiniAvatar
             // 
-            pictureBox1.Dock = DockStyle.Left;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(4, 4);
-            pictureBox1.Margin = new Padding(2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(28, 31);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 1;
-            pictureBox1.TabStop = false;
+            imgMiniAvatar.Dock = DockStyle.Left;
+            imgMiniAvatar.Image = (Image)resources.GetObject("imgMiniAvatar.Image");
+            imgMiniAvatar.Location = new Point(4, 4);
+            imgMiniAvatar.Margin = new Padding(2);
+            imgMiniAvatar.Name = "imgMiniAvatar";
+            imgMiniAvatar.Size = new Size(28, 31);
+            imgMiniAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            imgMiniAvatar.TabIndex = 1;
+            imgMiniAvatar.TabStop = false;
+            imgMiniAvatar.Click += imgMiniAvatar_Click;
             // 
-            // label1
+            // lbMiniUsername
             // 
-            label1.AutoSize = true;
-            label1.Dock = DockStyle.Left;
-            label1.Font = new Font("Segoe UI", 9.75F);
-            label1.ForeColor = SystemColors.ControlLightLight;
-            label1.Location = new Point(36, 2);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(35, 35);
-            label1.TabIndex = 2;
-            label1.Text = "User";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            lbMiniUsername.AutoSize = true;
+            lbMiniUsername.Dock = DockStyle.Left;
+            lbMiniUsername.Font = new Font("Segoe UI", 9.75F);
+            lbMiniUsername.ForeColor = SystemColors.ControlLightLight;
+            lbMiniUsername.Location = new Point(37, 2);
+            lbMiniUsername.Margin = new Padding(2, 0, 2, 0);
+            lbMiniUsername.Name = "lbMiniUsername";
+            lbMiniUsername.Size = new Size(35, 35);
+            lbMiniUsername.TabIndex = 2;
+            lbMiniUsername.Text = "User";
+            lbMiniUsername.TextAlign = ContentAlignment.MiddleLeft;
+            lbMiniUsername.Click += lbMiniUsername_Click;
             // 
             // btnMylist
             // 
@@ -357,6 +361,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "Main";
             Text = "Form1";
+            Load += Main_Load;
             pnUser.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -364,7 +369,7 @@
             panel1.ResumeLayout(false);
             tlpnMiniUser.ResumeLayout(false);
             tlpnMiniUser.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imgMiniAvatar).EndInit();
             ResumeLayout(false);
         }
 
@@ -377,7 +382,7 @@
         private Button btnProfile;
         private Button btnWatctlist;
         private Label label2;
-        private Label lbUser;
+        private Label lbUsername;
         private Panel panel1;
         private Button btnNewandpopular;
         private Button btnMovies;
@@ -387,7 +392,7 @@
         private Button btnMylist;
         private Button btnLogo;
         private TableLayoutPanel tlpnMiniUser;
-        private PictureBox pictureBox1;
-        private Label label1;
+        private PictureBox imgMiniAvatar;
+        private Label lbMiniUsername;
     }
 }
