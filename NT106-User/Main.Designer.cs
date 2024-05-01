@@ -39,17 +39,22 @@
             imgUser = new PictureBox();
             panel2 = new Panel();
             panel1 = new Panel();
+            tlpnMiniUser = new TableLayoutPanel();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
             btnMylist = new Button();
             btnNewandpopular = new Button();
             btnMovies = new Button();
             btnTvshows = new Button();
-            btnLogo = new Button();
             btnHome = new Button();
+            btnLogo = new Button();
             btnSignin = new Button();
             pnUser.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             panel1.SuspendLayout();
+            tlpnMiniUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnUser
@@ -177,12 +182,13 @@
             // panel1
             // 
             panel1.BackColor = Color.Black;
+            panel1.Controls.Add(tlpnMiniUser);
             panel1.Controls.Add(btnMylist);
             panel1.Controls.Add(btnNewandpopular);
             panel1.Controls.Add(btnMovies);
             panel1.Controls.Add(btnTvshows);
-            panel1.Controls.Add(btnLogo);
             panel1.Controls.Add(btnHome);
+            panel1.Controls.Add(btnLogo);
             panel1.Controls.Add(btnSignin);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -190,16 +196,60 @@
             panel1.Size = new Size(854, 39);
             panel1.TabIndex = 3;
             // 
+            // tlpnMiniUser
+            // 
+            tlpnMiniUser.ColumnCount = 2;
+            tlpnMiniUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 44.5783119F));
+            tlpnMiniUser.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55.4216881F));
+            tlpnMiniUser.Controls.Add(pictureBox1, 0, 0);
+            tlpnMiniUser.Controls.Add(label1, 1, 0);
+            tlpnMiniUser.Dock = DockStyle.Right;
+            tlpnMiniUser.Location = new Point(691, 0);
+            tlpnMiniUser.Name = "tlpnMiniUser";
+            tlpnMiniUser.Padding = new Padding(2);
+            tlpnMiniUser.RowCount = 1;
+            tlpnMiniUser.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tlpnMiniUser.Size = new Size(77, 39);
+            tlpnMiniUser.TabIndex = 6;
+            tlpnMiniUser.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Left;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(4, 4);
+            pictureBox1.Margin = new Padding(2);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(28, 31);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Dock = DockStyle.Left;
+            label1.Font = new Font("Segoe UI", 9.75F);
+            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.Location = new Point(36, 2);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(35, 35);
+            label1.TabIndex = 2;
+            label1.Text = "User";
+            label1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // btnMylist
             // 
             btnMylist.BackColor = Color.Black;
+            btnMylist.Dock = DockStyle.Left;
             btnMylist.FlatAppearance.BorderColor = Color.Black;
             btnMylist.FlatStyle = FlatStyle.Flat;
             btnMylist.Font = new Font("Segoe UI", 12F);
             btnMylist.ForeColor = SystemColors.ControlLightLight;
-            btnMylist.Location = new Point(491, 2);
+            btnMylist.Location = new Point(493, 0);
             btnMylist.Name = "btnMylist";
-            btnMylist.Size = new Size(86, 36);
+            btnMylist.Size = new Size(86, 39);
             btnMylist.TabIndex = 4;
             btnMylist.Text = "My List";
             btnMylist.UseVisualStyleBackColor = false;
@@ -207,13 +257,14 @@
             // btnNewandpopular
             // 
             btnNewandpopular.BackColor = Color.Black;
+            btnNewandpopular.Dock = DockStyle.Left;
             btnNewandpopular.FlatAppearance.BorderColor = Color.Black;
             btnNewandpopular.FlatStyle = FlatStyle.Flat;
             btnNewandpopular.Font = new Font("Segoe UI", 12F);
             btnNewandpopular.ForeColor = SystemColors.ControlLightLight;
-            btnNewandpopular.Location = new Point(348, 2);
+            btnNewandpopular.Location = new Point(356, 0);
             btnNewandpopular.Name = "btnNewandpopular";
-            btnNewandpopular.Size = new Size(137, 36);
+            btnNewandpopular.Size = new Size(137, 39);
             btnNewandpopular.TabIndex = 3;
             btnNewandpopular.Text = "New && Popular";
             btnNewandpopular.UseVisualStyleBackColor = false;
@@ -221,13 +272,14 @@
             // btnMovies
             // 
             btnMovies.BackColor = Color.Black;
+            btnMovies.Dock = DockStyle.Left;
             btnMovies.FlatAppearance.BorderColor = Color.Black;
             btnMovies.FlatStyle = FlatStyle.Flat;
             btnMovies.Font = new Font("Segoe UI", 12F);
             btnMovies.ForeColor = SystemColors.ControlLightLight;
-            btnMovies.Location = new Point(256, 4);
+            btnMovies.Location = new Point(270, 0);
             btnMovies.Name = "btnMovies";
-            btnMovies.Size = new Size(86, 33);
+            btnMovies.Size = new Size(86, 39);
             btnMovies.TabIndex = 2;
             btnMovies.Text = "Movies";
             btnMovies.UseVisualStyleBackColor = false;
@@ -235,48 +287,52 @@
             // btnTvshows
             // 
             btnTvshows.BackColor = Color.Black;
+            btnTvshows.Dock = DockStyle.Left;
             btnTvshows.FlatAppearance.BorderColor = Color.Black;
             btnTvshows.FlatStyle = FlatStyle.Flat;
             btnTvshows.Font = new Font("Segoe UI", 12F);
             btnTvshows.ForeColor = SystemColors.ControlLightLight;
-            btnTvshows.Location = new Point(164, 3);
+            btnTvshows.Location = new Point(172, 0);
             btnTvshows.Name = "btnTvshows";
-            btnTvshows.Size = new Size(98, 34);
+            btnTvshows.Size = new Size(98, 39);
             btnTvshows.TabIndex = 1;
             btnTvshows.Text = "TV Shows";
             btnTvshows.UseVisualStyleBackColor = false;
             // 
-            // btnLogo
-            // 
-            btnLogo.BackColor = Color.Black;
-            btnLogo.FlatAppearance.BorderColor = Color.Black;
-            btnLogo.FlatStyle = FlatStyle.Flat;
-            btnLogo.Font = new Font("Segoe UI", 12F);
-            btnLogo.ForeColor = SystemColors.ControlLightLight;
-            btnLogo.Location = new Point(0, 3);
-            btnLogo.Name = "btnLogo";
-            btnLogo.Size = new Size(86, 34);
-            btnLogo.TabIndex = 1;
-            btnLogo.Text = "Logo";
-            btnLogo.UseVisualStyleBackColor = false;
-            // 
             // btnHome
             // 
             btnHome.BackColor = Color.Black;
+            btnHome.Dock = DockStyle.Left;
             btnHome.FlatAppearance.BorderColor = Color.Black;
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe UI", 12F);
             btnHome.ForeColor = SystemColors.ControlLightLight;
-            btnHome.Location = new Point(83, 2);
+            btnHome.Location = new Point(86, 0);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(86, 34);
+            btnHome.Size = new Size(86, 39);
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
             // 
+            // btnLogo
+            // 
+            btnLogo.BackColor = Color.Black;
+            btnLogo.Dock = DockStyle.Left;
+            btnLogo.FlatAppearance.BorderColor = Color.Black;
+            btnLogo.FlatStyle = FlatStyle.Flat;
+            btnLogo.Font = new Font("Segoe UI", 12F);
+            btnLogo.ForeColor = SystemColors.ControlLightLight;
+            btnLogo.Location = new Point(0, 0);
+            btnLogo.Name = "btnLogo";
+            btnLogo.Size = new Size(86, 39);
+            btnLogo.TabIndex = 1;
+            btnLogo.Text = "Logo";
+            btnLogo.UseVisualStyleBackColor = false;
+            // 
             // btnSignin
             // 
             btnSignin.BackColor = Color.Black;
+            btnSignin.Dock = DockStyle.Right;
             btnSignin.FlatAppearance.BorderColor = Color.Black;
             btnSignin.FlatStyle = FlatStyle.Flat;
             btnSignin.Font = new Font("Segoe UI", 12F);
@@ -306,6 +362,9 @@
             panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             panel1.ResumeLayout(false);
+            tlpnMiniUser.ResumeLayout(false);
+            tlpnMiniUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -327,5 +386,8 @@
         private Button btnSignin;
         private Button btnMylist;
         private Button btnLogo;
+        private TableLayoutPanel tlpnMiniUser;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }

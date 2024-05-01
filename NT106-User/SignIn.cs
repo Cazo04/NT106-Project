@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace NT106_User
 {
-    public partial class Signup : Form
+    public partial class SignIn : Form
     {
-        public Signup()
+        public SignIn()
         {
             InitializeComponent();
+        }
+
+        private void llbSignup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Signup signup = new Signup();
+            this.Hide();
+            signup.ShowDialog();
+            this.Show();
         }
     }
 }

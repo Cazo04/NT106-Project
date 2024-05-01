@@ -17,8 +17,8 @@ namespace NT106_User
 
         private void btnSignin_Click(object sender, EventArgs e)
         {
-            Authentication authentication = new Authentication();
-            authentication.ShowDialog();
+            SignIn signIn = new SignIn();
+            signIn.ShowDialog();
         }
     }
 }
