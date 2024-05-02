@@ -37,7 +37,7 @@
             label2 = new Label();
             lbUsername = new Label();
             imgUser = new PictureBox();
-            panel2 = new Panel();
+            pnMain = new Panel();
             panel1 = new Panel();
             tlpnMiniUser = new TableLayoutPanel();
             imgMiniAvatar = new PictureBox();
@@ -171,14 +171,14 @@
             imgUser.TabIndex = 0;
             imgUser.TabStop = false;
             // 
-            // panel2
+            // pnMain
             // 
-            panel2.Dock = DockStyle.Bottom;
-            panel2.Location = new Point(0, 35);
-            panel2.Margin = new Padding(2);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(854, 685);
-            panel2.TabIndex = 2;
+            pnMain.Dock = DockStyle.Bottom;
+            pnMain.Location = new Point(0, 35);
+            pnMain.Margin = new Padding(2);
+            pnMain.Name = "pnMain";
+            pnMain.Size = new Size(854, 685);
+            pnMain.TabIndex = 2;
             // 
             // panel1
             // 
@@ -356,7 +356,7 @@
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);
             Controls.Add(panel1);
-            Controls.Add(panel2);
+            Controls.Add(pnMain);
             Controls.Add(pnUser);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "Main";
@@ -375,7 +375,7 @@
 
         #endregion
         private Panel pnUser;
-        private Panel panel2;
+        private Panel pnMain;
         private Panel panel3;
         private PictureBox imgUser;
         private Button btnLogout;
