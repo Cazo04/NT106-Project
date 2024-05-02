@@ -50,6 +50,22 @@ namespace NT106_API_Server
                 }
             }
         }
+        public static void UpdateUserToken(string userId,string newToken)
+        {
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+                const string query = "UPDATE UserToken SET Token = @Token, Expires = @Expires WHERE UserId = @UserId";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", userId);
+                    command.Parameters.AddWithValue("@Token", newToken);
+                    command.Parameters.AddWithValue("@Expires", DateTime.Now.AddDays(30));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
         public static string? GetTokenUserById(string userId)
         {
             using (var connection = MySQLServer.GetWorkingConnection())

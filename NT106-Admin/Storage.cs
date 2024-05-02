@@ -11,9 +11,11 @@ namespace NT106_Admin
     {
         private static string filePath = Path.Combine(Application.StartupPath, "settings.dat");
         private const string KEY = "sbIZoCJ5xizVfLagvYQnuZdgLUD4DtVe";
+        public static string? TempToken { get; set; }
 
         public static void SaveEncryptedData(string data)
         {
+            TempToken = data;
             var encryptedData = EncryptString(data);
             File.WriteAllText(filePath, encryptedData);
         }
@@ -22,14 +24,15 @@ namespace NT106_Admin
         {
             if (!File.Exists(filePath))
                 return null;
-
             string encryptedData = File.ReadAllText(filePath);
+            
             return DecryptString(encryptedData);
         }
         public static void DeleteEncryptedData()
         {
             if (File.Exists(filePath))
                 File.Delete(filePath);
+            TempToken = null;
         }
 
         private static string EncryptString(string plainText)
@@ -70,7 +73,9 @@ namespace NT106_Admin
                     {
                         using (StreamReader srDecrypt = new StreamReader(csDecrypt))
                         {
-                            return srDecrypt.ReadToEnd();
+                            string decrypted = srDecrypt.ReadToEnd();
+                            TempToken = decrypted;
+                            return decrypted;
                         }
                     }
                 }

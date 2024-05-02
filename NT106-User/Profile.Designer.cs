@@ -28,105 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
-            btnlogout = new Button();
-            btnProfile = new Button();
             panel2 = new Panel();
+            dtpDateOfBirth = new DateTimePicker();
             btnEdit = new Button();
             lbUsername = new Label();
-            btnChangepassword = new Button();
-            textBox7 = new TextBox();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
+            btnChangePassword = new Button();
+            tbConfirmNewPassword = new TextBox();
+            tbNewPassword = new TextBox();
+            tbOldPassword = new TextBox();
             lbConfirmnewpassword = new Label();
             lbNewpassword = new Label();
             lbOldpassword = new Label();
             lbChangePassword = new Label();
             btnSave = new Button();
-            txtDateofBirth = new TextBox();
-            txtSMS = new TextBox();
-            txtEmail = new TextBox();
-            txtName = new TextBox();
+            tbSMS = new TextBox();
+            tbEmail = new TextBox();
+            tbFullName = new TextBox();
             lbDateofBirth = new Label();
             lbSMS = new Label();
             lbEmail = new Label();
-            lbName = new Label();
+            lbFullName = new Label();
             imgUser = new PictureBox();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).BeginInit();
             SuspendLayout();
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(btnlogout);
-            panel1.Controls.Add(btnProfile);
-            panel1.Dock = DockStyle.Left;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(143, 979);
-            panel1.TabIndex = 18;
-            // 
-            // btnlogout
-            // 
-            btnlogout.BackColor = Color.FromArgb(192, 192, 0);
-            btnlogout.FlatAppearance.BorderColor = Color.FromArgb(192, 192, 0);
-            btnlogout.FlatAppearance.MouseDownBackColor = Color.White;
-            btnlogout.FlatAppearance.MouseOverBackColor = Color.White;
-            btnlogout.FlatStyle = FlatStyle.Flat;
-            btnlogout.Font = new Font("Segoe UI", 11.25F);
-            btnlogout.ForeColor = SystemColors.ControlLightLight;
-            btnlogout.Location = new Point(0, 924);
-            btnlogout.Name = "btnlogout";
-            btnlogout.Size = new Size(138, 53);
-            btnlogout.TabIndex = 14;
-            btnlogout.Text = "Logout";
-            btnlogout.UseVisualStyleBackColor = false;
-            btnlogout.Click += btnlogout_Click;
-            // 
-            // btnProfile
-            // 
-            btnProfile.BackColor = Color.FromArgb(64, 64, 64);
-            btnProfile.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            btnProfile.FlatAppearance.MouseDownBackColor = Color.White;
-            btnProfile.FlatAppearance.MouseOverBackColor = Color.White;
-            btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Segoe UI", 11.25F);
-            btnProfile.ForeColor = SystemColors.ControlLightLight;
-            btnProfile.Location = new Point(0, 0);
-            btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(138, 53);
-            btnProfile.TabIndex = 0;
-            btnProfile.Text = "Profile";
-            btnProfile.UseVisualStyleBackColor = false;
-            // 
             // panel2
             // 
+            panel2.BackColor = Color.FromArgb(64, 64, 64);
+            panel2.Controls.Add(dtpDateOfBirth);
             panel2.Controls.Add(btnEdit);
             panel2.Controls.Add(lbUsername);
-            panel2.Controls.Add(btnChangepassword);
-            panel2.Controls.Add(textBox7);
-            panel2.Controls.Add(textBox6);
-            panel2.Controls.Add(textBox5);
+            panel2.Controls.Add(btnChangePassword);
+            panel2.Controls.Add(tbConfirmNewPassword);
+            panel2.Controls.Add(tbNewPassword);
+            panel2.Controls.Add(tbOldPassword);
             panel2.Controls.Add(lbConfirmnewpassword);
             panel2.Controls.Add(lbNewpassword);
             panel2.Controls.Add(lbOldpassword);
             panel2.Controls.Add(lbChangePassword);
             panel2.Controls.Add(btnSave);
-            panel2.Controls.Add(txtDateofBirth);
-            panel2.Controls.Add(txtSMS);
-            panel2.Controls.Add(txtEmail);
-            panel2.Controls.Add(txtName);
+            panel2.Controls.Add(tbSMS);
+            panel2.Controls.Add(tbEmail);
+            panel2.Controls.Add(tbFullName);
             panel2.Controls.Add(lbDateofBirth);
             panel2.Controls.Add(lbSMS);
             panel2.Controls.Add(lbEmail);
-            panel2.Controls.Add(lbName);
+            panel2.Controls.Add(lbFullName);
             panel2.Controls.Add(imgUser);
-            panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(144, 0);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(552, 979);
-            panel2.TabIndex = 19;
+            panel2.Size = new Size(524, 959);
+            panel2.TabIndex = 20;
+            // 
+            // dtpDateOfBirth
+            // 
+            dtpDateOfBirth.Format = DateTimePickerFormat.Short;
+            dtpDateOfBirth.Location = new Point(75, 500);
+            dtpDateOfBirth.Name = "dtpDateOfBirth";
+            dtpDateOfBirth.Size = new Size(362, 23);
+            dtpDateOfBirth.TabIndex = 41;
             // 
             // btnEdit
             // 
@@ -144,53 +106,55 @@
             // lbUsername
             // 
             lbUsername.AutoSize = true;
+            lbUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbUsername.ForeColor = Color.White;
             lbUsername.Location = new Point(75, 151);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(71, 15);
+            lbUsername.Size = new Size(96, 21);
             lbUsername.TabIndex = 39;
             lbUsername.Text = "@Username";
             // 
-            // btnChangepassword
+            // btnChangePassword
             // 
-            btnChangepassword.BackColor = SystemColors.ActiveCaption;
-            btnChangepassword.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
-            btnChangepassword.FlatStyle = FlatStyle.Flat;
-            btnChangepassword.Font = new Font("Segoe UI", 11.25F);
-            btnChangepassword.ForeColor = SystemColors.ControlLightLight;
-            btnChangepassword.Location = new Point(77, 892);
-            btnChangepassword.Name = "btnChangepassword";
-            btnChangepassword.Size = new Size(159, 34);
-            btnChangepassword.TabIndex = 38;
-            btnChangepassword.Text = "Change Password";
-            btnChangepassword.UseVisualStyleBackColor = false;
+            btnChangePassword.BackColor = SystemColors.ActiveCaption;
+            btnChangePassword.FlatAppearance.BorderColor = SystemColors.ActiveCaption;
+            btnChangePassword.FlatStyle = FlatStyle.Flat;
+            btnChangePassword.Font = new Font("Segoe UI", 11.25F);
+            btnChangePassword.ForeColor = SystemColors.ControlLightLight;
+            btnChangePassword.Location = new Point(77, 892);
+            btnChangePassword.Name = "btnChangePassword";
+            btnChangePassword.Size = new Size(159, 34);
+            btnChangePassword.TabIndex = 38;
+            btnChangePassword.Text = "Change Password";
+            btnChangePassword.UseVisualStyleBackColor = false;
+            btnChangePassword.Click += btnChangePassword_Click;
             // 
-            // textBox7
+            // tbConfirmNewPassword
             // 
-            textBox7.BackColor = Color.FromArgb(64, 64, 64);
-            textBox7.Location = new Point(77, 837);
-            textBox7.Multiline = true;
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(362, 36);
-            textBox7.TabIndex = 36;
+            tbConfirmNewPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbConfirmNewPassword.Location = new Point(77, 837);
+            tbConfirmNewPassword.Multiline = true;
+            tbConfirmNewPassword.Name = "tbConfirmNewPassword";
+            tbConfirmNewPassword.Size = new Size(362, 36);
+            tbConfirmNewPassword.TabIndex = 36;
             // 
-            // textBox6
+            // tbNewPassword
             // 
-            textBox6.BackColor = Color.FromArgb(64, 64, 64);
-            textBox6.Location = new Point(77, 751);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(362, 36);
-            textBox6.TabIndex = 33;
+            tbNewPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbNewPassword.Location = new Point(77, 751);
+            tbNewPassword.Multiline = true;
+            tbNewPassword.Name = "tbNewPassword";
+            tbNewPassword.Size = new Size(362, 36);
+            tbNewPassword.TabIndex = 33;
             // 
-            // textBox5
+            // tbOldPassword
             // 
-            textBox5.BackColor = Color.FromArgb(64, 64, 64);
-            textBox5.Location = new Point(77, 669);
-            textBox5.Multiline = true;
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(362, 36);
-            textBox5.TabIndex = 32;
+            tbOldPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbOldPassword.Location = new Point(77, 669);
+            tbOldPassword.Multiline = true;
+            tbOldPassword.Name = "tbOldPassword";
+            tbOldPassword.Size = new Size(362, 36);
+            tbOldPassword.TabIndex = 32;
             // 
             // lbConfirmnewpassword
             // 
@@ -250,41 +214,38 @@
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
             // 
-            // txtDateofBirth
+            // tbSMS
             // 
-            txtDateofBirth.BackColor = Color.FromArgb(64, 64, 64);
-            txtDateofBirth.Location = new Point(75, 489);
-            txtDateofBirth.Multiline = true;
-            txtDateofBirth.Name = "txtDateofBirth";
-            txtDateofBirth.Size = new Size(362, 36);
-            txtDateofBirth.TabIndex = 29;
+            tbSMS.BackColor = Color.FromArgb(64, 64, 64);
+            tbSMS.Font = new Font("Segoe UI", 11.25F);
+            tbSMS.ForeColor = SystemColors.Window;
+            tbSMS.Location = new Point(75, 407);
+            tbSMS.Multiline = true;
+            tbSMS.Name = "tbSMS";
+            tbSMS.Size = new Size(362, 36);
+            tbSMS.TabIndex = 28;
             // 
-            // txtSMS
+            // tbEmail
             // 
-            txtSMS.BackColor = Color.FromArgb(64, 64, 64);
-            txtSMS.Location = new Point(75, 407);
-            txtSMS.Multiline = true;
-            txtSMS.Name = "txtSMS";
-            txtSMS.Size = new Size(362, 36);
-            txtSMS.TabIndex = 28;
+            tbEmail.BackColor = Color.FromArgb(64, 64, 64);
+            tbEmail.Font = new Font("Segoe UI", 11.25F);
+            tbEmail.ForeColor = SystemColors.Window;
+            tbEmail.Location = new Point(75, 330);
+            tbEmail.Multiline = true;
+            tbEmail.Name = "tbEmail";
+            tbEmail.Size = new Size(362, 36);
+            tbEmail.TabIndex = 27;
             // 
-            // txtEmail
+            // tbFullName
             // 
-            txtEmail.BackColor = Color.FromArgb(64, 64, 64);
-            txtEmail.Location = new Point(75, 330);
-            txtEmail.Multiline = true;
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(362, 36);
-            txtEmail.TabIndex = 27;
-            // 
-            // txtName
-            // 
-            txtName.BackColor = Color.FromArgb(64, 64, 64);
-            txtName.Location = new Point(75, 247);
-            txtName.Multiline = true;
-            txtName.Name = "txtName";
-            txtName.Size = new Size(362, 36);
-            txtName.TabIndex = 26;
+            tbFullName.BackColor = Color.FromArgb(64, 64, 64);
+            tbFullName.Font = new Font("Segoe UI", 11.25F);
+            tbFullName.ForeColor = SystemColors.Window;
+            tbFullName.Location = new Point(75, 247);
+            tbFullName.Multiline = true;
+            tbFullName.Name = "tbFullName";
+            tbFullName.Size = new Size(362, 36);
+            tbFullName.TabIndex = 26;
             // 
             // lbDateofBirth
             // 
@@ -319,20 +280,20 @@
             lbEmail.TabIndex = 23;
             lbEmail.Text = "Email";
             // 
-            // lbName
+            // lbFullName
             // 
-            lbName.AutoSize = true;
-            lbName.Font = new Font("Segoe UI", 11.25F);
-            lbName.ForeColor = Color.White;
-            lbName.Location = new Point(75, 215);
-            lbName.Name = "lbName";
-            lbName.Size = new Size(49, 20);
-            lbName.TabIndex = 22;
-            lbName.Text = "Name";
+            lbFullName.AutoSize = true;
+            lbFullName.Font = new Font("Segoe UI", 11.25F);
+            lbFullName.ForeColor = Color.White;
+            lbFullName.Location = new Point(75, 215);
+            lbFullName.Name = "lbFullName";
+            lbFullName.Size = new Size(73, 20);
+            lbFullName.TabIndex = 22;
+            lbFullName.Text = "Full name";
             // 
             // imgUser
             // 
-            imgUser.Image = Properties.Resources.avatar_fb;
+            imgUser.Image = Properties.Resources.user_pic;
             imgUser.Location = new Point(77, 12);
             imgUser.Name = "imgUser";
             imgUser.Size = new Size(185, 121);
@@ -344,15 +305,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(696, 979);
+            ClientSize = new Size(524, 959);
             Controls.Add(panel2);
-            Controls.Add(panel1);
-            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Profile";
             Text = "Profile";
-            panel1.ResumeLayout(false);
+            Load += Profile_Load;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
@@ -360,29 +318,27 @@
         }
 
         #endregion
-        private Panel panel1;
-        private Button btnlogout;
-        private Button btnProfile;
+
         private Panel panel2;
         private Button btnEdit;
         private Label lbUsername;
-        private Button btnChangepassword;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox5;
+        private Button btnChangePassword;
+        private TextBox tbConfirmNewPassword;
+        private TextBox tbNewPassword;
+        private TextBox tbOldPassword;
         private Label lbConfirmnewpassword;
         private Label lbNewpassword;
         private Label lbOldpassword;
         private Label lbChangePassword;
         private Button btnSave;
-        private TextBox txtDateofBirth;
-        private TextBox txtSMS;
-        private TextBox txtEmail;
-        private TextBox txtName;
+        private TextBox tbSMS;
+        private TextBox tbEmail;
+        private TextBox tbFullName;
         private Label lbDateofBirth;
         private Label lbSMS;
         private Label lbEmail;
-        private Label lbName;
+        private Label lbFullName;
         private PictureBox imgUser;
+        private DateTimePicker dtpDateOfBirth;
     }
 }

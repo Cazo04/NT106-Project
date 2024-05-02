@@ -55,7 +55,7 @@ namespace NT106_API_Server.Controllers
                 user.SignUpUser();
                 return Ok();
             }
-            return BadRequest();
+            return BadRequest(ModelState);
         }
         [Route("signupchecker")]
         [HttpPost]
@@ -95,14 +95,55 @@ namespace NT106_API_Server.Controllers
         [HttpGet]
         [UserValidateToken]
         public IActionResult GetVeryBasicUser()
-        {
-            string token = Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
-            UserModel user = UserModel.GetVeryBasicUserByToken(token);
+        {;
+            UserModel user = UserModel.GetVeryBasicUserByToken(GetToken());
             if (user == null)
             {
                 return BadRequest("Error: User not found.");
             }
             return Ok(user);
+        }
+        private string GetToken()
+        {
+            return Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
+        }
+        [Route("getuser")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult GetUser([FromQuery] string userId)
+        {
+            UserModel user = UserModel.GetUser(userId);
+            if (user == null)
+            {
+                return BadRequest("Error: User not found.");
+            }
+            return Ok(user);
+        }
+        [Route("changepassword")]
+        [HttpPost]
+        [UserValidateToken]
+        public IActionResult ChangePassword([FromQuery] string userId,[FromBody] ChangePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (UserModel.ChangePassword(userId, model.OldPassword, model.NewPassword))
+                {
+                    UserToken userToken = new UserToken
+                    {
+                        UserId = userId,
+                        Token = TokenService.GenerateUUID(),
+                        Expires = DateTime.Now.AddDays(30),
+                        IsRevoked = false
+                    };
+                    TokenService.UpdateUserToken(userToken.UserId, userToken.Token);
+                    return Ok(userToken);
+                }
+                else
+                {
+                    ModelState.AddModelError("OldPassword", "Old password is incorrect.");
+                }
+            }
+            return BadRequest(ModelState);
         }
     }
 

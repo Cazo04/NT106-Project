@@ -14,6 +14,10 @@ namespace NT106_Admin
 
         public HttpClientService(string accessToken = "None", string baseUri = "https://localhost:7204")
         {
+            if (Storage.TempToken != null && accessToken == "None")
+            {
+                accessToken = Storage.TempToken;
+            }
             _baseUri = baseUri;
             _httpClient = new HttpClient
             {

@@ -143,7 +143,7 @@ namespace NT106_WebServer.Models
                             {
                                 return new UserModel
                                 {
-                                    //Id = reader.GetString("Id"),
+                                    Id = reader.GetString("Id"),
                                     Username = reader.GetString("Username")
                                 };
                             }

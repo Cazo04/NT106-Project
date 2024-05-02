@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             pnUser = new Panel();
             btnLogout = new Button();
-            btnProfile = new Button();
+            btnSetting = new Button();
             btnWatctlist = new Button();
             panel3 = new Panel();
             label2 = new Label();
@@ -61,7 +61,7 @@
             // 
             pnUser.BackColor = Color.FromArgb(25, 27, 29);
             pnUser.Controls.Add(btnLogout);
-            pnUser.Controls.Add(btnProfile);
+            pnUser.Controls.Add(btnSetting);
             pnUser.Controls.Add(btnWatctlist);
             pnUser.Controls.Add(panel3);
             pnUser.Dock = DockStyle.Right;
@@ -89,22 +89,22 @@
             btnLogout.UseVisualStyleBackColor = false;
             btnLogout.Click += btnLogout_Click;
             // 
-            // btnProfile
+            // btnSetting
             // 
-            btnProfile.BackColor = Color.FromArgb(42, 44, 49);
-            btnProfile.Dock = DockStyle.Top;
-            btnProfile.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
-            btnProfile.FlatStyle = FlatStyle.Flat;
-            btnProfile.Font = new Font("Segoe UI", 12F);
-            btnProfile.ForeColor = SystemColors.ControlLightLight;
-            btnProfile.Location = new Point(0, 102);
-            btnProfile.Margin = new Padding(2);
-            btnProfile.Name = "btnProfile";
-            btnProfile.Size = new Size(184, 36);
-            btnProfile.TabIndex = 2;
-            btnProfile.Text = "Profile";
-            btnProfile.UseVisualStyleBackColor = false;
-            btnProfile.Click += btnProfile_Click;
+            btnSetting.BackColor = Color.FromArgb(42, 44, 49);
+            btnSetting.Dock = DockStyle.Top;
+            btnSetting.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnSetting.FlatStyle = FlatStyle.Flat;
+            btnSetting.Font = new Font("Segoe UI", 12F);
+            btnSetting.ForeColor = SystemColors.ControlLightLight;
+            btnSetting.Location = new Point(0, 102);
+            btnSetting.Margin = new Padding(2);
+            btnSetting.Name = "btnSetting";
+            btnSetting.Size = new Size(184, 36);
+            btnSetting.TabIndex = 2;
+            btnSetting.Text = "Setting";
+            btnSetting.UseVisualStyleBackColor = false;
+            btnSetting.Click += btnProfile_Click;
             // 
             // btnWatctlist
             // 
@@ -379,7 +379,7 @@
         private Panel panel3;
         private PictureBox imgUser;
         private Button btnLogout;
-        private Button btnProfile;
+        private Button btnSetting;
         private Button btnWatctlist;
         private Label label2;
         private Label lbUsername;

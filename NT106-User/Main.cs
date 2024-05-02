@@ -13,13 +13,16 @@ namespace NT106_User
             pnUser.Width = 0;
         }
 
-        private string token;
         private UserModel user;
+        private string userId;
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            Profile profile = new Profile();
+            Setting profile = new Setting(userId);
+            profile.StartPosition = FormStartPosition.CenterParent;
+            this.Hide();
             profile.ShowDialog();
+            this.Show();
         }
 
         private void btnSignin_Click(object sender, EventArgs e)
@@ -63,6 +66,7 @@ namespace NT106_User
                 progressDialog.CloseProgress(this);
                 tlpnMiniUser.Visible = true;
                 pnUser.Visible = true;
+                userId = user.Id;
             }
             else
             {
