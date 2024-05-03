@@ -54,7 +54,8 @@ namespace NT106_User
                     pnUser.Visible = false;
                     Storage.DeleteEncryptedData();
                     return;
-                } else
+                }
+                else
                 {
                     //MessageBox.Show(response, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     user = JsonConvert.DeserializeObject<UserModel>(response);
@@ -112,6 +113,15 @@ namespace NT106_User
             tlpnMiniUser.Visible = false;
             pnUser.Visible = false;
             btnSignin.Visible = true;
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+            HomePage home = new HomePage();
+            home.TopLevel = false;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(home);
+            home.Show();
         }
     }
 }

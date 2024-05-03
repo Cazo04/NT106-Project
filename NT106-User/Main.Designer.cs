@@ -173,6 +173,7 @@
             // 
             // pnMain
             // 
+            pnMain.AutoScroll = true;
             pnMain.Dock = DockStyle.Bottom;
             pnMain.Location = new Point(0, 35);
             pnMain.Margin = new Padding(2);
@@ -317,6 +318,7 @@
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
+            btnHome.Click += btnHome_Click;
             // 
             // btnLogo
             // 
