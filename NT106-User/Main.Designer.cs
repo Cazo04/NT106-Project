@@ -47,7 +47,6 @@
             btnMovies = new Button();
             btnTvshows = new Button();
             btnHome = new Button();
-            btnLogo = new Button();
             btnSignin = new Button();
             pnUser.SuspendLayout();
             panel3.SuspendLayout();
@@ -174,11 +173,11 @@
             // pnMain
             // 
             pnMain.AutoScroll = true;
-            pnMain.Dock = DockStyle.Bottom;
-            pnMain.Location = new Point(0, 35);
+            pnMain.Dock = DockStyle.Fill;
+            pnMain.Location = new Point(0, 39);
             pnMain.Margin = new Padding(2);
             pnMain.Name = "pnMain";
-            pnMain.Size = new Size(854, 685);
+            pnMain.Size = new Size(854, 681);
             pnMain.TabIndex = 2;
             // 
             // panel1
@@ -190,7 +189,6 @@
             panel1.Controls.Add(btnMovies);
             panel1.Controls.Add(btnTvshows);
             panel1.Controls.Add(btnHome);
-            panel1.Controls.Add(btnLogo);
             panel1.Controls.Add(btnSignin);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
@@ -252,7 +250,7 @@
             btnMylist.FlatStyle = FlatStyle.Flat;
             btnMylist.Font = new Font("Segoe UI", 12F);
             btnMylist.ForeColor = SystemColors.ControlLightLight;
-            btnMylist.Location = new Point(493, 0);
+            btnMylist.Location = new Point(407, 0);
             btnMylist.Name = "btnMylist";
             btnMylist.Size = new Size(86, 39);
             btnMylist.TabIndex = 4;
@@ -267,7 +265,7 @@
             btnNewandpopular.FlatStyle = FlatStyle.Flat;
             btnNewandpopular.Font = new Font("Segoe UI", 12F);
             btnNewandpopular.ForeColor = SystemColors.ControlLightLight;
-            btnNewandpopular.Location = new Point(356, 0);
+            btnNewandpopular.Location = new Point(270, 0);
             btnNewandpopular.Name = "btnNewandpopular";
             btnNewandpopular.Size = new Size(137, 39);
             btnNewandpopular.TabIndex = 3;
@@ -282,7 +280,7 @@
             btnMovies.FlatStyle = FlatStyle.Flat;
             btnMovies.Font = new Font("Segoe UI", 12F);
             btnMovies.ForeColor = SystemColors.ControlLightLight;
-            btnMovies.Location = new Point(270, 0);
+            btnMovies.Location = new Point(184, 0);
             btnMovies.Name = "btnMovies";
             btnMovies.Size = new Size(86, 39);
             btnMovies.TabIndex = 2;
@@ -297,7 +295,7 @@
             btnTvshows.FlatStyle = FlatStyle.Flat;
             btnTvshows.Font = new Font("Segoe UI", 12F);
             btnTvshows.ForeColor = SystemColors.ControlLightLight;
-            btnTvshows.Location = new Point(172, 0);
+            btnTvshows.Location = new Point(86, 0);
             btnTvshows.Name = "btnTvshows";
             btnTvshows.Size = new Size(98, 39);
             btnTvshows.TabIndex = 1;
@@ -312,28 +310,13 @@
             btnHome.FlatStyle = FlatStyle.Flat;
             btnHome.Font = new Font("Segoe UI", 12F);
             btnHome.ForeColor = SystemColors.ControlLightLight;
-            btnHome.Location = new Point(86, 0);
+            btnHome.Location = new Point(0, 0);
             btnHome.Name = "btnHome";
             btnHome.Size = new Size(86, 39);
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
             btnHome.Click += btnHome_Click;
-            // 
-            // btnLogo
-            // 
-            btnLogo.BackColor = Color.Black;
-            btnLogo.Dock = DockStyle.Left;
-            btnLogo.FlatAppearance.BorderColor = Color.Black;
-            btnLogo.FlatStyle = FlatStyle.Flat;
-            btnLogo.Font = new Font("Segoe UI", 12F);
-            btnLogo.ForeColor = SystemColors.ControlLightLight;
-            btnLogo.Location = new Point(0, 0);
-            btnLogo.Name = "btnLogo";
-            btnLogo.Size = new Size(86, 39);
-            btnLogo.TabIndex = 1;
-            btnLogo.Text = "Logo";
-            btnLogo.UseVisualStyleBackColor = false;
             // 
             // btnSignin
             // 
@@ -357,8 +340,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);
-            Controls.Add(panel1);
             Controls.Add(pnMain);
+            Controls.Add(panel1);
             Controls.Add(pnUser);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Name = "Main";
@@ -392,7 +375,6 @@
         private Button btnHome;
         private Button btnSignin;
         private Button btnMylist;
-        private Button btnLogo;
         private TableLayoutPanel tlpnMiniUser;
         private PictureBox imgMiniAvatar;
         private Label lbMiniUsername;

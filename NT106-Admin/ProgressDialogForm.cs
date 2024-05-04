@@ -17,16 +17,16 @@ namespace NT106_Admin
             InitializeComponent();
         }
 
-        public void ShowProgress(Form form, string? message = null)
+        public void ShowProgress(Control control, string? message = null)
         {
             if (message !=null) lblMessage.Text = message; else lblMessage.Text = "Please wait...";
             this.Show();
-            form.Enabled = false;
+            control.Enabled = false;
         }
-        public void CloseProgress(Form form)
+        public void CloseProgress(Control control)
         {
             this.Close();
-            form.Enabled = true;
+            control.Enabled = true;
         }
     }
 }

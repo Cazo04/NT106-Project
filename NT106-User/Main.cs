@@ -119,6 +119,7 @@ namespace NT106_User
         {
             HomePage home = new HomePage();
             home.TopLevel = false;
+            home.Dock = DockStyle.Fill;
             pnMain.Controls.Clear();
             pnMain.Controls.Add(home);
             home.Show();

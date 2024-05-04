@@ -18,7 +18,81 @@ namespace NT106_WebServer.Models
         public List<Person> Writers { get; set; }
         public List<Person> Creators { get; set; }
 
+        public static List<Movie> GetNewMovies(int count)
+        {
+            var movies = new List<Movie>();
 
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+                string query = @"SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
+                         FROM Movies
+                         ORDER BY ReleaseDate DESC
+                         LIMIT @Count";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Count", count);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var movie = new Movie
+                            {
+                                MovieId = reader.GetString("MovieId"),
+                                MovieName = reader.GetString("MovieName"),
+                                ContentRating = reader.GetString("ContentRating"),
+                                IMDbScore = reader.GetDouble("IMDbScore"),
+                                PosterURL = reader.GetString("PosterURL"),
+                                IsTVShows = reader.GetBoolean("IsTVShows")
+                            };
+                            movies.Add(movie);
+                        }
+                    }
+                }
+            }
+
+            return movies;
+        }
+        public static List<Movie> GetTopMoviesByIMDbScore(int count)
+        {
+            var movies = new List<Movie>();
+
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+                string query = @"SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
+                         FROM Movies
+                         WHERE ReleaseDate >= @StartDate
+                         ORDER BY IMDbScore DESC
+                         LIMIT @Count";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    var startDate = DateTime.Now.AddMonths(-1);
+                    command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@Count", count);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var movie = new Movie
+                            {
+                                MovieId = reader.GetString("MovieId"),
+                                MovieName = reader.GetString("MovieName"),
+                                ContentRating = reader.GetString("ContentRating"),
+                                IMDbScore = reader.GetDouble("IMDbScore"),
+                                PosterURL = reader.GetString("PosterURL"),
+                                IsTVShows = reader.GetBoolean("IsTVShows")
+                            };
+                            movies.Add(movie);
+                        }
+                    }
+                }
+            }
+
+            return movies;
+        }
         public void InsertMovie(Movie movie)
         {
             using (var connection = MySQLServer.GetWorkingConnection())
