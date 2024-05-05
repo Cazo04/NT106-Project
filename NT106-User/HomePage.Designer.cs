@@ -337,9 +337,9 @@
             lbHighlyRated.Location = new Point(2, 2);
             lbHighlyRated.Name = "lbHighlyRated";
             lbHighlyRated.Padding = new Padding(2);
-            lbHighlyRated.Size = new Size(215, 29);
+            lbHighlyRated.Size = new Size(127, 29);
             lbHighlyRated.TabIndex = 0;
-            lbHighlyRated.Text = "Highly Rated (recently)";
+            lbHighlyRated.Text = "Highly Rated";
             // 
             // panel7
             // 

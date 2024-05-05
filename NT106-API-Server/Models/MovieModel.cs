@@ -17,8 +17,9 @@ namespace NT106_WebServer.Models
         public List<Person> Directors { get; set; }
         public List<Person> Writers { get; set; }
         public List<Person> Creators { get; set; }
+        public List<Cast>? Casts { get; set; }
 
-        public static List<Movie> GetNewMovies(int count)
+        public static List<Movie> GetNewMovies(int count = 7)
         {
             var movies = new List<Movie>();
 
@@ -54,7 +55,7 @@ namespace NT106_WebServer.Models
 
             return movies;
         }
-        public static List<Movie> GetTopMoviesByIMDbScore(int count)
+        public static List<Movie> GetTopMoviesByIMDbScore(int count = 7)
         {
             var movies = new List<Movie>();
 
@@ -70,6 +71,49 @@ namespace NT106_WebServer.Models
                 {
                     var startDate = DateTime.Now.AddMonths(-1);
                     command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@Count", count);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var movie = new Movie
+                            {
+                                MovieId = reader.GetString("MovieId"),
+                                MovieName = reader.GetString("MovieName"),
+                                ContentRating = reader.GetString("ContentRating"),
+                                IMDbScore = reader.GetDouble("IMDbScore"),
+                                PosterURL = reader.GetString("PosterURL"),
+                                IsTVShows = reader.GetBoolean("IsTVShows")
+                            };
+                            movies.Add(movie);
+                        }
+                    }
+                }
+            }
+
+            return movies;
+        }
+        public static List<Movie> GetTopMoviesByIMDbScoreButNotInNewMovies(int count = 7)
+        {
+            var movies = new List<Movie>();
+
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+                string query = @"WITH LatestMovies AS (
+                        SELECT MovieId
+                        FROM Movies
+                        ORDER BY ReleaseDate DESC
+                        LIMIT 7
+                    )
+                    SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
+                    FROM Movies
+                    WHERE MovieId NOT IN (SELECT MovieId FROM LatestMovies)
+                    ORDER BY IMDbScore DESC
+                    LIMIT @Count";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
                     command.Parameters.AddWithValue("@Count", count);
 
                     using (var reader = command.ExecuteReader())
@@ -182,7 +226,7 @@ namespace NT106_WebServer.Models
                         }
                     }
                 }
-            }           
+            }
         }
         public static List<Season> GetSeasons(string movieId)
         {
@@ -237,7 +281,8 @@ namespace NT106_WebServer.Models
         }
         public static void UpdateEpisode(Episodes episode)
         {
-            if (!CheckMovieExists(episode.Id)) {
+            if (!CheckMovieExists(episode.Id))
+            {
                 using (var connection = MySQLServer.GetWorkingConnection())
                 {
                     const string query = @"UPDATE Episodes 
@@ -693,7 +738,7 @@ namespace NT106_WebServer.Models
             List<string> currentPersonIds = GetRelationships(tableName, movieId).Select(p => p.Id).ToList();
             var idsToAdd = newPersonIds.Except(currentPersonIds).ToList();
             var idsToRemove = currentPersonIds.Except(newPersonIds).ToList();
-            int remove_result= 0;
+            int remove_result = 0;
             int insert_result = 0;
 
             if (idsToRemove.Count > 0)
@@ -717,7 +762,7 @@ namespace NT106_WebServer.Models
         public static void UpdateMovieWriters(string movieId, List<string> newPersonIds)
         {
             UpdateMovieRelationships(movieId, newPersonIds, "MovieWriters");
-        }       
+        }
         private static int RemoveOutdatedRelationships(string tableName, string movieId, List<string> idsToRemove)
         {
             foreach (var id in idsToRemove)
@@ -766,7 +811,7 @@ namespace NT106_WebServer.Models
                         return result;
                     }
                 }
-            }           
+            }
             return 0;
         }
         public static int RemoveOutdatedEpisodePerson(string tableName, string episodeId, List<string> idsToRemove)
@@ -1109,6 +1154,62 @@ namespace NT106_WebServer.Models
                 }
             }
         }
+        public static List<Cast> GetCastDetailsByMovie(string movieId)
+        {
+            string query = @"
+        SELECT 
+            p.Id AS PersonId, 
+            p.Name AS ActorName, 
+            p.Image AS ActorImage, 
+            c.CharacterName, 
+            COUNT(c.EpisodeId) AS EpisodeCount
+        FROM 
+            Cast c
+        JOIN 
+            Person p ON c.PersonId = p.Id
+        JOIN 
+            Episodes e ON c.EpisodeId = e.Id
+        WHERE 
+            e.MovieId = @MovieId
+        GROUP BY 
+            p.Id, p.Name, p.Image, c.CharacterName
+        ORDER BY 
+            p.Name ASC";
+
+            var castDetails = new List<Cast>();
+
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MovieId", movieId);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var person = new Person
+                            {
+                                Id = reader["PersonId"].ToString(),
+                                Name = reader["ActorName"].ToString(),
+                                Image = reader["ActorImage"] == DBNull.Value ? null : reader["ActorImage"].ToString()
+                            };
+
+                            var cast = new Cast
+                            {
+                                EpisodeCount = Convert.ToInt32(reader["EpisodeCount"]),
+                                CharacterName = reader["CharacterName"].ToString(),
+                                Person = person
+                            };
+
+                            castDetails.Add(cast);
+                        }
+                    }
+                }
+            }
+
+            return castDetails;
+        }
         public class Movie
         {
             public string MovieId { get; set; }
@@ -1163,6 +1264,7 @@ namespace NT106_WebServer.Models
             public string? EpisodeId { get; set; }
             public Person Person { get; set; }
             public string CharacterName { get; set; }
+            public int EpisodeCount { get; set; }
         }
 
         public class MovieDirectors

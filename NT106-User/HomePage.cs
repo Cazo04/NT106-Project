@@ -49,7 +49,33 @@ namespace NT106_User
         }
         private void PosterCard_ControlClicked(object sender, PosterCard.CustomEventArgs e)
         {
-            MessageBox.Show("Ok");
+            //MessageBox.Show(e.MovieId);
+            ChangeInfoPage(e.MovieId);
+        }
+        private void ChangeInfoPage(string movieId)
+        {
+            foreach (Control control in this.Controls)
+            {
+                control.Enabled = false;
+                control.Visible = false;
+            }
+
+            MovieInfoPage info = new MovieInfoPage(movieId);
+            info.TopLevel = false;
+            info.Dock = DockStyle.Fill;
+            info.FormBorderStyle = FormBorderStyle.None;           
+            this.Controls.Add(info);
+            info.BringToFront();
+            info.Show();
+            info.FormClosed += Info_FormClosed;
+        }
+        private void Info_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            foreach (Control control in this.Controls)
+            {
+                control.Enabled = true;
+                control.Visible = true;
+            }
         }
         private void HomePage_Load(object sender, EventArgs e)
         {
@@ -97,7 +123,7 @@ namespace NT106_User
             progressDialog.ShowProgress(flpHighlyRated, "Loading top score movies...");
 
             HttpClientService service = new HttpClientService();
-            string response = await service.GetAsync("/home/gettopmoviesbyimdbscore");
+            string response = await service.GetAsync("/user/gettopmoviesbyimdbscorebutnotinnewmovies");
             if (response.StartsWith("Error"))
             {
                 MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

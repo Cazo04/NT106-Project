@@ -145,6 +145,26 @@ namespace NT106_API_Server.Controllers
             }
             return BadRequest(ModelState);
         }
+        [Route("getmovie")]
+        [HttpGet]
+        public IActionResult GetMovie([FromQuery] string movieId)
+        {
+            if (string.IsNullOrEmpty(movieId))
+            {
+                return BadRequest("Error: Movie not found.");
+            }
+            MovieModel movie = MovieModel.GetMovie(movieId);
+            movie.Casts = MovieModel.GetCastDetailsByMovie(movieId);
+            return Ok(movie);
+        }
+        [Route("gettopmoviesbyimdbscorebutnotinnewmovies")]
+        [HttpGet]
+        public IActionResult GetTopMoviesByIMDBScoreButNotInNewMovies()
+        {
+            List<MovieModel.Movie> movies = new List<MovieModel.Movie>();
+            movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies();
+            return Ok(movies);
+        }
     }
 
     public class UserValidateTokenAttribute : ActionFilterAttribute

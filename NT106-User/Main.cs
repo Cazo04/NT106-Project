@@ -127,12 +127,7 @@ namespace NT106_User
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-            MovieInfoPage info = new MovieInfoPage();
-            info.TopLevel = false;
-            info.Dock = DockStyle.Fill;
-            pnMain.Controls.Clear();
-            pnMain.Controls.Add(info);
-            info.Show();
+                       
         }
     }
 }
