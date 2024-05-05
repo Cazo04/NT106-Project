@@ -124,5 +124,15 @@ namespace NT106_User
             pnMain.Controls.Add(home);
             home.Show();
         }
+
+        private void btnInfo_Click(object sender, EventArgs e)
+        {
+            MovieInfoPage info = new MovieInfoPage();
+            info.TopLevel = false;
+            info.Dock = DockStyle.Fill;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(info);
+            info.Show();
+        }
     }
 }

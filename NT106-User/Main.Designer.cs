@@ -43,7 +43,7 @@
             imgMiniAvatar = new PictureBox();
             lbMiniUsername = new Label();
             btnMylist = new Button();
-            btnNewandpopular = new Button();
+            btnInfo = new Button();
             btnMovies = new Button();
             btnTvshows = new Button();
             btnHome = new Button();
@@ -185,7 +185,7 @@
             panel1.BackColor = Color.Black;
             panel1.Controls.Add(tlpnMiniUser);
             panel1.Controls.Add(btnMylist);
-            panel1.Controls.Add(btnNewandpopular);
+            panel1.Controls.Add(btnInfo);
             panel1.Controls.Add(btnMovies);
             panel1.Controls.Add(btnTvshows);
             panel1.Controls.Add(btnHome);
@@ -250,27 +250,28 @@
             btnMylist.FlatStyle = FlatStyle.Flat;
             btnMylist.Font = new Font("Segoe UI", 12F);
             btnMylist.ForeColor = SystemColors.ControlLightLight;
-            btnMylist.Location = new Point(407, 0);
+            btnMylist.Location = new Point(338, 0);
             btnMylist.Name = "btnMylist";
             btnMylist.Size = new Size(86, 39);
             btnMylist.TabIndex = 4;
             btnMylist.Text = "My List";
             btnMylist.UseVisualStyleBackColor = false;
             // 
-            // btnNewandpopular
+            // btnInfo
             // 
-            btnNewandpopular.BackColor = Color.Black;
-            btnNewandpopular.Dock = DockStyle.Left;
-            btnNewandpopular.FlatAppearance.BorderColor = Color.Black;
-            btnNewandpopular.FlatStyle = FlatStyle.Flat;
-            btnNewandpopular.Font = new Font("Segoe UI", 12F);
-            btnNewandpopular.ForeColor = SystemColors.ControlLightLight;
-            btnNewandpopular.Location = new Point(270, 0);
-            btnNewandpopular.Name = "btnNewandpopular";
-            btnNewandpopular.Size = new Size(137, 39);
-            btnNewandpopular.TabIndex = 3;
-            btnNewandpopular.Text = "New && Popular";
-            btnNewandpopular.UseVisualStyleBackColor = false;
+            btnInfo.BackColor = Color.Black;
+            btnInfo.Dock = DockStyle.Left;
+            btnInfo.FlatAppearance.BorderColor = Color.Black;
+            btnInfo.FlatStyle = FlatStyle.Flat;
+            btnInfo.Font = new Font("Segoe UI", 12F);
+            btnInfo.ForeColor = SystemColors.ControlLightLight;
+            btnInfo.Location = new Point(270, 0);
+            btnInfo.Name = "btnInfo";
+            btnInfo.Size = new Size(68, 39);
+            btnInfo.TabIndex = 3;
+            btnInfo.Text = "Info";
+            btnInfo.UseVisualStyleBackColor = false;
+            btnInfo.Click += btnInfo_Click;
             // 
             // btnMovies
             // 
@@ -369,7 +370,7 @@
         private Label label2;
         private Label lbUsername;
         private Panel panel1;
-        private Button btnNewandpopular;
+        private Button btnInfo;
         private Button btnMovies;
         private Button btnTvshows;
         private Button btnHome;
