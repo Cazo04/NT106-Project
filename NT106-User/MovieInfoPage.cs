@@ -65,11 +65,11 @@ namespace NT106_User
                 }
                 if (!movie.MovieInfo.IsTVShows)
                 {
-                    tlpSeasons.Visible = false;
-                    lbDuration.Visible = false;
+                    tlpSeasons.Visible = false;                    
                 }
                 else
                 {
+                    lbDuration.Visible = false;
                     flpSeasons.Controls.Clear();
                     foreach (var season in movie.Seasons)
                     {
