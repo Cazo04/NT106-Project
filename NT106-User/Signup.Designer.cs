@@ -74,6 +74,7 @@
             tbPassword.Location = new Point(12, 382);
             tbPassword.Multiline = true;
             tbPassword.Name = "tbPassword";
+            tbPassword.PasswordChar = '*';
             tbPassword.Size = new Size(364, 29);
             tbPassword.TabIndex = 15;
             // 
@@ -94,6 +95,7 @@
             tbCofirmpassword.Location = new Point(12, 459);
             tbCofirmpassword.Multiline = true;
             tbCofirmpassword.Name = "tbCofirmpassword";
+            tbCofirmpassword.PasswordChar = '*';
             tbCofirmpassword.Size = new Size(364, 29);
             tbCofirmpassword.TabIndex = 17;
             // 
