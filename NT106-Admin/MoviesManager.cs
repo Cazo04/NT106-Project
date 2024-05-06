@@ -11,6 +11,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
+using static NT106_WebServer.Models.MovieModel;
 
 namespace NT106_Admin
 {
@@ -87,11 +88,11 @@ namespace NT106_Admin
                 tbEpisode.Text = "";
                 tbEpTitle.Text = "";
             }
-            tbEpURL.Text = "";                      
+            tbEpURL.Text = "";
             dtpEpReleaseDate.Value = DateTime.Now;
             tbEpDuration.Text = "";
             tbEpImage.Text = "";
-            tbEpImageCaption.Text = "";           
+            tbEpImageCaption.Text = "";
             tbEpPlot.Text = "";
             tbEpAggregateRating.Text = "";
             tbEpVoteCount.Text = "";
@@ -193,7 +194,7 @@ namespace NT106_Admin
             ClearEpisodes();
         }
 
-        private void LoadMovieDetail(MovieModel movie)
+        private async void LoadMovieDetail(MovieModel movie)
         {
             tbIMDbURL.Text = IMDb_BASE_URL + movie.MovieInfo.MovieId;
             tbMovieId.Text = movie.MovieInfo.MovieId;
@@ -222,7 +223,8 @@ namespace NT106_Admin
             tbDescription.Text = movie.MovieInfo.Description;
             cbIsTVShows.Checked = movie.MovieInfo.IsTVShows;
 
-            LoadImageFromURL(movie.MovieInfo.PosterURL, imgPreviewPoster);
+            imgPreviewPoster.ImageLocation = movie.MovieInfo.PosterURL;
+            //LoadImageFromURL(movie.MovieInfo.PosterURL, imgPreviewPoster);
             wmpPreviewTrailer.URL = movie.MovieInfo.TrailerURL;
 
             dgvCreators.Rows.Clear();
@@ -255,7 +257,8 @@ namespace NT106_Admin
                 panel19.Visible = false;
                 panel20.Visible = false;
                 panel16.Visible = false;
-            } else
+            }
+            else
             {
                 panel12.Visible = true;
                 panel13.Visible = true;
@@ -425,9 +428,10 @@ namespace NT106_Admin
                     if (!cbIsTVShows.Checked)
                     {
                         LoadEpisode(tbMovieId.Text, false);
-                    } else
+                    }
+                    else
 
-                    LoadListEpisodes(tbMovieId.Text, seasonId);
+                        LoadListEpisodes(tbMovieId.Text, seasonId);
 
 
                     foreach (DataGridViewRow row in dgvSeasons.Rows)
@@ -455,7 +459,7 @@ namespace NT106_Admin
             else
             {
                 MovieModel.Episodes episode = JsonConvert.DeserializeObject<MovieModel.Episodes>(response);
-                LoadEpisodeDetail(episode,true,isTVShow);
+                LoadEpisodeDetail(episode, true, isTVShow);
             }
 
             progressDialog.CloseProgress(this);
@@ -468,7 +472,7 @@ namespace NT106_Admin
             if (isTVShow)
             {
                 if (isFromDatabase)
-                {                   
+                {
                     tbEpId.Text = episode.Id;
                     tbEpisode.Text = episode.Episode;
                     tbEpTitle.Text = episode.Title;
@@ -573,20 +577,28 @@ namespace NT106_Admin
             movie.MovieInfo.Description = tbDescription.Text;
             movie.MovieInfo.IsTVShows = cbIsTVShows.Checked;
 
+            movie.Creators = new List<MovieModel.Person>();
             foreach (DataGridViewRow row in dgvCreators.Rows)
             {
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null)
                 movie.Creators.Add(new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() });
             }
+            movie.Directors = new List<MovieModel.Person>();
             foreach (DataGridViewRow row in dgvDirectors.Rows)
             {
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null)
                 movie.Directors.Add(new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() });
             }
+            movie.Writers = new List<MovieModel.Person>();
             foreach (DataGridViewRow row in dgvWriters.Rows)
             {
+                if (row.Cells[0].Value != null && row.Cells[1].Value != null)
                 movie.Writers.Add(new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString() });
             }
+            movie.Seasons = new List<MovieModel.Season>();
             foreach (DataGridViewRow row in dgvSeasons.Rows)
             {
+                if (row.Cells[1].Value != null)
                 movie.Seasons.Add(new MovieModel.Season { Name = row.Cells[1].Value.ToString() });
             }
 
@@ -774,7 +786,7 @@ namespace NT106_Admin
             episode.Casts = new List<MovieModel.Cast>();
             foreach (DataGridViewRow row in dgvEpCasts.Rows)
             {
-                episode.Casts.Add(new MovieModel.Cast { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString(), Image = (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) ? null : row.Cells[2].Value.ToString())}, CharacterName = row.Cells[4].Value.ToString() });
+                episode.Casts.Add(new MovieModel.Cast { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString(), Image = (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) ? null : row.Cells[2].Value.ToString()) }, CharacterName = row.Cells[4].Value.ToString() });
             }
 
             HttpClientService service = new HttpClientService(_adminToken.Token);
@@ -795,6 +807,11 @@ namespace NT106_Admin
 
             LoadListEpisodes(tbMovieId.Text, seasonNow);
 
+        }
+
+        private void btnLoadTrailer_Click(object sender, EventArgs e)
+        {
+            wmpPreviewTrailer.URL = tbTrailerURL.Text;
         }
     }
 }

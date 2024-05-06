@@ -1244,7 +1244,7 @@ namespace NT106_WebServer.Models
             public double IMDbScore { get; set; }
             public int RatingCount { get; set; }
             public string PosterURL { get; set; }
-            public string BackgroundURL { get; set; }
+            public string? BackgroundURL { get; set; }
             public string? TrailerURL { get; set; }
             public string Description { get; set; }
             public int? TotalViews { get; set; }

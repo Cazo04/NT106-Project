@@ -102,8 +102,10 @@
             imgPreviewPoster = new PictureBox();
             tableLayoutPanel8 = new TableLayoutPanel();
             label9 = new Label();
-            tbTrailerURL = new TextBox();
             wmpPreviewTrailer = new AxWMPLib.AxWindowsMediaPlayer();
+            tableLayoutPanel31 = new TableLayoutPanel();
+            tbTrailerURL = new TextBox();
+            btnLoadTrailer = new Button();
             tableLayoutPanel9 = new TableLayoutPanel();
             label10 = new Label();
             tbDescription = new TextBox();
@@ -255,6 +257,7 @@
             ((System.ComponentModel.ISupportInitialize)imgPreviewPoster).BeginInit();
             tableLayoutPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)wmpPreviewTrailer).BeginInit();
+            tableLayoutPanel31.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             panel11.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
@@ -1105,7 +1108,6 @@
             // 
             // imgPreviewPoster
             // 
-            imgPreviewPoster.Image = Properties.Resources.Oppenheimer;
             imgPreviewPoster.Location = new Point(4, 829);
             imgPreviewPoster.Margin = new Padding(4, 5, 4, 5);
             imgPreviewPoster.Name = "imgPreviewPoster";
@@ -1119,8 +1121,8 @@
             tableLayoutPanel8.ColumnCount = 1;
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel8.Controls.Add(label9, 0, 0);
-            tableLayoutPanel8.Controls.Add(tbTrailerURL, 0, 1);
             tableLayoutPanel8.Controls.Add(wmpPreviewTrailer, 0, 2);
+            tableLayoutPanel8.Controls.Add(tableLayoutPanel31, 0, 1);
             tableLayoutPanel8.Location = new Point(4, 1216);
             tableLayoutPanel8.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -1143,15 +1145,6 @@
             label9.Text = "Trailer URL:";
             label9.TextAlign = ContentAlignment.BottomLeft;
             // 
-            // tbTrailerURL
-            // 
-            tbTrailerURL.Dock = DockStyle.Fill;
-            tbTrailerURL.Location = new Point(4, 45);
-            tbTrailerURL.Margin = new Padding(4, 5, 4, 5);
-            tbTrailerURL.Name = "tbTrailerURL";
-            tbTrailerURL.Size = new Size(501, 31);
-            tbTrailerURL.TabIndex = 2;
-            // 
             // wmpPreviewTrailer
             // 
             wmpPreviewTrailer.Dock = DockStyle.Fill;
@@ -1162,6 +1155,40 @@
             wmpPreviewTrailer.OcxState = (AxHost.State)resources.GetObject("wmpPreviewTrailer.OcxState");
             wmpPreviewTrailer.Size = new Size(501, 280);
             wmpPreviewTrailer.TabIndex = 5;
+            // 
+            // tableLayoutPanel31
+            // 
+            tableLayoutPanel31.ColumnCount = 2;
+            tableLayoutPanel31.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 79.5228653F));
+            tableLayoutPanel31.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20.4771366F));
+            tableLayoutPanel31.Controls.Add(tbTrailerURL, 0, 0);
+            tableLayoutPanel31.Controls.Add(btnLoadTrailer, 1, 0);
+            tableLayoutPanel31.Dock = DockStyle.Fill;
+            tableLayoutPanel31.Location = new Point(3, 43);
+            tableLayoutPanel31.Name = "tableLayoutPanel31";
+            tableLayoutPanel31.RowCount = 1;
+            tableLayoutPanel31.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel31.Size = new Size(503, 38);
+            tableLayoutPanel31.TabIndex = 6;
+            // 
+            // tbTrailerURL
+            // 
+            tbTrailerURL.Dock = DockStyle.Fill;
+            tbTrailerURL.Location = new Point(4, 5);
+            tbTrailerURL.Margin = new Padding(4, 5, 4, 5);
+            tbTrailerURL.Name = "tbTrailerURL";
+            tbTrailerURL.Size = new Size(392, 31);
+            tbTrailerURL.TabIndex = 3;
+            // 
+            // btnLoadTrailer
+            // 
+            btnLoadTrailer.Location = new Point(403, 3);
+            btnLoadTrailer.Name = "btnLoadTrailer";
+            btnLoadTrailer.Size = new Size(97, 32);
+            btnLoadTrailer.TabIndex = 4;
+            btnLoadTrailer.Text = "Load";
+            btnLoadTrailer.UseVisualStyleBackColor = true;
+            btnLoadTrailer.Click += btnLoadTrailer_Click;
             // 
             // tableLayoutPanel9
             // 
@@ -2629,6 +2656,8 @@
             tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel8.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)wmpPreviewTrailer).EndInit();
+            tableLayoutPanel31.ResumeLayout(false);
+            tableLayoutPanel31.PerformLayout();
             tableLayoutPanel9.ResumeLayout(false);
             tableLayoutPanel9.PerformLayout();
             panel11.ResumeLayout(false);
@@ -2739,7 +2768,6 @@
         private Panel panel11;
         private TableLayoutPanel tableLayoutPanel8;
         private Label label9;
-        private TextBox tbTrailerURL;
         private AxWMPLib.AxWindowsMediaPlayer wmpPreviewTrailer;
         private TableLayoutPanel tableLayoutPanel9;
         private Label label10;
@@ -2899,5 +2927,8 @@
         private TextBox tbEpURL;
         private Label label39;
         private Button btnSubmitEpisodes;
+        private TableLayoutPanel tableLayoutPanel31;
+        private TextBox tbTrailerURL;
+        private Button btnLoadTrailer;
     }
 }
