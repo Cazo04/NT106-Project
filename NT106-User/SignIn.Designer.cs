@@ -52,7 +52,7 @@
             btnOutlock.Location = new Point(226, 483);
             btnOutlock.Name = "btnOutlock";
             btnOutlock.Size = new Size(134, 39);
-            btnOutlock.TabIndex = 31;
+            btnOutlock.TabIndex = 7;
             btnOutlock.Text = "Outlock";
             btnOutlock.UseVisualStyleBackColor = true;
             // 
@@ -68,7 +68,7 @@
             btnGoogle.Location = new Point(12, 483);
             btnGoogle.Name = "btnGoogle";
             btnGoogle.Size = new Size(134, 39);
-            btnGoogle.TabIndex = 30;
+            btnGoogle.TabIndex = 6;
             btnGoogle.Text = "Google";
             btnGoogle.UseVisualStyleBackColor = true;
             // 
@@ -93,7 +93,7 @@
             btnGetStarted.Location = new Point(12, 351);
             btnGetStarted.Name = "btnGetStarted";
             btnGetStarted.Size = new Size(348, 33);
-            btnGetStarted.TabIndex = 28;
+            btnGetStarted.TabIndex = 4;
             btnGetStarted.Text = "Get Started";
             btnGetStarted.UseVisualStyleBackColor = false;
             btnGetStarted.Click += btnGetStarted_Click;
@@ -107,7 +107,7 @@
             llbForgotPassword.Location = new Point(233, 294);
             llbForgotPassword.Name = "llbForgotPassword";
             llbForgotPassword.Size = new Size(127, 20);
-            llbForgotPassword.TabIndex = 27;
+            llbForgotPassword.TabIndex = 3;
             llbForgotPassword.TabStop = true;
             llbForgotPassword.Text = "Forgot password?";
             // 
@@ -119,7 +119,7 @@
             cbRememberme.Location = new Point(12, 290);
             cbRememberme.Name = "cbRememberme";
             cbRememberme.Size = new Size(126, 24);
-            cbRememberme.TabIndex = 26;
+            cbRememberme.TabIndex = 2;
             cbRememberme.Text = "Remember me";
             cbRememberme.UseVisualStyleBackColor = true;
             // 
@@ -131,7 +131,7 @@
             tbUsernameOrEmail.Multiline = true;
             tbUsernameOrEmail.Name = "tbUsernameOrEmail";
             tbUsernameOrEmail.Size = new Size(348, 33);
-            tbUsernameOrEmail.TabIndex = 24;
+            tbUsernameOrEmail.TabIndex = 0;
             // 
             // label3
             // 
@@ -175,7 +175,7 @@
             llbSignup.Location = new Point(78, 397);
             llbSignup.Name = "llbSignup";
             llbSignup.Size = new Size(217, 20);
-            llbSignup.TabIndex = 27;
+            llbSignup.TabIndex = 5;
             llbSignup.TabStop = true;
             llbSignup.Text = "Don't have an account? Sign up";
             llbSignup.LinkClicked += llbSignup_LinkClicked;
@@ -185,7 +185,7 @@
             tbPassword.Location = new Point(12, 226);
             tbPassword.Name = "tbPassword";
             tbPassword.Size = new Size(348, 23);
-            tbPassword.TabIndex = 32;
+            tbPassword.TabIndex = 1;
             tbPassword.UseSystemPasswordChar = true;
             // 
             // SignIn
