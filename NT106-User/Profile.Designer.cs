@@ -55,6 +55,7 @@
             // 
             // panel2
             // 
+            panel2.AutoScroll = true;
             panel2.BackColor = Color.FromArgb(64, 64, 64);
             panel2.Controls.Add(dtpDateOfBirth);
             panel2.Controls.Add(btnEdit);
@@ -78,16 +79,18 @@
             panel2.Controls.Add(imgUser);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(0, 0);
+            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(524, 959);
+            panel2.Size = new Size(749, 1106);
             panel2.TabIndex = 20;
             // 
             // dtpDateOfBirth
             // 
             dtpDateOfBirth.Format = DateTimePickerFormat.Short;
-            dtpDateOfBirth.Location = new Point(75, 500);
+            dtpDateOfBirth.Location = new Point(107, 833);
+            dtpDateOfBirth.Margin = new Padding(4, 5, 4, 5);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
-            dtpDateOfBirth.Size = new Size(362, 23);
+            dtpDateOfBirth.Size = new Size(515, 31);
             dtpDateOfBirth.TabIndex = 41;
             // 
             // btnEdit
@@ -96,9 +99,10 @@
             btnEdit.FlatAppearance.BorderColor = Color.Black;
             btnEdit.FlatStyle = FlatStyle.Flat;
             btnEdit.ForeColor = SystemColors.ControlLightLight;
-            btnEdit.Location = new Point(228, 120);
+            btnEdit.Location = new Point(326, 200);
+            btnEdit.Margin = new Padding(4, 5, 4, 5);
             btnEdit.Name = "btnEdit";
-            btnEdit.Size = new Size(46, 23);
+            btnEdit.Size = new Size(66, 38);
             btnEdit.TabIndex = 40;
             btnEdit.Text = "Edit";
             btnEdit.UseVisualStyleBackColor = false;
@@ -108,9 +112,10 @@
             lbUsername.AutoSize = true;
             lbUsername.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbUsername.ForeColor = Color.White;
-            lbUsername.Location = new Point(75, 151);
+            lbUsername.Location = new Point(107, 252);
+            lbUsername.Margin = new Padding(4, 0, 4, 0);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(96, 21);
+            lbUsername.Size = new Size(144, 32);
             lbUsername.TabIndex = 39;
             lbUsername.Text = "@Username";
             // 
@@ -121,9 +126,10 @@
             btnChangePassword.FlatStyle = FlatStyle.Flat;
             btnChangePassword.Font = new Font("Segoe UI", 11.25F);
             btnChangePassword.ForeColor = SystemColors.ControlLightLight;
-            btnChangePassword.Location = new Point(77, 892);
+            btnChangePassword.Location = new Point(110, 1487);
+            btnChangePassword.Margin = new Padding(4, 5, 4, 5);
             btnChangePassword.Name = "btnChangePassword";
-            btnChangePassword.Size = new Size(159, 34);
+            btnChangePassword.Size = new Size(227, 57);
             btnChangePassword.TabIndex = 38;
             btnChangePassword.Text = "Change Password";
             btnChangePassword.UseVisualStyleBackColor = false;
@@ -134,11 +140,12 @@
             tbConfirmNewPassword.BackColor = Color.FromArgb(64, 64, 64);
             tbConfirmNewPassword.Font = new Font("Segoe UI", 14.25F);
             tbConfirmNewPassword.ForeColor = SystemColors.Window;
-            tbConfirmNewPassword.Location = new Point(77, 837);
+            tbConfirmNewPassword.Location = new Point(110, 1395);
+            tbConfirmNewPassword.Margin = new Padding(4, 5, 4, 5);
             tbConfirmNewPassword.Multiline = true;
             tbConfirmNewPassword.Name = "tbConfirmNewPassword";
             tbConfirmNewPassword.PasswordChar = '*';
-            tbConfirmNewPassword.Size = new Size(362, 36);
+            tbConfirmNewPassword.Size = new Size(515, 57);
             tbConfirmNewPassword.TabIndex = 36;
             // 
             // tbNewPassword
@@ -146,11 +153,12 @@
             tbNewPassword.BackColor = Color.FromArgb(64, 64, 64);
             tbNewPassword.Font = new Font("Segoe UI", 14.25F);
             tbNewPassword.ForeColor = SystemColors.Window;
-            tbNewPassword.Location = new Point(77, 751);
+            tbNewPassword.Location = new Point(110, 1252);
+            tbNewPassword.Margin = new Padding(4, 5, 4, 5);
             tbNewPassword.Multiline = true;
             tbNewPassword.Name = "tbNewPassword";
             tbNewPassword.PasswordChar = '*';
-            tbNewPassword.Size = new Size(362, 36);
+            tbNewPassword.Size = new Size(515, 57);
             tbNewPassword.TabIndex = 33;
             // 
             // tbOldPassword
@@ -158,11 +166,12 @@
             tbOldPassword.BackColor = Color.FromArgb(64, 64, 64);
             tbOldPassword.Font = new Font("Segoe UI", 14.25F);
             tbOldPassword.ForeColor = SystemColors.Window;
-            tbOldPassword.Location = new Point(77, 669);
+            tbOldPassword.Location = new Point(110, 1115);
+            tbOldPassword.Margin = new Padding(4, 5, 4, 5);
             tbOldPassword.Multiline = true;
             tbOldPassword.Name = "tbOldPassword";
             tbOldPassword.PasswordChar = '*';
-            tbOldPassword.Size = new Size(362, 36);
+            tbOldPassword.Size = new Size(515, 57);
             tbOldPassword.TabIndex = 32;
             // 
             // lbConfirmnewpassword
@@ -170,9 +179,10 @@
             lbConfirmnewpassword.AutoSize = true;
             lbConfirmnewpassword.Font = new Font("Segoe UI", 11.25F);
             lbConfirmnewpassword.ForeColor = Color.White;
-            lbConfirmnewpassword.Location = new Point(77, 806);
+            lbConfirmnewpassword.Location = new Point(110, 1343);
+            lbConfirmnewpassword.Margin = new Padding(4, 0, 4, 0);
             lbConfirmnewpassword.Name = "lbConfirmnewpassword";
-            lbConfirmnewpassword.Size = new Size(161, 20);
+            lbConfirmnewpassword.Size = new Size(249, 31);
             lbConfirmnewpassword.TabIndex = 37;
             lbConfirmnewpassword.Text = "Confirm New Password";
             // 
@@ -181,9 +191,10 @@
             lbNewpassword.AutoSize = true;
             lbNewpassword.Font = new Font("Segoe UI", 11.25F);
             lbNewpassword.ForeColor = Color.White;
-            lbNewpassword.Location = new Point(77, 722);
+            lbNewpassword.Location = new Point(110, 1203);
+            lbNewpassword.Margin = new Padding(4, 0, 4, 0);
             lbNewpassword.Name = "lbNewpassword";
-            lbNewpassword.Size = new Size(104, 20);
+            lbNewpassword.Size = new Size(162, 31);
             lbNewpassword.TabIndex = 35;
             lbNewpassword.Text = "New Password";
             // 
@@ -192,9 +203,10 @@
             lbOldpassword.AutoSize = true;
             lbOldpassword.Font = new Font("Segoe UI", 11.25F);
             lbOldpassword.ForeColor = Color.White;
-            lbOldpassword.Location = new Point(77, 642);
+            lbOldpassword.Location = new Point(110, 1070);
+            lbOldpassword.Margin = new Padding(4, 0, 4, 0);
             lbOldpassword.Name = "lbOldpassword";
-            lbOldpassword.Size = new Size(98, 20);
+            lbOldpassword.Size = new Size(153, 31);
             lbOldpassword.TabIndex = 34;
             lbOldpassword.Text = "Old Password";
             // 
@@ -203,9 +215,10 @@
             lbChangePassword.AutoSize = true;
             lbChangePassword.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbChangePassword.ForeColor = Color.White;
-            lbChangePassword.Location = new Point(75, 603);
+            lbChangePassword.Location = new Point(107, 1005);
+            lbChangePassword.Margin = new Padding(4, 0, 4, 0);
             lbChangePassword.Name = "lbChangePassword";
-            lbChangePassword.Size = new Size(161, 25);
+            lbChangePassword.Size = new Size(241, 40);
             lbChangePassword.TabIndex = 31;
             lbChangePassword.Text = "Change Password";
             // 
@@ -216,9 +229,10 @@
             btnSave.FlatStyle = FlatStyle.Flat;
             btnSave.Font = new Font("Segoe UI", 11.25F);
             btnSave.ForeColor = SystemColors.ControlLightLight;
-            btnSave.Location = new Point(75, 547);
+            btnSave.Location = new Point(107, 912);
+            btnSave.Margin = new Padding(4, 5, 4, 5);
             btnSave.Name = "btnSave";
-            btnSave.Size = new Size(81, 34);
+            btnSave.Size = new Size(116, 57);
             btnSave.TabIndex = 30;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
@@ -228,10 +242,11 @@
             tbSMS.BackColor = Color.FromArgb(64, 64, 64);
             tbSMS.Font = new Font("Segoe UI", 11.25F);
             tbSMS.ForeColor = SystemColors.Window;
-            tbSMS.Location = new Point(75, 407);
+            tbSMS.Location = new Point(107, 678);
+            tbSMS.Margin = new Padding(4, 5, 4, 5);
             tbSMS.Multiline = true;
             tbSMS.Name = "tbSMS";
-            tbSMS.Size = new Size(362, 36);
+            tbSMS.Size = new Size(515, 57);
             tbSMS.TabIndex = 28;
             // 
             // tbEmail
@@ -239,10 +254,11 @@
             tbEmail.BackColor = Color.FromArgb(64, 64, 64);
             tbEmail.Font = new Font("Segoe UI", 11.25F);
             tbEmail.ForeColor = SystemColors.Window;
-            tbEmail.Location = new Point(75, 330);
+            tbEmail.Location = new Point(107, 550);
+            tbEmail.Margin = new Padding(4, 5, 4, 5);
             tbEmail.Multiline = true;
             tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(362, 36);
+            tbEmail.Size = new Size(515, 57);
             tbEmail.TabIndex = 27;
             // 
             // tbFullName
@@ -250,10 +266,11 @@
             tbFullName.BackColor = Color.FromArgb(64, 64, 64);
             tbFullName.Font = new Font("Segoe UI", 11.25F);
             tbFullName.ForeColor = SystemColors.Window;
-            tbFullName.Location = new Point(75, 247);
+            tbFullName.Location = new Point(107, 412);
+            tbFullName.Margin = new Padding(4, 5, 4, 5);
             tbFullName.Multiline = true;
             tbFullName.Name = "tbFullName";
-            tbFullName.Size = new Size(362, 36);
+            tbFullName.Size = new Size(515, 57);
             tbFullName.TabIndex = 26;
             // 
             // lbDateofBirth
@@ -261,9 +278,10 @@
             lbDateofBirth.AutoSize = true;
             lbDateofBirth.Font = new Font("Segoe UI", 11.25F);
             lbDateofBirth.ForeColor = Color.White;
-            lbDateofBirth.Location = new Point(75, 460);
+            lbDateofBirth.Location = new Point(107, 767);
+            lbDateofBirth.Margin = new Padding(4, 0, 4, 0);
             lbDateofBirth.Name = "lbDateofBirth";
-            lbDateofBirth.Size = new Size(89, 20);
+            lbDateofBirth.Size = new Size(134, 31);
             lbDateofBirth.TabIndex = 25;
             lbDateofBirth.Text = "Date of Birh";
             // 
@@ -272,9 +290,10 @@
             lbSMS.AutoSize = true;
             lbSMS.Font = new Font("Segoe UI", 11.25F);
             lbSMS.ForeColor = Color.White;
-            lbSMS.Location = new Point(75, 378);
+            lbSMS.Location = new Point(107, 630);
+            lbSMS.Margin = new Padding(4, 0, 4, 0);
             lbSMS.Name = "lbSMS";
-            lbSMS.Size = new Size(38, 20);
+            lbSMS.Size = new Size(59, 31);
             lbSMS.TabIndex = 24;
             lbSMS.Text = "SMS";
             // 
@@ -283,9 +302,10 @@
             lbEmail.AutoSize = true;
             lbEmail.Font = new Font("Segoe UI", 11.25F);
             lbEmail.ForeColor = Color.White;
-            lbEmail.Location = new Point(75, 301);
+            lbEmail.Location = new Point(107, 502);
+            lbEmail.Margin = new Padding(4, 0, 4, 0);
             lbEmail.Name = "lbEmail";
-            lbEmail.Size = new Size(46, 20);
+            lbEmail.Size = new Size(70, 31);
             lbEmail.TabIndex = 23;
             lbEmail.Text = "Email";
             // 
@@ -294,29 +314,32 @@
             lbFullName.AutoSize = true;
             lbFullName.Font = new Font("Segoe UI", 11.25F);
             lbFullName.ForeColor = Color.White;
-            lbFullName.Location = new Point(75, 215);
+            lbFullName.Location = new Point(107, 358);
+            lbFullName.Margin = new Padding(4, 0, 4, 0);
             lbFullName.Name = "lbFullName";
-            lbFullName.Size = new Size(73, 20);
+            lbFullName.Size = new Size(113, 31);
             lbFullName.TabIndex = 22;
             lbFullName.Text = "Full name";
             // 
             // imgUser
             // 
             imgUser.Image = Properties.Resources.user_pic;
-            imgUser.Location = new Point(77, 12);
+            imgUser.Location = new Point(110, 20);
+            imgUser.Margin = new Padding(4, 5, 4, 5);
             imgUser.Name = "imgUser";
-            imgUser.Size = new Size(185, 121);
+            imgUser.Size = new Size(264, 202);
             imgUser.SizeMode = PictureBoxSizeMode.Zoom;
             imgUser.TabIndex = 21;
             imgUser.TabStop = false;
             // 
             // Profile
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(524, 959);
+            ClientSize = new Size(749, 1106);
             Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(4, 5, 4, 5);
             Name = "Profile";
             Text = "Profile";
             Load += Profile_Load;
