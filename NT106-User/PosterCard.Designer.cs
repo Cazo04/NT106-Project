@@ -42,8 +42,9 @@
             imgPoster.Dock = DockStyle.Top;
             imgPoster.Image = (Image)resources.GetObject("imgPoster.Image");
             imgPoster.Location = new Point(0, 0);
+            imgPoster.Margin = new Padding(4, 5, 4, 5);
             imgPoster.Name = "imgPoster";
-            imgPoster.Size = new Size(200, 300);
+            imgPoster.Size = new Size(286, 500);
             imgPoster.SizeMode = PictureBoxSizeMode.StretchImage;
             imgPoster.TabIndex = 0;
             imgPoster.TabStop = false;
@@ -51,27 +52,30 @@
             // lbType
             // 
             lbType.AutoSize = true;
-            lbType.Location = new Point(10, 14);
+            lbType.Location = new Point(14, 23);
+            lbType.Margin = new Padding(4, 0, 4, 0);
             lbType.Name = "lbType";
-            lbType.Size = new Size(40, 15);
+            lbType.Size = new Size(61, 25);
             lbType.TabIndex = 1;
             lbType.Text = "Movie";
             // 
             // lbScore
             // 
             lbScore.AutoSize = true;
-            lbScore.Location = new Point(146, 14);
+            lbScore.Location = new Point(209, 23);
+            lbScore.Margin = new Padding(4, 0, 4, 0);
             lbScore.Name = "lbScore";
-            lbScore.Size = new Size(39, 15);
+            lbScore.Size = new Size(63, 25);
             lbScore.TabIndex = 1;
             lbScore.Text = "8.0/10";
             // 
             // lbContentRating
             // 
             lbContentRating.AutoSize = true;
-            lbContentRating.Location = new Point(10, 273);
+            lbContentRating.Location = new Point(14, 455);
+            lbContentRating.Margin = new Padding(4, 0, 4, 0);
             lbContentRating.Name = "lbContentRating";
-            lbContentRating.Size = new Size(14, 15);
+            lbContentRating.Size = new Size(23, 25);
             lbContentRating.TabIndex = 1;
             lbContentRating.Text = "R";
             // 
@@ -80,15 +84,16 @@
             lbName.AutoSize = true;
             lbName.Dock = DockStyle.Fill;
             lbName.Font = new Font("Segoe UI", 11F);
-            lbName.Location = new Point(0, 300);
+            lbName.Location = new Point(0, 500);
+            lbName.Margin = new Padding(4, 0, 4, 0);
             lbName.Name = "lbName";
-            lbName.Size = new Size(91, 20);
+            lbName.Size = new Size(135, 30);
             lbName.TabIndex = 2;
             lbName.Text = "Openheimer";
             // 
             // PosterCard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonFace;
             Controls.Add(lbName);
@@ -96,8 +101,9 @@
             Controls.Add(lbScore);
             Controls.Add(lbType);
             Controls.Add(imgPoster);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "PosterCard";
-            Size = new Size(200, 344);
+            Size = new Size(286, 573);
             Click += PosterCard_Click;
             MouseEnter += PosterCard_MouseEnter;
             MouseLeave += PosterCard_MouseLeave;
