@@ -105,6 +105,7 @@ namespace NT106_User
             foreach (MovieModel.Movie movie in movies)
             {
                 PosterCard posterCard = new PosterCard();
+                posterCard.Size = new Size(286, 573);
                 posterCard.SetData(movie);
                 posterCard.ControlClicked += PosterCard_ControlClicked;
                 flpNewReleases.Controls.Add(posterCard);

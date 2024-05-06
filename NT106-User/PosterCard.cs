@@ -28,7 +28,7 @@ namespace NT106_User
         public PosterCard()
         {
             InitializeComponent();
-            Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+            Settings();
             foreach (Control control in this.Controls)
             {
                 control.MouseEnter += new EventHandler(ChildControl_MouseEnter);
@@ -60,13 +60,18 @@ namespace NT106_User
             }
         }
 
-        private void PosterCard_Resize(object sender, EventArgs e)
+        private void Settings()
         {
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
-            imgPoster.Height = (int)(Height * 0.8);
+            imgPoster.Height = (int)(Height * 0.85);
             lbContentRating.Top = imgPoster.Bottom - lbContentRating.Height - 10;
             lbName.Top = imgPoster.Bottom + (int)(Height * 0.03);
             lbScore.Location = new Point(Width - lbScore.Width - 10, lbScore.Location.Y);
+        }
+
+        private void PosterCard_Resize(object sender, EventArgs e)
+        {
+            Settings();
         }
 
         private void PosterCard_MouseEnter(object sender, EventArgs e)
