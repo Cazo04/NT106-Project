@@ -132,27 +132,36 @@
             // tbConfirmNewPassword
             // 
             tbConfirmNewPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbConfirmNewPassword.Font = new Font("Segoe UI", 14.25F);
+            tbConfirmNewPassword.ForeColor = SystemColors.Window;
             tbConfirmNewPassword.Location = new Point(77, 837);
             tbConfirmNewPassword.Multiline = true;
             tbConfirmNewPassword.Name = "tbConfirmNewPassword";
+            tbConfirmNewPassword.PasswordChar = '*';
             tbConfirmNewPassword.Size = new Size(362, 36);
             tbConfirmNewPassword.TabIndex = 36;
             // 
             // tbNewPassword
             // 
             tbNewPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbNewPassword.Font = new Font("Segoe UI", 14.25F);
+            tbNewPassword.ForeColor = SystemColors.Window;
             tbNewPassword.Location = new Point(77, 751);
             tbNewPassword.Multiline = true;
             tbNewPassword.Name = "tbNewPassword";
+            tbNewPassword.PasswordChar = '*';
             tbNewPassword.Size = new Size(362, 36);
             tbNewPassword.TabIndex = 33;
             // 
             // tbOldPassword
             // 
             tbOldPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbOldPassword.Font = new Font("Segoe UI", 14.25F);
+            tbOldPassword.ForeColor = SystemColors.Window;
             tbOldPassword.Location = new Point(77, 669);
             tbOldPassword.Multiline = true;
             tbOldPassword.Name = "tbOldPassword";
+            tbOldPassword.PasswordChar = '*';
             tbOldPassword.Size = new Size(362, 36);
             tbOldPassword.TabIndex = 32;
             // 
