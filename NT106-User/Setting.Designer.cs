@@ -98,7 +98,6 @@
             Controls.Add(pnMain);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            MaximizeBox = false;
             Name = "Setting";
             Text = "Profile";
             Load += Setting_Load;
