@@ -78,8 +78,9 @@
             // lbName
             // 
             lbName.AutoSize = true;
+            lbName.Dock = DockStyle.Fill;
             lbName.Font = new Font("Segoe UI", 11F);
-            lbName.Location = new Point(10, 306);
+            lbName.Location = new Point(0, 300);
             lbName.Name = "lbName";
             lbName.Size = new Size(91, 20);
             lbName.TabIndex = 2;
