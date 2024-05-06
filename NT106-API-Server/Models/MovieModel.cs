@@ -530,7 +530,7 @@ namespace NT106_WebServer.Models
                                 IMDbScore = reader.GetDouble("IMDbScore"),
                                 RatingCount = reader.GetInt32("RatingCount"),
                                 PosterURL = reader.GetString("PosterURL"),
-                                BackgroundURL = reader.GetString("BackgroundURL"),
+                                //BackgroundURL = reader.GetString("BackgroundURL"),
                                 TrailerURL = reader.GetString("TrailerURL"),
                                 Description = reader.GetString("Description"),
                                 IsTVShows = reader.GetBoolean("IsTVShows")

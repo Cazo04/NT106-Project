@@ -310,87 +310,94 @@
             dgvMovies.Columns.AddRange(new DataGridViewColumn[] { cMovieID, cMovieName, cReleaseDate, cDuration, cContentRating, cIMDbScore, cIsTVShows, cView, cDel });
             dgvMovies.Dock = DockStyle.Fill;
             dgvMovies.Location = new Point(0, 0);
-            dgvMovies.Margin = new Padding(4, 5, 4, 5);
             dgvMovies.Name = "dgvMovies";
             dgvMovies.ReadOnly = true;
-            dgvMovies.RowHeadersWidth = 62;
-            dgvMovies.Size = new Size(1323, 1018);
+            dgvMovies.RowHeadersWidth = 30;
+            dgvMovies.Size = new Size(926, 610);
             dgvMovies.TabIndex = 0;
             dgvMovies.CellContentClick += dgvMovies_CellContentClick;
             // 
             // cMovieID
             // 
+            cMovieID.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cMovieID.HeaderText = "Movie ID";
             cMovieID.MinimumWidth = 8;
             cMovieID.Name = "cMovieID";
             cMovieID.ReadOnly = true;
-            cMovieID.Width = 150;
+            cMovieID.Width = 79;
             // 
             // cMovieName
             // 
+            cMovieName.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cMovieName.HeaderText = "Movie Name";
             cMovieName.MinimumWidth = 8;
             cMovieName.Name = "cMovieName";
             cMovieName.ReadOnly = true;
-            cMovieName.Width = 150;
             // 
             // cReleaseDate
             // 
+            cReleaseDate.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cReleaseDate.HeaderText = "Release Date";
             cReleaseDate.MinimumWidth = 8;
             cReleaseDate.Name = "cReleaseDate";
             cReleaseDate.ReadOnly = true;
-            cReleaseDate.Width = 150;
+            cReleaseDate.Width = 98;
             // 
             // cDuration
             // 
+            cDuration.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cDuration.HeaderText = "Duration (s)";
             cDuration.MinimumWidth = 8;
             cDuration.Name = "cDuration";
             cDuration.ReadOnly = true;
-            cDuration.Width = 150;
+            cDuration.Width = 94;
             // 
             // cContentRating
             // 
+            cContentRating.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cContentRating.HeaderText = "Content Rating";
             cContentRating.MinimumWidth = 8;
             cContentRating.Name = "cContentRating";
             cContentRating.ReadOnly = true;
-            cContentRating.Width = 150;
+            cContentRating.Width = 112;
             // 
             // cIMDbScore
             // 
+            cIMDbScore.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cIMDbScore.HeaderText = "IMDb Score";
             cIMDbScore.MinimumWidth = 8;
             cIMDbScore.Name = "cIMDbScore";
             cIMDbScore.ReadOnly = true;
-            cIMDbScore.Width = 150;
+            cIMDbScore.Width = 93;
             // 
             // cIsTVShows
             // 
+            cIsTVShows.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
             cIsTVShows.HeaderText = "Is TV Shows";
             cIsTVShows.MinimumWidth = 8;
             cIsTVShows.Name = "cIsTVShows";
             cIsTVShows.ReadOnly = true;
-            cIsTVShows.Width = 150;
+            cIsTVShows.Width = 74;
             // 
             // cView
             // 
+            cView.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             cView.HeaderText = "View";
             cView.MinimumWidth = 8;
             cView.Name = "cView";
             cView.ReadOnly = true;
             cView.Text = "View";
-            cView.Width = 150;
+            cView.Width = 38;
             // 
             // cDel
             // 
+            cDel.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             cDel.HeaderText = "Del";
             cDel.MinimumWidth = 8;
             cDel.Name = "cDel";
             cDel.ReadOnly = true;
             cDel.Text = "Del";
-            cDel.Width = 150;
+            cDel.Width = 30;
             // 
             // panel1
             // 
@@ -398,19 +405,17 @@
             panel1.Controls.Add(panel2);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4, 5, 4, 5);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1323, 1080);
+            panel1.Size = new Size(926, 647);
             panel1.TabIndex = 1;
             // 
             // panel3
             // 
             panel3.Controls.Add(dgvMovies);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 62);
-            panel3.Margin = new Padding(4, 5, 4, 5);
+            panel3.Location = new Point(0, 37);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1323, 1018);
+            panel3.Size = new Size(926, 610);
             panel3.TabIndex = 3;
             // 
             // panel2
@@ -419,9 +424,8 @@
             panel2.Controls.Add(btnRefreshMovies);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(4, 5, 4, 5);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1323, 62);
+            panel2.Size = new Size(926, 37);
             panel2.TabIndex = 2;
             // 
             // panel23
@@ -430,18 +434,16 @@
             panel23.Controls.Add(btnNextPage);
             panel23.Controls.Add(tableLayoutPanel22);
             panel23.Dock = DockStyle.Right;
-            panel23.Location = new Point(767, 0);
-            panel23.Margin = new Padding(4, 5, 4, 5);
+            panel23.Location = new Point(537, 0);
             panel23.Name = "panel23";
-            panel23.Size = new Size(556, 62);
+            panel23.Size = new Size(389, 37);
             panel23.TabIndex = 1;
             // 
             // btnPreviousPage
             // 
-            btnPreviousPage.Location = new Point(359, 13);
-            btnPreviousPage.Margin = new Padding(4, 5, 4, 5);
+            btnPreviousPage.Location = new Point(251, 8);
             btnPreviousPage.Name = "btnPreviousPage";
-            btnPreviousPage.Size = new Size(86, 38);
+            btnPreviousPage.Size = new Size(60, 23);
             btnPreviousPage.TabIndex = 2;
             btnPreviousPage.Text = "Previous";
             btnPreviousPage.UseVisualStyleBackColor = true;
@@ -449,10 +451,9 @@
             // 
             // btnNextPage
             // 
-            btnNextPage.Location = new Point(459, 13);
-            btnNextPage.Margin = new Padding(4, 5, 4, 5);
+            btnNextPage.Location = new Point(321, 8);
             btnNextPage.Name = "btnNextPage";
-            btnNextPage.Size = new Size(89, 38);
+            btnNextPage.Size = new Size(62, 23);
             btnNextPage.TabIndex = 1;
             btnNextPage.Text = "Next";
             btnNextPage.UseVisualStyleBackColor = true;
@@ -467,21 +468,19 @@
             tableLayoutPanel22.Controls.Add(panel24, 1, 0);
             tableLayoutPanel22.Dock = DockStyle.Left;
             tableLayoutPanel22.Location = new Point(0, 0);
-            tableLayoutPanel22.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel22.Name = "tableLayoutPanel22";
             tableLayoutPanel22.RowCount = 1;
             tableLayoutPanel22.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel22.Size = new Size(350, 62);
+            tableLayoutPanel22.Size = new Size(245, 37);
             tableLayoutPanel22.TabIndex = 0;
             // 
             // lbCountMovies
             // 
             lbCountMovies.AutoSize = true;
             lbCountMovies.Dock = DockStyle.Left;
-            lbCountMovies.Location = new Point(4, 0);
-            lbCountMovies.Margin = new Padding(4, 0, 4, 0);
+            lbCountMovies.Location = new Point(3, 0);
             lbCountMovies.Name = "lbCountMovies";
-            lbCountMovies.Size = new Size(113, 62);
+            lbCountMovies.Size = new Size(73, 37);
             lbCountMovies.TabIndex = 0;
             lbCountMovies.Text = "??/?? Movies";
             lbCountMovies.TextAlign = ContentAlignment.MiddleLeft;
@@ -491,18 +490,16 @@
             panel24.Controls.Add(btnGoToPage);
             panel24.Controls.Add(lbPageMovies);
             panel24.Controls.Add(tbPageNumber);
-            panel24.Location = new Point(154, 5);
-            panel24.Margin = new Padding(4, 5, 4, 5);
+            panel24.Location = new Point(108, 3);
             panel24.Name = "panel24";
-            panel24.Size = new Size(191, 52);
+            panel24.Size = new Size(134, 31);
             panel24.TabIndex = 1;
             // 
             // btnGoToPage
             // 
-            btnGoToPage.Location = new Point(113, 7);
-            btnGoToPage.Margin = new Padding(4, 5, 4, 5);
+            btnGoToPage.Location = new Point(79, 4);
             btnGoToPage.Name = "btnGoToPage";
-            btnGoToPage.Size = new Size(56, 38);
+            btnGoToPage.Size = new Size(39, 23);
             btnGoToPage.TabIndex = 1;
             btnGoToPage.Text = "Go";
             btnGoToPage.UseVisualStyleBackColor = true;
@@ -511,20 +508,18 @@
             // lbPageMovies
             // 
             lbPageMovies.AutoSize = true;
-            lbPageMovies.Location = new Point(4, 13);
-            lbPageMovies.Margin = new Padding(4, 0, 4, 0);
+            lbPageMovies.Location = new Point(3, 8);
             lbPageMovies.Name = "lbPageMovies";
-            lbPageMovies.Size = new Size(54, 25);
+            lbPageMovies.Size = new Size(36, 15);
             lbPageMovies.TabIndex = 1;
             lbPageMovies.Text = "Page:";
             lbPageMovies.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // tbPageNumber
             // 
-            tbPageNumber.Location = new Point(59, 8);
-            tbPageNumber.Margin = new Padding(4, 5, 4, 5);
+            tbPageNumber.Location = new Point(41, 5);
             tbPageNumber.Name = "tbPageNumber";
-            tbPageNumber.Size = new Size(44, 31);
+            tbPageNumber.Size = new Size(32, 23);
             tbPageNumber.TabIndex = 1;
             tbPageNumber.KeyPress += tbPageNumber_KeyPress;
             // 
@@ -532,9 +527,8 @@
             // 
             btnRefreshMovies.Dock = DockStyle.Left;
             btnRefreshMovies.Location = new Point(0, 0);
-            btnRefreshMovies.Margin = new Padding(4, 5, 4, 5);
             btnRefreshMovies.Name = "btnRefreshMovies";
-            btnRefreshMovies.Size = new Size(141, 62);
+            btnRefreshMovies.Size = new Size(99, 37);
             btnRefreshMovies.TabIndex = 0;
             btnRefreshMovies.Text = "Refresh";
             btnRefreshMovies.UseVisualStyleBackColor = true;
@@ -550,21 +544,19 @@
             panel4.Controls.Add(panel5);
             panel4.Controls.Add(panel11);
             panel4.Dock = DockStyle.Left;
-            panel4.Location = new Point(1323, 0);
-            panel4.Margin = new Padding(4, 5, 4, 5);
+            panel4.Location = new Point(926, 0);
             panel4.Name = "panel4";
-            panel4.Padding = new Padding(7, 0, 0, 0);
-            panel4.Size = new Size(553, 1080);
+            panel4.Padding = new Padding(5, 0, 0, 0);
+            panel4.Size = new Size(387, 647);
             panel4.TabIndex = 2;
             // 
             // panel10
             // 
             panel10.Controls.Add(tableLayoutPanel12);
             panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(7, 3369);
-            panel10.Margin = new Padding(4, 5, 4, 5);
+            panel10.Location = new Point(5, 2023);
             panel10.Name = "panel10";
-            panel10.Size = new Size(520, 80);
+            panel10.Size = new Size(365, 48);
             panel10.TabIndex = 5;
             // 
             // tableLayoutPanel12
@@ -572,26 +564,24 @@
             tableLayoutPanel12.ColumnCount = 3;
             tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 163F));
+            tableLayoutPanel12.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 115F));
             tableLayoutPanel12.Controls.Add(btnClear, 2, 0);
             tableLayoutPanel12.Controls.Add(btnUpdate, 1, 0);
             tableLayoutPanel12.Controls.Add(btnSubmit, 0, 0);
             tableLayoutPanel12.Dock = DockStyle.Fill;
             tableLayoutPanel12.Location = new Point(0, 0);
-            tableLayoutPanel12.Margin = new Padding(4, 5, 4, 5);
             tableLayoutPanel12.Name = "tableLayoutPanel12";
             tableLayoutPanel12.RowCount = 1;
             tableLayoutPanel12.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel12.Size = new Size(520, 80);
+            tableLayoutPanel12.Size = new Size(365, 48);
             tableLayoutPanel12.TabIndex = 0;
             // 
             // btnClear
             // 
             btnClear.Dock = DockStyle.Left;
-            btnClear.Location = new Point(360, 5);
-            btnClear.Margin = new Padding(4, 5, 4, 5);
+            btnClear.Location = new Point(253, 3);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(119, 70);
+            btnClear.Size = new Size(83, 42);
             btnClear.TabIndex = 2;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
@@ -599,10 +589,9 @@
             // btnUpdate
             // 
             btnUpdate.Dock = DockStyle.Left;
-            btnUpdate.Location = new Point(182, 5);
-            btnUpdate.Margin = new Padding(4, 5, 4, 5);
+            btnUpdate.Location = new Point(128, 3);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.Size = new Size(119, 70);
+            btnUpdate.Size = new Size(83, 42);
             btnUpdate.TabIndex = 1;
             btnUpdate.Text = "Update";
             btnUpdate.UseVisualStyleBackColor = true;
@@ -611,10 +600,9 @@
             // btnSubmit
             // 
             btnSubmit.Dock = DockStyle.Left;
-            btnSubmit.Location = new Point(4, 5);
-            btnSubmit.Margin = new Padding(4, 5, 4, 5);
+            btnSubmit.Location = new Point(3, 3);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.Size = new Size(119, 70);
+            btnSubmit.Size = new Size(83, 42);
             btnSubmit.TabIndex = 0;
             btnSubmit.Text = "Submit";
             btnSubmit.UseVisualStyleBackColor = true;
@@ -625,10 +613,9 @@
             panel8.Controls.Add(dgvWriters);
             panel8.Controls.Add(label15);
             panel8.Dock = DockStyle.Top;
-            panel8.Location = new Point(7, 2999);
-            panel8.Margin = new Padding(4, 5, 4, 5);
+            panel8.Location = new Point(5, 1801);
             panel8.Name = "panel8";
-            panel8.Size = new Size(520, 370);
+            panel8.Size = new Size(365, 222);
             panel8.TabIndex = 3;
             // 
             // dgvWriters
@@ -638,12 +625,11 @@
             dgvWriters.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvWriters.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
             dgvWriters.Dock = DockStyle.Top;
-            dgvWriters.Location = new Point(0, 36);
-            dgvWriters.Margin = new Padding(4, 5, 4, 5);
+            dgvWriters.Location = new Point(0, 25);
             dgvWriters.Name = "dgvWriters";
             dgvWriters.ReadOnly = true;
             dgvWriters.RowHeadersWidth = 62;
-            dgvWriters.Size = new Size(520, 272);
+            dgvWriters.Size = new Size(365, 163);
             dgvWriters.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn3
@@ -668,9 +654,8 @@
             label15.Dock = DockStyle.Top;
             label15.Font = new Font("Segoe UI", 13F);
             label15.Location = new Point(0, 0);
-            label15.Margin = new Padding(4, 0, 4, 0);
             label15.Name = "label15";
-            label15.Size = new Size(97, 36);
+            label15.Size = new Size(68, 25);
             label15.TabIndex = 5;
             label15.Text = "Writers";
             // 
@@ -679,10 +664,9 @@
             panel7.Controls.Add(dgvDirectors);
             panel7.Controls.Add(label14);
             panel7.Dock = DockStyle.Top;
-            panel7.Location = new Point(7, 2624);
-            panel7.Margin = new Padding(4, 5, 4, 5);
+            panel7.Location = new Point(5, 1576);
             panel7.Name = "panel7";
-            panel7.Size = new Size(520, 375);
+            panel7.Size = new Size(365, 225);
             panel7.TabIndex = 2;
             // 
             // dgvDirectors
@@ -692,12 +676,11 @@
             dgvDirectors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDirectors.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2 });
             dgvDirectors.Dock = DockStyle.Top;
-            dgvDirectors.Location = new Point(0, 36);
-            dgvDirectors.Margin = new Padding(4, 5, 4, 5);
+            dgvDirectors.Location = new Point(0, 25);
             dgvDirectors.Name = "dgvDirectors";
             dgvDirectors.ReadOnly = true;
             dgvDirectors.RowHeadersWidth = 62;
-            dgvDirectors.Size = new Size(520, 283);
+            dgvDirectors.Size = new Size(365, 170);
             dgvDirectors.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -722,9 +705,8 @@
             label14.Dock = DockStyle.Top;
             label14.Font = new Font("Segoe UI", 13F);
             label14.Location = new Point(0, 0);
-            label14.Margin = new Padding(4, 0, 4, 0);
             label14.Name = "label14";
-            label14.Size = new Size(118, 36);
+            label14.Size = new Size(83, 25);
             label14.TabIndex = 3;
             label14.Text = "Directors";
             // 
@@ -733,10 +715,9 @@
             panel6.Controls.Add(dgvCreators);
             panel6.Controls.Add(label13);
             panel6.Dock = DockStyle.Top;
-            panel6.Location = new Point(7, 2267);
-            panel6.Margin = new Padding(4, 5, 4, 5);
+            panel6.Location = new Point(5, 1362);
             panel6.Name = "panel6";
-            panel6.Size = new Size(520, 357);
+            panel6.Size = new Size(365, 214);
             panel6.TabIndex = 1;
             // 
             // dgvCreators
@@ -746,12 +727,11 @@
             dgvCreators.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCreators.Columns.AddRange(new DataGridViewColumn[] { cId, cName });
             dgvCreators.Dock = DockStyle.Top;
-            dgvCreators.Location = new Point(0, 36);
-            dgvCreators.Margin = new Padding(4, 5, 4, 5);
+            dgvCreators.Location = new Point(0, 25);
             dgvCreators.Name = "dgvCreators";
             dgvCreators.ReadOnly = true;
             dgvCreators.RowHeadersWidth = 62;
-            dgvCreators.Size = new Size(520, 283);
+            dgvCreators.Size = new Size(365, 170);
             dgvCreators.TabIndex = 2;
             // 
             // cId
@@ -776,9 +756,8 @@
             label13.Dock = DockStyle.Top;
             label13.Font = new Font("Segoe UI", 13F);
             label13.Location = new Point(0, 0);
-            label13.Margin = new Padding(4, 0, 4, 0);
             label13.Name = "label13";
-            label13.Size = new Size(111, 36);
+            label13.Size = new Size(78, 25);
             label13.TabIndex = 1;
             label13.Text = "Creators";
             // 
@@ -789,10 +768,10 @@
             panel5.Controls.Add(flowLayoutPanel1);
             panel5.Controls.Add(label1);
             panel5.Dock = DockStyle.Top;
-            panel5.Location = new Point(7, 230);
-            panel5.Margin = new Padding(4, 8, 4, 5);
+            panel5.Location = new Point(5, 139);
+            panel5.Margin = new Padding(3, 5, 3, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(520, 2037);
+            panel5.Size = new Size(365, 1223);
             panel5.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -810,10 +789,9 @@
             flowLayoutPanel1.Controls.Add(tableLayoutPanel9);
             flowLayoutPanel1.Controls.Add(cbIsTVShows);
             flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 36);
-            flowLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+            flowLayoutPanel1.Location = new Point(0, 25);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(518, 1999);
+            flowLayoutPanel1.Size = new Size(363, 1196);
             flowLayoutPanel1.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -822,23 +800,21 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.Controls.Add(label4, 0, 0);
             tableLayoutPanel3.Controls.Add(tbMovieId, 0, 1);
-            tableLayoutPanel3.Location = new Point(4, 5);
-            tableLayoutPanel3.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel3.Size = new Size(467, 93);
+            tableLayoutPanel3.Size = new Size(327, 56);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Dock = DockStyle.Left;
-            label4.Location = new Point(4, 0);
-            label4.Margin = new Padding(4, 0, 4, 0);
+            label4.Location = new Point(3, 0);
             label4.Name = "label4";
-            label4.Size = new Size(32, 41);
+            label4.Size = new Size(20, 25);
             label4.TabIndex = 1;
             label4.Text = "Id:";
             label4.TextAlign = ContentAlignment.BottomLeft;
@@ -846,10 +822,9 @@
             // tbMovieId
             // 
             tbMovieId.Dock = DockStyle.Fill;
-            tbMovieId.Location = new Point(4, 46);
-            tbMovieId.Margin = new Padding(4, 5, 4, 5);
+            tbMovieId.Location = new Point(3, 28);
             tbMovieId.Name = "tbMovieId";
-            tbMovieId.Size = new Size(459, 31);
+            tbMovieId.Size = new Size(321, 23);
             tbMovieId.TabIndex = 2;
             // 
             // tableLayoutPanel27
@@ -858,23 +833,21 @@
             tableLayoutPanel27.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel27.Controls.Add(label36, 0, 0);
             tableLayoutPanel27.Controls.Add(tbMovieName, 0, 1);
-            tableLayoutPanel27.Location = new Point(4, 108);
-            tableLayoutPanel27.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel27.Location = new Point(3, 65);
             tableLayoutPanel27.Name = "tableLayoutPanel27";
             tableLayoutPanel27.RowCount = 2;
             tableLayoutPanel27.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel27.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel27.Size = new Size(467, 93);
+            tableLayoutPanel27.Size = new Size(327, 56);
             tableLayoutPanel27.TabIndex = 3;
             // 
             // label36
             // 
             label36.AutoSize = true;
             label36.Dock = DockStyle.Left;
-            label36.Location = new Point(4, 0);
-            label36.Margin = new Padding(4, 0, 4, 0);
+            label36.Location = new Point(3, 0);
             label36.Name = "label36";
-            label36.Size = new Size(117, 41);
+            label36.Size = new Size(78, 25);
             label36.TabIndex = 1;
             label36.Text = "Movie Name:";
             label36.TextAlign = ContentAlignment.BottomLeft;
@@ -882,10 +855,9 @@
             // tbMovieName
             // 
             tbMovieName.Dock = DockStyle.Fill;
-            tbMovieName.Location = new Point(4, 46);
-            tbMovieName.Margin = new Padding(4, 5, 4, 5);
+            tbMovieName.Location = new Point(3, 28);
             tbMovieName.Name = "tbMovieName";
-            tbMovieName.Size = new Size(459, 31);
+            tbMovieName.Size = new Size(321, 23);
             tbMovieName.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -894,23 +866,21 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Controls.Add(label2, 0, 0);
             tableLayoutPanel1.Controls.Add(dtpReleaseDate, 0, 1);
-            tableLayoutPanel1.Location = new Point(4, 211);
-            tableLayoutPanel1.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel1.Location = new Point(3, 127);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel1.Size = new Size(467, 93);
+            tableLayoutPanel1.Size = new Size(327, 56);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Dock = DockStyle.Left;
-            label2.Location = new Point(4, 0);
-            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Location = new Point(3, 0);
             label2.Name = "label2";
-            label2.Size = new Size(116, 41);
+            label2.Size = new Size(76, 25);
             label2.TabIndex = 1;
             label2.Text = "Release Date:";
             label2.TextAlign = ContentAlignment.BottomLeft;
@@ -919,10 +889,9 @@
             // 
             dtpReleaseDate.Dock = DockStyle.Fill;
             dtpReleaseDate.Format = DateTimePickerFormat.Short;
-            dtpReleaseDate.Location = new Point(4, 46);
-            dtpReleaseDate.Margin = new Padding(4, 5, 4, 5);
+            dtpReleaseDate.Location = new Point(3, 28);
             dtpReleaseDate.Name = "dtpReleaseDate";
-            dtpReleaseDate.Size = new Size(459, 31);
+            dtpReleaseDate.Size = new Size(321, 23);
             dtpReleaseDate.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -931,23 +900,21 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel2.Controls.Add(label3, 0, 0);
             tableLayoutPanel2.Controls.Add(tbDuration, 0, 1);
-            tableLayoutPanel2.Location = new Point(4, 314);
-            tableLayoutPanel2.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel2.Location = new Point(3, 189);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel2.Size = new Size(467, 93);
+            tableLayoutPanel2.Size = new Size(327, 56);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Dock = DockStyle.Left;
-            label3.Location = new Point(4, 0);
-            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Location = new Point(3, 0);
             label3.Name = "label3";
-            label3.Size = new Size(85, 41);
+            label3.Size = new Size(56, 25);
             label3.TabIndex = 1;
             label3.Text = "Duration:";
             label3.TextAlign = ContentAlignment.BottomLeft;
@@ -955,10 +922,9 @@
             // tbDuration
             // 
             tbDuration.Dock = DockStyle.Fill;
-            tbDuration.Location = new Point(4, 46);
-            tbDuration.Margin = new Padding(4, 5, 4, 5);
+            tbDuration.Location = new Point(3, 28);
             tbDuration.Name = "tbDuration";
-            tbDuration.Size = new Size(459, 31);
+            tbDuration.Size = new Size(321, 23);
             tbDuration.TabIndex = 2;
             // 
             // tableLayoutPanel4
@@ -967,23 +933,21 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel4.Controls.Add(label5, 0, 0);
             tableLayoutPanel4.Controls.Add(cbbContentRating, 0, 1);
-            tableLayoutPanel4.Location = new Point(4, 417);
-            tableLayoutPanel4.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel4.Location = new Point(3, 251);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 2;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel4.Size = new Size(467, 93);
+            tableLayoutPanel4.Size = new Size(327, 56);
             tableLayoutPanel4.TabIndex = 3;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Dock = DockStyle.Left;
-            label5.Location = new Point(4, 0);
-            label5.Margin = new Padding(4, 0, 4, 0);
+            label5.Location = new Point(3, 0);
             label5.Name = "label5";
-            label5.Size = new Size(135, 41);
+            label5.Size = new Size(90, 25);
             label5.TabIndex = 1;
             label5.Text = "Content Rating:";
             label5.TextAlign = ContentAlignment.BottomLeft;
@@ -992,10 +956,9 @@
             // 
             cbbContentRating.Dock = DockStyle.Fill;
             cbbContentRating.FormattingEnabled = true;
-            cbbContentRating.Location = new Point(4, 46);
-            cbbContentRating.Margin = new Padding(4, 5, 4, 5);
+            cbbContentRating.Location = new Point(3, 28);
             cbbContentRating.Name = "cbbContentRating";
-            cbbContentRating.Size = new Size(459, 33);
+            cbbContentRating.Size = new Size(321, 23);
             cbbContentRating.TabIndex = 2;
             // 
             // tableLayoutPanel7
@@ -1004,23 +967,21 @@
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel7.Controls.Add(label8, 0, 0);
             tableLayoutPanel7.Controls.Add(tbIMDbScore, 0, 1);
-            tableLayoutPanel7.Location = new Point(4, 520);
-            tableLayoutPanel7.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel7.Location = new Point(3, 313);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 2;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel7.Size = new Size(467, 93);
+            tableLayoutPanel7.Size = new Size(327, 56);
             tableLayoutPanel7.TabIndex = 3;
             // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Dock = DockStyle.Left;
-            label8.Location = new Point(4, 0);
-            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Location = new Point(3, 0);
             label8.Name = "label8";
-            label8.Size = new Size(110, 41);
+            label8.Size = new Size(71, 25);
             label8.TabIndex = 1;
             label8.Text = "IMDb Score:";
             label8.TextAlign = ContentAlignment.BottomLeft;
@@ -1028,10 +989,9 @@
             // tbIMDbScore
             // 
             tbIMDbScore.Dock = DockStyle.Fill;
-            tbIMDbScore.Location = new Point(4, 46);
-            tbIMDbScore.Margin = new Padding(4, 5, 4, 5);
+            tbIMDbScore.Location = new Point(3, 28);
             tbIMDbScore.Name = "tbIMDbScore";
-            tbIMDbScore.Size = new Size(459, 31);
+            tbIMDbScore.Size = new Size(321, 23);
             tbIMDbScore.TabIndex = 2;
             // 
             // tableLayoutPanel6
@@ -1040,23 +1000,21 @@
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel6.Controls.Add(label7, 0, 0);
             tableLayoutPanel6.Controls.Add(tbRatingCount, 0, 1);
-            tableLayoutPanel6.Location = new Point(4, 623);
-            tableLayoutPanel6.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel6.Location = new Point(3, 375);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel6.Size = new Size(467, 93);
+            tableLayoutPanel6.Size = new Size(327, 56);
             tableLayoutPanel6.TabIndex = 3;
             // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Dock = DockStyle.Left;
-            label7.Location = new Point(4, 0);
-            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Location = new Point(3, 0);
             label7.Name = "label7";
-            label7.Size = new Size(120, 41);
+            label7.Size = new Size(80, 25);
             label7.TabIndex = 1;
             label7.Text = "Rating Count:";
             label7.TextAlign = ContentAlignment.BottomLeft;
@@ -1064,10 +1022,9 @@
             // tbRatingCount
             // 
             tbRatingCount.Dock = DockStyle.Fill;
-            tbRatingCount.Location = new Point(4, 46);
-            tbRatingCount.Margin = new Padding(4, 5, 4, 5);
+            tbRatingCount.Location = new Point(3, 28);
             tbRatingCount.Name = "tbRatingCount";
-            tbRatingCount.Size = new Size(459, 31);
+            tbRatingCount.Size = new Size(321, 23);
             tbRatingCount.TabIndex = 2;
             // 
             // tableLayoutPanel5
@@ -1076,23 +1033,21 @@
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel5.Controls.Add(label6, 0, 0);
             tableLayoutPanel5.Controls.Add(tbPosterURL, 0, 1);
-            tableLayoutPanel5.Location = new Point(4, 726);
-            tableLayoutPanel5.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel5.Location = new Point(3, 437);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 2;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel5.Size = new Size(467, 93);
+            tableLayoutPanel5.Size = new Size(327, 56);
             tableLayoutPanel5.TabIndex = 3;
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Dock = DockStyle.Left;
-            label6.Location = new Point(4, 0);
-            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Location = new Point(3, 0);
             label6.Name = "label6";
-            label6.Size = new Size(101, 41);
+            label6.Size = new Size(67, 25);
             label6.TabIndex = 1;
             label6.Text = "Poster URL:";
             label6.TextAlign = ContentAlignment.BottomLeft;
@@ -1100,18 +1055,16 @@
             // tbPosterURL
             // 
             tbPosterURL.Dock = DockStyle.Fill;
-            tbPosterURL.Location = new Point(4, 46);
-            tbPosterURL.Margin = new Padding(4, 5, 4, 5);
+            tbPosterURL.Location = new Point(3, 28);
             tbPosterURL.Name = "tbPosterURL";
-            tbPosterURL.Size = new Size(459, 31);
+            tbPosterURL.Size = new Size(321, 23);
             tbPosterURL.TabIndex = 2;
             // 
             // imgPreviewPoster
             // 
-            imgPreviewPoster.Location = new Point(4, 829);
-            imgPreviewPoster.Margin = new Padding(4, 5, 4, 5);
+            imgPreviewPoster.Location = new Point(3, 499);
             imgPreviewPoster.Name = "imgPreviewPoster";
-            imgPreviewPoster.Size = new Size(513, 377);
+            imgPreviewPoster.Size = new Size(359, 226);
             imgPreviewPoster.SizeMode = PictureBoxSizeMode.Zoom;
             imgPreviewPoster.TabIndex = 4;
             imgPreviewPoster.TabStop = false;
@@ -1123,24 +1076,22 @@
             tableLayoutPanel8.Controls.Add(label9, 0, 0);
             tableLayoutPanel8.Controls.Add(wmpPreviewTrailer, 0, 2);
             tableLayoutPanel8.Controls.Add(tableLayoutPanel31, 0, 1);
-            tableLayoutPanel8.Location = new Point(4, 1216);
-            tableLayoutPanel8.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel8.Location = new Point(3, 731);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
             tableLayoutPanel8.RowCount = 3;
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 47.61905F));
             tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Percent, 52.38095F));
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 289F));
-            tableLayoutPanel8.Size = new Size(509, 374);
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 173F));
+            tableLayoutPanel8.Size = new Size(356, 224);
             tableLayoutPanel8.TabIndex = 3;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Dock = DockStyle.Left;
-            label9.Location = new Point(4, 0);
-            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Location = new Point(3, 0);
             label9.Name = "label9";
-            label9.Size = new Size(97, 40);
+            label9.Size = new Size(65, 24);
             label9.TabIndex = 1;
             label9.Text = "Trailer URL:";
             label9.TextAlign = ContentAlignment.BottomLeft;
@@ -1149,11 +1100,10 @@
             // 
             wmpPreviewTrailer.Dock = DockStyle.Fill;
             wmpPreviewTrailer.Enabled = true;
-            wmpPreviewTrailer.Location = new Point(4, 89);
-            wmpPreviewTrailer.Margin = new Padding(4, 5, 4, 5);
+            wmpPreviewTrailer.Location = new Point(3, 53);
             wmpPreviewTrailer.Name = "wmpPreviewTrailer";
             wmpPreviewTrailer.OcxState = (AxHost.State)resources.GetObject("wmpPreviewTrailer.OcxState");
-            wmpPreviewTrailer.Size = new Size(501, 280);
+            wmpPreviewTrailer.Size = new Size(350, 168);
             wmpPreviewTrailer.TabIndex = 5;
             // 
             // tableLayoutPanel31
@@ -1164,27 +1114,28 @@
             tableLayoutPanel31.Controls.Add(tbTrailerURL, 0, 0);
             tableLayoutPanel31.Controls.Add(btnLoadTrailer, 1, 0);
             tableLayoutPanel31.Dock = DockStyle.Fill;
-            tableLayoutPanel31.Location = new Point(3, 43);
+            tableLayoutPanel31.Location = new Point(2, 26);
+            tableLayoutPanel31.Margin = new Padding(2);
             tableLayoutPanel31.Name = "tableLayoutPanel31";
             tableLayoutPanel31.RowCount = 1;
             tableLayoutPanel31.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel31.Size = new Size(503, 38);
+            tableLayoutPanel31.Size = new Size(352, 22);
             tableLayoutPanel31.TabIndex = 6;
             // 
             // tbTrailerURL
             // 
             tbTrailerURL.Dock = DockStyle.Fill;
-            tbTrailerURL.Location = new Point(4, 5);
-            tbTrailerURL.Margin = new Padding(4, 5, 4, 5);
+            tbTrailerURL.Location = new Point(3, 3);
             tbTrailerURL.Name = "tbTrailerURL";
-            tbTrailerURL.Size = new Size(392, 31);
+            tbTrailerURL.Size = new Size(273, 23);
             tbTrailerURL.TabIndex = 3;
             // 
             // btnLoadTrailer
             // 
-            btnLoadTrailer.Location = new Point(403, 3);
+            btnLoadTrailer.Location = new Point(281, 2);
+            btnLoadTrailer.Margin = new Padding(2);
             btnLoadTrailer.Name = "btnLoadTrailer";
-            btnLoadTrailer.Size = new Size(97, 32);
+            btnLoadTrailer.Size = new Size(68, 18);
             btnLoadTrailer.TabIndex = 4;
             btnLoadTrailer.Text = "Load";
             btnLoadTrailer.UseVisualStyleBackColor = true;
@@ -1196,23 +1147,21 @@
             tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel9.Controls.Add(label10, 0, 0);
             tableLayoutPanel9.Controls.Add(tbDescription, 0, 1);
-            tableLayoutPanel9.Location = new Point(4, 1600);
-            tableLayoutPanel9.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel9.Location = new Point(3, 961);
             tableLayoutPanel9.Name = "tableLayoutPanel9";
             tableLayoutPanel9.RowCount = 2;
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 18.84058F));
             tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 81.1594238F));
-            tableLayoutPanel9.Size = new Size(513, 230);
+            tableLayoutPanel9.Size = new Size(359, 138);
             tableLayoutPanel9.TabIndex = 3;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Dock = DockStyle.Left;
-            label10.Location = new Point(4, 0);
-            label10.Margin = new Padding(4, 0, 4, 0);
+            label10.Location = new Point(3, 0);
             label10.Name = "label10";
-            label10.Size = new Size(106, 43);
+            label10.Size = new Size(70, 26);
             label10.TabIndex = 1;
             label10.Text = "Description:";
             label10.TextAlign = ContentAlignment.BottomLeft;
@@ -1220,20 +1169,18 @@
             // tbDescription
             // 
             tbDescription.Dock = DockStyle.Fill;
-            tbDescription.Location = new Point(4, 48);
-            tbDescription.Margin = new Padding(4, 5, 4, 5);
+            tbDescription.Location = new Point(3, 29);
             tbDescription.Multiline = true;
             tbDescription.Name = "tbDescription";
-            tbDescription.Size = new Size(505, 177);
+            tbDescription.Size = new Size(353, 106);
             tbDescription.TabIndex = 2;
             // 
             // cbIsTVShows
             // 
             cbIsTVShows.AutoSize = true;
-            cbIsTVShows.Location = new Point(4, 1840);
-            cbIsTVShows.Margin = new Padding(4, 5, 4, 5);
+            cbIsTVShows.Location = new Point(3, 1105);
             cbIsTVShows.Name = "cbIsTVShows";
-            cbIsTVShows.Size = new Size(115, 29);
+            cbIsTVShows.Size = new Size(76, 19);
             cbIsTVShows.TabIndex = 6;
             cbIsTVShows.Text = "TV Shows";
             cbIsTVShows.UseVisualStyleBackColor = true;
@@ -1244,9 +1191,8 @@
             label1.Dock = DockStyle.Top;
             label1.Font = new Font("Segoe UI", 13F);
             label1.Location = new Point(0, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(211, 36);
+            label1.Size = new Size(148, 25);
             label1.TabIndex = 0;
             label1.Text = "Movie Data Entry";
             // 
@@ -1258,10 +1204,9 @@
             panel11.Controls.Add(tableLayoutPanel10);
             panel11.Controls.Add(label11);
             panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(7, 0);
-            panel11.Margin = new Padding(4, 5, 4, 5);
+            panel11.Location = new Point(5, 0);
             panel11.Name = "panel11";
-            panel11.Size = new Size(520, 230);
+            panel11.Size = new Size(365, 139);
             panel11.TabIndex = 6;
             // 
             // tableLayoutPanel11
@@ -1272,21 +1217,19 @@
             tableLayoutPanel11.Controls.Add(btnGetDataUrl, 0, 0);
             tableLayoutPanel11.Controls.Add(btnGoToWeb, 1, 0);
             tableLayoutPanel11.Dock = DockStyle.Top;
-            tableLayoutPanel11.Location = new Point(0, 148);
-            tableLayoutPanel11.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel11.Location = new Point(0, 92);
             tableLayoutPanel11.Name = "tableLayoutPanel11";
             tableLayoutPanel11.RowCount = 1;
             tableLayoutPanel11.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel11.Size = new Size(518, 57);
+            tableLayoutPanel11.Size = new Size(363, 34);
             tableLayoutPanel11.TabIndex = 4;
             // 
             // btnGetDataUrl
             // 
             btnGetDataUrl.Dock = DockStyle.Left;
-            btnGetDataUrl.Location = new Point(4, 5);
-            btnGetDataUrl.Margin = new Padding(4, 5, 4, 5);
+            btnGetDataUrl.Location = new Point(3, 3);
             btnGetDataUrl.Name = "btnGetDataUrl";
-            btnGetDataUrl.Size = new Size(107, 47);
+            btnGetDataUrl.Size = new Size(75, 28);
             btnGetDataUrl.TabIndex = 0;
             btnGetDataUrl.Text = "Get Data";
             btnGetDataUrl.UseVisualStyleBackColor = true;
@@ -1295,10 +1238,9 @@
             // btnGoToWeb
             // 
             btnGoToWeb.Dock = DockStyle.Left;
-            btnGoToWeb.Location = new Point(137, 5);
-            btnGoToWeb.Margin = new Padding(4, 5, 4, 5);
+            btnGoToWeb.Location = new Point(96, 3);
             btnGoToWeb.Name = "btnGoToWeb";
-            btnGoToWeb.Size = new Size(163, 47);
+            btnGoToWeb.Size = new Size(114, 28);
             btnGoToWeb.TabIndex = 1;
             btnGoToWeb.Text = "Go to website";
             btnGoToWeb.UseVisualStyleBackColor = true;
@@ -1310,23 +1252,21 @@
             tableLayoutPanel10.Controls.Add(label12, 0, 0);
             tableLayoutPanel10.Controls.Add(tbIMDbURL, 0, 1);
             tableLayoutPanel10.Dock = DockStyle.Top;
-            tableLayoutPanel10.Location = new Point(0, 36);
-            tableLayoutPanel10.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel10.Location = new Point(0, 25);
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 2;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel10.Size = new Size(518, 112);
+            tableLayoutPanel10.Size = new Size(363, 67);
             tableLayoutPanel10.TabIndex = 3;
             // 
             // label12
             // 
             label12.AutoSize = true;
             label12.Dock = DockStyle.Left;
-            label12.Location = new Point(4, 0);
-            label12.Margin = new Padding(4, 0, 4, 0);
+            label12.Location = new Point(3, 0);
             label12.Name = "label12";
-            label12.Size = new Size(97, 50);
+            label12.Size = new Size(63, 29);
             label12.TabIndex = 1;
             label12.Text = "IMDb URL:";
             label12.TextAlign = ContentAlignment.BottomLeft;
@@ -1334,10 +1274,9 @@
             // tbIMDbURL
             // 
             tbIMDbURL.Dock = DockStyle.Fill;
-            tbIMDbURL.Location = new Point(4, 55);
-            tbIMDbURL.Margin = new Padding(4, 5, 4, 5);
+            tbIMDbURL.Location = new Point(3, 32);
             tbIMDbURL.Name = "tbIMDbURL";
-            tbIMDbURL.Size = new Size(510, 31);
+            tbIMDbURL.Size = new Size(357, 23);
             tbIMDbURL.TabIndex = 2;
             // 
             // label11
@@ -1346,9 +1285,8 @@
             label11.Dock = DockStyle.Top;
             label11.Font = new Font("Segoe UI", 13F);
             label11.Location = new Point(0, 0);
-            label11.Margin = new Padding(4, 0, 4, 0);
             label11.Name = "label11";
-            label11.Size = new Size(252, 36);
+            label11.Size = new Size(178, 25);
             label11.TabIndex = 1;
             label11.Text = "Get Data From IMDb";
             // 
@@ -1357,10 +1295,9 @@
             panel9.Controls.Add(dgvSeasons);
             panel9.Controls.Add(label16);
             panel9.Dock = DockStyle.Left;
-            panel9.Location = new Point(1876, 0);
-            panel9.Margin = new Padding(4, 5, 4, 5);
+            panel9.Location = new Point(1313, 0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(433, 1080);
+            panel9.Size = new Size(303, 647);
             panel9.TabIndex = 4;
             // 
             // dgvSeasons
@@ -1370,12 +1307,11 @@
             dgvSeasons.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvSeasons.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, cSeasonEdit });
             dgvSeasons.Dock = DockStyle.Fill;
-            dgvSeasons.Location = new Point(0, 36);
-            dgvSeasons.Margin = new Padding(4, 5, 4, 5);
+            dgvSeasons.Location = new Point(0, 25);
             dgvSeasons.Name = "dgvSeasons";
             dgvSeasons.ReadOnly = true;
             dgvSeasons.RowHeadersWidth = 62;
-            dgvSeasons.Size = new Size(433, 1044);
+            dgvSeasons.Size = new Size(303, 622);
             dgvSeasons.TabIndex = 8;
             dgvSeasons.CellContentClick += dgvSeasons_CellContentClick;
             // 
@@ -1410,9 +1346,8 @@
             label16.Dock = DockStyle.Top;
             label16.Font = new Font("Segoe UI", 13F);
             label16.Location = new Point(0, 0);
-            label16.Margin = new Padding(4, 0, 4, 0);
             label16.Name = "label16";
-            label16.Size = new Size(108, 36);
+            label16.Size = new Size(77, 25);
             label16.TabIndex = 7;
             label16.Text = "Seasons";
             // 
@@ -1421,10 +1356,9 @@
             panel12.Controls.Add(dgvEpisodes);
             panel12.Controls.Add(label17);
             panel12.Dock = DockStyle.Left;
-            panel12.Location = new Point(2779, 0);
-            panel12.Margin = new Padding(4, 5, 4, 5);
+            panel12.Location = new Point(1945, 0);
             panel12.Name = "panel12";
-            panel12.Size = new Size(1627, 1080);
+            panel12.Size = new Size(1139, 647);
             panel12.TabIndex = 5;
             // 
             // dgvEpisodes
@@ -1434,13 +1368,12 @@
             dgvEpisodes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEpisodes.Columns.AddRange(new DataGridViewColumn[] { cEpId, cNumber, cEpReleaseDate, cEpDuration, cEpImage, cPreviewImage, cEpTitle, cEpAggregateRating, cEpVoteCount, cEpEdit, cEpDel });
             dgvEpisodes.Dock = DockStyle.Fill;
-            dgvEpisodes.Location = new Point(0, 36);
-            dgvEpisodes.Margin = new Padding(4, 5, 4, 5);
+            dgvEpisodes.Location = new Point(0, 25);
             dgvEpisodes.Name = "dgvEpisodes";
             dgvEpisodes.ReadOnly = true;
             dgvEpisodes.RowHeadersWidth = 62;
             dgvEpisodes.RowTemplate.Height = 100;
-            dgvEpisodes.Size = new Size(1627, 1044);
+            dgvEpisodes.Size = new Size(1139, 622);
             dgvEpisodes.TabIndex = 8;
             dgvEpisodes.CellContentClick += dgvEpisodes_CellContentClick;
             // 
@@ -1540,9 +1473,8 @@
             label17.Dock = DockStyle.Top;
             label17.Font = new Font("Segoe UI", 13F);
             label17.Location = new Point(0, 0);
-            label17.Margin = new Padding(4, 0, 4, 0);
             label17.Name = "label17";
-            label17.Size = new Size(115, 36);
+            label17.Size = new Size(83, 25);
             label17.TabIndex = 7;
             label17.Text = "Episodes";
             // 
@@ -1550,10 +1482,9 @@
             // 
             panel13.Controls.Add(panel14);
             panel13.Dock = DockStyle.Left;
-            panel13.Location = new Point(2309, 0);
-            panel13.Margin = new Padding(4, 5, 4, 5);
+            panel13.Location = new Point(1616, 0);
             panel13.Name = "panel13";
-            panel13.Size = new Size(470, 1080);
+            panel13.Size = new Size(329, 647);
             panel13.TabIndex = 6;
             // 
             // panel14
@@ -1566,17 +1497,15 @@
             panel14.Controls.Add(label19);
             panel14.Dock = DockStyle.Top;
             panel14.Location = new Point(0, 0);
-            panel14.Margin = new Padding(4, 5, 4, 5);
             panel14.Name = "panel14";
-            panel14.Size = new Size(470, 777);
+            panel14.Size = new Size(329, 467);
             panel14.TabIndex = 7;
             // 
             // btnSubmitEpisodes
             // 
-            btnSubmitEpisodes.Location = new Point(4, 662);
-            btnSubmitEpisodes.Margin = new Padding(4, 5, 4, 5);
+            btnSubmitEpisodes.Location = new Point(3, 397);
             btnSubmitEpisodes.Name = "btnSubmitEpisodes";
-            btnSubmitEpisodes.Size = new Size(107, 38);
+            btnSubmitEpisodes.Size = new Size(75, 23);
             btnSubmitEpisodes.TabIndex = 5;
             btnSubmitEpisodes.Text = "Submit";
             btnSubmitEpisodes.UseVisualStyleBackColor = true;
@@ -1590,21 +1519,19 @@
             tableLayoutPanel13.Controls.Add(btnResolveHTML, 0, 0);
             tableLayoutPanel13.Controls.Add(btnRefreshEpisodes, 1, 0);
             tableLayoutPanel13.Dock = DockStyle.Top;
-            tableLayoutPanel13.Location = new Point(0, 594);
-            tableLayoutPanel13.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel13.Location = new Point(0, 360);
             tableLayoutPanel13.Name = "tableLayoutPanel13";
             tableLayoutPanel13.RowCount = 1;
             tableLayoutPanel13.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel13.Size = new Size(468, 57);
+            tableLayoutPanel13.Size = new Size(327, 34);
             tableLayoutPanel13.TabIndex = 4;
             // 
             // btnResolveHTML
             // 
             btnResolveHTML.Dock = DockStyle.Left;
-            btnResolveHTML.Location = new Point(4, 5);
-            btnResolveHTML.Margin = new Padding(4, 5, 4, 5);
+            btnResolveHTML.Location = new Point(3, 3);
             btnResolveHTML.Name = "btnResolveHTML";
-            btnResolveHTML.Size = new Size(151, 47);
+            btnResolveHTML.Size = new Size(106, 28);
             btnResolveHTML.TabIndex = 0;
             btnResolveHTML.Text = "Resolve HTML";
             btnResolveHTML.UseVisualStyleBackColor = true;
@@ -1613,10 +1540,9 @@
             // btnRefreshEpisodes
             // 
             btnRefreshEpisodes.Dock = DockStyle.Left;
-            btnRefreshEpisodes.Location = new Point(181, 5);
-            btnRefreshEpisodes.Margin = new Padding(4, 5, 4, 5);
+            btnRefreshEpisodes.Location = new Point(127, 3);
             btnRefreshEpisodes.Name = "btnRefreshEpisodes";
-            btnRefreshEpisodes.Size = new Size(107, 47);
+            btnRefreshEpisodes.Size = new Size(75, 28);
             btnRefreshEpisodes.TabIndex = 1;
             btnRefreshEpisodes.Text = "Refresh";
             btnRefreshEpisodes.UseVisualStyleBackColor = true;
@@ -1628,23 +1554,21 @@
             tableLayoutPanel14.Controls.Add(label18, 0, 0);
             tableLayoutPanel14.Controls.Add(tbEpisodeHTML, 0, 1);
             tableLayoutPanel14.Dock = DockStyle.Top;
-            tableLayoutPanel14.Location = new Point(0, 36);
-            tableLayoutPanel14.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel14.Location = new Point(0, 25);
             tableLayoutPanel14.Name = "tableLayoutPanel14";
             tableLayoutPanel14.RowCount = 2;
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 9.850746F));
             tableLayoutPanel14.RowStyles.Add(new RowStyle(SizeType.Percent, 90.1492538F));
-            tableLayoutPanel14.Size = new Size(468, 558);
+            tableLayoutPanel14.Size = new Size(327, 335);
             tableLayoutPanel14.TabIndex = 3;
             // 
             // label18
             // 
             label18.AutoSize = true;
             label18.Dock = DockStyle.Left;
-            label18.Location = new Point(4, 0);
-            label18.Margin = new Padding(4, 0, 4, 0);
+            label18.Location = new Point(3, 0);
             label18.Name = "label18";
-            label18.Size = new Size(109, 54);
+            label18.Size = new Size(73, 33);
             label18.TabIndex = 1;
             label18.Text = "HTML Input:";
             label18.TextAlign = ContentAlignment.BottomLeft;
@@ -1652,13 +1576,12 @@
             // tbEpisodeHTML
             // 
             tbEpisodeHTML.Dock = DockStyle.Fill;
-            tbEpisodeHTML.Location = new Point(4, 59);
-            tbEpisodeHTML.Margin = new Padding(4, 5, 4, 5);
+            tbEpisodeHTML.Location = new Point(3, 36);
             tbEpisodeHTML.MaxLength = 200767;
             tbEpisodeHTML.Multiline = true;
             tbEpisodeHTML.Name = "tbEpisodeHTML";
             tbEpisodeHTML.ScrollBars = ScrollBars.Vertical;
-            tbEpisodeHTML.Size = new Size(460, 494);
+            tbEpisodeHTML.Size = new Size(321, 296);
             tbEpisodeHTML.TabIndex = 2;
             // 
             // label19
@@ -1667,9 +1590,8 @@
             label19.Dock = DockStyle.Top;
             label19.Font = new Font("Segoe UI", 13F);
             label19.Location = new Point(0, 0);
-            label19.Margin = new Padding(4, 0, 4, 0);
             label19.Name = "label19";
-            label19.Size = new Size(256, 36);
+            label19.Size = new Size(179, 25);
             label19.TabIndex = 1;
             label19.Text = "Get Data From HTML";
             // 
@@ -1679,10 +1601,9 @@
             panel15.Controls.Add(panel16);
             panel15.Controls.Add(panel25);
             panel15.Dock = DockStyle.Left;
-            panel15.Location = new Point(4406, 0);
-            panel15.Margin = new Padding(4, 5, 4, 5);
+            panel15.Location = new Point(3084, 0);
             panel15.Name = "panel15";
-            panel15.Size = new Size(526, 1080);
+            panel15.Size = new Size(368, 647);
             panel15.TabIndex = 7;
             // 
             // panel16
@@ -1692,10 +1613,10 @@
             panel16.Controls.Add(flowLayoutPanel2);
             panel16.Controls.Add(label29);
             panel16.Dock = DockStyle.Top;
-            panel16.Location = new Point(0, 230);
-            panel16.Margin = new Padding(4, 8, 4, 5);
+            panel16.Location = new Point(0, 139);
+            panel16.Margin = new Padding(3, 5, 3, 3);
             panel16.Name = "panel16";
-            panel16.Size = new Size(500, 1940);
+            panel16.Size = new Size(351, 1165);
             panel16.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -1712,10 +1633,9 @@
             flowLayoutPanel2.Controls.Add(tableLayoutPanel23);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel24);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel18);
-            flowLayoutPanel2.Location = new Point(0, 42);
-            flowLayoutPanel2.Margin = new Padding(4, 5, 4, 5);
+            flowLayoutPanel2.Location = new Point(0, 25);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(523, 1842);
+            flowLayoutPanel2.Size = new Size(366, 1105);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel15
@@ -1724,23 +1644,21 @@
             tableLayoutPanel15.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel15.Controls.Add(label20, 0, 0);
             tableLayoutPanel15.Controls.Add(tbEpId, 0, 1);
-            tableLayoutPanel15.Location = new Point(4, 5);
-            tableLayoutPanel15.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel15.Location = new Point(3, 3);
             tableLayoutPanel15.Name = "tableLayoutPanel15";
             tableLayoutPanel15.RowCount = 2;
             tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel15.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel15.Size = new Size(467, 93);
+            tableLayoutPanel15.Size = new Size(327, 56);
             tableLayoutPanel15.TabIndex = 3;
             // 
             // label20
             // 
             label20.AutoSize = true;
             label20.Dock = DockStyle.Left;
-            label20.Location = new Point(4, 0);
-            label20.Margin = new Padding(4, 0, 4, 0);
+            label20.Location = new Point(3, 0);
             label20.Name = "label20";
-            label20.Size = new Size(32, 41);
+            label20.Size = new Size(20, 25);
             label20.TabIndex = 1;
             label20.Text = "Id:";
             label20.TextAlign = ContentAlignment.BottomLeft;
@@ -1748,10 +1666,9 @@
             // tbEpId
             // 
             tbEpId.Dock = DockStyle.Fill;
-            tbEpId.Location = new Point(4, 46);
-            tbEpId.Margin = new Padding(4, 5, 4, 5);
+            tbEpId.Location = new Point(3, 28);
             tbEpId.Name = "tbEpId";
-            tbEpId.Size = new Size(459, 31);
+            tbEpId.Size = new Size(321, 23);
             tbEpId.TabIndex = 2;
             // 
             // tableLayoutPanel28
@@ -1760,23 +1677,21 @@
             tableLayoutPanel28.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel28.Controls.Add(label37, 0, 0);
             tableLayoutPanel28.Controls.Add(tbEpisode, 0, 1);
-            tableLayoutPanel28.Location = new Point(4, 108);
-            tableLayoutPanel28.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel28.Location = new Point(3, 65);
             tableLayoutPanel28.Name = "tableLayoutPanel28";
             tableLayoutPanel28.RowCount = 2;
             tableLayoutPanel28.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel28.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel28.Size = new Size(467, 93);
+            tableLayoutPanel28.Size = new Size(327, 56);
             tableLayoutPanel28.TabIndex = 3;
             // 
             // label37
             // 
             label37.AutoSize = true;
             label37.Dock = DockStyle.Left;
-            label37.Location = new Point(4, 0);
-            label37.Margin = new Padding(4, 0, 4, 0);
+            label37.Location = new Point(3, 0);
             label37.Name = "label37";
-            label37.Size = new Size(79, 41);
+            label37.Size = new Size(51, 25);
             label37.TabIndex = 1;
             label37.Text = "Episode:";
             label37.TextAlign = ContentAlignment.BottomLeft;
@@ -1784,10 +1699,9 @@
             // tbEpisode
             // 
             tbEpisode.Dock = DockStyle.Fill;
-            tbEpisode.Location = new Point(4, 46);
-            tbEpisode.Margin = new Padding(4, 5, 4, 5);
+            tbEpisode.Location = new Point(3, 28);
             tbEpisode.Name = "tbEpisode";
-            tbEpisode.Size = new Size(459, 31);
+            tbEpisode.Size = new Size(321, 23);
             tbEpisode.TabIndex = 2;
             // 
             // tableLayoutPanel25
@@ -1796,23 +1710,21 @@
             tableLayoutPanel25.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel25.Controls.Add(label31, 0, 0);
             tableLayoutPanel25.Controls.Add(tbEpTitle, 0, 1);
-            tableLayoutPanel25.Location = new Point(4, 211);
-            tableLayoutPanel25.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel25.Location = new Point(3, 127);
             tableLayoutPanel25.Name = "tableLayoutPanel25";
             tableLayoutPanel25.RowCount = 2;
             tableLayoutPanel25.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel25.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel25.Size = new Size(467, 93);
+            tableLayoutPanel25.Size = new Size(327, 56);
             tableLayoutPanel25.TabIndex = 3;
             // 
             // label31
             // 
             label31.AutoSize = true;
             label31.Dock = DockStyle.Left;
-            label31.Location = new Point(4, 0);
-            label31.Margin = new Padding(4, 0, 4, 0);
+            label31.Location = new Point(3, 0);
             label31.Name = "label31";
-            label31.Size = new Size(48, 41);
+            label31.Size = new Size(32, 25);
             label31.TabIndex = 1;
             label31.Text = "Title:";
             label31.TextAlign = ContentAlignment.BottomLeft;
@@ -1820,10 +1732,9 @@
             // tbEpTitle
             // 
             tbEpTitle.Dock = DockStyle.Fill;
-            tbEpTitle.Location = new Point(4, 46);
-            tbEpTitle.Margin = new Padding(4, 5, 4, 5);
+            tbEpTitle.Location = new Point(3, 28);
             tbEpTitle.Name = "tbEpTitle";
-            tbEpTitle.Size = new Size(459, 31);
+            tbEpTitle.Size = new Size(321, 23);
             tbEpTitle.TabIndex = 2;
             // 
             // tableLayoutPanel16
@@ -1832,23 +1743,21 @@
             tableLayoutPanel16.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel16.Controls.Add(label21, 0, 0);
             tableLayoutPanel16.Controls.Add(dtpEpReleaseDate, 0, 1);
-            tableLayoutPanel16.Location = new Point(4, 314);
-            tableLayoutPanel16.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel16.Location = new Point(3, 189);
             tableLayoutPanel16.Name = "tableLayoutPanel16";
             tableLayoutPanel16.RowCount = 2;
             tableLayoutPanel16.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel16.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel16.Size = new Size(467, 93);
+            tableLayoutPanel16.Size = new Size(327, 56);
             tableLayoutPanel16.TabIndex = 3;
             // 
             // label21
             // 
             label21.AutoSize = true;
             label21.Dock = DockStyle.Left;
-            label21.Location = new Point(4, 0);
-            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Location = new Point(3, 0);
             label21.Name = "label21";
-            label21.Size = new Size(116, 41);
+            label21.Size = new Size(76, 25);
             label21.TabIndex = 1;
             label21.Text = "Release Date:";
             label21.TextAlign = ContentAlignment.BottomLeft;
@@ -1857,10 +1766,9 @@
             // 
             dtpEpReleaseDate.Dock = DockStyle.Fill;
             dtpEpReleaseDate.Format = DateTimePickerFormat.Short;
-            dtpEpReleaseDate.Location = new Point(4, 46);
-            dtpEpReleaseDate.Margin = new Padding(4, 5, 4, 5);
+            dtpEpReleaseDate.Location = new Point(3, 28);
             dtpEpReleaseDate.Name = "dtpEpReleaseDate";
-            dtpEpReleaseDate.Size = new Size(459, 31);
+            dtpEpReleaseDate.Size = new Size(321, 23);
             dtpEpReleaseDate.TabIndex = 2;
             // 
             // tableLayoutPanel17
@@ -1869,23 +1777,21 @@
             tableLayoutPanel17.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel17.Controls.Add(label22, 0, 0);
             tableLayoutPanel17.Controls.Add(tbEpDuration, 0, 1);
-            tableLayoutPanel17.Location = new Point(4, 417);
-            tableLayoutPanel17.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel17.Location = new Point(3, 251);
             tableLayoutPanel17.Name = "tableLayoutPanel17";
             tableLayoutPanel17.RowCount = 2;
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel17.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel17.Size = new Size(467, 93);
+            tableLayoutPanel17.Size = new Size(327, 56);
             tableLayoutPanel17.TabIndex = 3;
             // 
             // label22
             // 
             label22.AutoSize = true;
             label22.Dock = DockStyle.Left;
-            label22.Location = new Point(4, 0);
-            label22.Margin = new Padding(4, 0, 4, 0);
+            label22.Location = new Point(3, 0);
             label22.Name = "label22";
-            label22.Size = new Size(85, 41);
+            label22.Size = new Size(56, 25);
             label22.TabIndex = 1;
             label22.Text = "Duration:";
             label22.TextAlign = ContentAlignment.BottomLeft;
@@ -1893,10 +1799,9 @@
             // tbEpDuration
             // 
             tbEpDuration.Dock = DockStyle.Fill;
-            tbEpDuration.Location = new Point(4, 46);
-            tbEpDuration.Margin = new Padding(4, 5, 4, 5);
+            tbEpDuration.Location = new Point(3, 28);
             tbEpDuration.Name = "tbEpDuration";
-            tbEpDuration.Size = new Size(459, 31);
+            tbEpDuration.Size = new Size(321, 23);
             tbEpDuration.TabIndex = 2;
             // 
             // tableLayoutPanel19
@@ -1905,23 +1810,21 @@
             tableLayoutPanel19.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel19.Controls.Add(label24, 0, 0);
             tableLayoutPanel19.Controls.Add(tbEpAggregateRating, 0, 1);
-            tableLayoutPanel19.Location = new Point(4, 520);
-            tableLayoutPanel19.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel19.Location = new Point(3, 313);
             tableLayoutPanel19.Name = "tableLayoutPanel19";
             tableLayoutPanel19.RowCount = 2;
             tableLayoutPanel19.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel19.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel19.Size = new Size(467, 93);
+            tableLayoutPanel19.Size = new Size(327, 56);
             tableLayoutPanel19.TabIndex = 3;
             // 
             // label24
             // 
             label24.AutoSize = true;
             label24.Dock = DockStyle.Left;
-            label24.Location = new Point(4, 0);
-            label24.Margin = new Padding(4, 0, 4, 0);
+            label24.Location = new Point(3, 0);
             label24.Name = "label24";
-            label24.Size = new Size(110, 41);
+            label24.Size = new Size(71, 25);
             label24.TabIndex = 1;
             label24.Text = "IMDb Score:";
             label24.TextAlign = ContentAlignment.BottomLeft;
@@ -1929,10 +1832,9 @@
             // tbEpAggregateRating
             // 
             tbEpAggregateRating.Dock = DockStyle.Fill;
-            tbEpAggregateRating.Location = new Point(4, 46);
-            tbEpAggregateRating.Margin = new Padding(4, 5, 4, 5);
+            tbEpAggregateRating.Location = new Point(3, 28);
             tbEpAggregateRating.Name = "tbEpAggregateRating";
-            tbEpAggregateRating.Size = new Size(459, 31);
+            tbEpAggregateRating.Size = new Size(321, 23);
             tbEpAggregateRating.TabIndex = 2;
             // 
             // tableLayoutPanel20
@@ -1941,23 +1843,21 @@
             tableLayoutPanel20.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel20.Controls.Add(label25, 0, 0);
             tableLayoutPanel20.Controls.Add(tbEpVoteCount, 0, 1);
-            tableLayoutPanel20.Location = new Point(4, 623);
-            tableLayoutPanel20.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel20.Location = new Point(3, 375);
             tableLayoutPanel20.Name = "tableLayoutPanel20";
             tableLayoutPanel20.RowCount = 2;
             tableLayoutPanel20.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel20.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel20.Size = new Size(467, 93);
+            tableLayoutPanel20.Size = new Size(327, 56);
             tableLayoutPanel20.TabIndex = 3;
             // 
             // label25
             // 
             label25.AutoSize = true;
             label25.Dock = DockStyle.Left;
-            label25.Location = new Point(4, 0);
-            label25.Margin = new Padding(4, 0, 4, 0);
+            label25.Location = new Point(3, 0);
             label25.Name = "label25";
-            label25.Size = new Size(120, 41);
+            label25.Size = new Size(80, 25);
             label25.TabIndex = 1;
             label25.Text = "Rating Count:";
             label25.TextAlign = ContentAlignment.BottomLeft;
@@ -1965,10 +1865,9 @@
             // tbEpVoteCount
             // 
             tbEpVoteCount.Dock = DockStyle.Fill;
-            tbEpVoteCount.Location = new Point(4, 46);
-            tbEpVoteCount.Margin = new Padding(4, 5, 4, 5);
+            tbEpVoteCount.Location = new Point(3, 28);
             tbEpVoteCount.Name = "tbEpVoteCount";
-            tbEpVoteCount.Size = new Size(459, 31);
+            tbEpVoteCount.Size = new Size(321, 23);
             tbEpVoteCount.TabIndex = 2;
             // 
             // tableLayoutPanel21
@@ -1977,23 +1876,21 @@
             tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel21.Controls.Add(label26, 0, 0);
             tableLayoutPanel21.Controls.Add(tbEpImage, 0, 1);
-            tableLayoutPanel21.Location = new Point(4, 726);
-            tableLayoutPanel21.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel21.Location = new Point(3, 437);
             tableLayoutPanel21.Name = "tableLayoutPanel21";
             tableLayoutPanel21.RowCount = 2;
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel21.Size = new Size(467, 93);
+            tableLayoutPanel21.Size = new Size(327, 56);
             tableLayoutPanel21.TabIndex = 3;
             // 
             // label26
             // 
             label26.AutoSize = true;
             label26.Dock = DockStyle.Left;
-            label26.Location = new Point(4, 0);
-            label26.Margin = new Padding(4, 0, 4, 0);
+            label26.Location = new Point(3, 0);
             label26.Name = "label26";
-            label26.Size = new Size(102, 41);
+            label26.Size = new Size(67, 25);
             label26.TabIndex = 1;
             label26.Text = "Image URL:";
             label26.TextAlign = ContentAlignment.BottomLeft;
@@ -2001,19 +1898,17 @@
             // tbEpImage
             // 
             tbEpImage.Dock = DockStyle.Fill;
-            tbEpImage.Location = new Point(4, 46);
-            tbEpImage.Margin = new Padding(4, 5, 4, 5);
+            tbEpImage.Location = new Point(3, 28);
             tbEpImage.Name = "tbEpImage";
-            tbEpImage.Size = new Size(459, 31);
+            tbEpImage.Size = new Size(321, 23);
             tbEpImage.TabIndex = 2;
             // 
             // imgEpPreviewImage
             // 
             imgEpPreviewImage.Image = Properties.Resources.Oppenheimer;
-            imgEpPreviewImage.Location = new Point(4, 829);
-            imgEpPreviewImage.Margin = new Padding(4, 5, 4, 5);
+            imgEpPreviewImage.Location = new Point(3, 499);
             imgEpPreviewImage.Name = "imgEpPreviewImage";
-            imgEpPreviewImage.Size = new Size(513, 377);
+            imgEpPreviewImage.Size = new Size(359, 226);
             imgEpPreviewImage.SizeMode = PictureBoxSizeMode.Zoom;
             imgEpPreviewImage.TabIndex = 4;
             imgEpPreviewImage.TabStop = false;
@@ -2024,23 +1919,21 @@
             tableLayoutPanel23.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel23.Controls.Add(label28, 0, 0);
             tableLayoutPanel23.Controls.Add(tbEpImageCaption, 0, 1);
-            tableLayoutPanel23.Location = new Point(4, 1216);
-            tableLayoutPanel23.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel23.Location = new Point(3, 731);
             tableLayoutPanel23.Name = "tableLayoutPanel23";
             tableLayoutPanel23.RowCount = 2;
             tableLayoutPanel23.RowStyles.Add(new RowStyle(SizeType.Percent, 18.84058F));
             tableLayoutPanel23.RowStyles.Add(new RowStyle(SizeType.Percent, 81.1594238F));
-            tableLayoutPanel23.Size = new Size(513, 230);
+            tableLayoutPanel23.Size = new Size(359, 138);
             tableLayoutPanel23.TabIndex = 3;
             // 
             // label28
             // 
             label28.AutoSize = true;
             label28.Dock = DockStyle.Left;
-            label28.Location = new Point(4, 0);
-            label28.Margin = new Padding(4, 0, 4, 0);
+            label28.Location = new Point(3, 0);
             label28.Name = "label28";
-            label28.Size = new Size(133, 43);
+            label28.Size = new Size(88, 26);
             label28.TabIndex = 1;
             label28.Text = "Image Caption:";
             label28.TextAlign = ContentAlignment.BottomLeft;
@@ -2048,11 +1941,10 @@
             // tbEpImageCaption
             // 
             tbEpImageCaption.Dock = DockStyle.Fill;
-            tbEpImageCaption.Location = new Point(4, 48);
-            tbEpImageCaption.Margin = new Padding(4, 5, 4, 5);
+            tbEpImageCaption.Location = new Point(3, 29);
             tbEpImageCaption.Multiline = true;
             tbEpImageCaption.Name = "tbEpImageCaption";
-            tbEpImageCaption.Size = new Size(505, 177);
+            tbEpImageCaption.Size = new Size(353, 106);
             tbEpImageCaption.TabIndex = 2;
             // 
             // tableLayoutPanel24
@@ -2061,23 +1953,21 @@
             tableLayoutPanel24.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel24.Controls.Add(label30, 0, 0);
             tableLayoutPanel24.Controls.Add(tbEpPlot, 0, 1);
-            tableLayoutPanel24.Location = new Point(4, 1456);
-            tableLayoutPanel24.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel24.Location = new Point(3, 875);
             tableLayoutPanel24.Name = "tableLayoutPanel24";
             tableLayoutPanel24.RowCount = 2;
             tableLayoutPanel24.RowStyles.Add(new RowStyle(SizeType.Percent, 18.84058F));
             tableLayoutPanel24.RowStyles.Add(new RowStyle(SizeType.Percent, 81.1594238F));
-            tableLayoutPanel24.Size = new Size(513, 230);
+            tableLayoutPanel24.Size = new Size(359, 138);
             tableLayoutPanel24.TabIndex = 3;
             // 
             // label30
             // 
             label30.AutoSize = true;
             label30.Dock = DockStyle.Left;
-            label30.Location = new Point(4, 0);
-            label30.Margin = new Padding(4, 0, 4, 0);
+            label30.Location = new Point(3, 0);
             label30.Name = "label30";
-            label30.Size = new Size(47, 43);
+            label30.Size = new Size(31, 26);
             label30.TabIndex = 1;
             label30.Text = "Plot:";
             label30.TextAlign = ContentAlignment.BottomLeft;
@@ -2085,11 +1975,10 @@
             // tbEpPlot
             // 
             tbEpPlot.Dock = DockStyle.Fill;
-            tbEpPlot.Location = new Point(4, 48);
-            tbEpPlot.Margin = new Padding(4, 5, 4, 5);
+            tbEpPlot.Location = new Point(3, 29);
             tbEpPlot.Multiline = true;
             tbEpPlot.Name = "tbEpPlot";
-            tbEpPlot.Size = new Size(505, 177);
+            tbEpPlot.Size = new Size(353, 106);
             tbEpPlot.TabIndex = 2;
             // 
             // tableLayoutPanel18
@@ -2099,21 +1988,19 @@
             tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.49438F));
             tableLayoutPanel18.Controls.Add(btnEpSubmit, 0, 0);
             tableLayoutPanel18.Controls.Add(btnEpUpdate, 1, 0);
-            tableLayoutPanel18.Location = new Point(4, 1696);
-            tableLayoutPanel18.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel18.Location = new Point(3, 1019);
             tableLayoutPanel18.Name = "tableLayoutPanel18";
             tableLayoutPanel18.RowCount = 1;
             tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel18.Size = new Size(509, 75);
+            tableLayoutPanel18.Size = new Size(356, 45);
             tableLayoutPanel18.TabIndex = 5;
             // 
             // btnEpSubmit
             // 
             btnEpSubmit.Dock = DockStyle.Left;
-            btnEpSubmit.Location = new Point(4, 5);
-            btnEpSubmit.Margin = new Padding(4, 5, 4, 5);
+            btnEpSubmit.Location = new Point(3, 3);
             btnEpSubmit.Name = "btnEpSubmit";
-            btnEpSubmit.Size = new Size(160, 65);
+            btnEpSubmit.Size = new Size(112, 39);
             btnEpSubmit.TabIndex = 0;
             btnEpSubmit.Text = "Submit";
             btnEpSubmit.UseVisualStyleBackColor = true;
@@ -2121,10 +2008,9 @@
             // btnEpUpdate
             // 
             btnEpUpdate.Dock = DockStyle.Left;
-            btnEpUpdate.Location = new Point(235, 5);
-            btnEpUpdate.Margin = new Padding(4, 5, 4, 5);
+            btnEpUpdate.Location = new Point(165, 3);
             btnEpUpdate.Name = "btnEpUpdate";
-            btnEpUpdate.Size = new Size(136, 65);
+            btnEpUpdate.Size = new Size(95, 39);
             btnEpUpdate.TabIndex = 1;
             btnEpUpdate.Text = "Update";
             btnEpUpdate.UseVisualStyleBackColor = true;
@@ -2135,9 +2021,8 @@
             label29.Dock = DockStyle.Top;
             label29.Font = new Font("Segoe UI", 13F);
             label29.Location = new Point(0, 0);
-            label29.Margin = new Padding(4, 0, 4, 0);
             label29.Name = "label29";
-            label29.Size = new Size(230, 36);
+            label29.Size = new Size(162, 25);
             label29.TabIndex = 0;
             label29.Text = "Episode Data Entry";
             // 
@@ -2150,9 +2035,8 @@
             panel25.Controls.Add(label39);
             panel25.Dock = DockStyle.Top;
             panel25.Location = new Point(0, 0);
-            panel25.Margin = new Padding(4, 5, 4, 5);
             panel25.Name = "panel25";
-            panel25.Size = new Size(500, 230);
+            panel25.Size = new Size(351, 139);
             panel25.TabIndex = 7;
             // 
             // tableLayoutPanel29
@@ -2163,21 +2047,19 @@
             tableLayoutPanel29.Controls.Add(btnEpGetData, 0, 0);
             tableLayoutPanel29.Controls.Add(btnEpGoToWebsite, 1, 0);
             tableLayoutPanel29.Dock = DockStyle.Top;
-            tableLayoutPanel29.Location = new Point(0, 148);
-            tableLayoutPanel29.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel29.Location = new Point(0, 92);
             tableLayoutPanel29.Name = "tableLayoutPanel29";
             tableLayoutPanel29.RowCount = 1;
             tableLayoutPanel29.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel29.Size = new Size(498, 57);
+            tableLayoutPanel29.Size = new Size(349, 34);
             tableLayoutPanel29.TabIndex = 4;
             // 
             // btnEpGetData
             // 
             btnEpGetData.Dock = DockStyle.Left;
-            btnEpGetData.Location = new Point(4, 5);
-            btnEpGetData.Margin = new Padding(4, 5, 4, 5);
+            btnEpGetData.Location = new Point(3, 3);
             btnEpGetData.Name = "btnEpGetData";
-            btnEpGetData.Size = new Size(107, 47);
+            btnEpGetData.Size = new Size(75, 28);
             btnEpGetData.TabIndex = 0;
             btnEpGetData.Text = "Get Data";
             btnEpGetData.UseVisualStyleBackColor = true;
@@ -2186,10 +2068,9 @@
             // btnEpGoToWebsite
             // 
             btnEpGoToWebsite.Dock = DockStyle.Left;
-            btnEpGoToWebsite.Location = new Point(132, 5);
-            btnEpGoToWebsite.Margin = new Padding(4, 5, 4, 5);
+            btnEpGoToWebsite.Location = new Point(92, 3);
             btnEpGoToWebsite.Name = "btnEpGoToWebsite";
-            btnEpGoToWebsite.Size = new Size(163, 47);
+            btnEpGoToWebsite.Size = new Size(114, 28);
             btnEpGoToWebsite.TabIndex = 1;
             btnEpGoToWebsite.Text = "Go to website";
             btnEpGoToWebsite.UseVisualStyleBackColor = true;
@@ -2201,23 +2082,21 @@
             tableLayoutPanel30.Controls.Add(label38, 0, 0);
             tableLayoutPanel30.Controls.Add(tbEpURL, 0, 1);
             tableLayoutPanel30.Dock = DockStyle.Top;
-            tableLayoutPanel30.Location = new Point(0, 36);
-            tableLayoutPanel30.Margin = new Padding(4, 5, 4, 5);
+            tableLayoutPanel30.Location = new Point(0, 25);
             tableLayoutPanel30.Name = "tableLayoutPanel30";
             tableLayoutPanel30.RowCount = 2;
             tableLayoutPanel30.RowStyles.Add(new RowStyle(SizeType.Percent, 44.6428566F));
             tableLayoutPanel30.RowStyles.Add(new RowStyle(SizeType.Percent, 55.3571434F));
-            tableLayoutPanel30.Size = new Size(498, 112);
+            tableLayoutPanel30.Size = new Size(349, 67);
             tableLayoutPanel30.TabIndex = 3;
             // 
             // label38
             // 
             label38.AutoSize = true;
             label38.Dock = DockStyle.Left;
-            label38.Location = new Point(4, 0);
-            label38.Margin = new Padding(4, 0, 4, 0);
+            label38.Location = new Point(3, 0);
             label38.Name = "label38";
-            label38.Size = new Size(165, 50);
+            label38.Size = new Size(107, 29);
             label38.TabIndex = 1;
             label38.Text = "IMDb Episode URL:";
             label38.TextAlign = ContentAlignment.BottomLeft;
@@ -2225,10 +2104,9 @@
             // tbEpURL
             // 
             tbEpURL.Dock = DockStyle.Fill;
-            tbEpURL.Location = new Point(4, 55);
-            tbEpURL.Margin = new Padding(4, 5, 4, 5);
+            tbEpURL.Location = new Point(3, 32);
             tbEpURL.Name = "tbEpURL";
-            tbEpURL.Size = new Size(490, 31);
+            tbEpURL.Size = new Size(343, 23);
             tbEpURL.TabIndex = 2;
             // 
             // label39
@@ -2237,9 +2115,8 @@
             label39.Dock = DockStyle.Top;
             label39.Font = new Font("Segoe UI", 13F);
             label39.Location = new Point(0, 0);
-            label39.Margin = new Padding(4, 0, 4, 0);
             label39.Name = "label39";
-            label39.Size = new Size(348, 36);
+            label39.Size = new Size(246, 25);
             label39.TabIndex = 1;
             label39.Text = "Get Episode Data From IMDb";
             // 
@@ -2250,10 +2127,9 @@
             panel17.Controls.Add(panel19);
             panel17.Controls.Add(panel20);
             panel17.Dock = DockStyle.Left;
-            panel17.Location = new Point(4932, 0);
-            panel17.Margin = new Padding(4, 5, 4, 5);
+            panel17.Location = new Point(3452, 0);
             panel17.Name = "panel17";
-            panel17.Size = new Size(504, 1080);
+            panel17.Size = new Size(353, 647);
             panel17.TabIndex = 8;
             // 
             // panel21
@@ -2261,10 +2137,9 @@
             panel21.Controls.Add(dgvEpGenres);
             panel21.Controls.Add(label33);
             panel21.Dock = DockStyle.Top;
-            panel21.Location = new Point(0, 1102);
-            panel21.Margin = new Padding(4, 5, 4, 5);
+            panel21.Location = new Point(0, 661);
             panel21.Name = "panel21";
-            panel21.Size = new Size(504, 370);
+            panel21.Size = new Size(353, 222);
             panel21.TabIndex = 7;
             // 
             // dgvEpGenres
@@ -2274,12 +2149,11 @@
             dgvEpGenres.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEpGenres.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn13, dataGridViewTextBoxColumn14 });
             dgvEpGenres.Dock = DockStyle.Top;
-            dgvEpGenres.Location = new Point(0, 36);
-            dgvEpGenres.Margin = new Padding(4, 5, 4, 5);
+            dgvEpGenres.Location = new Point(0, 25);
             dgvEpGenres.Name = "dgvEpGenres";
             dgvEpGenres.ReadOnly = true;
             dgvEpGenres.RowHeadersWidth = 62;
-            dgvEpGenres.Size = new Size(504, 272);
+            dgvEpGenres.Size = new Size(353, 163);
             dgvEpGenres.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn13
@@ -2304,9 +2178,8 @@
             label33.Dock = DockStyle.Top;
             label33.Font = new Font("Segoe UI", 13F);
             label33.Location = new Point(0, 0);
-            label33.Margin = new Padding(4, 0, 4, 0);
             label33.Name = "label33";
-            label33.Size = new Size(96, 36);
+            label33.Size = new Size(66, 25);
             label33.TabIndex = 5;
             label33.Text = "Genres";
             // 
@@ -2315,10 +2188,9 @@
             panel18.Controls.Add(dgvEpWriters);
             panel18.Controls.Add(label23);
             panel18.Dock = DockStyle.Top;
-            panel18.Location = new Point(0, 732);
-            panel18.Margin = new Padding(4, 5, 4, 5);
+            panel18.Location = new Point(0, 439);
             panel18.Name = "panel18";
-            panel18.Size = new Size(504, 370);
+            panel18.Size = new Size(353, 222);
             panel18.TabIndex = 6;
             // 
             // dgvEpWriters
@@ -2328,12 +2200,11 @@
             dgvEpWriters.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEpWriters.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8 });
             dgvEpWriters.Dock = DockStyle.Top;
-            dgvEpWriters.Location = new Point(0, 36);
-            dgvEpWriters.Margin = new Padding(4, 5, 4, 5);
+            dgvEpWriters.Location = new Point(0, 25);
             dgvEpWriters.Name = "dgvEpWriters";
             dgvEpWriters.ReadOnly = true;
             dgvEpWriters.RowHeadersWidth = 62;
-            dgvEpWriters.Size = new Size(504, 272);
+            dgvEpWriters.Size = new Size(353, 163);
             dgvEpWriters.TabIndex = 6;
             // 
             // dataGridViewTextBoxColumn7
@@ -2358,9 +2229,8 @@
             label23.Dock = DockStyle.Top;
             label23.Font = new Font("Segoe UI", 13F);
             label23.Location = new Point(0, 0);
-            label23.Margin = new Padding(4, 0, 4, 0);
             label23.Name = "label23";
-            label23.Size = new Size(97, 36);
+            label23.Size = new Size(68, 25);
             label23.TabIndex = 5;
             label23.Text = "Writers";
             // 
@@ -2369,10 +2239,9 @@
             panel19.Controls.Add(dgvEpDirectors);
             panel19.Controls.Add(label27);
             panel19.Dock = DockStyle.Top;
-            panel19.Location = new Point(0, 357);
-            panel19.Margin = new Padding(4, 5, 4, 5);
+            panel19.Location = new Point(0, 214);
             panel19.Name = "panel19";
-            panel19.Size = new Size(504, 375);
+            panel19.Size = new Size(353, 225);
             panel19.TabIndex = 5;
             // 
             // dgvEpDirectors
@@ -2382,12 +2251,11 @@
             dgvEpDirectors.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEpDirectors.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10 });
             dgvEpDirectors.Dock = DockStyle.Top;
-            dgvEpDirectors.Location = new Point(0, 36);
-            dgvEpDirectors.Margin = new Padding(4, 5, 4, 5);
+            dgvEpDirectors.Location = new Point(0, 25);
             dgvEpDirectors.Name = "dgvEpDirectors";
             dgvEpDirectors.ReadOnly = true;
             dgvEpDirectors.RowHeadersWidth = 62;
-            dgvEpDirectors.Size = new Size(504, 283);
+            dgvEpDirectors.Size = new Size(353, 170);
             dgvEpDirectors.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn9
@@ -2412,9 +2280,8 @@
             label27.Dock = DockStyle.Top;
             label27.Font = new Font("Segoe UI", 13F);
             label27.Location = new Point(0, 0);
-            label27.Margin = new Padding(4, 0, 4, 0);
             label27.Name = "label27";
-            label27.Size = new Size(118, 36);
+            label27.Size = new Size(83, 25);
             label27.TabIndex = 3;
             label27.Text = "Directors";
             // 
@@ -2424,9 +2291,8 @@
             panel20.Controls.Add(label32);
             panel20.Dock = DockStyle.Top;
             panel20.Location = new Point(0, 0);
-            panel20.Margin = new Padding(4, 5, 4, 5);
             panel20.Name = "panel20";
-            panel20.Size = new Size(504, 357);
+            panel20.Size = new Size(353, 214);
             panel20.TabIndex = 4;
             // 
             // dgvEpCreators
@@ -2436,12 +2302,11 @@
             dgvEpCreators.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEpCreators.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn11, dataGridViewTextBoxColumn12 });
             dgvEpCreators.Dock = DockStyle.Top;
-            dgvEpCreators.Location = new Point(0, 36);
-            dgvEpCreators.Margin = new Padding(4, 5, 4, 5);
+            dgvEpCreators.Location = new Point(0, 25);
             dgvEpCreators.Name = "dgvEpCreators";
             dgvEpCreators.ReadOnly = true;
             dgvEpCreators.RowHeadersWidth = 62;
-            dgvEpCreators.Size = new Size(504, 283);
+            dgvEpCreators.Size = new Size(353, 170);
             dgvEpCreators.TabIndex = 2;
             // 
             // dataGridViewTextBoxColumn11
@@ -2466,9 +2331,8 @@
             label32.Dock = DockStyle.Top;
             label32.Font = new Font("Segoe UI", 13F);
             label32.Location = new Point(0, 0);
-            label32.Margin = new Padding(4, 0, 4, 0);
             label32.Name = "label32";
-            label32.Size = new Size(111, 36);
+            label32.Size = new Size(78, 25);
             label32.TabIndex = 1;
             label32.Text = "Creators";
             // 
@@ -2477,10 +2341,9 @@
             panel22.Controls.Add(dgvEpCasts);
             panel22.Controls.Add(label34);
             panel22.Dock = DockStyle.Left;
-            panel22.Location = new Point(5436, 0);
-            panel22.Margin = new Padding(4, 5, 4, 5);
+            panel22.Location = new Point(3805, 0);
             panel22.Name = "panel22";
-            panel22.Size = new Size(869, 1080);
+            panel22.Size = new Size(608, 647);
             panel22.TabIndex = 9;
             // 
             // dgvEpCasts
@@ -2490,13 +2353,12 @@
             dgvEpCasts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEpCasts.Columns.AddRange(new DataGridViewColumn[] { cCastId, cCastName, cCastImage, cCastPreviewImage, cCastCharacter, cCastDel });
             dgvEpCasts.Dock = DockStyle.Fill;
-            dgvEpCasts.Location = new Point(0, 36);
-            dgvEpCasts.Margin = new Padding(4, 5, 4, 5);
+            dgvEpCasts.Location = new Point(0, 25);
             dgvEpCasts.Name = "dgvEpCasts";
             dgvEpCasts.ReadOnly = true;
             dgvEpCasts.RowHeadersWidth = 62;
             dgvEpCasts.RowTemplate.Height = 200;
-            dgvEpCasts.Size = new Size(869, 1044);
+            dgvEpCasts.Size = new Size(608, 622);
             dgvEpCasts.TabIndex = 2;
             // 
             // cCastId
@@ -2554,9 +2416,8 @@
             label34.Dock = DockStyle.Top;
             label34.Font = new Font("Segoe UI", 13F);
             label34.Location = new Point(0, 0);
-            label34.Margin = new Padding(4, 0, 4, 0);
             label34.Name = "label34";
-            label34.Size = new Size(75, 36);
+            label34.Size = new Size(54, 25);
             label34.TabIndex = 1;
             label34.Text = "Casts";
             // 
@@ -2579,7 +2440,7 @@
             label35.Dock = DockStyle.Left;
             label35.Location = new Point(3, 0);
             label35.Name = "label35";
-            label35.Size = new Size(117, 20);
+            label35.Size = new Size(78, 20);
             label35.TabIndex = 1;
             label35.Text = "Movie Name:";
             label35.TextAlign = ContentAlignment.BottomLeft;
@@ -2589,15 +2450,15 @@
             textBox1.Dock = DockStyle.Fill;
             textBox1.Location = new Point(3, 18);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(194, 31);
+            textBox1.Size = new Size(194, 23);
             textBox1.TabIndex = 2;
             // 
             // MoviesManager
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            ClientSize = new Size(1946, 1106);
+            ClientSize = new Size(1362, 664);
             Controls.Add(panel22);
             Controls.Add(panel17);
             Controls.Add(panel15);
@@ -2607,7 +2468,6 @@
             Controls.Add(panel4);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(4, 5, 4, 5);
             Name = "MoviesManager";
             Text = "MoviesManager";
             Load += MoviesManager_Load;
@@ -2886,15 +2746,6 @@
         private TableLayoutPanel tableLayoutPanel26;
         private Label label35;
         private TextBox textBox1;
-        private DataGridViewTextBoxColumn cMovieID;
-        private DataGridViewTextBoxColumn cMovieName;
-        private DataGridViewTextBoxColumn cReleaseDate;
-        private DataGridViewTextBoxColumn cDuration;
-        private DataGridViewTextBoxColumn cContentRating;
-        private DataGridViewTextBoxColumn cIMDbScore;
-        private DataGridViewCheckBoxColumn cIsTVShows;
-        private DataGridViewButtonColumn cView;
-        private DataGridViewButtonColumn cDel;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewButtonColumn cSeasonEdit;
@@ -2930,5 +2781,14 @@
         private TableLayoutPanel tableLayoutPanel31;
         private TextBox tbTrailerURL;
         private Button btnLoadTrailer;
+        private DataGridViewTextBoxColumn cMovieID;
+        private DataGridViewTextBoxColumn cMovieName;
+        private DataGridViewTextBoxColumn cReleaseDate;
+        private DataGridViewTextBoxColumn cDuration;
+        private DataGridViewTextBoxColumn cContentRating;
+        private DataGridViewTextBoxColumn cIMDbScore;
+        private DataGridViewCheckBoxColumn cIsTVShows;
+        private DataGridViewButtonColumn cView;
+        private DataGridViewButtonColumn cDel;
     }
 }
