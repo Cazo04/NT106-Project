@@ -18,6 +18,7 @@ namespace NT106_WebServer.Models
         public List<Person> Writers { get; set; }
         public List<Person> Creators { get; set; }
         public List<Cast>? Casts { get; set; }
+        public List<string>? Genres { get; set; }
 
         public static List<Movie> GetNewMovies(int count = 7)
         {
@@ -1154,7 +1155,7 @@ namespace NT106_WebServer.Models
                 }
             }
         }
-        public static List<Cast> GetCastDetailsByMovie(string movieId)
+        public static List<Cast> GetCastDetailsByMovieId(string movieId)
         {
             string query = @"
         SELECT 
@@ -1209,6 +1210,29 @@ namespace NT106_WebServer.Models
             }
 
             return castDetails;
+        }
+        public static List<string> GetGenresByMovieId(string movieId)
+        {
+            string query = "SELECT GenreName FROM MovieGenres WHERE MovieId = @MovieId";
+            var genres = new List<string>();
+
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MovieId", movieId);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            genres.Add(reader["GenreName"].ToString());
+                        }
+                    }
+                }
+            }
+
+            return genres;
         }
         public class Movie
         {

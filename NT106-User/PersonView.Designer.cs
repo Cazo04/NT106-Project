@@ -1,6 +1,6 @@
 ﻿namespace NT106_User
 {
-    partial class PesonView
+    partial class PersonView
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PesonView));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonView));
             tableLayoutPanel1 = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
+            imgAvatar = new PictureBox();
             tableLayoutPanel2 = new TableLayoutPanel();
             lbMore = new Label();
             lbCharacterName = new Label();
             lbName = new Label();
             tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imgAvatar).BeginInit();
             tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
@@ -45,7 +45,7 @@
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 31.3186817F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 68.68132F));
-            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel1.Controls.Add(imgAvatar, 0, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
@@ -55,16 +55,16 @@
             tableLayoutPanel1.Size = new Size(364, 112);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // imgAvatar
             // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(3, 3);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(108, 106);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            imgAvatar.Dock = DockStyle.Fill;
+            imgAvatar.Image = (Image)resources.GetObject("imgAvatar.Image");
+            imgAvatar.Location = new Point(3, 3);
+            imgAvatar.Name = "imgAvatar";
+            imgAvatar.Size = new Size(108, 106);
+            imgAvatar.SizeMode = PictureBoxSizeMode.Zoom;
+            imgAvatar.TabIndex = 0;
+            imgAvatar.TabStop = false;
             // 
             // tableLayoutPanel2
             // 
@@ -100,7 +100,7 @@
             // 
             lbCharacterName.AutoSize = true;
             lbCharacterName.Dock = DockStyle.Fill;
-            lbCharacterName.ForeColor = SystemColors.ControlLightLight;
+            lbCharacterName.ForeColor = SystemColors.AppWorkspace;
             lbCharacterName.Location = new Point(6, 38);
             lbCharacterName.Name = "lbCharacterName";
             lbCharacterName.Size = new Size(232, 35);
@@ -112,6 +112,7 @@
             // 
             lbName.AutoSize = true;
             lbName.Dock = DockStyle.Fill;
+            lbName.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lbName.ForeColor = SystemColors.ControlLightLight;
             lbName.Location = new Point(6, 3);
             lbName.Name = "lbName";
@@ -120,17 +121,17 @@
             lbName.Text = "Name";
             lbName.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // PesonView
+            // PersonView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(25, 27, 29);
             Controls.Add(tableLayoutPanel1);
-            Name = "PesonView";
+            Name = "PersonView";
             Size = new Size(364, 112);
             Resize += PesonView_Resize;
             tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imgAvatar).EndInit();
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
@@ -139,7 +140,7 @@
         #endregion
 
         private TableLayoutPanel tableLayoutPanel1;
-        private PictureBox pictureBox1;
+        private PictureBox imgAvatar;
         private TableLayoutPanel tableLayoutPanel2;
         private Label lbName;
         private Label lbMore;

@@ -51,27 +51,19 @@
             btnSendComment = new Button();
             label14 = new Label();
             panel13 = new Panel();
-            flowLayoutPanel7 = new FlowLayoutPanel();
-            pesonView7 = new PesonView();
-            pesonView8 = new PesonView();
+            flpCasts = new FlowLayoutPanel();
             label11 = new Label();
             panel14 = new Panel();
-            panel11 = new Panel();
-            flowLayoutPanel6 = new FlowLayoutPanel();
-            pesonView5 = new PesonView();
-            pesonView6 = new PesonView();
+            pnWriters = new Panel();
+            flpWriters = new FlowLayoutPanel();
             label10 = new Label();
             panel12 = new Panel();
-            panel9 = new Panel();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            pesonView3 = new PesonView();
-            pesonView4 = new PesonView();
+            pnDirectors = new Panel();
+            flpDirectors = new FlowLayoutPanel();
             label9 = new Label();
             panel10 = new Panel();
-            panel7 = new Panel();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            pesonView1 = new PesonView();
-            pesonView2 = new PesonView();
+            pnCreators = new Panel();
+            flpCreators = new FlowLayoutPanel();
             lbTitle1 = new Label();
             panel8 = new Panel();
             tableLayoutPanel2 = new TableLayoutPanel();
@@ -81,9 +73,9 @@
             button2 = new Button();
             button1 = new Button();
             panel5 = new Panel();
-            tableLayoutPanel9 = new TableLayoutPanel();
+            tlpSeasons = new TableLayoutPanel();
             flpSeasons = new FlowLayoutPanel();
-            button3 = new Button();
+            btnBaseSeasons = new Button();
             label8 = new Label();
             lbDescription = new Label();
             tableLayoutPanel4 = new TableLayoutPanel();
@@ -116,19 +108,15 @@
             tableLayoutPanel11.SuspendLayout();
             flowLayoutPanel8.SuspendLayout();
             panel13.SuspendLayout();
-            flowLayoutPanel7.SuspendLayout();
-            panel11.SuspendLayout();
-            flowLayoutPanel6.SuspendLayout();
-            panel9.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            panel7.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
+            pnWriters.SuspendLayout();
+            pnDirectors.SuspendLayout();
+            pnCreators.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             pnPoster.SuspendLayout();
             panel4.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             panel5.SuspendLayout();
-            tableLayoutPanel9.SuspendLayout();
+            tlpSeasons.SuspendLayout();
             flpSeasons.SuspendLayout();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
@@ -182,9 +170,9 @@
             panel2.Controls.Add(tableLayoutPanel10);
             panel2.Controls.Add(pnWriteComment);
             panel2.Controls.Add(panel13);
-            panel2.Controls.Add(panel11);
-            panel2.Controls.Add(panel9);
-            panel2.Controls.Add(panel7);
+            panel2.Controls.Add(pnWriters);
+            panel2.Controls.Add(pnDirectors);
+            panel2.Controls.Add(pnCreators);
             panel2.Controls.Add(tableLayoutPanel2);
             panel2.Dock = DockStyle.Fill;
             panel2.Location = new Point(153, 3);
@@ -387,7 +375,7 @@
             // 
             // panel13
             // 
-            panel13.Controls.Add(flowLayoutPanel7);
+            panel13.Controls.Add(flpCasts);
             panel13.Controls.Add(label11);
             panel13.Controls.Add(panel14);
             panel13.Dock = DockStyle.Top;
@@ -398,32 +386,15 @@
             panel13.Size = new Size(1104, 623);
             panel13.TabIndex = 5;
             // 
-            // flowLayoutPanel7
+            // flpCasts
             // 
-            flowLayoutPanel7.Controls.Add(pesonView7);
-            flowLayoutPanel7.Controls.Add(pesonView8);
-            flowLayoutPanel7.Dock = DockStyle.Top;
-            flowLayoutPanel7.Location = new Point(3, 64);
-            flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Padding = new Padding(2, 10, 2, 2);
-            flowLayoutPanel7.Size = new Size(1098, 491);
-            flowLayoutPanel7.TabIndex = 2;
-            // 
-            // pesonView7
-            // 
-            pesonView7.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView7.Location = new Point(5, 13);
-            pesonView7.Name = "pesonView7";
-            pesonView7.Size = new Size(267, 112);
-            pesonView7.TabIndex = 0;
-            // 
-            // pesonView8
-            // 
-            pesonView8.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView8.Location = new Point(278, 13);
-            pesonView8.Name = "pesonView8";
-            pesonView8.Size = new Size(267, 112);
-            pesonView8.TabIndex = 1;
+            flpCasts.AutoScroll = true;
+            flpCasts.Dock = DockStyle.Top;
+            flpCasts.Location = new Point(3, 64);
+            flpCasts.Name = "flpCasts";
+            flpCasts.Padding = new Padding(2, 10, 2, 2);
+            flpCasts.Size = new Size(1098, 491);
+            flpCasts.TabIndex = 2;
             // 
             // label11
             // 
@@ -447,46 +418,28 @@
             panel14.Size = new Size(1098, 32);
             panel14.TabIndex = 0;
             // 
-            // panel11
+            // pnWriters
             // 
-            panel11.Controls.Add(flowLayoutPanel6);
-            panel11.Controls.Add(label10);
-            panel11.Controls.Add(panel12);
-            panel11.Dock = DockStyle.Top;
-            panel11.Location = new Point(0, 765);
-            panel11.Margin = new Padding(0);
-            panel11.Name = "panel11";
-            panel11.Padding = new Padding(3);
-            panel11.Size = new Size(1104, 232);
-            panel11.TabIndex = 4;
+            pnWriters.Controls.Add(flpWriters);
+            pnWriters.Controls.Add(label10);
+            pnWriters.Controls.Add(panel12);
+            pnWriters.Dock = DockStyle.Top;
+            pnWriters.Location = new Point(0, 765);
+            pnWriters.Margin = new Padding(0);
+            pnWriters.Name = "pnWriters";
+            pnWriters.Padding = new Padding(3);
+            pnWriters.Size = new Size(1104, 232);
+            pnWriters.TabIndex = 4;
             // 
-            // flowLayoutPanel6
+            // flpWriters
             // 
-            flowLayoutPanel6.Controls.Add(pesonView5);
-            flowLayoutPanel6.Controls.Add(pesonView6);
-            flowLayoutPanel6.Dock = DockStyle.Top;
-            flowLayoutPanel6.Location = new Point(3, 64);
-            flowLayoutPanel6.Name = "flowLayoutPanel6";
-            flowLayoutPanel6.Padding = new Padding(2, 10, 2, 2);
-            flowLayoutPanel6.Size = new Size(1098, 148);
-            flowLayoutPanel6.TabIndex = 2;
-            flowLayoutPanel6.WrapContents = false;
-            // 
-            // pesonView5
-            // 
-            pesonView5.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView5.Location = new Point(5, 13);
-            pesonView5.Name = "pesonView5";
-            pesonView5.Size = new Size(267, 112);
-            pesonView5.TabIndex = 0;
-            // 
-            // pesonView6
-            // 
-            pesonView6.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView6.Location = new Point(278, 13);
-            pesonView6.Name = "pesonView6";
-            pesonView6.Size = new Size(267, 112);
-            pesonView6.TabIndex = 1;
+            flpWriters.Dock = DockStyle.Top;
+            flpWriters.Location = new Point(3, 64);
+            flpWriters.Name = "flpWriters";
+            flpWriters.Padding = new Padding(2, 10, 2, 2);
+            flpWriters.Size = new Size(1098, 148);
+            flpWriters.TabIndex = 2;
+            flpWriters.WrapContents = false;
             // 
             // label10
             // 
@@ -510,46 +463,28 @@
             panel12.Size = new Size(1098, 32);
             panel12.TabIndex = 0;
             // 
-            // panel9
+            // pnDirectors
             // 
-            panel9.Controls.Add(flowLayoutPanel5);
-            panel9.Controls.Add(label9);
-            panel9.Controls.Add(panel10);
-            panel9.Dock = DockStyle.Top;
-            panel9.Location = new Point(0, 542);
-            panel9.Margin = new Padding(0);
-            panel9.Name = "panel9";
-            panel9.Padding = new Padding(3);
-            panel9.Size = new Size(1104, 223);
-            panel9.TabIndex = 3;
+            pnDirectors.Controls.Add(flpDirectors);
+            pnDirectors.Controls.Add(label9);
+            pnDirectors.Controls.Add(panel10);
+            pnDirectors.Dock = DockStyle.Top;
+            pnDirectors.Location = new Point(0, 542);
+            pnDirectors.Margin = new Padding(0);
+            pnDirectors.Name = "pnDirectors";
+            pnDirectors.Padding = new Padding(3);
+            pnDirectors.Size = new Size(1104, 223);
+            pnDirectors.TabIndex = 3;
             // 
-            // flowLayoutPanel5
+            // flpDirectors
             // 
-            flowLayoutPanel5.Controls.Add(pesonView3);
-            flowLayoutPanel5.Controls.Add(pesonView4);
-            flowLayoutPanel5.Dock = DockStyle.Top;
-            flowLayoutPanel5.Location = new Point(3, 64);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Padding = new Padding(2, 10, 2, 2);
-            flowLayoutPanel5.Size = new Size(1098, 148);
-            flowLayoutPanel5.TabIndex = 2;
-            flowLayoutPanel5.WrapContents = false;
-            // 
-            // pesonView3
-            // 
-            pesonView3.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView3.Location = new Point(5, 13);
-            pesonView3.Name = "pesonView3";
-            pesonView3.Size = new Size(267, 112);
-            pesonView3.TabIndex = 0;
-            // 
-            // pesonView4
-            // 
-            pesonView4.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView4.Location = new Point(278, 13);
-            pesonView4.Name = "pesonView4";
-            pesonView4.Size = new Size(267, 112);
-            pesonView4.TabIndex = 1;
+            flpDirectors.Dock = DockStyle.Top;
+            flpDirectors.Location = new Point(3, 64);
+            flpDirectors.Name = "flpDirectors";
+            flpDirectors.Padding = new Padding(2, 10, 2, 2);
+            flpDirectors.Size = new Size(1098, 148);
+            flpDirectors.TabIndex = 2;
+            flpDirectors.WrapContents = false;
             // 
             // label9
             // 
@@ -573,46 +508,28 @@
             panel10.Size = new Size(1098, 32);
             panel10.TabIndex = 0;
             // 
-            // panel7
+            // pnCreators
             // 
-            panel7.Controls.Add(flowLayoutPanel3);
-            panel7.Controls.Add(lbTitle1);
-            panel7.Controls.Add(panel8);
-            panel7.Dock = DockStyle.Top;
-            panel7.Location = new Point(0, 317);
-            panel7.Margin = new Padding(0);
-            panel7.Name = "panel7";
-            panel7.Padding = new Padding(3);
-            panel7.Size = new Size(1104, 225);
-            panel7.TabIndex = 2;
+            pnCreators.Controls.Add(flpCreators);
+            pnCreators.Controls.Add(lbTitle1);
+            pnCreators.Controls.Add(panel8);
+            pnCreators.Dock = DockStyle.Top;
+            pnCreators.Location = new Point(0, 317);
+            pnCreators.Margin = new Padding(0);
+            pnCreators.Name = "pnCreators";
+            pnCreators.Padding = new Padding(3);
+            pnCreators.Size = new Size(1104, 225);
+            pnCreators.TabIndex = 2;
             // 
-            // flowLayoutPanel3
+            // flpCreators
             // 
-            flowLayoutPanel3.Controls.Add(pesonView1);
-            flowLayoutPanel3.Controls.Add(pesonView2);
-            flowLayoutPanel3.Dock = DockStyle.Top;
-            flowLayoutPanel3.Location = new Point(3, 64);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Padding = new Padding(2, 10, 2, 2);
-            flowLayoutPanel3.Size = new Size(1098, 148);
-            flowLayoutPanel3.TabIndex = 2;
-            flowLayoutPanel3.WrapContents = false;
-            // 
-            // pesonView1
-            // 
-            pesonView1.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView1.Location = new Point(5, 13);
-            pesonView1.Name = "pesonView1";
-            pesonView1.Size = new Size(267, 112);
-            pesonView1.TabIndex = 0;
-            // 
-            // pesonView2
-            // 
-            pesonView2.BackColor = Color.FromArgb(25, 27, 29);
-            pesonView2.Location = new Point(278, 13);
-            pesonView2.Name = "pesonView2";
-            pesonView2.Size = new Size(267, 112);
-            pesonView2.TabIndex = 1;
+            flpCreators.Dock = DockStyle.Top;
+            flpCreators.Location = new Point(3, 64);
+            flpCreators.Name = "flpCreators";
+            flpCreators.Padding = new Padding(2, 10, 2, 2);
+            flpCreators.Size = new Size(1098, 148);
+            flpCreators.TabIndex = 2;
+            flpCreators.WrapContents = false;
             // 
             // lbTitle1
             // 
@@ -711,7 +628,7 @@
             // panel5
             // 
             panel5.BackColor = Color.FromArgb(42, 44, 49);
-            panel5.Controls.Add(tableLayoutPanel9);
+            panel5.Controls.Add(tlpSeasons);
             panel5.Controls.Add(lbDescription);
             panel5.Controls.Add(tableLayoutPanel4);
             panel5.Controls.Add(panel6);
@@ -722,24 +639,24 @@
             panel5.Size = new Size(888, 311);
             panel5.TabIndex = 1;
             // 
-            // tableLayoutPanel9
+            // tlpSeasons
             // 
-            tableLayoutPanel9.ColumnCount = 2;
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
-            tableLayoutPanel9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Controls.Add(flpSeasons, 1, 0);
-            tableLayoutPanel9.Controls.Add(label8, 0, 0);
-            tableLayoutPanel9.Dock = DockStyle.Bottom;
-            tableLayoutPanel9.Location = new Point(5, 258);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.RowCount = 1;
-            tableLayoutPanel9.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel9.Size = new Size(878, 48);
-            tableLayoutPanel9.TabIndex = 3;
+            tlpSeasons.ColumnCount = 2;
+            tlpSeasons.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 80F));
+            tlpSeasons.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpSeasons.Controls.Add(flpSeasons, 1, 0);
+            tlpSeasons.Controls.Add(label8, 0, 0);
+            tlpSeasons.Dock = DockStyle.Bottom;
+            tlpSeasons.Location = new Point(5, 258);
+            tlpSeasons.Name = "tlpSeasons";
+            tlpSeasons.RowCount = 1;
+            tlpSeasons.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpSeasons.Size = new Size(878, 48);
+            tlpSeasons.TabIndex = 3;
             // 
             // flpSeasons
             // 
-            flpSeasons.Controls.Add(button3);
+            flpSeasons.Controls.Add(btnBaseSeasons);
             flpSeasons.Dock = DockStyle.Fill;
             flpSeasons.Location = new Point(83, 3);
             flpSeasons.Name = "flpSeasons";
@@ -748,14 +665,14 @@
             flpSeasons.TabIndex = 0;
             flpSeasons.WrapContents = false;
             // 
-            // button3
+            // btnBaseSeasons
             // 
-            button3.Location = new Point(6, 7);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 0;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
+            btnBaseSeasons.Location = new Point(6, 7);
+            btnBaseSeasons.Name = "btnBaseSeasons";
+            btnBaseSeasons.Size = new Size(75, 23);
+            btnBaseSeasons.TabIndex = 0;
+            btnBaseSeasons.Text = "Base";
+            btnBaseSeasons.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -890,7 +807,8 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(3, 0);
+            label2.Location = new Point(3, 3);
+            label2.Margin = new Padding(3, 3, 3, 0);
             label2.Name = "label2";
             label2.Size = new Size(46, 15);
             label2.TabIndex = 0;
@@ -1031,23 +949,19 @@
             flowLayoutPanel8.PerformLayout();
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
-            flowLayoutPanel7.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            flowLayoutPanel6.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
-            flowLayoutPanel5.ResumeLayout(false);
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
+            pnWriters.ResumeLayout(false);
+            pnWriters.PerformLayout();
+            pnDirectors.ResumeLayout(false);
+            pnDirectors.PerformLayout();
+            pnCreators.ResumeLayout(false);
+            pnCreators.PerformLayout();
             tableLayoutPanel2.ResumeLayout(false);
             pnPoster.ResumeLayout(false);
             panel4.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             panel5.ResumeLayout(false);
-            tableLayoutPanel9.ResumeLayout(false);
-            tableLayoutPanel9.PerformLayout();
+            tlpSeasons.ResumeLayout(false);
+            tlpSeasons.PerformLayout();
             flpSeasons.ResumeLayout(false);
             tableLayoutPanel4.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
@@ -1094,32 +1008,32 @@
         private PictureBox pictureBox1;
         private Panel panel6;
         private Label lbMovieName;
-        private Panel panel7;
+        private Panel pnCreators;
         private Label lbTitle1;
         private Panel panel8;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private TableLayoutPanel tableLayoutPanel9;
+        private FlowLayoutPanel flpCreators;
+        private TableLayoutPanel tlpSeasons;
         private FlowLayoutPanel flpSeasons;
         private Label label8;
-        private Button button3;
-        private PesonView pesonView1;
-        private PesonView pesonView2;
-        private Panel panel11;
-        private FlowLayoutPanel flowLayoutPanel6;
-        private PesonView pesonView5;
-        private PesonView pesonView6;
+        private Button btnBaseSeasons;
+        private PersonView pesonView1;
+        private PersonView pesonView2;
+        private Panel pnWriters;
+        private FlowLayoutPanel flpWriters;
+        private PersonView pesonView5;
+        private PersonView pesonView6;
         private Label label10;
         private Panel panel12;
-        private Panel panel9;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private PesonView pesonView3;
-        private PesonView pesonView4;
+        private Panel pnDirectors;
+        private FlowLayoutPanel flpDirectors;
+        private PersonView pesonView3;
+        private PersonView pesonView4;
         private Label label9;
         private Panel panel10;
         private Panel panel13;
-        private FlowLayoutPanel flowLayoutPanel7;
-        private PesonView pesonView7;
-        private PesonView pesonView8;
+        private FlowLayoutPanel flpCasts;
+        private PersonView pesonView7;
+        private PersonView pesonView8;
         private Label label11;
         private Panel panel14;
         private TableLayoutPanel tableLayoutPanel10;

@@ -154,7 +154,8 @@ namespace NT106_API_Server.Controllers
                 return BadRequest("Error: Movie not found.");
             }
             MovieModel movie = MovieModel.GetMovie(movieId);
-            movie.Casts = MovieModel.GetCastDetailsByMovie(movieId);
+            movie.Casts = MovieModel.GetCastDetailsByMovieId(movieId);
+            movie.Genres = MovieModel.GetGenresByMovieId(movieId);
             return Ok(movie);
         }
         [Route("gettopmoviesbyimdbscorebutnotinnewmovies")]

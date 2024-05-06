@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NT106_WebServer.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,7 +12,7 @@ using System.Windows.Forms;
 
 namespace NT106_User
 {
-    public partial class PesonView : UserControl
+    public partial class PersonView : UserControl
     {
         [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
         private static extern IntPtr CreateRoundRectRgn
@@ -23,7 +24,7 @@ namespace NT106_User
             int nWidthEllipse, // height of ellipse
             int nHeightEllipse // width of ellipse
         );
-        public PesonView()
+        public PersonView()
         {
             InitializeComponent();
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
@@ -32,6 +33,20 @@ namespace NT106_User
         private void PesonView_Resize(object sender, EventArgs e)
         {
             Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 20, 20));
+        }
+        public void SetData(MovieModel.Person person, string characterName = "", int episodeCount = 0)
+        {
+            lbName.Text = person.Name;
+            lbCharacterName.Text = "as " + characterName;
+            if (episodeCount != 0) lbMore.Text = episodeCount.ToString() + " episodes";
+            else
+            {
+                lbMore.Text = "";
+            }
+            if (person.Image != null)
+            {
+                imgAvatar.ImageLocation = person.Image;
+            }
         }
     }
 }

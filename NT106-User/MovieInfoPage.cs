@@ -51,6 +51,58 @@ namespace NT106_User
                 lbContentRating.Text = movie.MovieInfo.ContentRating;
                 lbRatingCount.Text = movie.MovieInfo.RatingCount.ToString();
                 lbType.Text = movie.MovieInfo.IsTVShows ? "TV Series" : "Movies";
+                flpGenres.Controls.Clear();
+                foreach (var genre in movie.Genres)
+                {
+                    Label label = new Label();
+                    label.Text = genre;
+                    label.BackColor = lbBaseGenres.BackColor;
+                    label.ForeColor = lbBaseGenres.ForeColor;
+                    label.AutoSize = true;
+                    label.Padding = lbBaseGenres.Padding;
+                    label.Font = lbBaseGenres.Font;
+                    flpGenres.Controls.Add(label);
+                }
+                if (!movie.MovieInfo.IsTVShows)
+                {
+                    tlpSeasons.Visible = false;
+                    lbDuration.Visible = false;
+                }
+                else
+                {
+                    flpSeasons.Controls.Clear();
+                    foreach (var season in movie.Seasons)
+                    {
+                        Button btn = new Button();
+                        btn.Text = season.Name;
+                        btn.BackColor = btnBaseSeasons.BackColor;
+                        btn.ForeColor = btnBaseSeasons.ForeColor;
+                        btn.AutoSize = true;
+                        btn.Padding = btnBaseSeasons.Padding;
+                        btn.Font = btnBaseSeasons.Font;
+                        flpSeasons.Controls.Add(btn);
+                    }
+                }
+                if (movie.Directors.Count == 0)
+                {
+                    pnDirectors.Visible = false;
+                }
+                if (movie.Creators.Count == 0)
+                {
+                    pnCreators.Visible = false;
+                }
+                if (movie.Writers.Count == 0)
+                {
+                    pnWriters.Visible = false;
+                }
+
+                flpCasts.Controls.Clear();
+                foreach (var cast in movie.Casts)
+                {
+                   PersonView personView = new PersonView();
+                   personView.SetData(cast.Person, cast.CharacterName, movie.MovieInfo.IsTVShows ? cast.EpisodeCount : 0);
+                   flpCasts.Controls.Add(personView);
+                }
                 LoadImageAsync(movie.MovieInfo.PosterURL);              
             }
             progressDialogForm.CloseProgress(this);
