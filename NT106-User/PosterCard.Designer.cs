@@ -51,6 +51,7 @@
             // lbType
             // 
             lbType.AutoSize = true;
+            lbType.BackColor = Color.FromArgb(16, 24, 39);
             lbType.ForeColor = SystemColors.Control;
             lbType.Location = new Point(10, 14);
             lbType.Name = "lbType";
@@ -61,6 +62,7 @@
             // lbScore
             // 
             lbScore.AutoSize = true;
+            lbScore.BackColor = Color.FromArgb(16, 24, 39);
             lbScore.ForeColor = SystemColors.Control;
             lbScore.Location = new Point(146, 14);
             lbScore.Name = "lbScore";
@@ -71,6 +73,7 @@
             // lbContentRating
             // 
             lbContentRating.AutoSize = true;
+            lbContentRating.BackColor = Color.FromArgb(16, 24, 39);
             lbContentRating.ForeColor = SystemColors.Control;
             lbContentRating.Location = new Point(10, 273);
             lbContentRating.Name = "lbContentRating";
@@ -94,7 +97,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DimGray;
+            BackColor = Color.FromArgb(16, 24, 39);
             Controls.Add(lbName);
             Controls.Add(lbContentRating);
             Controls.Add(lbScore);

@@ -141,13 +141,17 @@
             // 
             // btnBack
             // 
+            btnBack.BackColor = Color.FromArgb(16, 24, 39);
             btnBack.Dock = DockStyle.Left;
+            btnBack.FlatAppearance.BorderColor = Color.FromArgb(16, 24, 39);
+            btnBack.FlatStyle = FlatStyle.Flat;
+            btnBack.ForeColor = SystemColors.ControlLightLight;
             btnBack.Location = new Point(0, 5);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(75, 40);
             btnBack.TabIndex = 0;
             btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = true;
+            btnBack.UseVisualStyleBackColor = false;
             btnBack.Click += btnBack_Click;
             // 
             // tableLayoutPanel1
@@ -355,12 +359,16 @@
             // 
             // btnSendComment
             // 
+            btnSendComment.BackColor = Color.FromArgb(16, 24, 39);
+            btnSendComment.FlatAppearance.BorderColor = Color.White;
+            btnSendComment.FlatStyle = FlatStyle.Flat;
+            btnSendComment.ForeColor = SystemColors.ControlLightLight;
             btnSendComment.Location = new Point(3, 187);
             btnSendComment.Name = "btnSendComment";
             btnSendComment.Size = new Size(75, 23);
             btnSendComment.TabIndex = 3;
             btnSendComment.Text = "Send";
-            btnSendComment.UseVisualStyleBackColor = true;
+            btnSendComment.UseVisualStyleBackColor = false;
             // 
             // label14
             // 
@@ -608,23 +616,31 @@
             // 
             // btnImages
             // 
+            btnImages.BackColor = Color.FromArgb(16, 24, 39);
             btnImages.Dock = DockStyle.Fill;
+            btnImages.FlatAppearance.BorderColor = Color.FromArgb(16, 24, 39);
+            btnImages.FlatStyle = FlatStyle.Flat;
+            btnImages.ForeColor = SystemColors.ControlLightLight;
             btnImages.Location = new Point(95, 3);
             btnImages.Name = "btnImages";
             btnImages.Size = new Size(86, 40);
             btnImages.TabIndex = 1;
             btnImages.Text = "Images";
-            btnImages.UseVisualStyleBackColor = true;
+            btnImages.UseVisualStyleBackColor = false;
             // 
             // btnTrailer
             // 
+            btnTrailer.BackColor = Color.FromArgb(16, 24, 39);
             btnTrailer.Dock = DockStyle.Fill;
+            btnTrailer.FlatAppearance.BorderColor = Color.FromArgb(16, 24, 39);
+            btnTrailer.FlatStyle = FlatStyle.Flat;
+            btnTrailer.ForeColor = SystemColors.ControlLightLight;
             btnTrailer.Location = new Point(3, 3);
             btnTrailer.Name = "btnTrailer";
             btnTrailer.Size = new Size(86, 40);
             btnTrailer.TabIndex = 0;
             btnTrailer.Text = "Trailer";
-            btnTrailer.UseVisualStyleBackColor = true;
+            btnTrailer.UseVisualStyleBackColor = false;
             // 
             // panel5
             // 
@@ -668,12 +684,16 @@
             // 
             // btnBaseSeasons
             // 
+            btnBaseSeasons.BackColor = Color.FromArgb(16, 24, 39);
+            btnBaseSeasons.FlatAppearance.BorderColor = Color.FromArgb(16, 24, 39);
+            btnBaseSeasons.FlatStyle = FlatStyle.Flat;
+            btnBaseSeasons.ForeColor = SystemColors.ControlLightLight;
             btnBaseSeasons.Location = new Point(6, 7);
             btnBaseSeasons.Name = "btnBaseSeasons";
             btnBaseSeasons.Size = new Size(75, 23);
             btnBaseSeasons.TabIndex = 0;
             btnBaseSeasons.Text = "Base";
-            btnBaseSeasons.UseVisualStyleBackColor = true;
+            btnBaseSeasons.UseVisualStyleBackColor = false;
             // 
             // label8
             // 
