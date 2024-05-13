@@ -34,12 +34,12 @@
             btnGetStarted = new Button();
             llbForgotPassword = new LinkLabel();
             cbRememberme = new CheckBox();
-            tbUsernameOrEmail = new TextBox();
             label3 = new Label();
             lbUsernameorEmailaddress = new Label();
             lbSignIn = new Label();
             llbSignup = new LinkLabel();
             tbPassword = new TextBox();
+            tbUsernameOrEmail = new RoundTextBox();
             SuspendLayout();
             // 
             // btnOutlock
@@ -123,16 +123,6 @@
             cbRememberme.Text = "Remember me";
             cbRememberme.UseVisualStyleBackColor = true;
             // 
-            // tbUsernameOrEmail
-            // 
-            tbUsernameOrEmail.BackColor = Color.FromArgb(64, 64, 64);
-            tbUsernameOrEmail.ForeColor = SystemColors.Window;
-            tbUsernameOrEmail.Location = new Point(12, 121);
-            tbUsernameOrEmail.Multiline = true;
-            tbUsernameOrEmail.Name = "tbUsernameOrEmail";
-            tbUsernameOrEmail.Size = new Size(348, 33);
-            tbUsernameOrEmail.TabIndex = 0;
-            // 
             // label3
             // 
             label3.AutoSize = true;
@@ -188,12 +178,35 @@
             tbPassword.TabIndex = 1;
             tbPassword.UseSystemPasswordChar = true;
             // 
+            // tbUsernameOrEmail
+            // 
+            tbUsernameOrEmail.BackColor = Color.FromArgb(64, 64, 64);
+            tbUsernameOrEmail.BorderColor = Color.White;
+            tbUsernameOrEmail.BorderFocusColor = Color.HotPink;
+            tbUsernameOrEmail.BorderRadius = 10;
+            tbUsernameOrEmail.BorderSize = 2;
+            tbUsernameOrEmail.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbUsernameOrEmail.ForeColor = Color.White;
+            tbUsernameOrEmail.Location = new Point(12, 129);
+            tbUsernameOrEmail.Margin = new Padding(4);
+            tbUsernameOrEmail.Multiline = false;
+            tbUsernameOrEmail.Name = "tbUsernameOrEmail";
+            tbUsernameOrEmail.Padding = new Padding(10, 7, 10, 7);
+            tbUsernameOrEmail.PasswordChar = false;
+            tbUsernameOrEmail.PlaceholderColor = Color.DarkGray;
+            tbUsernameOrEmail.PlaceholderText = "";
+            tbUsernameOrEmail.Size = new Size(348, 32);
+            tbUsernameOrEmail.TabIndex = 30;
+            tbUsernameOrEmail.Text = "";
+            tbUsernameOrEmail.UnderlinedStyle = false;
+            // 
             // SignIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(382, 548);
+            Controls.Add(tbUsernameOrEmail);
             Controls.Add(tbPassword);
             Controls.Add(btnOutlock);
             Controls.Add(btnGoogle);
@@ -202,7 +215,6 @@
             Controls.Add(llbSignup);
             Controls.Add(llbForgotPassword);
             Controls.Add(cbRememberme);
-            Controls.Add(tbUsernameOrEmail);
             Controls.Add(label3);
             Controls.Add(lbUsernameorEmailaddress);
             Controls.Add(lbSignIn);
@@ -220,11 +232,11 @@
         private Button btnGetStarted;
         private LinkLabel llbForgotPassword;
         private CheckBox cbRememberme;
-        private TextBox tbUsernameOrEmail;
         private Label label3;
         private Label lbUsernameorEmailaddress;
         private Label lbSignIn;
         private LinkLabel llbSignup;
         private TextBox tbPassword;
+        private RoundTextBox tbUsernameOrEmail;
     }
 }
