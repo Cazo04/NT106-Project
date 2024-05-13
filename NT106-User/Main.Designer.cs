@@ -204,12 +204,12 @@
             tlpnMiniUser.Controls.Add(imgMiniAvatar, 0, 0);
             tlpnMiniUser.Controls.Add(lbMiniUsername, 1, 0);
             tlpnMiniUser.Dock = DockStyle.Right;
-            tlpnMiniUser.Location = new Point(648, 0);
+            tlpnMiniUser.Location = new Point(610, 0);
             tlpnMiniUser.Name = "tlpnMiniUser";
             tlpnMiniUser.Padding = new Padding(2);
             tlpnMiniUser.RowCount = 1;
             tlpnMiniUser.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpnMiniUser.Size = new Size(120, 39);
+            tlpnMiniUser.Size = new Size(158, 39);
             tlpnMiniUser.TabIndex = 6;
             tlpnMiniUser.Visible = false;
             tlpnMiniUser.Click += tlpnMiniUser_Click;
@@ -229,14 +229,13 @@
             // 
             // lbMiniUsername
             // 
-            lbMiniUsername.AutoSize = true;
             lbMiniUsername.Dock = DockStyle.Left;
             lbMiniUsername.Font = new Font("Segoe UI", 9.75F);
             lbMiniUsername.ForeColor = SystemColors.ControlLightLight;
-            lbMiniUsername.Location = new Point(37, 2);
+            lbMiniUsername.Location = new Point(47, 2);
             lbMiniUsername.Margin = new Padding(2, 0, 2, 0);
             lbMiniUsername.Name = "lbMiniUsername";
-            lbMiniUsername.Size = new Size(35, 35);
+            lbMiniUsername.Size = new Size(107, 35);
             lbMiniUsername.TabIndex = 2;
             lbMiniUsername.Text = "User";
             lbMiniUsername.TextAlign = ContentAlignment.MiddleLeft;
@@ -354,7 +353,6 @@
             ((System.ComponentModel.ISupportInitialize)imgUser).EndInit();
             panel1.ResumeLayout(false);
             tlpnMiniUser.ResumeLayout(false);
-            tlpnMiniUser.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)imgMiniAvatar).EndInit();
             ResumeLayout(false);
         }
