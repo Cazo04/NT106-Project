@@ -60,7 +60,7 @@ namespace NT106_User
                 }
                 else
                 {
-                    MessageBox.Show("Sign up successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Sign up successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }
