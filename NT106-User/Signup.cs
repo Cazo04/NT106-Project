@@ -30,7 +30,7 @@ namespace NT106_User
             signUpModel.Username = tbUsername.Text;
             signUpModel.Email = tbEmail.Text;
             signUpModel.Password = tbPassword.Text;
-            signUpModel.ConfirmPassword = tbCofirmpassword.Text;
+            signUpModel.ConfirmPassword = tbConfirmpassword.Text;
 
             if (signUpModel.Password != signUpModel.ConfirmPassword)
             {

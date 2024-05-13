@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,9 +16,10 @@ namespace NT106_User
 {
     public partial class SignIn : Form
     {
+
         public SignIn()
         {
-            InitializeComponent();      
+            InitializeComponent();  
         }
 
         private void llbSignup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

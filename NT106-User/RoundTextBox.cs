@@ -16,8 +16,8 @@ namespace NT106_User
     {
         #region -> Fields
         //Fields
-        private Color borderColor = Color.MediumSlateBlue;
-        private Color borderFocusColor = Color.HotPink;
+        private Color borderColor = Color.White;
+        private Color borderFocusColor = Color.White;
         private int borderSize = 2;
         private bool underlinedStyle = false;
         private bool isFocused = false;

@@ -30,11 +30,6 @@
         {
             dtpDateOfBirth = new DateTimePicker();
             btnSignup = new Button();
-            tbPassword = new TextBox();
-            tbEmail = new TextBox();
-            tbCofirmpassword = new TextBox();
-            tbUsername = new TextBox();
-            tbFullName = new TextBox();
             lbConfirmpassword = new Label();
             lbPassword = new Label();
             lbEmailaddress = new Label();
@@ -42,12 +37,17 @@
             lbDateofbirth = new Label();
             lbFullname = new Label();
             lbSignup = new Label();
+            tbFullName = new RoundTextBox();
+            tbUsername = new RoundTextBox();
+            tbEmail = new RoundTextBox();
+            tbPassword = new RoundTextBox();
+            tbConfirmpassword = new RoundTextBox();
             SuspendLayout();
             // 
             // dtpDateOfBirth
             // 
             dtpDateOfBirth.Format = DateTimePickerFormat.Short;
-            dtpDateOfBirth.Location = new Point(12, 169);
+            dtpDateOfBirth.Location = new Point(12, 171);
             dtpDateOfBirth.Name = "dtpDateOfBirth";
             dtpDateOfBirth.Size = new Size(364, 23);
             dtpDateOfBirth.TabIndex = 9;
@@ -62,68 +62,16 @@
             btnSignup.Location = new Point(12, 532);
             btnSignup.Name = "btnSignup";
             btnSignup.Size = new Size(364, 29);
-            btnSignup.TabIndex = 19;
+            btnSignup.TabIndex = 14;
             btnSignup.Text = "Sign Up";
             btnSignup.UseVisualStyleBackColor = false;
             btnSignup.Click += btnSignup_Click;
-            // 
-            // tbPassword
-            // 
-            tbPassword.BackColor = Color.FromArgb(64, 64, 64);
-            tbPassword.ForeColor = SystemColors.Window;
-            tbPassword.Location = new Point(12, 382);
-            tbPassword.Multiline = true;
-            tbPassword.Name = "tbPassword";
-            tbPassword.PasswordChar = '*';
-            tbPassword.Size = new Size(364, 29);
-            tbPassword.TabIndex = 15;
-            // 
-            // tbEmail
-            // 
-            tbEmail.BackColor = Color.FromArgb(64, 64, 64);
-            tbEmail.ForeColor = SystemColors.Window;
-            tbEmail.Location = new Point(12, 314);
-            tbEmail.Multiline = true;
-            tbEmail.Name = "tbEmail";
-            tbEmail.Size = new Size(364, 29);
-            tbEmail.TabIndex = 13;
-            // 
-            // tbCofirmpassword
-            // 
-            tbCofirmpassword.BackColor = Color.FromArgb(64, 64, 64);
-            tbCofirmpassword.ForeColor = SystemColors.Window;
-            tbCofirmpassword.Location = new Point(12, 459);
-            tbCofirmpassword.Multiline = true;
-            tbCofirmpassword.Name = "tbCofirmpassword";
-            tbCofirmpassword.PasswordChar = '*';
-            tbCofirmpassword.Size = new Size(364, 29);
-            tbCofirmpassword.TabIndex = 17;
-            // 
-            // tbUsername
-            // 
-            tbUsername.BackColor = Color.FromArgb(64, 64, 64);
-            tbUsername.ForeColor = SystemColors.Window;
-            tbUsername.Location = new Point(12, 240);
-            tbUsername.Multiline = true;
-            tbUsername.Name = "tbUsername";
-            tbUsername.Size = new Size(364, 29);
-            tbUsername.TabIndex = 11;
-            // 
-            // tbFullName
-            // 
-            tbFullName.BackColor = Color.FromArgb(64, 64, 64);
-            tbFullName.ForeColor = SystemColors.Window;
-            tbFullName.Location = new Point(12, 85);
-            tbFullName.Multiline = true;
-            tbFullName.Name = "tbFullName";
-            tbFullName.Size = new Size(364, 29);
-            tbFullName.TabIndex = 7;
             // 
             // lbConfirmpassword
             // 
             lbConfirmpassword.Font = new Font("Segoe UI", 11.25F);
             lbConfirmpassword.ForeColor = SystemColors.ControlLightLight;
-            lbConfirmpassword.Location = new Point(12, 426);
+            lbConfirmpassword.Location = new Point(12, 442);
             lbConfirmpassword.Name = "lbConfirmpassword";
             lbConfirmpassword.Size = new Size(119, 20);
             lbConfirmpassword.TabIndex = 20;
@@ -133,7 +81,7 @@
             // 
             lbPassword.Font = new Font("Segoe UI", 11.25F);
             lbPassword.ForeColor = SystemColors.ControlLightLight;
-            lbPassword.Location = new Point(12, 346);
+            lbPassword.Location = new Point(12, 366);
             lbPassword.Name = "lbPassword";
             lbPassword.Size = new Size(70, 20);
             lbPassword.TabIndex = 18;
@@ -143,7 +91,7 @@
             // 
             lbEmailaddress.Font = new Font("Segoe UI", 11.25F);
             lbEmailaddress.ForeColor = SystemColors.ControlLightLight;
-            lbEmailaddress.Location = new Point(12, 282);
+            lbEmailaddress.Location = new Point(12, 295);
             lbEmailaddress.Name = "lbEmailaddress";
             lbEmailaddress.Size = new Size(101, 20);
             lbEmailaddress.TabIndex = 16;
@@ -153,7 +101,7 @@
             // 
             lbUsername.Font = new Font("Segoe UI", 11.25F);
             lbUsername.ForeColor = SystemColors.ControlLightLight;
-            lbUsername.Location = new Point(12, 207);
+            lbUsername.Location = new Point(13, 223);
             lbUsername.Name = "lbUsername";
             lbUsername.Size = new Size(75, 20);
             lbUsername.TabIndex = 14;
@@ -163,7 +111,7 @@
             // 
             lbDateofbirth.Font = new Font("Segoe UI", 11.25F);
             lbDateofbirth.ForeColor = SystemColors.ControlLightLight;
-            lbDateofbirth.Location = new Point(12, 131);
+            lbDateofbirth.Location = new Point(12, 148);
             lbDateofbirth.Name = "lbDateofbirth";
             lbDateofbirth.Size = new Size(94, 20);
             lbDateofbirth.TabIndex = 12;
@@ -173,7 +121,7 @@
             // 
             lbFullname.Font = new Font("Segoe UI", 11.25F);
             lbFullname.ForeColor = SystemColors.ControlLightLight;
-            lbFullname.Location = new Point(12, 56);
+            lbFullname.Location = new Point(12, 72);
             lbFullname.Name = "lbFullname";
             lbFullname.Size = new Size(76, 20);
             lbFullname.TabIndex = 10;
@@ -189,19 +137,124 @@
             lbSignup.TabIndex = 8;
             lbSignup.Text = "Sign Up";
             // 
+            // tbFullName
+            // 
+            tbFullName.BackColor = Color.FromArgb(64, 64, 64);
+            tbFullName.BorderColor = Color.White;
+            tbFullName.BorderFocusColor = Color.White;
+            tbFullName.BorderRadius = 10;
+            tbFullName.BorderSize = 2;
+            tbFullName.Font = new Font("Segoe UI", 9.75F);
+            tbFullName.ForeColor = Color.White;
+            tbFullName.Location = new Point(13, 96);
+            tbFullName.Margin = new Padding(4);
+            tbFullName.Multiline = false;
+            tbFullName.Name = "tbFullName";
+            tbFullName.Padding = new Padding(10, 7, 10, 7);
+            tbFullName.PasswordChar = false;
+            tbFullName.PlaceholderColor = Color.DarkGray;
+            tbFullName.PlaceholderText = "";
+            tbFullName.Size = new Size(364, 32);
+            tbFullName.TabIndex = 8;
+            tbFullName.UnderlinedStyle = false;
+            // 
+            // tbUsername
+            // 
+            tbUsername.BackColor = Color.FromArgb(64, 64, 64);
+            tbUsername.BorderColor = Color.White;
+            tbUsername.BorderFocusColor = Color.White;
+            tbUsername.BorderRadius = 10;
+            tbUsername.BorderSize = 2;
+            tbUsername.Font = new Font("Segoe UI", 9.75F);
+            tbUsername.ForeColor = Color.White;
+            tbUsername.Location = new Point(12, 247);
+            tbUsername.Margin = new Padding(4);
+            tbUsername.Multiline = false;
+            tbUsername.Name = "tbUsername";
+            tbUsername.Padding = new Padding(10, 7, 10, 7);
+            tbUsername.PasswordChar = false;
+            tbUsername.PlaceholderColor = Color.DarkGray;
+            tbUsername.PlaceholderText = "";
+            tbUsername.Size = new Size(364, 32);
+            tbUsername.TabIndex = 10;
+            tbUsername.UnderlinedStyle = false;
+            // 
+            // tbEmail
+            // 
+            tbEmail.BackColor = Color.FromArgb(64, 64, 64);
+            tbEmail.BorderColor = Color.White;
+            tbEmail.BorderFocusColor = Color.White;
+            tbEmail.BorderRadius = 10;
+            tbEmail.BorderSize = 2;
+            tbEmail.Font = new Font("Segoe UI", 9.75F);
+            tbEmail.ForeColor = Color.White;
+            tbEmail.Location = new Point(12, 319);
+            tbEmail.Margin = new Padding(4);
+            tbEmail.Multiline = false;
+            tbEmail.Name = "tbEmail";
+            tbEmail.Padding = new Padding(10, 7, 10, 7);
+            tbEmail.PasswordChar = false;
+            tbEmail.PlaceholderColor = Color.DarkGray;
+            tbEmail.PlaceholderText = "";
+            tbEmail.Size = new Size(364, 32);
+            tbEmail.TabIndex = 11;
+            tbEmail.UnderlinedStyle = false;
+            // 
+            // tbPassword
+            // 
+            tbPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbPassword.BorderColor = Color.White;
+            tbPassword.BorderFocusColor = Color.White;
+            tbPassword.BorderRadius = 10;
+            tbPassword.BorderSize = 2;
+            tbPassword.Font = new Font("Segoe UI", 9.75F);
+            tbPassword.ForeColor = Color.White;
+            tbPassword.Location = new Point(12, 390);
+            tbPassword.Margin = new Padding(4);
+            tbPassword.Multiline = false;
+            tbPassword.Name = "tbPassword";
+            tbPassword.Padding = new Padding(10, 7, 10, 7);
+            tbPassword.PasswordChar = true;
+            tbPassword.PlaceholderColor = Color.DarkGray;
+            tbPassword.PlaceholderText = "";
+            tbPassword.Size = new Size(364, 32);
+            tbPassword.TabIndex = 12;
+            tbPassword.UnderlinedStyle = false;
+            // 
+            // tbConfirmpassword
+            // 
+            tbConfirmpassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbConfirmpassword.BorderColor = Color.White;
+            tbConfirmpassword.BorderFocusColor = Color.White;
+            tbConfirmpassword.BorderRadius = 10;
+            tbConfirmpassword.BorderSize = 2;
+            tbConfirmpassword.Font = new Font("Segoe UI", 9.75F);
+            tbConfirmpassword.ForeColor = Color.White;
+            tbConfirmpassword.Location = new Point(12, 466);
+            tbConfirmpassword.Margin = new Padding(4);
+            tbConfirmpassword.Multiline = false;
+            tbConfirmpassword.Name = "tbConfirmpassword";
+            tbConfirmpassword.Padding = new Padding(10, 7, 10, 7);
+            tbConfirmpassword.PasswordChar = true;
+            tbConfirmpassword.PlaceholderColor = Color.DarkGray;
+            tbConfirmpassword.PlaceholderText = "";
+            tbConfirmpassword.Size = new Size(364, 32);
+            tbConfirmpassword.TabIndex = 13;
+            tbConfirmpassword.UnderlinedStyle = false;
+            // 
             // Signup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(394, 575);
-            Controls.Add(dtpDateOfBirth);
-            Controls.Add(btnSignup);
+            Controls.Add(tbConfirmpassword);
             Controls.Add(tbPassword);
             Controls.Add(tbEmail);
-            Controls.Add(tbCofirmpassword);
             Controls.Add(tbUsername);
             Controls.Add(tbFullName);
+            Controls.Add(dtpDateOfBirth);
+            Controls.Add(btnSignup);
             Controls.Add(lbConfirmpassword);
             Controls.Add(lbPassword);
             Controls.Add(lbEmailaddress);
@@ -212,18 +265,12 @@
             Name = "Signup";
             Text = "Signup";
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private DateTimePicker dtpDateOfBirth;
         private Button btnSignup;
-        private TextBox tbPassword;
-        private TextBox tbEmail;
-        private TextBox tbCofirmpassword;
-        private TextBox tbUsername;
-        private TextBox tbFullName;
         private Label lbConfirmpassword;
         private Label lbPassword;
         private Label lbEmailaddress;
@@ -231,5 +278,10 @@
         private Label lbDateofbirth;
         private Label lbFullname;
         private Label lbSignup;
+        private RoundTextBox tbFullName;
+        private RoundTextBox tbUsername;
+        private RoundTextBox tbEmail;
+        private RoundTextBox tbPassword;
+        private RoundTextBox tbConfirmpassword;
     }
 }

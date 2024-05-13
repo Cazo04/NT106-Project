@@ -38,8 +38,8 @@
             lbUsernameorEmailaddress = new Label();
             lbSignIn = new Label();
             llbSignup = new LinkLabel();
-            tbPassword = new TextBox();
             tbUsernameOrEmail = new RoundTextBox();
+            tbPassword = new RoundTextBox();
             SuspendLayout();
             // 
             // btnOutlock
@@ -170,19 +170,11 @@
             llbSignup.Text = "Don't have an account? Sign up";
             llbSignup.LinkClicked += llbSignup_LinkClicked;
             // 
-            // tbPassword
-            // 
-            tbPassword.Location = new Point(12, 226);
-            tbPassword.Name = "tbPassword";
-            tbPassword.Size = new Size(348, 23);
-            tbPassword.TabIndex = 1;
-            tbPassword.UseSystemPasswordChar = true;
-            // 
             // tbUsernameOrEmail
             // 
             tbUsernameOrEmail.BackColor = Color.FromArgb(64, 64, 64);
             tbUsernameOrEmail.BorderColor = Color.White;
-            tbUsernameOrEmail.BorderFocusColor = Color.HotPink;
+            tbUsernameOrEmail.BorderFocusColor = Color.White;
             tbUsernameOrEmail.BorderRadius = 10;
             tbUsernameOrEmail.BorderSize = 2;
             tbUsernameOrEmail.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -196,9 +188,29 @@
             tbUsernameOrEmail.PlaceholderColor = Color.DarkGray;
             tbUsernameOrEmail.PlaceholderText = "";
             tbUsernameOrEmail.Size = new Size(348, 32);
-            tbUsernameOrEmail.TabIndex = 30;
-            tbUsernameOrEmail.Text = "";
+            tbUsernameOrEmail.TabIndex = 0;
             tbUsernameOrEmail.UnderlinedStyle = false;
+            // 
+            // tbPassword
+            // 
+            tbPassword.BackColor = Color.FromArgb(64, 64, 64);
+            tbPassword.BorderColor = Color.White;
+            tbPassword.BorderFocusColor = Color.White;
+            tbPassword.BorderRadius = 10;
+            tbPassword.BorderSize = 2;
+            tbPassword.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tbPassword.ForeColor = Color.White;
+            tbPassword.Location = new Point(12, 234);
+            tbPassword.Margin = new Padding(4);
+            tbPassword.Multiline = false;
+            tbPassword.Name = "tbPassword";
+            tbPassword.Padding = new Padding(10, 7, 10, 7);
+            tbPassword.PasswordChar = true;
+            tbPassword.PlaceholderColor = Color.DarkGray;
+            tbPassword.PlaceholderText = "";
+            tbPassword.Size = new Size(348, 32);
+            tbPassword.TabIndex = 1;
+            tbPassword.UnderlinedStyle = false;
             // 
             // SignIn
             // 
@@ -206,8 +218,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(382, 548);
-            Controls.Add(tbUsernameOrEmail);
             Controls.Add(tbPassword);
+            Controls.Add(tbUsernameOrEmail);
             Controls.Add(btnOutlock);
             Controls.Add(btnGoogle);
             Controls.Add(lbOrsigninwith);
@@ -236,7 +248,7 @@
         private Label lbUsernameorEmailaddress;
         private Label lbSignIn;
         private LinkLabel llbSignup;
-        private TextBox tbPassword;
         private RoundTextBox tbUsernameOrEmail;
+        private RoundTextBox tbPassword;
     }
 }
