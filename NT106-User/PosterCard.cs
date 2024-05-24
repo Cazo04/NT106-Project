@@ -29,6 +29,12 @@ namespace NT106_User
         {
             InitializeComponent();
             Settings();
+
+            lbType.MakeRounded(10);
+            lbScore.MakeRounded(10);
+            lbContentRating.MakeRounded(10);
+            lbName.MakeRounded(10);
+
             foreach (Control control in this.Controls)
             {
                 control.MouseEnter += new EventHandler(ChildControl_MouseEnter);

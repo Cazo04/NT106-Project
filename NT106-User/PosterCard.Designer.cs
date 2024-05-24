@@ -66,7 +66,8 @@
             lbScore.ForeColor = SystemColors.Control;
             lbScore.Location = new Point(146, 14);
             lbScore.Name = "lbScore";
-            lbScore.Size = new Size(39, 15);
+            lbScore.Padding = new Padding(3);
+            lbScore.Size = new Size(45, 21);
             lbScore.TabIndex = 1;
             lbScore.Text = "8.0/10";
             // 
@@ -77,7 +78,8 @@
             lbContentRating.ForeColor = SystemColors.Control;
             lbContentRating.Location = new Point(10, 273);
             lbContentRating.Name = "lbContentRating";
-            lbContentRating.Size = new Size(14, 15);
+            lbContentRating.Padding = new Padding(3);
+            lbContentRating.Size = new Size(20, 21);
             lbContentRating.TabIndex = 1;
             lbContentRating.Text = "R";
             // 
