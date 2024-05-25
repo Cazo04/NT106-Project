@@ -20,6 +20,10 @@ namespace NT106_User
         {
             InitializeComponent();
             this.movieId = movieId;
+            lbReleaseDate.MakeRounded(10);
+            lbType.MakeRounded(10);
+            lbContentRating.MakeRounded(10);
+            lbDuration.MakeRounded(10);
         }
 
         private void btnBack_Click(object sender, EventArgs e)

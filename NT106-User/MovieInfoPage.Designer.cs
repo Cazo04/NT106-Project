@@ -767,8 +767,8 @@
             lbReleaseDate.ForeColor = SystemColors.HighlightText;
             lbReleaseDate.Location = new Point(3, 0);
             lbReleaseDate.Name = "lbReleaseDate";
-            lbReleaseDate.Padding = new Padding(2);
-            lbReleaseDate.Size = new Size(69, 19);
+            lbReleaseDate.Padding = new Padding(3);
+            lbReleaseDate.Size = new Size(71, 21);
             lbReleaseDate.TabIndex = 0;
             lbReleaseDate.Text = "2024-04-10";
             // 
@@ -777,10 +777,10 @@
             lbType.AutoSize = true;
             lbType.BackColor = Color.FromArgb(36, 36, 36);
             lbType.ForeColor = SystemColors.HighlightText;
-            lbType.Location = new Point(78, 0);
+            lbType.Location = new Point(80, 0);
             lbType.Name = "lbType";
-            lbType.Padding = new Padding(2);
-            lbType.Size = new Size(61, 19);
+            lbType.Padding = new Padding(3);
+            lbType.Size = new Size(63, 21);
             lbType.TabIndex = 1;
             lbType.Text = "TV Shows";
             // 
@@ -789,10 +789,10 @@
             lbContentRating.AutoSize = true;
             lbContentRating.BackColor = Color.FromArgb(36, 36, 36);
             lbContentRating.ForeColor = SystemColors.HighlightText;
-            lbContentRating.Location = new Point(145, 0);
+            lbContentRating.Location = new Point(149, 0);
             lbContentRating.Name = "lbContentRating";
-            lbContentRating.Padding = new Padding(2);
-            lbContentRating.Size = new Size(48, 19);
+            lbContentRating.Padding = new Padding(3);
+            lbContentRating.Size = new Size(50, 21);
             lbContentRating.TabIndex = 2;
             lbContentRating.Text = "TV-MA";
             // 
@@ -802,10 +802,10 @@
             lbDuration.BackColor = Color.FromArgb(25, 65, 93);
             lbDuration.Font = new Font("Segoe UI", 9F, FontStyle.Bold);
             lbDuration.ForeColor = Color.FromArgb(96, 182, 231);
-            lbDuration.Location = new Point(199, 0);
+            lbDuration.Location = new Point(205, 0);
             lbDuration.Name = "lbDuration";
-            lbDuration.Padding = new Padding(2);
-            lbDuration.Size = new Size(50, 19);
+            lbDuration.Padding = new Padding(3);
+            lbDuration.Size = new Size(52, 21);
             lbDuration.TabIndex = 3;
             lbDuration.Text = "2h10m";
             // 
