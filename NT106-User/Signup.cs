@@ -39,13 +39,13 @@ namespace NT106_User
             }
 
             string json = JsonConvert.SerializeObject(signUpModel);
-            HttpClientService service = new HttpClientService("None");  
+            HttpClientService service = new HttpClientService("None");
             var response = await service.PostAsync("/user/signupchecker", json);
             if (response.Contains("Error"))
             {
                 string[] parts = response.Split(new string[] { " - " }, 2, StringSplitOptions.None);
                 JToken jToken = JToken.Parse(parts[1]);
-                string message = "Status:" + jToken["status"].ToString() +'\n';
+                string message = "Status:" + jToken["status"].ToString() + '\n';
                 message += "Errors:" + jToken["errors"].ToString();
                 MessageBox.Show(message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -54,7 +54,7 @@ namespace NT106_User
             {
                 response = await service.PostAsync("/user/signup", json);
                 if (response.Contains("Error"))
-                {                   
+                {
                     MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
@@ -63,6 +63,42 @@ namespace NT106_User
                     //MessageBox.Show("Sign up successful", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
+            }
+        }
+
+        private void pbShow_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == false)
+            {
+                pbHide.BringToFront();
+                tbPassword.PasswordChar = true;
+            }
+        }
+
+        private void pbHide_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == true)
+            {
+                pbShow.BringToFront();
+                tbPassword.PasswordChar = false;
+            }
+        }
+
+        private void pbShow1_Click(object sender, EventArgs e)
+        {
+            if (tbConfirmpassword.PasswordChar == false)
+            {
+                pbHide1.BringToFront();
+                tbConfirmpassword.PasswordChar = true;
+            }
+        }
+
+        private void pbHide2_Click(object sender, EventArgs e)
+        {
+            if (tbConfirmpassword.PasswordChar == true)
+            {
+                pbShow1.BringToFront();
+                tbConfirmpassword.PasswordChar = false;
             }
         }
     }

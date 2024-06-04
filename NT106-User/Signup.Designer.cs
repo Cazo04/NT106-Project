@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signup));
             dtpDateOfBirth = new DateTimePicker();
             btnSignup = new Button();
             lbConfirmpassword = new Label();
@@ -42,6 +43,14 @@
             tbEmail = new RoundTextBox();
             tbPassword = new RoundTextBox();
             tbConfirmpassword = new RoundTextBox();
+            pbHide = new PictureBox();
+            pbShow = new PictureBox();
+            pbHide1 = new PictureBox();
+            pbShow1 = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbHide).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbShow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbHide1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbShow1).BeginInit();
             SuspendLayout();
             // 
             // dtpDateOfBirth
@@ -242,12 +251,56 @@
             tbConfirmpassword.TabIndex = 13;
             tbConfirmpassword.UnderlinedStyle = false;
             // 
+            // pbHide
+            // 
+            pbHide.Image = (Image)resources.GetObject("pbHide.Image");
+            pbHide.Location = new Point(382, 393);
+            pbHide.Name = "pbHide";
+            pbHide.Size = new Size(29, 29);
+            pbHide.TabIndex = 33;
+            pbHide.TabStop = false;
+            pbHide.Click += pbHide_Click;
+            // 
+            // pbShow
+            // 
+            pbShow.Image = (Image)resources.GetObject("pbShow.Image");
+            pbShow.Location = new Point(382, 393);
+            pbShow.Name = "pbShow";
+            pbShow.Size = new Size(29, 29);
+            pbShow.TabIndex = 32;
+            pbShow.TabStop = false;
+            pbShow.Click += pbShow_Click;
+            // 
+            // pbHide1
+            // 
+            pbHide1.Image = (Image)resources.GetObject("pbHide1.Image");
+            pbHide1.Location = new Point(382, 469);
+            pbHide1.Name = "pbHide1";
+            pbHide1.Size = new Size(29, 29);
+            pbHide1.TabIndex = 35;
+            pbHide1.TabStop = false;
+            pbHide1.Click += pbHide2_Click;
+            // 
+            // pbShow1
+            // 
+            pbShow1.Image = (Image)resources.GetObject("pbShow1.Image");
+            pbShow1.Location = new Point(383, 469);
+            pbShow1.Name = "pbShow1";
+            pbShow1.Size = new Size(29, 29);
+            pbShow1.TabIndex = 34;
+            pbShow1.TabStop = false;
+            pbShow1.Click += pbShow1_Click;
+            // 
             // Signup
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(394, 575);
+            ClientSize = new Size(410, 575);
+            Controls.Add(pbHide1);
+            Controls.Add(pbShow1);
+            Controls.Add(pbHide);
+            Controls.Add(pbShow);
             Controls.Add(tbConfirmpassword);
             Controls.Add(tbPassword);
             Controls.Add(tbEmail);
@@ -264,6 +317,10 @@
             Controls.Add(lbSignup);
             Name = "Signup";
             Text = "Signup";
+            ((System.ComponentModel.ISupportInitialize)pbHide).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbShow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbHide1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbShow1).EndInit();
             ResumeLayout(false);
         }
 
@@ -283,5 +340,9 @@
         private RoundTextBox tbEmail;
         private RoundTextBox tbPassword;
         private RoundTextBox tbConfirmpassword;
+        private PictureBox pbHide;
+        private PictureBox pbShow;
+        private PictureBox pbHide1;
+        private PictureBox pbShow1;
     }
 }

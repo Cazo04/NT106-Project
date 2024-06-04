@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
             btnOutlock = new Button();
             btnGoogle = new Button();
             lbOrsigninwith = new Label();
@@ -40,6 +41,10 @@
             llbSignup = new LinkLabel();
             tbUsernameOrEmail = new RoundTextBox();
             tbPassword = new RoundTextBox();
+            pbShow = new PictureBox();
+            pbHide = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pbShow).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbHide).BeginInit();
             SuspendLayout();
             // 
             // btnOutlock
@@ -212,12 +217,34 @@
             tbPassword.TabIndex = 1;
             tbPassword.UnderlinedStyle = false;
             // 
+            // pbShow
+            // 
+            pbShow.Image = (Image)resources.GetObject("pbShow.Image");
+            pbShow.Location = new Point(368, 237);
+            pbShow.Name = "pbShow";
+            pbShow.Size = new Size(29, 29);
+            pbShow.TabIndex = 30;
+            pbShow.TabStop = false;
+            pbShow.Click += pbShow_Click;
+            // 
+            // pbHide
+            // 
+            pbHide.Image = (Image)resources.GetObject("pbHide.Image");
+            pbHide.Location = new Point(367, 237);
+            pbHide.Name = "pbHide";
+            pbHide.Size = new Size(29, 29);
+            pbHide.TabIndex = 31;
+            pbHide.TabStop = false;
+            pbHide.Click += pbHide_Click;
+            // 
             // SignIn
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(382, 548);
+            ClientSize = new Size(396, 548);
+            Controls.Add(pbHide);
+            Controls.Add(pbShow);
             Controls.Add(tbPassword);
             Controls.Add(tbUsernameOrEmail);
             Controls.Add(btnOutlock);
@@ -232,6 +259,8 @@
             Controls.Add(lbSignIn);
             Name = "SignIn";
             Text = "SignIn";
+            ((System.ComponentModel.ISupportInitialize)pbShow).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbHide).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -250,5 +279,7 @@
         private LinkLabel llbSignup;
         private RoundTextBox tbUsernameOrEmail;
         private RoundTextBox tbPassword;
+        private PictureBox pbShow;
+        private PictureBox pbHide;
     }
 }

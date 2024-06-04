@@ -19,7 +19,7 @@ namespace NT106_User
 
         public SignIn()
         {
-            InitializeComponent();  
+            InitializeComponent();
         }
 
         private void llbSignup_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -61,7 +61,25 @@ namespace NT106_User
                 else
                 {
                     MessageBox.Show("Sign in failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }               
+                }
+            }
+        }
+
+        private void pbHide_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == true)
+            {
+                pbShow.BringToFront();
+                tbPassword.PasswordChar = false;
+            }
+        }
+
+        private void pbShow_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == false)
+            {
+                pbHide.BringToFront();
+                tbPassword.PasswordChar = true;
             }
         }
     }
