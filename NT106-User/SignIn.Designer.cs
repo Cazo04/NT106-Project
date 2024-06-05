@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SignIn));
             btnOutlock = new Button();
             btnGoogle = new Button();
             lbOrsigninwith = new Label();
@@ -219,7 +218,7 @@
             // 
             // pbShow
             // 
-            pbShow.Image = (Image)resources.GetObject("pbShow.Image");
+            pbShow.Image = Properties.Resources.icons8_visibility_25;
             pbShow.Location = new Point(368, 237);
             pbShow.Name = "pbShow";
             pbShow.Size = new Size(29, 29);
@@ -229,7 +228,7 @@
             // 
             // pbHide
             // 
-            pbHide.Image = (Image)resources.GetObject("pbHide.Image");
+            pbHide.Image = Properties.Resources.icons8_visibility_off_25;
             pbHide.Location = new Point(367, 237);
             pbHide.Name = "pbHide";
             pbHide.Size = new Size(29, 29);
