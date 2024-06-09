@@ -153,6 +153,26 @@ namespace NT106_User.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_visibility_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-visibility-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_visibility_off_25 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-visibility-off-25", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap like {
             get {
                 object obj = ResourceManager.GetObject("like", resourceCulture);

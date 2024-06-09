@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Signup));
             dtpDateOfBirth = new DateTimePicker();
             btnSignup = new Button();
             lbConfirmpassword = new Label();
@@ -253,7 +252,7 @@
             // 
             // pbHide
             // 
-            pbHide.Image = (Image)resources.GetObject("pbHide.Image");
+            pbHide.Image = Properties.Resources.icons8_visibility_off_25;
             pbHide.Location = new Point(382, 393);
             pbHide.Name = "pbHide";
             pbHide.Size = new Size(29, 29);
@@ -263,7 +262,7 @@
             // 
             // pbShow
             // 
-            pbShow.Image = (Image)resources.GetObject("pbShow.Image");
+            pbShow.Image = Properties.Resources.icons8_visibility_25;
             pbShow.Location = new Point(382, 393);
             pbShow.Name = "pbShow";
             pbShow.Size = new Size(29, 29);
@@ -273,7 +272,7 @@
             // 
             // pbHide1
             // 
-            pbHide1.Image = (Image)resources.GetObject("pbHide1.Image");
+            pbHide1.Image = Properties.Resources.icons8_visibility_off_25;
             pbHide1.Location = new Point(382, 469);
             pbHide1.Name = "pbHide1";
             pbHide1.Size = new Size(29, 29);
@@ -283,7 +282,7 @@
             // 
             // pbShow1
             // 
-            pbShow1.Image = (Image)resources.GetObject("pbShow1.Image");
+            pbShow1.Image = Properties.Resources.icons8_visibility_25;
             pbShow1.Location = new Point(383, 469);
             pbShow1.Name = "pbShow1";
             pbShow1.Size = new Size(29, 29);
