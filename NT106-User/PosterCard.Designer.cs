@@ -34,7 +34,9 @@
             lbScore = new Label();
             lbContentRating = new Label();
             lbName = new Label();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)imgPoster).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // imgPoster
@@ -55,7 +57,8 @@
             lbType.ForeColor = SystemColors.Control;
             lbType.Location = new Point(10, 14);
             lbType.Name = "lbType";
-            lbType.Size = new Size(40, 15);
+            lbType.Padding = new Padding(2);
+            lbType.Size = new Size(44, 19);
             lbType.TabIndex = 1;
             lbType.Text = "Movie";
             // 
@@ -66,8 +69,8 @@
             lbScore.ForeColor = SystemColors.Control;
             lbScore.Location = new Point(146, 14);
             lbScore.Name = "lbScore";
-            lbScore.Padding = new Padding(3);
-            lbScore.Size = new Size(45, 21);
+            lbScore.Padding = new Padding(2);
+            lbScore.Size = new Size(43, 19);
             lbScore.TabIndex = 1;
             lbScore.Text = "8.0/10";
             // 
@@ -89,18 +92,28 @@
             lbName.Dock = DockStyle.Fill;
             lbName.Font = new Font("Segoe UI", 11F);
             lbName.ForeColor = SystemColors.Control;
-            lbName.Location = new Point(0, 300);
+            lbName.Location = new Point(3, 3);
             lbName.Name = "lbName";
             lbName.Size = new Size(91, 20);
             lbName.TabIndex = 2;
             lbName.Text = "Openheimer";
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(lbName);
+            panel1.Dock = DockStyle.Fill;
+            panel1.Location = new Point(0, 300);
+            panel1.Name = "panel1";
+            panel1.Padding = new Padding(3);
+            panel1.Size = new Size(200, 44);
+            panel1.TabIndex = 3;
             // 
             // PosterCard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(16, 24, 39);
-            Controls.Add(lbName);
+            Controls.Add(panel1);
             Controls.Add(lbContentRating);
             Controls.Add(lbScore);
             Controls.Add(lbType);
@@ -112,6 +125,8 @@
             MouseLeave += PosterCard_MouseLeave;
             Resize += PosterCard_Resize;
             ((System.ComponentModel.ISupportInitialize)imgPoster).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -123,5 +138,6 @@
         private Label lbScore;
         private Label lbContentRating;
         private Label lbName;
+        private Panel panel1;
     }
 }

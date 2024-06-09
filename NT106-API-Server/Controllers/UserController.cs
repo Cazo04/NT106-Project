@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
+using NT106_API_Server.Models;
 using NT106_WebServer.Models;
 using System.Text;
 
@@ -154,6 +155,9 @@ namespace NT106_API_Server.Controllers
                 return BadRequest("Error: Movie not found.");
             }
             MovieModel movie = MovieModel.GetMovie(movieId);
+            movie.Writers = MovieModel.GetMovieWriters(movieId);
+            movie.Directors = MovieModel.GetMovieDirectors(movieId);
+            movie.Creators = MovieModel.GetMovieCreators(movieId);
             movie.Casts = MovieModel.GetCastDetailsByMovieId(movieId);
             movie.Genres = MovieModel.GetGenresByMovieId(movieId);
             return Ok(movie);
@@ -166,6 +170,73 @@ namespace NT106_API_Server.Controllers
             movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies();
             return Ok(movies);
         }
+        [Route("insertcomment")]
+        [HttpPost]
+        [UserValidateToken]
+        public IActionResult InsertComment([FromBody] CommentModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CommentModel.HasUserCommented(model.UserId, model.EpisodeId))
+                {
+                    return BadRequest("Error: User has already commented.");
+                }
+                CommentModel.InsertComment(model);
+                return Ok();
+            }
+            return BadRequest(ModelState);
+        }
+        [Route("gettopcommentsbyepisodeid")]
+        [HttpGet]
+        public IActionResult GetTopCommentsByEpisodeId([FromQuery] string episodeId)
+        {
+            List<CommentModel> comments = CommentModel.GetTopCommentsByEpisodeId(episodeId);
+            return Ok(comments);
+        }
+        [Route("sendresetpasswordcode")]
+        [HttpGet]
+        public IActionResult SendResetPasswordCode([FromQuery] string email)
+        {
+            if (string.IsNullOrEmpty(email))
+            {
+                return BadRequest("Error: Email is empty.");
+            } 
+            if (ResetPasswordCodeModel.GetUserIdByEmail(email) != null)
+            {
+                ResetPasswordCodeModel.CodeValid? codeValid = ResetPasswordCodeModel.IsCodeValidWithinOneMinute(email);
+                if (codeValid == null || codeValid.IsValid == false)
+                {
+                    string code = ResetPasswordCodeModel.CodeGenerator.GenerateRandomCode(20);
+                    ResetPasswordCodeModel.InsertResetPasswordCode(email, code);
+                    ResetPasswordCodeModel.SendEmail(email, code);                   
+                } else if (codeValid.IsValid == true)
+                {
+                    return BadRequest("Error: Please try again in " + $"{codeValid.TimeLeft.Seconds:D2} seconds" );
+                }
+                return Ok("Email sended!");
+            }
+            return BadRequest("Error: Email not found.");
+        }
+        [Route("resetpassword")]
+        [HttpPost]
+        public IActionResult ResetPassword([FromBody] ResetPasswordCodeModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (ResetPasswordCodeModel.IsCodeValidWithinFiveMinutes(model.Email))
+                {
+                    if (ResetPasswordCodeModel.IsCodeMatch(model.Email, model.Code))
+                    {
+                        ResetPasswordCodeModel.ResetPassword(model.Email, model.Password);
+                        return Ok("Password reseted!");
+                    }
+                    else return BadRequest("Error: Code is invalid.");      
+                }
+                return BadRequest("Error: Code is expired.");
+            }
+            return BadRequest(ModelState);
+        }
+
     }
 
     public class UserValidateTokenAttribute : ActionFilterAttribute

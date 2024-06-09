@@ -46,6 +46,7 @@ namespace NT106_User
             if (response.Contains("Error"))
             {
                 MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                progressDialog.CloseProgress(this);
             }
             else
             {
@@ -81,6 +82,14 @@ namespace NT106_User
                 pbHide.BringToFront();
                 tbPassword.PasswordChar = true;
             }
+        }
+
+        private void llbForgotPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
+            ResetPassword resetPassword = new ResetPassword();
+            resetPassword.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -12,6 +12,7 @@ namespace NT106_Admin
         private static string filePath = Path.Combine(Application.StartupPath, "settings.dat");
         private const string KEY = "sbIZoCJ5xizVfLagvYQnuZdgLUD4DtVe";
         public static string? TempToken { get; set; }
+        public static string? TempUserId { get; set; }
 
         public static void SaveEncryptedData(string data)
         {

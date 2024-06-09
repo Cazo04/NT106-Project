@@ -37,7 +37,12 @@ namespace NT106_User
         public void SetData(MovieModel.Person person, string characterName = "", int episodeCount = 0)
         {
             lbName.Text = person.Name;
-            lbCharacterName.Text = "as " + characterName;
+            if (characterName != "") lbCharacterName.Text = "as " + characterName;
+            else
+            {
+                lbCharacterName.Text = "";
+                lbName.Font = new Font(lbName.Font.Name, 14, lbName.Font.Style);
+            }
             if (episodeCount != 0) lbMore.Text = episodeCount.ToString() + " episodes";
             else
             {

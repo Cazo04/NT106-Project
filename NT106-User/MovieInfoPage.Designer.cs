@@ -35,8 +35,7 @@
             panel2 = new Panel();
             tableLayoutPanel10 = new TableLayoutPanel();
             panel15 = new Panel();
-            panel17 = new Panel();
-            userComment1 = new UserComment();
+            pnTopComment = new Panel();
             label12 = new Label();
             panel16 = new Panel();
             flowLayoutPanel9 = new FlowLayoutPanel();
@@ -45,9 +44,9 @@
             panel19 = new Panel();
             tableLayoutPanel11 = new TableLayoutPanel();
             flowLayoutPanel8 = new FlowLayoutPanel();
-            rbtnPositive = new RadioButton();
-            rbtnNegative = new RadioButton();
-            textBox2 = new TextBox();
+            rbPositive = new RadioButton();
+            rbNegative = new RadioButton();
+            tbCommentContent = new TextBox();
             btnSendComment = new Button();
             label14 = new Label();
             panel13 = new Panel();
@@ -101,7 +100,6 @@
             panel2.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
             panel15.SuspendLayout();
-            panel17.SuspendLayout();
             panel16.SuspendLayout();
             pnWriteComment.SuspendLayout();
             panel19.SuspendLayout();
@@ -202,7 +200,7 @@
             // 
             // panel15
             // 
-            panel15.Controls.Add(panel17);
+            panel15.Controls.Add(pnTopComment);
             panel15.Controls.Add(label12);
             panel15.Dock = DockStyle.Fill;
             panel15.Location = new Point(3, 3);
@@ -211,24 +209,13 @@
             panel15.Size = new Size(664, 453);
             panel15.TabIndex = 0;
             // 
-            // panel17
+            // pnTopComment
             // 
-            panel17.Controls.Add(userComment1);
-            panel17.Dock = DockStyle.Fill;
-            panel17.Location = new Point(3, 22);
-            panel17.Name = "panel17";
-            panel17.Size = new Size(658, 428);
-            panel17.TabIndex = 1;
-            // 
-            // userComment1
-            // 
-            userComment1.BackColor = Color.FromArgb(22, 32, 45);
-            userComment1.Dock = DockStyle.Top;
-            userComment1.Location = new Point(0, 0);
-            userComment1.Margin = new Padding(4, 5, 4, 5);
-            userComment1.Name = "userComment1";
-            userComment1.Size = new Size(658, 342);
-            userComment1.TabIndex = 0;
+            pnTopComment.Dock = DockStyle.Fill;
+            pnTopComment.Location = new Point(3, 22);
+            pnTopComment.Name = "pnTopComment";
+            pnTopComment.Size = new Size(658, 428);
+            pnTopComment.TabIndex = 1;
             // 
             // label12
             // 
@@ -299,7 +286,7 @@
             tableLayoutPanel11.ColumnCount = 1;
             tableLayoutPanel11.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel11.Controls.Add(flowLayoutPanel8, 0, 0);
-            tableLayoutPanel11.Controls.Add(textBox2, 0, 1);
+            tableLayoutPanel11.Controls.Add(tbCommentContent, 0, 1);
             tableLayoutPanel11.Controls.Add(btnSendComment, 0, 2);
             tableLayoutPanel11.Dock = DockStyle.Fill;
             tableLayoutPanel11.Location = new Point(3, 22);
@@ -313,8 +300,8 @@
             // 
             // flowLayoutPanel8
             // 
-            flowLayoutPanel8.Controls.Add(rbtnPositive);
-            flowLayoutPanel8.Controls.Add(rbtnNegative);
+            flowLayoutPanel8.Controls.Add(rbPositive);
+            flowLayoutPanel8.Controls.Add(rbNegative);
             flowLayoutPanel8.Dock = DockStyle.Left;
             flowLayoutPanel8.Location = new Point(3, 3);
             flowLayoutPanel8.Name = "flowLayoutPanel8";
@@ -322,40 +309,40 @@
             flowLayoutPanel8.Size = new Size(220, 29);
             flowLayoutPanel8.TabIndex = 1;
             // 
-            // rbtnPositive
+            // rbPositive
             // 
-            rbtnPositive.AutoSize = true;
-            rbtnPositive.BackColor = Color.FromArgb(25, 65, 93);
-            rbtnPositive.ForeColor = Color.FromArgb(96, 182, 231);
-            rbtnPositive.Location = new Point(5, 5);
-            rbtnPositive.Name = "rbtnPositive";
-            rbtnPositive.Size = new Size(66, 19);
-            rbtnPositive.TabIndex = 0;
-            rbtnPositive.TabStop = true;
-            rbtnPositive.Text = "Positive";
-            rbtnPositive.UseVisualStyleBackColor = false;
+            rbPositive.AutoSize = true;
+            rbPositive.BackColor = Color.FromArgb(25, 65, 93);
+            rbPositive.Checked = true;
+            rbPositive.ForeColor = Color.FromArgb(96, 182, 231);
+            rbPositive.Location = new Point(5, 5);
+            rbPositive.Name = "rbPositive";
+            rbPositive.Size = new Size(66, 19);
+            rbPositive.TabIndex = 0;
+            rbPositive.TabStop = true;
+            rbPositive.Text = "Positive";
+            rbPositive.UseVisualStyleBackColor = false;
             // 
-            // rbtnNegative
+            // rbNegative
             // 
-            rbtnNegative.AutoSize = true;
-            rbtnNegative.BackColor = Color.FromArgb(79, 30, 35);
-            rbtnNegative.ForeColor = Color.FromArgb(224, 98, 99);
-            rbtnNegative.Location = new Point(77, 5);
-            rbtnNegative.Name = "rbtnNegative";
-            rbtnNegative.Size = new Size(72, 19);
-            rbtnNegative.TabIndex = 1;
-            rbtnNegative.TabStop = true;
-            rbtnNegative.Text = "Negative";
-            rbtnNegative.UseVisualStyleBackColor = false;
+            rbNegative.AutoSize = true;
+            rbNegative.BackColor = Color.FromArgb(79, 30, 35);
+            rbNegative.ForeColor = Color.FromArgb(224, 98, 99);
+            rbNegative.Location = new Point(77, 5);
+            rbNegative.Name = "rbNegative";
+            rbNegative.Size = new Size(72, 19);
+            rbNegative.TabIndex = 1;
+            rbNegative.Text = "Negative";
+            rbNegative.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // tbCommentContent
             // 
-            textBox2.Dock = DockStyle.Left;
-            textBox2.Location = new Point(3, 38);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(437, 143);
-            textBox2.TabIndex = 2;
+            tbCommentContent.Dock = DockStyle.Left;
+            tbCommentContent.Location = new Point(3, 38);
+            tbCommentContent.Multiline = true;
+            tbCommentContent.Name = "tbCommentContent";
+            tbCommentContent.Size = new Size(437, 143);
+            tbCommentContent.TabIndex = 2;
             // 
             // btnSendComment
             // 
@@ -369,6 +356,7 @@
             btnSendComment.TabIndex = 3;
             btnSendComment.Text = "Send";
             btnSendComment.UseVisualStyleBackColor = false;
+            btnSendComment.Click += btnSendComment_Click;
             // 
             // label14
             // 
@@ -958,7 +946,6 @@
             tableLayoutPanel10.ResumeLayout(false);
             panel15.ResumeLayout(false);
             panel15.PerformLayout();
-            panel17.ResumeLayout(false);
             panel16.ResumeLayout(false);
             panel16.PerformLayout();
             pnWriteComment.ResumeLayout(false);
@@ -1059,7 +1046,7 @@
         private Panel panel14;
         private TableLayoutPanel tableLayoutPanel10;
         private Panel panel15;
-        private Panel panel17;
+        private Panel pnTopComment;
         private UserComment userComment1;
         private Label label12;
         private Panel panel16;
@@ -1073,11 +1060,11 @@
         private FlowLayoutPanel flowLayoutPanel8;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
-        private TextBox textBox2;
+        private TextBox tbCommentContent;
         private Button btnSendComment;
         private Button btnBack;
-        private RadioButton rbtnPositive;
-        private RadioButton rbtnNegative;
+        private RadioButton rbPositive;
+        private RadioButton rbNegative;
         private Label lbType;
         private Label lbContentRating;
         private Label lbDuration;

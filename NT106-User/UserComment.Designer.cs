@@ -234,7 +234,7 @@
             // imgStatus
             // 
             imgStatus.Dock = DockStyle.Fill;
-            imgStatus.Image = Properties.Resources.like;
+            imgStatus.Image = Properties.Resources.dislike;
             imgStatus.Location = new Point(7, 7);
             imgStatus.Name = "imgStatus";
             imgStatus.Size = new Size(45, 41);
@@ -348,6 +348,7 @@
             btnYes.TabIndex = 0;
             btnYes.Text = "Yes";
             btnYes.UseVisualStyleBackColor = false;
+            btnYes.Click += btnYes_Click;
             // 
             // label7
             // 

@@ -115,6 +115,7 @@
             llbForgotPassword.TabIndex = 3;
             llbForgotPassword.TabStop = true;
             llbForgotPassword.Text = "Forgot password?";
+            llbForgotPassword.LinkClicked += llbForgotPassword_LinkClicked;
             // 
             // cbRememberme
             // 

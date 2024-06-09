@@ -61,6 +61,7 @@ namespace NT106_User
                     user = JsonConvert.DeserializeObject<UserModel>(response);
                     lbMiniUsername.Text = user.Username;
                     lbUsername.Text = user.Username;
+                    Storage.TempUserId = user.Id;
                 }
 
                 btnSignin.Visible = false;

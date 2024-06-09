@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using NT106_Admin;
+using NT106_API_Server.Models;
 using NT106_WebServer.Models;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,7 @@ namespace NT106_User
             progressDialogForm.ShowProgress(this);
 
             HttpClientService service = new HttpClientService();
-            string response = await service.GetAsync("/user/getmovie?movieId="+movieId);
+            string response = await service.GetAsync("/user/getmovie?movieId=" + movieId);
             if (response.StartsWith("Error"))
             {
                 MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,7 +70,7 @@ namespace NT106_User
                 }
                 if (!movie.MovieInfo.IsTVShows)
                 {
-                    tlpSeasons.Visible = false;                    
+                    tlpSeasons.Visible = false;
                 }
                 else
                 {
@@ -91,25 +92,57 @@ namespace NT106_User
                 {
                     pnDirectors.Visible = false;
                 }
+                else
+                {
+                    flpDirectors.Controls.Clear();
+                    foreach (var director in movie.Directors)
+                    {
+                        PersonView personView = new PersonView();
+                        personView.SetData(director);
+                        flpDirectors.Controls.Add(personView);
+                    }
+                }
                 if (movie.Creators.Count == 0)
                 {
                     pnCreators.Visible = false;
+                }
+                else
+                {
+                    flpCreators.Controls.Clear();
+                    foreach (var creator in movie.Creators)
+                    {
+                        PersonView personView = new PersonView();
+                        personView.SetData(creator);
+                        flpCreators.Controls.Add(personView);
+                    }
                 }
                 if (movie.Writers.Count == 0)
                 {
                     pnWriters.Visible = false;
                 }
+                else
+                {
+                    flpWriters.Controls.Clear();
+                    foreach (var writer in movie.Writers)
+                    {
+                        PersonView personView = new PersonView();
+                        personView.SetData(writer);
+                        flpWriters.Controls.Add(personView);
+                    }
+                }
 
                 flpCasts.Controls.Clear();
                 foreach (var cast in movie.Casts)
                 {
-                   PersonView personView = new PersonView();
-                   personView.SetData(cast.Person, cast.CharacterName, movie.MovieInfo.IsTVShows ? cast.EpisodeCount : 0);
-                   flpCasts.Controls.Add(personView);
+                    PersonView personView = new PersonView();
+                    personView.SetData(cast.Person, cast.CharacterName, movie.MovieInfo.IsTVShows ? cast.EpisodeCount : 0);
+                    flpCasts.Controls.Add(personView);
                 }
-                LoadImageAsync(movie.MovieInfo.PosterURL);              
+                LoadImageAsync(movie.MovieInfo.PosterURL);
             }
             progressDialogForm.CloseProgress(this);
+
+            LoadComment();
         }
         private async Task LoadImageAsync(string imageUrl)
         {
@@ -131,6 +164,69 @@ namespace NT106_User
                     MessageBox.Show("Error loading image: " + ex.Message);
                 }
             }
+        }
+        private async void LoadComment()
+        {
+            ProgressDialogForm progressDialogForm = new ProgressDialogForm();
+            progressDialogForm.ShowProgress(this);
+
+            HttpClientService service = new HttpClientService();
+            string response = await service.GetAsync("/user/gettopcommentsbyepisodeid?episodeId=" + movieId);
+            if (response.StartsWith("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                List<CommentModel> comments = JsonConvert.DeserializeObject<List<CommentModel>>(response);
+                pnTopComment.Controls.Clear();
+                foreach (var comment in comments)
+                {
+                    UserComment commentUser = new UserComment(movieId);
+                    commentUser.SetData(comment);
+                    commentUser.Dock = DockStyle.Top;
+                    commentUser.Margin = new Padding(0, 0, 0, 10);
+                    pnTopComment.Controls.Add(commentUser);
+                }
+            }
+
+            progressDialogForm.CloseProgress(this);
+        }
+
+        private async void btnSendComment_Click(object sender, EventArgs e)
+        {
+            string content = tbCommentContent.Text;
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                MessageBox.Show("Comment content cannot be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            bool isPositive = rbPositive.Checked;
+
+            CommentModel comment = new CommentModel
+            {
+                Content = content,
+                EpisodeId = movieId,
+                IsPositive = isPositive,
+                UserId = Storage.TempUserId,
+                CreateDate = DateTime.Now
+            };
+
+            ProgressDialogForm progressDialogForm = new ProgressDialogForm();
+            progressDialogForm.ShowProgress(this);
+
+            HttpClientService service = new HttpClientService();
+            string response = await service.PostAsync("/user/insertcomment", JsonConvert.SerializeObject(comment));
+            if (response.StartsWith("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Comment successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                tbCommentContent.Text = "";
+            }
+            progressDialogForm.CloseProgress(this);
         }
     }
 }
