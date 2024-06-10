@@ -38,7 +38,7 @@ namespace NT106_User
             else
             {
                 UserModel user = JsonConvert.DeserializeObject<UserModel>(response);
-                lbUsername.Text = "@"+user.Username;
+                lbUsername.Text = "@" + user.Username;
                 tbFullName.Text = user.FullName;
                 tbEmail.Text = user.Email;
                 dtpDateOfBirth.Value = (user.DateOfBirth == null ? new DateTime() : (DateTime)user.DateOfBirth);
@@ -68,7 +68,7 @@ namespace NT106_User
             string json = JsonConvert.SerializeObject(changePasswordModel);
 
             HttpClientService service = new HttpClientService();
-            string response = await service.PostAsync("/user/changepassword?userId="+userId, json);
+            string response = await service.PostAsync("/user/changepassword?userId=" + userId, json);
             if (response.StartsWith("Error"))
             {
                 MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -86,6 +86,28 @@ namespace NT106_User
                 tbOldPassword.Text = "";
             }
             dialogForm.CloseProgress(this);
+        }
+
+        private void pbShow1_Click(object sender, EventArgs e)
+        {
+            if (tbNewPassword.PasswordChar == false)
+            {
+                pbHide1.BringToFront();
+                tbNewPassword.PasswordChar = true;
+                tbOldPassword.PasswordChar = true;
+                tbConfirmNewPassword.PasswordChar = true;
+            }
+        }
+
+        private void pbHide1_Click(object sender, EventArgs e)
+        {
+            if (tbNewPassword.PasswordChar == true)
+            {
+                pbShow1.BringToFront();
+                tbNewPassword.PasswordChar = false;
+                tbOldPassword.PasswordChar = false;
+                tbConfirmNewPassword.PasswordChar = false;
+            }
         }
     }
 }

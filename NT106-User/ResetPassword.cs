@@ -99,5 +99,41 @@ namespace NT106_User
 
             progressDialog.CloseProgress(this);
         }
+
+        private void pbShow_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == false)
+            {
+                pbHide.BringToFront();
+                tbPassword.PasswordChar = true;
+            }
+        }
+
+        private void pbHide_Click(object sender, EventArgs e)
+        {
+            if (tbPassword.PasswordChar == true)
+            {
+                pbShow.BringToFront();
+                tbPassword.PasswordChar = false;
+            }
+        }
+
+        private void pbShow1_Click(object sender, EventArgs e)
+        {
+            if (tbConfirmPassword.PasswordChar == false)
+            {
+                pbHide1.BringToFront();
+                tbConfirmPassword.PasswordChar = true;
+            }
+        }
+
+        private void pbHide1_Click(object sender, EventArgs e)
+        {
+            if (tbConfirmPassword.PasswordChar == true)
+            {
+                pbShow1.BringToFront();
+                tbConfirmPassword.PasswordChar = false;
+            }
+        }
     }
 }
