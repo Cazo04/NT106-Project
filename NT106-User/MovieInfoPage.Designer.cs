@@ -639,6 +639,7 @@
             btnTrailer.TabIndex = 0;
             btnTrailer.Text = "Trailer";
             btnTrailer.UseVisualStyleBackColor = false;
+            btnTrailer.Click += btnTrailer_Click;
             // 
             // panel5
             // 

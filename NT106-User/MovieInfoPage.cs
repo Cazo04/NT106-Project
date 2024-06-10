@@ -17,6 +17,7 @@ namespace NT106_User
     public partial class MovieInfoPage : Form
     {
         private string movieId;
+        private MovieModel movie;
         public MovieInfoPage(string movieId)
         {
             InitializeComponent();
@@ -46,6 +47,7 @@ namespace NT106_User
             else
             {
                 MovieModel movie = JsonConvert.DeserializeObject<MovieModel>(response);
+                this.movie = movie;
                 lbMovieName.Text = movie.MovieInfo.MovieName;
                 lbReleaseDate.Text = movie.MovieInfo.ReleaseDate.ToString("yyyy-MM-dd");
                 lbIMDbScore.Text = movie.MovieInfo.IMDbScore.ToString();
@@ -205,7 +207,8 @@ namespace NT106_User
                         pnWriteComment.Visible = false;
                     }
                 }
-            } else
+            }
+            else
             {
                 pnWriteComment.Visible = false;
             }
@@ -247,6 +250,12 @@ namespace NT106_User
                 tbCommentContent.Text = "";
             }
             progressDialogForm.CloseProgress(this);
+        }
+
+        private void btnTrailer_Click(object sender, EventArgs e)
+        {
+            TrailerView trailerView = new TrailerView(movie.MovieInfo.TrailerURL);
+            trailerView.ShowDialog();
         }
     }
 }
