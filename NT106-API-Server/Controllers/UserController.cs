@@ -236,7 +236,94 @@ namespace NT106_API_Server.Controllers
             }
             return BadRequest(ModelState);
         }
+        [Route("votecomment")]
+        [HttpPost]
+        [UserValidateToken]
+        public IActionResult VoteComment([FromBody] CommentModel.Vote model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CommentModel.HasUserVotedComment(model.CommentId, model.UserId))
+                {
+                    return BadRequest("Error: User has already voted.");
+                }
 
+                if (model.IsUpVote)
+                {
+                    CommentModel.AddUpVoteComment(model.CommentId, model.UserId);
+                } else CommentModel.AddDownVoteComment(model.CommentId, model.UserId);
+                return Ok();
+            }
+            return BadRequest(ModelState);
+        }
+        [Route("unvotecomment")]
+        [HttpPost]
+        [UserValidateToken]
+        public IActionResult UnVoteComment([FromBody] CommentModel.Vote model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (CommentModel.HasUserVotedComment(model.CommentId, model.UserId) == false)
+                {
+                    return BadRequest("Error: User has not voted yet.");
+                }
+
+                if (model.IsUpVote)
+                {
+                    CommentModel.RemoveUpVoteComment(model.CommentId, model.UserId);
+                }
+                else CommentModel.RemoveDownVoteComment(model.CommentId, model.UserId);
+                return Ok();
+            }
+            return BadRequest(ModelState);
+        }
+        //[Route("getcommentbyuseridandepisodeid")]
+        //[HttpPost]
+        //[UserValidateToken]
+        //public IActionResult GetCommentByUserIdAndEpisodeId([FromBody] CommentModel model)
+        //{
+        //    CommentModel comment = CommentModel.GetCommentByUserIdAndEpisodeId(model.UserId, model.EpisodeId);
+        //    if (comment == null)
+        //    {
+        //        return BadRequest("Error: Comment not found.");
+        //    }
+        //    return Ok(comment);
+        //}
+        [Route("getvotecommentbycommentidanduserid")]
+        [HttpPost]
+        [UserValidateToken]
+        public IActionResult GetVoteCommentByCommentIdAndUserId([FromBody] CommentModel.Vote model)
+        {
+            CommentModel.Vote vote = CommentModel.GetVoteCommentByCommentIdAndUserId(model);
+            if (vote == null)
+            {
+                return BadRequest("Error: Vote not found.");
+            }
+            return Ok(vote);
+        }
+        [Route("getcommentbyid")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult GetCommentById([FromQuery] string commentId)
+        {
+            CommentModel? comment = CommentModel.GetComment(commentId);
+            if (comment == null)
+            {
+                return BadRequest("Error: Comment not found.");
+            }
+            return Ok(comment);
+        }
+        [Route("hasusercommented")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult HasUserCommented([FromQuery] string userId, [FromQuery] string episodeId)
+        {
+            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(episodeId))
+            {
+                return BadRequest("Error: User or episode not found.");
+            }
+            return Ok(CommentModel.HasUserCommented(userId, episodeId));
+        }
     }
 
     public class UserValidateTokenAttribute : ActionFilterAttribute

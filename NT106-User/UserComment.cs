@@ -1,4 +1,6 @@
-﻿using NT106_API_Server.Models;
+﻿using Newtonsoft.Json;
+using NT106_Admin;
+using NT106_API_Server.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,6 +12,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static NT106_API_Server.Models.CommentModel;
 
 namespace NT106_User
 {
@@ -53,7 +56,8 @@ namespace NT106_User
             lbContent.MaximumSize = new Size(panel2.Width - 20, 0);
         }
         private CommentModel comment;
-        public void SetData(CommentModel comment)
+        private Vote userVote;
+        public async Task SetData(CommentModel comment)
         {
             this.comment = comment;
             lbUserName.Text = comment.Username;
@@ -74,16 +78,136 @@ namespace NT106_User
                 imgStatus.Image = Properties.Resources.dislike;
                 pnImgBackground.BackColor = Color.FromArgb(79, 30, 35);
             }
-        }
 
-        private void btnYes_Click(object sender, EventArgs e)
+            if (Storage.TempUserId != null && Storage.TempUserId == comment.UserId)
+            {
+                panel3.Enabled = false;
+
+                panel6.Visible = true;
+                panel6.Enabled = true;
+
+                panel4.Visible = true;
+                panel4.Enabled = true;
+
+                CommentModel.Vote vote = new CommentModel.Vote
+                {
+                    CommentId = comment.Id,
+                    UserId = Storage.TempUserId
+                };
+
+                HttpClientService service = new HttpClientService();
+                string response = await service.PostAsync("/user/getvotecommentbycommentidanduserid", JsonConvert.SerializeObject(vote));
+                if (response.StartsWith("Error"))
+                {
+                    //MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    panel6.Visible = false;
+                    panel6.Enabled = false;
+                }
+                else
+                {
+                    //MessageBox.Show(response);
+                    CommentModel.Vote userVote = JsonConvert.DeserializeObject<CommentModel.Vote>(response);
+                    this.userVote = userVote;
+                    if (userVote.IsUpVote)
+                    {
+                        lbVoteStatus.Text = "You found this review helpful";
+                        lbVoteStatus.ForeColor = Color.FromArgb(96, 182, 231);
+                    }
+                    else
+                    {
+                        lbVoteStatus.Text = "You found this review not helpful";
+                        lbVoteStatus.ForeColor = Color.FromArgb(224, 98, 99);
+                    }
+                    panel4.Visible = false;
+                    panel4.Enabled = false;
+                }
+                panel3.Enabled = true;
+            } else lbYourReview.Visible = false;
+        }
+        private async void SendVote(bool isUpVote)
         {
             CommentModel.Vote vote = new CommentModel.Vote
             {
                 CommentId = comment.Id,
-                UserId = NT106_Admin.Storage.TempUserId,
-                IsUpVote = true
+                UserId = Storage.TempUserId,
+                IsUpVote = isUpVote
             };
+
+            ProgressDialogForm progressDialog = new ProgressDialogForm();
+            progressDialog.TopLevel = false;
+            progressDialog.Dock = DockStyle.Fill;
+            progressDialog.FormBorderStyle = FormBorderStyle.None;
+            panel3.Controls.Add(progressDialog);
+            progressDialog.BringToFront();
+            progressDialog.ShowProgress(panel3);
+
+            HttpClientService service = new HttpClientService();
+            string response = await service.PostAsync("/user/votecomment", JsonConvert.SerializeObject(vote));
+            if (response.StartsWith("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                response = await service.GetAsync("/user/getcommentbyid?commentId=" + comment.Id);
+                if (response.StartsWith("Error"))
+                {
+                    MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    CommentModel newComment = JsonConvert.DeserializeObject<CommentModel>(response);
+                    await SetData(newComment);
+                }
+            }
+
+            progressDialog.CloseProgress(panel3);
+        }
+        private void btnYes_Click(object sender, EventArgs e)
+        {
+            SendVote(true);
+        }
+
+        private async void btnRemoveVote_Click(object sender, EventArgs e)
+        {
+            if (userVote == null)
+            {
+                return;
+            }
+
+            ProgressDialogForm progressDialog = new ProgressDialogForm();
+            progressDialog.TopLevel = false;
+            progressDialog.Dock = DockStyle.Fill;
+            progressDialog.FormBorderStyle = FormBorderStyle.None;
+            panel3.Controls.Add(progressDialog);
+            progressDialog.BringToFront();
+            progressDialog.ShowProgress(this);
+
+            HttpClientService service = new HttpClientService();
+            string response = await service.PostAsync("/user/unvotecomment", JsonConvert.SerializeObject(userVote));
+            if (response.StartsWith("Error"))
+            {
+                MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                response = await service.GetAsync("/user/getcommentbyid?commentId=" + comment.Id);
+                if (response.StartsWith("Error"))
+                {
+                    MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    CommentModel newComment = JsonConvert.DeserializeObject<CommentModel>(response);
+                    await SetData(newComment);
+                }
+            }
+            progressDialog.CloseProgress(this);
+        }
+
+        private void btnNo_Click(object sender, EventArgs e)
+        {
+            SendVote(false);
         }
     }
 }

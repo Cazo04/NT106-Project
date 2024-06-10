@@ -38,8 +38,10 @@
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
             tableLayoutPanel6 = new TableLayoutPanel();
-            lbStatus = new Label();
             lbNumOfHelpfull = new Label();
+            panel8 = new Panel();
+            lbYourReview = new Label();
+            lbStatus = new Label();
             pnImgBackground = new Panel();
             imgStatus = new PictureBox();
             panel1 = new Panel();
@@ -47,7 +49,12 @@
             lbContent = new Label();
             lbDate = new Label();
             panel3 = new Panel();
+            panel6 = new Panel();
+            panel7 = new Panel();
+            btnRemoveVote = new Button();
+            lbVoteStatus = new Label();
             panel4 = new Panel();
+            panel5 = new Panel();
             tableLayoutPanel7 = new TableLayoutPanel();
             btnNo = new Button();
             btnYes = new Button();
@@ -59,12 +66,16 @@
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
+            panel8.SuspendLayout();
             pnImgBackground.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)imgStatus).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            panel6.SuspendLayout();
+            panel7.SuspendLayout();
             panel4.SuspendLayout();
+            panel5.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
             SuspendLayout();
             // 
@@ -80,7 +91,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(797, 383);
+            tableLayoutPanel1.Size = new Size(797, 387);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -159,8 +170,8 @@
             tableLayoutPanel4.RowCount = 3;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 67F));
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 79F));
-            tableLayoutPanel4.Size = new Size(542, 377);
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 69F));
+            tableLayoutPanel4.Size = new Size(542, 381);
             tableLayoutPanel4.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -183,8 +194,8 @@
             // 
             tableLayoutPanel6.ColumnCount = 1;
             tableLayoutPanel6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.Controls.Add(lbStatus, 0, 0);
             tableLayoutPanel6.Controls.Add(lbNumOfHelpfull, 0, 1);
+            tableLayoutPanel6.Controls.Add(panel8, 0, 0);
             tableLayoutPanel6.Dock = DockStyle.Fill;
             tableLayoutPanel6.Location = new Point(68, 3);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
@@ -194,19 +205,6 @@
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 45.0980377F));
             tableLayoutPanel6.Size = new Size(465, 55);
             tableLayoutPanel6.TabIndex = 0;
-            // 
-            // lbStatus
-            // 
-            lbStatus.AutoSize = true;
-            lbStatus.Dock = DockStyle.Left;
-            lbStatus.Font = new Font("Segoe UI", 13F);
-            lbStatus.ForeColor = SystemColors.ControlLightLight;
-            lbStatus.Location = new Point(5, 2);
-            lbStatus.Name = "lbStatus";
-            lbStatus.Size = new Size(59, 28);
-            lbStatus.TabIndex = 0;
-            lbStatus.Text = "label3";
-            lbStatus.TextAlign = ContentAlignment.BottomLeft;
             // 
             // lbNumOfHelpfull
             // 
@@ -219,6 +217,41 @@
             lbNumOfHelpfull.TabIndex = 1;
             lbNumOfHelpfull.Text = "label4";
             lbNumOfHelpfull.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // panel8
+            // 
+            panel8.Controls.Add(lbYourReview);
+            panel8.Controls.Add(lbStatus);
+            panel8.Dock = DockStyle.Fill;
+            panel8.Location = new Point(5, 5);
+            panel8.Name = "panel8";
+            panel8.Size = new Size(455, 22);
+            panel8.TabIndex = 2;
+            // 
+            // lbYourReview
+            // 
+            lbYourReview.AutoSize = true;
+            lbYourReview.BackColor = Color.FromArgb(25, 65, 93);
+            lbYourReview.Dock = DockStyle.Right;
+            lbYourReview.ForeColor = SystemColors.ControlLightLight;
+            lbYourReview.Location = new Point(387, 0);
+            lbYourReview.Name = "lbYourReview";
+            lbYourReview.Size = new Size(68, 15);
+            lbYourReview.TabIndex = 1;
+            lbYourReview.Text = "Your review";
+            // 
+            // lbStatus
+            // 
+            lbStatus.AutoSize = true;
+            lbStatus.Dock = DockStyle.Left;
+            lbStatus.Font = new Font("Segoe UI", 13F);
+            lbStatus.ForeColor = SystemColors.ControlLightLight;
+            lbStatus.Location = new Point(0, 0);
+            lbStatus.Name = "lbStatus";
+            lbStatus.Size = new Size(59, 25);
+            lbStatus.TabIndex = 0;
+            lbStatus.Text = "label3";
+            lbStatus.TextAlign = ContentAlignment.BottomLeft;
             // 
             // pnImgBackground
             // 
@@ -250,7 +283,7 @@
             panel1.Location = new Point(3, 70);
             panel1.Name = "panel1";
             panel1.Padding = new Padding(3);
-            panel1.Size = new Size(536, 225);
+            panel1.Size = new Size(536, 239);
             panel1.TabIndex = 1;
             // 
             // panel2
@@ -261,7 +294,7 @@
             panel2.Location = new Point(3, 18);
             panel2.Name = "panel2";
             panel2.Padding = new Padding(0, 5, 0, 0);
-            panel2.Size = new Size(530, 204);
+            panel2.Size = new Size(530, 218);
             panel2.TabIndex = 1;
             // 
             // lbContent
@@ -289,24 +322,78 @@
             // 
             // panel3
             // 
+            panel3.Controls.Add(panel6);
             panel3.Controls.Add(panel4);
-            panel3.Controls.Add(label7);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(3, 301);
+            panel3.Location = new Point(3, 315);
             panel3.Name = "panel3";
-            panel3.Padding = new Padding(3);
-            panel3.Size = new Size(536, 73);
+            panel3.Size = new Size(536, 63);
             panel3.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            panel6.Controls.Add(panel7);
+            panel6.Controls.Add(lbVoteStatus);
+            panel6.Dock = DockStyle.Fill;
+            panel6.Location = new Point(0, 70);
+            panel6.Name = "panel6";
+            panel6.Padding = new Padding(3);
+            panel6.Size = new Size(536, 0);
+            panel6.TabIndex = 4;
+            // 
+            // panel7
+            // 
+            panel7.Controls.Add(btnRemoveVote);
+            panel7.Dock = DockStyle.Left;
+            panel7.Location = new Point(3, 18);
+            panel7.Name = "panel7";
+            panel7.Padding = new Padding(2);
+            panel7.Size = new Size(94, 0);
+            panel7.TabIndex = 2;
+            // 
+            // btnRemoveVote
+            // 
+            btnRemoveVote.BackColor = Color.FromArgb(79, 30, 35);
+            btnRemoveVote.Dock = DockStyle.Top;
+            btnRemoveVote.ForeColor = SystemColors.ControlLightLight;
+            btnRemoveVote.Location = new Point(2, 2);
+            btnRemoveVote.Name = "btnRemoveVote";
+            btnRemoveVote.Size = new Size(90, 28);
+            btnRemoveVote.TabIndex = 1;
+            btnRemoveVote.Text = "Remove vote";
+            btnRemoveVote.UseVisualStyleBackColor = false;
+            btnRemoveVote.Click += btnRemoveVote_Click;
+            // 
+            // lbVoteStatus
+            // 
+            lbVoteStatus.AutoSize = true;
+            lbVoteStatus.Dock = DockStyle.Top;
+            lbVoteStatus.Location = new Point(3, 3);
+            lbVoteStatus.Name = "lbVoteStatus";
+            lbVoteStatus.Size = new Size(161, 15);
+            lbVoteStatus.TabIndex = 0;
+            lbVoteStatus.Text = "You have upvoted this review";
             // 
             // panel4
             // 
-            panel4.Controls.Add(tableLayoutPanel7);
-            panel4.Dock = DockStyle.Fill;
-            panel4.Location = new Point(3, 22);
+            panel4.Controls.Add(panel5);
+            panel4.Controls.Add(label7);
+            panel4.Dock = DockStyle.Top;
+            panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Padding = new Padding(6);
-            panel4.Size = new Size(530, 48);
-            panel4.TabIndex = 2;
+            panel4.Padding = new Padding(3);
+            panel4.Size = new Size(536, 70);
+            panel4.TabIndex = 3;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(tableLayoutPanel7);
+            panel5.Dock = DockStyle.Fill;
+            panel5.Location = new Point(3, 22);
+            panel5.Name = "panel5";
+            panel5.Padding = new Padding(6);
+            panel5.Size = new Size(530, 45);
+            panel5.TabIndex = 2;
             // 
             // tableLayoutPanel7
             // 
@@ -320,7 +407,7 @@
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel7.Size = new Size(134, 36);
+            tableLayoutPanel7.Size = new Size(134, 33);
             tableLayoutPanel7.TabIndex = 0;
             // 
             // btnNo
@@ -331,10 +418,11 @@
             btnNo.ImageAlign = ContentAlignment.MiddleLeft;
             btnNo.Location = new Point(70, 3);
             btnNo.Name = "btnNo";
-            btnNo.Size = new Size(61, 30);
+            btnNo.Size = new Size(61, 27);
             btnNo.TabIndex = 1;
             btnNo.Text = "No";
             btnNo.UseVisualStyleBackColor = false;
+            btnNo.Click += btnNo_Click;
             // 
             // btnYes
             // 
@@ -344,7 +432,7 @@
             btnYes.ImageAlign = ContentAlignment.MiddleLeft;
             btnYes.Location = new Point(3, 3);
             btnYes.Name = "btnYes";
-            btnYes.Size = new Size(61, 30);
+            btnYes.Size = new Size(61, 27);
             btnYes.TabIndex = 0;
             btnYes.Text = "Yes";
             btnYes.UseVisualStyleBackColor = false;
@@ -369,7 +457,7 @@
             BackColor = Color.FromArgb(22, 32, 45);
             Controls.Add(tableLayoutPanel1);
             Name = "UserComment";
-            Size = new Size(797, 383);
+            Size = new Size(797, 387);
             Resize += UserComment_Resize;
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
@@ -380,6 +468,8 @@
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
+            panel8.ResumeLayout(false);
+            panel8.PerformLayout();
             pnImgBackground.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)imgStatus).EndInit();
             panel1.ResumeLayout(false);
@@ -387,8 +477,12 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
-            panel3.PerformLayout();
+            panel6.ResumeLayout(false);
+            panel6.PerformLayout();
+            panel7.ResumeLayout(false);
             panel4.ResumeLayout(false);
+            panel4.PerformLayout();
+            panel5.ResumeLayout(false);
             tableLayoutPanel7.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -413,10 +507,17 @@
         private Panel panel2;
         private Label lbContent;
         private Panel panel3;
-        private Label label7;
         private Panel panel4;
+        private Panel panel5;
         private TableLayoutPanel tableLayoutPanel7;
-        private Button btnYes;
         private Button btnNo;
+        private Button btnYes;
+        private Label label7;
+        private Panel panel6;
+        private Button btnRemoveVote;
+        private Label lbVoteStatus;
+        private Panel panel7;
+        private Panel panel8;
+        private Label lbYourReview;
     }
 }

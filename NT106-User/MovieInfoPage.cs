@@ -190,6 +190,26 @@ namespace NT106_User
                 }
             }
 
+            if (Storage.TempUserId != null)
+            {
+                response = await service.GetAsync($"/user/hasusercommented?userId={Storage.TempUserId}&episodeId={movieId}");
+                if (response.StartsWith("Error"))
+                {
+                    MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    bool hasCommented = JsonConvert.DeserializeObject<bool>(response);
+                    if (hasCommented)
+                    {
+                        pnWriteComment.Visible = false;
+                    }
+                }
+            } else
+            {
+                pnWriteComment.Visible = false;
+            }
+
             progressDialogForm.CloseProgress(this);
         }
 

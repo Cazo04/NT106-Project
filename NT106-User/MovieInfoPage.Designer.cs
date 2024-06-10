@@ -39,9 +39,10 @@
             label12 = new Label();
             panel16 = new Panel();
             flowLayoutPanel9 = new FlowLayoutPanel();
+            userRecentComment1 = new UserRecentComment();
             label13 = new Label();
             pnWriteComment = new Panel();
-            panel19 = new Panel();
+            pnComment = new Panel();
             tableLayoutPanel11 = new TableLayoutPanel();
             flowLayoutPanel8 = new FlowLayoutPanel();
             rbPositive = new RadioButton();
@@ -95,7 +96,6 @@
             pictureBox1 = new PictureBox();
             panel6 = new Panel();
             lbMovieName = new Label();
-            userRecentComment1 = new UserRecentComment();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -104,7 +104,7 @@
             panel16.SuspendLayout();
             flowLayoutPanel9.SuspendLayout();
             pnWriteComment.SuspendLayout();
-            panel19.SuspendLayout();
+            pnComment.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
             flowLayoutPanel8.SuspendLayout();
             panel13.SuspendLayout();
@@ -251,6 +251,13 @@
             flowLayoutPanel9.Size = new Size(357, 428);
             flowLayoutPanel9.TabIndex = 2;
             // 
+            // userRecentComment1
+            // 
+            userRecentComment1.Location = new Point(3, 3);
+            userRecentComment1.Name = "userRecentComment1";
+            userRecentComment1.Size = new Size(352, 234);
+            userRecentComment1.TabIndex = 0;
+            // 
             // label13
             // 
             label13.AutoSize = true;
@@ -265,24 +272,24 @@
             // 
             // pnWriteComment
             // 
-            pnWriteComment.Controls.Add(panel19);
+            pnWriteComment.Controls.Add(pnComment);
             pnWriteComment.Dock = DockStyle.Top;
             pnWriteComment.Location = new Point(0, 1620);
             pnWriteComment.Name = "pnWriteComment";
             pnWriteComment.Size = new Size(1039, 303);
             pnWriteComment.TabIndex = 7;
             // 
-            // panel19
+            // pnComment
             // 
-            panel19.BackColor = Color.FromArgb(22, 32, 45);
-            panel19.Controls.Add(tableLayoutPanel11);
-            panel19.Controls.Add(label14);
-            panel19.Dock = DockStyle.Top;
-            panel19.Location = new Point(0, 0);
-            panel19.Name = "panel19";
-            panel19.Padding = new Padding(3);
-            panel19.Size = new Size(1039, 240);
-            panel19.TabIndex = 0;
+            pnComment.BackColor = Color.FromArgb(22, 32, 45);
+            pnComment.Controls.Add(tableLayoutPanel11);
+            pnComment.Controls.Add(label14);
+            pnComment.Dock = DockStyle.Top;
+            pnComment.Location = new Point(0, 0);
+            pnComment.Name = "pnComment";
+            pnComment.Padding = new Padding(3);
+            pnComment.Size = new Size(1039, 240);
+            pnComment.TabIndex = 0;
             // 
             // tableLayoutPanel11
             // 
@@ -929,13 +936,6 @@
             lbMovieName.Text = "label4";
             lbMovieName.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // userRecentComment1
-            // 
-            userRecentComment1.Location = new Point(3, 3);
-            userRecentComment1.Name = "userRecentComment1";
-            userRecentComment1.Size = new Size(352, 234);
-            userRecentComment1.TabIndex = 0;
-            // 
             // MovieInfoPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -960,8 +960,8 @@
             panel16.PerformLayout();
             flowLayoutPanel9.ResumeLayout(false);
             pnWriteComment.ResumeLayout(false);
-            panel19.ResumeLayout(false);
-            panel19.PerformLayout();
+            pnComment.ResumeLayout(false);
+            pnComment.PerformLayout();
             tableLayoutPanel11.ResumeLayout(false);
             tableLayoutPanel11.PerformLayout();
             flowLayoutPanel8.ResumeLayout(false);
@@ -1064,7 +1064,7 @@
         private FlowLayoutPanel flowLayoutPanel9;
         private Label label13;
         private Panel pnWriteComment;
-        private Panel panel19;
+        private Panel pnComment;
         private Label label14;
         private TableLayoutPanel tableLayoutPanel11;
         private TextBox textBox1;
