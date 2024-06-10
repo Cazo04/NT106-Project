@@ -43,6 +43,17 @@ namespace NT106_API_Server.Controllers
                     else if (result == TokenStatus.Revoked)
                     {
                         ModelState.AddModelError("UsernameOrEmail", "Your account has been banned.");
+                    } else if (result == TokenStatus.Expired)
+                    {
+                        token = new AdminToken
+                        {
+                            AdminId = admin.Username,
+                            Token = Guid.NewGuid().ToString(),
+                            Expires = DateTime.Now.AddDays(60),
+                            IsRevoked = false
+                        };
+                        admin.InsertAdminToken(token);
+                        return Ok(token);
                     }
                 }
                 else

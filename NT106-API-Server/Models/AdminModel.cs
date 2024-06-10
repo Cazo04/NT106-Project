@@ -36,7 +36,13 @@ namespace NT106_WebServer.Models
         {
             using (var connection = MySQLServer.GetWorkingConnection())
             {
-                const string query = "INSERT INTO AdminToken (AdminId, Token, Expires, IsRevoked) VALUES (@AdminId, @Token, @Expires, @IsRevoked)";
+                const string query = @"
+                INSERT INTO AdminToken (AdminId, Token, Expires, IsRevoked)
+                VALUES (@AdminId, @Token, @Expires, @IsRevoked)
+                ON DUPLICATE KEY UPDATE
+                    Token = VALUES(Token),
+                    Expires = VALUES(Expires),
+                    IsRevoked = VALUES(IsRevoked)";
 
                 using (var command = new MySqlCommand(query, connection))
                 {

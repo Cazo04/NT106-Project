@@ -95,12 +95,14 @@
             pictureBox1 = new PictureBox();
             panel6 = new Panel();
             lbMovieName = new Label();
+            userRecentComment1 = new UserRecentComment();
             panel1.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel2.SuspendLayout();
             tableLayoutPanel10.SuspendLayout();
             panel15.SuspendLayout();
             panel16.SuspendLayout();
+            flowLayoutPanel9.SuspendLayout();
             pnWriteComment.SuspendLayout();
             panel19.SuspendLayout();
             tableLayoutPanel11.SuspendLayout();
@@ -242,6 +244,7 @@
             // 
             // flowLayoutPanel9
             // 
+            flowLayoutPanel9.Controls.Add(userRecentComment1);
             flowLayoutPanel9.Dock = DockStyle.Fill;
             flowLayoutPanel9.Location = new Point(3, 22);
             flowLayoutPanel9.Name = "flowLayoutPanel9";
@@ -926,6 +929,13 @@
             lbMovieName.Text = "label4";
             lbMovieName.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // userRecentComment1
+            // 
+            userRecentComment1.Location = new Point(3, 3);
+            userRecentComment1.Name = "userRecentComment1";
+            userRecentComment1.Size = new Size(352, 234);
+            userRecentComment1.TabIndex = 0;
+            // 
             // MovieInfoPage
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -948,6 +958,7 @@
             panel15.PerformLayout();
             panel16.ResumeLayout(false);
             panel16.PerformLayout();
+            flowLayoutPanel9.ResumeLayout(false);
             pnWriteComment.ResumeLayout(false);
             panel19.ResumeLayout(false);
             panel19.PerformLayout();
@@ -1068,5 +1079,6 @@
         private Label lbType;
         private Label lbContentRating;
         private Label lbDuration;
+        private UserRecentComment userRecentComment1;
     }
 }
