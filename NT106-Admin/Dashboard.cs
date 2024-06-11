@@ -56,7 +56,7 @@ namespace NT106_Admin
                 Storage.DeleteEncryptedData();
             }
             Login login = new Login();
-            DialogResult result = login.ShowDialog();        
+            DialogResult result = login.ShowDialog();
             if (result == DialogResult.OK)
             {
                 _adminToken = login.AdminToken;
@@ -92,11 +92,21 @@ namespace NT106_Admin
             {
                 if (showMessage) MessageBox.Show(response, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return true;
-            }           
+            }
         }
         private async void btnCheckConnection_Click(object sender, EventArgs e)
         {
             await CheckConnection();
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            UserManager userManager = new UserManager();
+            userManager.TopLevel = false;
+            userManager.Dock = DockStyle.Fill;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(userManager);
+            userManager.Show();
         }
     }
 }

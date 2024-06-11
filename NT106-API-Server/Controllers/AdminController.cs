@@ -444,6 +444,39 @@ namespace NT106_API_Server.Controllers
                                             .SelectMany(v => v.Errors)
                                             .Select(e => e.ErrorMessage)));
         }
+        [Route("updateuser")]
+        [HttpPost]
+        [AdminValidateToken]
+        public IActionResult UpdateUser([FromBody] UserModel user)
+        {
+            if (ModelState.IsValid)
+            {
+                UserModel.UpdateUser(user);
+                return Ok("Update completed!");
+            }
+            return BadRequest(String.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)));
+        }
+        [Route("getusers")]
+        [HttpGet]
+        [AdminValidateToken]
+        public IActionResult GetUsers([FromQuery] int offset)
+        {
+            List<UserModel> users = new List<UserModel>();
+            users = UserModel.GetUsers(offset);
+            return Ok(users);
+        }
+        [Route("changeuserpassword")]
+        [HttpPost]
+        [AdminValidateToken]
+        public IActionResult ChangeUserPassword([FromBody] ChangePasswordModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                UserModel.ChangePassword(model.UserId, model.NewPassword);
+                return Ok("Password changed!");
+            }
+            return BadRequest(String.Join("; ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage)));
+        }
     }
 
     public class AdminValidateTokenAttribute : ActionFilterAttribute

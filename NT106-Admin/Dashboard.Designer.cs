@@ -32,12 +32,12 @@ namespace NT106_Admin
             panel1 = new Panel();
             pnMain = new Panel();
             panel2 = new Panel();
+            btnCheckConnection = new Button();
             btnLogout = new Button();
             btnPersons = new Button();
             btnMovies = new Button();
             btnUsers = new Button();
             btnHome = new Button();
-            btnCheckConnection = new Button();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -76,6 +76,17 @@ namespace NT106_Admin
             panel2.Name = "panel2";
             panel2.Size = new Size(1000, 40);
             panel2.TabIndex = 0;
+            // 
+            // btnCheckConnection
+            // 
+            btnCheckConnection.Dock = DockStyle.Left;
+            btnCheckConnection.Location = new Point(397, 0);
+            btnCheckConnection.Name = "btnCheckConnection";
+            btnCheckConnection.Size = new Size(103, 40);
+            btnCheckConnection.TabIndex = 5;
+            btnCheckConnection.Text = "Check Connection";
+            btnCheckConnection.UseVisualStyleBackColor = true;
+            btnCheckConnection.Click += btnCheckConnection_Click;
             // 
             // btnLogout
             // 
@@ -118,6 +129,7 @@ namespace NT106_Admin
             btnUsers.TabIndex = 1;
             btnUsers.Text = "Users";
             btnUsers.UseVisualStyleBackColor = true;
+            btnUsers.Click += btnUsers_Click;
             // 
             // btnHome
             // 
@@ -128,17 +140,6 @@ namespace NT106_Admin
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = true;
-            // 
-            // btnCheckConnection
-            // 
-            btnCheckConnection.Dock = DockStyle.Left;
-            btnCheckConnection.Location = new Point(397, 0);
-            btnCheckConnection.Name = "btnCheckConnection";
-            btnCheckConnection.Size = new Size(103, 40);
-            btnCheckConnection.TabIndex = 5;
-            btnCheckConnection.Text = "Check Connection";
-            btnCheckConnection.UseVisualStyleBackColor = true;
-            btnCheckConnection.Click += btnCheckConnection_Click;
             // 
             // Dashboard
             // 

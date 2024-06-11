@@ -227,5 +227,80 @@ namespace NT106_WebServer.Models
             }
             return false;
         }
+        public static void ChangePassword(string id, string newPassword)
+        {
+            var query = "UPDATE User SET Password = @Password WHERE Id = @Id";
+            try
+            {
+                using (var cmd = new MySqlCommand(query, MySQLServer.GetWorkingConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    cmd.Parameters.AddWithValue("@Password", HashPassword(newPassword));
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"ChangePassword: {ex.Message}");
+            }
+        }
+
+        public static void UpdateUser(UserModel user)
+        {
+            var query = "UPDATE User SET Username = @Username, FullName = @FullName, Email = @Email, DateOfBirth = @DateOfBirth, SMS = @SMS, Avatar = @Avatar WHERE Id = @Id";
+            try
+            {
+                using (var cmd = new MySqlCommand(query, MySQLServer.GetWorkingConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@Id", user.Id);
+                    cmd.Parameters.AddWithValue("@FullName", user.FullName);
+                    cmd.Parameters.AddWithValue("@Username", user.Username);
+                    cmd.Parameters.AddWithValue("@Email", user.Email);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", user.DateOfBirth);
+                    cmd.Parameters.AddWithValue("@SMS", user.SMS);
+                    cmd.Parameters.AddWithValue("@Avatar", user.Avatar);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"UpdateUser: {ex.Message}");
+            }
+        }
+        public static List<UserModel> GetUsers(int offfset = 0, int limit = 50)
+        {
+            var users = new List<UserModel>();
+            var query = "SELECT Id, Username, FullName, Email, DateOfBirth, SMS, Avatar, ReviewNum FROM User LIMIT @Offset, @Limit";
+            try
+            {
+                using (var cmd = new MySqlCommand(query, MySQLServer.GetWorkingConnection()))
+                {
+                    cmd.Parameters.AddWithValue("@Offset", offfset);
+                    cmd.Parameters.AddWithValue("@Limit", limit);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            users.Add(new UserModel
+                            {
+                                Id = reader.GetString("Id"),
+                                Username = reader.GetString("Username"),
+                                FullName = reader.IsDBNull(reader.GetOrdinal("FullName")) ? null : reader.GetString("FullName"),
+                                Email = reader.IsDBNull(reader.GetOrdinal("Email")) ? null : reader.GetString("Email"),
+                                DateOfBirth = reader.IsDBNull(reader.GetOrdinal("DateOfBirth")) ? null : reader.GetDateTime("DateOfBirth"),
+                                SMS = reader.IsDBNull(reader.GetOrdinal("SMS")) ? null : reader.GetString("SMS"),
+                                Avatar = reader.IsDBNull(reader.GetOrdinal("Avatar")) ? null : reader.GetString("Avatar"),
+                                ReviewNum = reader.IsDBNull(reader.GetOrdinal("ReviewNum")) ? null : reader.GetInt32("ReviewNum")
+                            });
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"GetUsers: {ex.Message}");
+            }
+            return users;
+        }
     }
 }
