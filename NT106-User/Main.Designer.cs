@@ -268,7 +268,7 @@
             btnInfo.Name = "btnInfo";
             btnInfo.Size = new Size(68, 39);
             btnInfo.TabIndex = 3;
-            btnInfo.Text = "Info";
+            btnInfo.Text = "Search";
             btnInfo.UseVisualStyleBackColor = false;
             btnInfo.Click += btnInfo_Click;
             // 

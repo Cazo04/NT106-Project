@@ -1250,6 +1250,109 @@ namespace NT106_WebServer.Models
 
             return genres;
         }
+        public static List<Movie> SearchMovie(string? movieName = null, string? contentRating = null, bool? isTVShows = null, List<string>? genres = null, string orderBy = "ReleaseDate", bool isDESC = true, int offset = 0)
+        {
+            var movies = new List<Movie>();
+            using (var connection = MySQLServer.GetWorkingConnection())
+            {
+
+                var query = "SELECT * FROM Movies M";
+                var conditions = new List<string>();
+
+                if (!string.IsNullOrEmpty(movieName))
+                {
+                    conditions.Add("M.MovieName LIKE @MovieName");
+                }
+
+                if (!string.IsNullOrEmpty(contentRating))
+                {
+                    conditions.Add("M.ContentRating = @ContentRating");
+                }
+
+                if (isTVShows.HasValue)
+                {
+                    conditions.Add("M.IsTVShows = @IsTVShows");
+                }
+
+                if (genres != null && genres.Count > 0)
+                {
+                    query += " JOIN MovieGenres G ON M.MovieId = G.MovieId";
+                    conditions.Add("G.GenreName IN (@Genres)");
+                }
+
+                if (conditions.Count > 0)
+                {
+                    query += " WHERE " + string.Join(" AND ", conditions);
+                }
+
+                query += $" ORDER BY M.{orderBy} {(isDESC ? "DESC" : "ASC")} LIMIT 10 OFFSET @Offset";
+
+                using (var command = new MySqlCommand(query, connection))
+                {
+                    if (!string.IsNullOrEmpty(movieName))
+                    {
+                        command.Parameters.AddWithValue("@MovieName", "%" + movieName + "%");
+                    }
+
+                    if (!string.IsNullOrEmpty(contentRating))
+                    {
+                        command.Parameters.AddWithValue("@ContentRating", contentRating);
+                    }
+
+                    if (isTVShows.HasValue)
+                    {
+                        command.Parameters.AddWithValue("@IsTVShows", isTVShows.Value);
+                    }
+
+                    if (genres != null && genres.Count > 0)
+                    {
+                        command.Parameters.AddWithValue("@Genres", string.Join(",", genres));
+                    }
+
+                    command.Parameters.AddWithValue("@Offset", offset);
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var movie = new Movie
+                            {
+                                MovieId = reader["MovieId"].ToString(),
+                                MovieName = reader["MovieName"].ToString(),
+                                ReleaseDate = Convert.ToDateTime(reader["ReleaseDate"]),
+                                Duration = Convert.ToInt32(reader["Duration"]),
+                                ContentRating = reader["ContentRating"].ToString(),
+                                IMDbScore = Convert.ToDouble(reader["IMDbScore"]),
+                                RatingCount = Convert.ToInt32(reader["RatingCount"]),
+                                PosterURL = reader["PosterURL"].ToString(),
+                                BackgroundURL = reader["BackgroundURL"].ToString(),
+                                TrailerURL = reader["TrailerURL"].ToString(),
+                                Description = reader["Description"].ToString(),
+                                TotalViews = reader["TotalViews"] != DBNull.Value ? (int?)Convert.ToInt32(reader["TotalViews"]) : null,
+                                TotalEpisodes = reader["TotalEpisodes"] != DBNull.Value ? (int?)Convert.ToInt32(reader["TotalEpisodes"]) : null,
+                                CurrentEpisodes = reader["CurrentEpisodes"] != DBNull.Value ? (int?)Convert.ToInt32(reader["CurrentEpisodes"]) : null,
+                                IMDbEpisodes = reader["IMDbEpisodes"] != DBNull.Value ? (int?)Convert.ToInt32(reader["IMDbEpisodes"]) : null,
+                                TotalReviews = reader["TotalReviews"] != DBNull.Value ? (int?)Convert.ToInt32(reader["TotalReviews"]) : null,
+                                RatingRatio = reader["RatingRatio"] != DBNull.Value ? (double?)Convert.ToDouble(reader["RatingRatio"]) : null,
+                                IsTVShows = Convert.ToBoolean(reader["IsTVShows"])
+                            };
+                            movies.Add(movie);
+                        }
+                    }
+                }
+            }
+
+            return movies;
+        }
+        public class Search
+        {
+            public string? MovieName { get; set; }
+            public string? ContentRating { get; set; }
+            public bool? IsTVShows { get; set; }
+            public List<string>? Genres { get; set; }
+            public string OrderBy { get; set; } = "ReleaseDate";
+            public bool IsDESC { get; set; } = true;
+        }
         public class Movie
         {
             public string MovieId { get; set; }

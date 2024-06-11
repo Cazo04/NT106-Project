@@ -329,6 +329,17 @@ namespace NT106_API_Server.Controllers
             }
             return Ok(CommentModel.HasUserCommented(userId, episodeId));
         }
+        [Route("searchmovie")]
+        [HttpPost]
+        public IActionResult SearchMovie(MovieModel.Search search)
+        {
+            if (ModelState.IsValid)
+            {
+                List<MovieModel.Movie> movies = MovieModel.SearchMovie(search.MovieName, search.ContentRating, search.IsTVShows, search.Genres, search.OrderBy, search.IsDESC);
+                return Ok(movies);
+            }
+            return BadRequest(ModelState);
+        }
     }
 
     public class UserValidateTokenAttribute : ActionFilterAttribute

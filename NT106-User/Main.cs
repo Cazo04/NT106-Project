@@ -129,7 +129,13 @@ namespace NT106_User
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-
+            SearchPage search = new SearchPage();
+            search.TopLevel = false;
+            search.Dock = DockStyle.Fill;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(search);
+            search.Show();
+            ChangeColorButton(btnInfo);
         }
 
         private void btnMovies_Click(object sender, EventArgs e)
