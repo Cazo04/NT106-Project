@@ -143,7 +143,7 @@
             label2.Location = new Point(85, 39);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(33, 17);
+            label2.Size = new Size(42, 23);
             label2.TabIndex = 2;
             label2.Text = "Free";
             // 
@@ -155,7 +155,7 @@
             lbUsername.Location = new Point(85, 11);
             lbUsername.Margin = new Padding(2, 0, 2, 0);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(35, 17);
+            lbUsername.Size = new Size(44, 23);
             lbUsername.TabIndex = 1;
             lbUsername.Text = "User";
             // 
@@ -249,7 +249,7 @@
             btnMylist.FlatStyle = FlatStyle.Flat;
             btnMylist.Font = new Font("Segoe UI", 12F);
             btnMylist.ForeColor = SystemColors.ControlLightLight;
-            btnMylist.Location = new Point(338, 0);
+            btnMylist.Location = new Point(385, 0);
             btnMylist.Name = "btnMylist";
             btnMylist.Size = new Size(86, 39);
             btnMylist.TabIndex = 4;
@@ -264,9 +264,9 @@
             btnInfo.FlatStyle = FlatStyle.Flat;
             btnInfo.Font = new Font("Segoe UI", 12F);
             btnInfo.ForeColor = SystemColors.ControlLightLight;
-            btnInfo.Location = new Point(270, 0);
+            btnInfo.Location = new Point(294, 0);
             btnInfo.Name = "btnInfo";
-            btnInfo.Size = new Size(68, 39);
+            btnInfo.Size = new Size(91, 39);
             btnInfo.TabIndex = 3;
             btnInfo.Text = "Search";
             btnInfo.UseVisualStyleBackColor = false;
@@ -280,7 +280,7 @@
             btnMovies.FlatStyle = FlatStyle.Flat;
             btnMovies.Font = new Font("Segoe UI", 12F);
             btnMovies.ForeColor = SystemColors.ControlLightLight;
-            btnMovies.Location = new Point(184, 0);
+            btnMovies.Location = new Point(208, 0);
             btnMovies.Name = "btnMovies";
             btnMovies.Size = new Size(86, 39);
             btnMovies.TabIndex = 2;
@@ -298,7 +298,7 @@
             btnTvshows.ForeColor = SystemColors.ControlLightLight;
             btnTvshows.Location = new Point(86, 0);
             btnTvshows.Name = "btnTvshows";
-            btnTvshows.Size = new Size(98, 39);
+            btnTvshows.Size = new Size(122, 39);
             btnTvshows.TabIndex = 1;
             btnTvshows.Text = "TV Shows";
             btnTvshows.UseVisualStyleBackColor = false;
@@ -337,7 +337,7 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);

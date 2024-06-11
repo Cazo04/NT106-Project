@@ -111,16 +111,17 @@
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 171F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 171F));
             tableLayoutPanel1.Controls.Add(panel3, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Top;
             tableLayoutPanel1.Location = new Point(0, 0);
+            tableLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1472, 472);
+            tableLayoutPanel1.Size = new Size(1682, 629);
             tableLayoutPanel1.TabIndex = 3;
             // 
             // panel3
@@ -128,9 +129,10 @@
             panel3.Controls.Add(tableLayoutPanel2);
             panel3.Controls.Add(panel4);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(153, 3);
+            panel3.Location = new Point(174, 4);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(1166, 466);
+            panel3.Size = new Size(1334, 621);
             panel3.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -142,12 +144,13 @@
             tableLayoutPanel2.Controls.Add(panel2, 1, 0);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 0, 1);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 75);
+            tableLayoutPanel2.Location = new Point(0, 100);
+            tableLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 2;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 58.31202F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 41.68798F));
-            tableLayoutPanel2.Size = new Size(1166, 391);
+            tableLayoutPanel2.Size = new Size(1334, 521);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // panel1
@@ -155,9 +158,10 @@
             panel1.Controls.Add(tableLayoutPanel3);
             panel1.Controls.Add(label1);
             panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(3, 4);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(577, 222);
+            panel1.Size = new Size(661, 295);
             panel1.TabIndex = 0;
             // 
             // tableLayoutPanel3
@@ -165,18 +169,19 @@
             tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 38.72679F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 61.27321F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 209F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 240F));
             tableLayoutPanel3.Controls.Add(flpMovies, 1, 0);
             tableLayoutPanel3.Controls.Add(flpTVShows, 2, 0);
             tableLayoutPanel3.Controls.Add(flpOtherContentRating, 0, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 17);
+            tableLayoutPanel3.Location = new Point(0, 23);
+            tableLayoutPanel3.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.Padding = new Padding(0, 0, 5, 0);
+            tableLayoutPanel3.Padding = new Padding(0, 0, 6, 0);
             tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel3.Size = new Size(577, 205);
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 265F));
+            tableLayoutPanel3.Size = new Size(661, 272);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // flpMovies
@@ -188,18 +193,20 @@
             flpMovies.Controls.Add(radioButton5);
             flpMovies.Dock = DockStyle.Fill;
             flpMovies.FlowDirection = FlowDirection.TopDown;
-            flpMovies.Location = new Point(143, 3);
+            flpMovies.Location = new Point(163, 4);
+            flpMovies.Margin = new Padding(3, 4, 3, 4);
             flpMovies.Name = "flpMovies";
-            flpMovies.Size = new Size(216, 199);
+            flpMovies.Size = new Size(248, 264);
             flpMovies.TabIndex = 0;
             // 
             // radioButton1
             // 
             radioButton1.AutoSize = true;
             radioButton1.ForeColor = SystemColors.ControlLightLight;
-            radioButton1.Location = new Point(3, 3);
+            radioButton1.Location = new Point(3, 4);
+            radioButton1.Margin = new Padding(3, 4, 3, 4);
             radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(142, 19);
+            radioButton1.Size = new Size(177, 24);
             radioButton1.TabIndex = 0;
             radioButton1.TabStop = true;
             radioButton1.Tag = "G";
@@ -210,9 +217,10 @@
             // 
             radioButton2.AutoSize = true;
             radioButton2.ForeColor = SystemColors.ControlLightLight;
-            radioButton2.Location = new Point(3, 28);
+            radioButton2.Location = new Point(3, 36);
+            radioButton2.Margin = new Padding(3, 4, 3, 4);
             radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(205, 19);
+            radioButton2.Size = new Size(255, 24);
             radioButton2.TabIndex = 1;
             radioButton2.TabStop = true;
             radioButton2.Tag = "PG";
@@ -223,9 +231,10 @@
             // 
             radioButton3.AutoSize = true;
             radioButton3.ForeColor = SystemColors.ControlLightLight;
-            radioButton3.Location = new Point(3, 53);
+            radioButton3.Location = new Point(3, 68);
+            radioButton3.Margin = new Padding(3, 4, 3, 4);
             radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(212, 19);
+            radioButton3.Size = new Size(262, 24);
             radioButton3.TabIndex = 1;
             radioButton3.TabStop = true;
             radioButton3.Tag = "PG-13";
@@ -236,9 +245,10 @@
             // 
             radioButton4.AutoSize = true;
             radioButton4.ForeColor = SystemColors.ControlLightLight;
-            radioButton4.Location = new Point(3, 78);
+            radioButton4.Location = new Point(3, 100);
+            radioButton4.Margin = new Padding(3, 4, 3, 4);
             radioButton4.Name = "radioButton4";
-            radioButton4.Size = new Size(95, 19);
+            radioButton4.Size = new Size(119, 24);
             radioButton4.TabIndex = 1;
             radioButton4.TabStop = true;
             radioButton4.Tag = "R";
@@ -249,9 +259,10 @@
             // 
             radioButton5.AutoSize = true;
             radioButton5.ForeColor = SystemColors.ControlLightLight;
-            radioButton5.Location = new Point(3, 103);
+            radioButton5.Location = new Point(3, 132);
+            radioButton5.Margin = new Padding(3, 4, 3, 4);
             radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(132, 19);
+            radioButton5.Size = new Size(162, 24);
             radioButton5.TabIndex = 1;
             radioButton5.TabStop = true;
             radioButton5.Tag = "NC-17";
@@ -269,18 +280,20 @@
             flpTVShows.Controls.Add(radioButton13);
             flpTVShows.Dock = DockStyle.Fill;
             flpTVShows.FlowDirection = FlowDirection.TopDown;
-            flpTVShows.Location = new Point(365, 3);
+            flpTVShows.Location = new Point(417, 4);
+            flpTVShows.Margin = new Padding(3, 4, 3, 4);
             flpTVShows.Name = "flpTVShows";
-            flpTVShows.Size = new Size(204, 199);
+            flpTVShows.Size = new Size(235, 264);
             flpTVShows.TabIndex = 1;
             // 
             // radioButton6
             // 
             radioButton6.AutoSize = true;
             radioButton6.ForeColor = SystemColors.ControlLightLight;
-            radioButton6.Location = new Point(3, 3);
+            radioButton6.Location = new Point(3, 4);
+            radioButton6.Margin = new Padding(3, 4, 3, 4);
             radioButton6.Name = "radioButton6";
-            radioButton6.Size = new Size(123, 19);
+            radioButton6.Size = new Size(152, 24);
             radioButton6.TabIndex = 1;
             radioButton6.TabStop = true;
             radioButton6.Tag = "TV-Y";
@@ -291,9 +304,10 @@
             // 
             radioButton9.AutoSize = true;
             radioButton9.ForeColor = SystemColors.ControlLightLight;
-            radioButton9.Location = new Point(3, 28);
+            radioButton9.Location = new Point(3, 36);
+            radioButton9.Margin = new Padding(3, 4, 3, 4);
             radioButton9.Name = "radioButton9";
-            radioButton9.Size = new Size(205, 19);
+            radioButton9.Size = new Size(258, 24);
             radioButton9.TabIndex = 1;
             radioButton9.TabStop = true;
             radioButton9.Tag = "TV-Y7";
@@ -304,9 +318,10 @@
             // 
             radioButton10.AutoSize = true;
             radioButton10.ForeColor = SystemColors.ControlLightLight;
-            radioButton10.Location = new Point(3, 53);
+            radioButton10.Location = new Point(3, 68);
+            radioButton10.Margin = new Padding(3, 4, 3, 4);
             radioButton10.Name = "radioButton10";
-            radioButton10.Size = new Size(322, 19);
+            radioButton10.Size = new Size(403, 24);
             radioButton10.TabIndex = 1;
             radioButton10.TabStop = true;
             radioButton10.Tag = "TV-Y7-FV";
@@ -317,9 +332,10 @@
             // 
             radioButton11.AutoSize = true;
             radioButton11.ForeColor = SystemColors.ControlLightLight;
-            radioButton11.Location = new Point(3, 78);
+            radioButton11.Location = new Point(3, 100);
+            radioButton11.Margin = new Padding(3, 4, 3, 4);
             radioButton11.Name = "radioButton11";
-            radioButton11.Size = new Size(155, 19);
+            radioButton11.Size = new Size(194, 24);
             radioButton11.TabIndex = 1;
             radioButton11.TabStop = true;
             radioButton11.Tag = "TV-G";
@@ -330,9 +346,10 @@
             // 
             radioButton12.AutoSize = true;
             radioButton12.ForeColor = SystemColors.ControlLightLight;
-            radioButton12.Location = new Point(3, 103);
+            radioButton12.Location = new Point(3, 132);
+            radioButton12.Margin = new Padding(3, 4, 3, 4);
             radioButton12.Name = "radioButton12";
-            radioButton12.Size = new Size(223, 19);
+            radioButton12.Size = new Size(278, 24);
             radioButton12.TabIndex = 1;
             radioButton12.TabStop = true;
             radioButton12.Tag = "TV-PG";
@@ -343,9 +360,10 @@
             // 
             radioButton14.AutoSize = true;
             radioButton14.ForeColor = SystemColors.ControlLightLight;
-            radioButton14.Location = new Point(3, 128);
+            radioButton14.Location = new Point(3, 164);
+            radioButton14.Margin = new Padding(3, 4, 3, 4);
             radioButton14.Name = "radioButton14";
-            radioButton14.Size = new Size(210, 19);
+            radioButton14.Size = new Size(261, 24);
             radioButton14.TabIndex = 1;
             radioButton14.TabStop = true;
             radioButton14.Tag = "TV-14";
@@ -356,9 +374,10 @@
             // 
             radioButton13.AutoSize = true;
             radioButton13.ForeColor = SystemColors.ControlLightLight;
-            radioButton13.Location = new Point(3, 153);
+            radioButton13.Location = new Point(3, 196);
+            radioButton13.Margin = new Padding(3, 4, 3, 4);
             radioButton13.Name = "radioButton13";
-            radioButton13.Size = new Size(192, 19);
+            radioButton13.Size = new Size(237, 24);
             radioButton13.TabIndex = 1;
             radioButton13.TabStop = true;
             radioButton13.Tag = "TV-MA";
@@ -371,9 +390,10 @@
             flpOtherContentRating.Controls.Add(radioButton8);
             flpOtherContentRating.Dock = DockStyle.Fill;
             flpOtherContentRating.FlowDirection = FlowDirection.TopDown;
-            flpOtherContentRating.Location = new Point(3, 3);
+            flpOtherContentRating.Location = new Point(3, 4);
+            flpOtherContentRating.Margin = new Padding(3, 4, 3, 4);
             flpOtherContentRating.Name = "flpOtherContentRating";
-            flpOtherContentRating.Size = new Size(134, 199);
+            flpOtherContentRating.Size = new Size(154, 264);
             flpOtherContentRating.TabIndex = 2;
             // 
             // radioButton7
@@ -381,9 +401,10 @@
             radioButton7.AutoSize = true;
             radioButton7.Checked = true;
             radioButton7.ForeColor = SystemColors.ControlLightLight;
-            radioButton7.Location = new Point(3, 3);
+            radioButton7.Location = new Point(3, 4);
+            radioButton7.Margin = new Padding(3, 4, 3, 4);
             radioButton7.Name = "radioButton7";
-            radioButton7.Size = new Size(72, 19);
+            radioButton7.Size = new Size(89, 24);
             radioButton7.TabIndex = 0;
             radioButton7.TabStop = true;
             radioButton7.Tag = "None";
@@ -394,9 +415,10 @@
             // 
             radioButton8.AutoSize = true;
             radioButton8.ForeColor = SystemColors.ControlLightLight;
-            radioButton8.Location = new Point(3, 28);
+            radioButton8.Location = new Point(3, 36);
+            radioButton8.Margin = new Padding(3, 4, 3, 4);
             radioButton8.Name = "radioButton8";
-            radioButton8.Size = new Size(128, 19);
+            radioButton8.Size = new Size(161, 24);
             radioButton8.TabIndex = 0;
             radioButton8.Tag = "Not";
             radioButton8.Text = "Not - Not Yet Rated";
@@ -411,34 +433,37 @@
             label1.ForeColor = SystemColors.ControlLightLight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(87, 17);
+            label1.Size = new Size(122, 23);
             label1.TabIndex = 0;
-            label1.Text = "Conten rating";
+            label1.Text = "Content rating";
             // 
             // panel2
             // 
             panel2.Controls.Add(flpGenres);
             panel2.Controls.Add(label2);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(586, 3);
+            panel2.Location = new Point(670, 4);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(577, 222);
+            panel2.Size = new Size(661, 295);
             panel2.TabIndex = 1;
             // 
             // flpGenres
             // 
             flpGenres.Controls.Add(btnClearGenres);
             flpGenres.Dock = DockStyle.Fill;
-            flpGenres.Location = new Point(0, 17);
+            flpGenres.Location = new Point(0, 23);
+            flpGenres.Margin = new Padding(3, 4, 3, 4);
             flpGenres.Name = "flpGenres";
-            flpGenres.Size = new Size(577, 205);
+            flpGenres.Size = new Size(661, 272);
             flpGenres.TabIndex = 2;
             // 
             // btnClearGenres
             // 
-            btnClearGenres.Location = new Point(3, 3);
+            btnClearGenres.Location = new Point(3, 4);
+            btnClearGenres.Margin = new Padding(3, 4, 3, 4);
             btnClearGenres.Name = "btnClearGenres";
-            btnClearGenres.Size = new Size(46, 23);
+            btnClearGenres.Size = new Size(53, 31);
             btnClearGenres.TabIndex = 0;
             btnClearGenres.Text = "Clear";
             btnClearGenres.UseVisualStyleBackColor = true;
@@ -453,7 +478,7 @@
             label2.ForeColor = SystemColors.ControlLightLight;
             label2.Location = new Point(0, 0);
             label2.Name = "label2";
-            label2.Size = new Size(49, 17);
+            label2.Size = new Size(63, 23);
             label2.TabIndex = 1;
             label2.Text = "Genres";
             // 
@@ -465,11 +490,12 @@
             tableLayoutPanel4.Controls.Add(panel6, 1, 0);
             tableLayoutPanel4.Controls.Add(panel5, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(3, 231);
+            tableLayoutPanel4.Location = new Point(3, 307);
+            tableLayoutPanel4.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(577, 157);
+            tableLayoutPanel4.Size = new Size(661, 210);
             tableLayoutPanel4.TabIndex = 2;
             // 
             // panel6
@@ -477,9 +503,10 @@
             panel6.Controls.Add(tableLayoutPanel5);
             panel6.Controls.Add(label4);
             panel6.Dock = DockStyle.Fill;
-            panel6.Location = new Point(291, 3);
+            panel6.Location = new Point(333, 4);
+            panel6.Margin = new Padding(3, 4, 3, 4);
             panel6.Name = "panel6";
-            panel6.Size = new Size(283, 151);
+            panel6.Size = new Size(325, 202);
             panel6.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -490,11 +517,12 @@
             tableLayoutPanel5.Controls.Add(flowLayoutPanel2, 1, 0);
             tableLayoutPanel5.Controls.Add(flpOrderBy, 0, 0);
             tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(0, 17);
+            tableLayoutPanel5.Location = new Point(0, 23);
+            tableLayoutPanel5.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 1;
             tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel5.Size = new Size(283, 134);
+            tableLayoutPanel5.Size = new Size(325, 179);
             tableLayoutPanel5.TabIndex = 4;
             // 
             // flowLayoutPanel2
@@ -503,18 +531,20 @@
             flowLayoutPanel2.Controls.Add(rbDesc);
             flowLayoutPanel2.Dock = DockStyle.Fill;
             flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel2.Location = new Point(144, 3);
+            flowLayoutPanel2.Location = new Point(165, 4);
+            flowLayoutPanel2.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(136, 128);
+            flowLayoutPanel2.Size = new Size(157, 171);
             flowLayoutPanel2.TabIndex = 4;
             // 
             // rbAsc
             // 
             rbAsc.AutoSize = true;
             rbAsc.ForeColor = SystemColors.ControlLightLight;
-            rbAsc.Location = new Point(3, 3);
+            rbAsc.Location = new Point(3, 4);
+            rbAsc.Margin = new Padding(3, 4, 3, 4);
             rbAsc.Name = "rbAsc";
-            rbAsc.Size = new Size(84, 19);
+            rbAsc.Size = new Size(103, 24);
             rbAsc.TabIndex = 0;
             rbAsc.Tag = "ASC";
             rbAsc.Text = "Ascending ";
@@ -525,9 +555,10 @@
             rbDesc.AutoSize = true;
             rbDesc.Checked = true;
             rbDesc.ForeColor = SystemColors.ControlLightLight;
-            rbDesc.Location = new Point(3, 28);
+            rbDesc.Location = new Point(3, 36);
+            rbDesc.Margin = new Padding(3, 4, 3, 4);
             rbDesc.Name = "rbDesc";
-            rbDesc.Size = new Size(87, 19);
+            rbDesc.Size = new Size(108, 24);
             rbDesc.TabIndex = 0;
             rbDesc.TabStop = true;
             rbDesc.Tag = "DESC";
@@ -541,9 +572,10 @@
             flpOrderBy.Controls.Add(radioButton20);
             flpOrderBy.Dock = DockStyle.Fill;
             flpOrderBy.FlowDirection = FlowDirection.TopDown;
-            flpOrderBy.Location = new Point(3, 3);
+            flpOrderBy.Location = new Point(3, 4);
+            flpOrderBy.Margin = new Padding(3, 4, 3, 4);
             flpOrderBy.Name = "flpOrderBy";
-            flpOrderBy.Size = new Size(135, 128);
+            flpOrderBy.Size = new Size(156, 171);
             flpOrderBy.TabIndex = 3;
             // 
             // radioButton18
@@ -551,9 +583,10 @@
             radioButton18.AutoSize = true;
             radioButton18.Checked = true;
             radioButton18.ForeColor = SystemColors.ControlLightLight;
-            radioButton18.Location = new Point(3, 3);
+            radioButton18.Location = new Point(3, 4);
+            radioButton18.Margin = new Padding(3, 4, 3, 4);
             radioButton18.Name = "radioButton18";
-            radioButton18.Size = new Size(72, 19);
+            radioButton18.Size = new Size(89, 24);
             radioButton18.TabIndex = 0;
             radioButton18.TabStop = true;
             radioButton18.Tag = "None";
@@ -564,9 +597,10 @@
             // 
             radioButton19.AutoSize = true;
             radioButton19.ForeColor = SystemColors.ControlLightLight;
-            radioButton19.Location = new Point(3, 28);
+            radioButton19.Location = new Point(3, 36);
+            radioButton19.Margin = new Padding(3, 4, 3, 4);
             radioButton19.Name = "radioButton19";
-            radioButton19.Size = new Size(91, 19);
+            radioButton19.Size = new Size(117, 24);
             radioButton19.TabIndex = 0;
             radioButton19.Tag = "ReleaseDate";
             radioButton19.Text = "Release Date";
@@ -576,9 +610,10 @@
             // 
             radioButton20.AutoSize = true;
             radioButton20.ForeColor = SystemColors.ControlLightLight;
-            radioButton20.Location = new Point(3, 53);
+            radioButton20.Location = new Point(3, 68);
+            radioButton20.Margin = new Padding(3, 4, 3, 4);
             radioButton20.Name = "radioButton20";
-            radioButton20.Size = new Size(86, 19);
+            radioButton20.Size = new Size(108, 24);
             radioButton20.TabIndex = 0;
             radioButton20.Tag = "IMDbScore";
             radioButton20.Text = "IMDb Score";
@@ -593,7 +628,7 @@
             label4.ForeColor = SystemColors.ControlLightLight;
             label4.Location = new Point(0, 0);
             label4.Name = "label4";
-            label4.Size = new Size(61, 17);
+            label4.Size = new Size(77, 23);
             label4.TabIndex = 2;
             label4.Text = "Order by";
             // 
@@ -602,9 +637,10 @@
             panel5.Controls.Add(flpType);
             panel5.Controls.Add(label3);
             panel5.Dock = DockStyle.Fill;
-            panel5.Location = new Point(3, 3);
+            panel5.Location = new Point(3, 4);
+            panel5.Margin = new Padding(3, 4, 3, 4);
             panel5.Name = "panel5";
-            panel5.Size = new Size(282, 151);
+            panel5.Size = new Size(324, 202);
             panel5.TabIndex = 0;
             // 
             // flpType
@@ -614,9 +650,10 @@
             flpType.Controls.Add(radioButton17);
             flpType.Dock = DockStyle.Fill;
             flpType.FlowDirection = FlowDirection.TopDown;
-            flpType.Location = new Point(0, 17);
+            flpType.Location = new Point(0, 23);
+            flpType.Margin = new Padding(3, 4, 3, 4);
             flpType.Name = "flpType";
-            flpType.Size = new Size(282, 134);
+            flpType.Size = new Size(324, 179);
             flpType.TabIndex = 3;
             // 
             // radioButton15
@@ -624,9 +661,10 @@
             radioButton15.AutoSize = true;
             radioButton15.Checked = true;
             radioButton15.ForeColor = SystemColors.ControlLightLight;
-            radioButton15.Location = new Point(3, 3);
+            radioButton15.Location = new Point(3, 4);
+            radioButton15.Margin = new Padding(3, 4, 3, 4);
             radioButton15.Name = "radioButton15";
-            radioButton15.Size = new Size(72, 19);
+            radioButton15.Size = new Size(89, 24);
             radioButton15.TabIndex = 0;
             radioButton15.TabStop = true;
             radioButton15.Tag = "None";
@@ -637,9 +675,10 @@
             // 
             radioButton16.AutoSize = true;
             radioButton16.ForeColor = SystemColors.ControlLightLight;
-            radioButton16.Location = new Point(3, 28);
+            radioButton16.Location = new Point(3, 36);
+            radioButton16.Margin = new Padding(3, 4, 3, 4);
             radioButton16.Name = "radioButton16";
-            radioButton16.Size = new Size(77, 19);
+            radioButton16.Size = new Size(95, 24);
             radioButton16.TabIndex = 0;
             radioButton16.Tag = "TVShows";
             radioButton16.Text = "TV-Shows";
@@ -649,9 +688,10 @@
             // 
             radioButton17.AutoSize = true;
             radioButton17.ForeColor = SystemColors.ControlLightLight;
-            radioButton17.Location = new Point(3, 53);
+            radioButton17.Location = new Point(3, 68);
+            radioButton17.Margin = new Padding(3, 4, 3, 4);
             radioButton17.Name = "radioButton17";
-            radioButton17.Size = new Size(63, 19);
+            radioButton17.Size = new Size(77, 24);
             radioButton17.TabIndex = 0;
             radioButton17.Tag = "Movies";
             radioButton17.Text = "Movies";
@@ -666,7 +706,7 @@
             label3.ForeColor = SystemColors.ControlLightLight;
             label3.Location = new Point(0, 0);
             label3.Name = "label3";
-            label3.Size = new Size(35, 17);
+            label3.Size = new Size(45, 23);
             label3.TabIndex = 2;
             label3.Text = "Type";
             // 
@@ -675,9 +715,10 @@
             panel4.Controls.Add(tableLayoutPanel6);
             panel4.Dock = DockStyle.Top;
             panel4.Location = new Point(0, 0);
+            panel4.Margin = new Padding(3, 4, 3, 4);
             panel4.Name = "panel4";
-            panel4.Padding = new Padding(2);
-            panel4.Size = new Size(1166, 75);
+            panel4.Padding = new Padding(2, 3, 2, 3);
+            panel4.Size = new Size(1334, 100);
             panel4.TabIndex = 0;
             // 
             // tableLayoutPanel6
@@ -688,26 +729,29 @@
             tableLayoutPanel6.Controls.Add(tbMovieName, 0, 0);
             tableLayoutPanel6.Controls.Add(btnSearch, 1, 0);
             tableLayoutPanel6.Dock = DockStyle.Bottom;
-            tableLayoutPanel6.Location = new Point(2, 43);
+            tableLayoutPanel6.Location = new Point(2, 57);
+            tableLayoutPanel6.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 1;
             tableLayoutPanel6.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel6.Size = new Size(1162, 30);
+            tableLayoutPanel6.Size = new Size(1330, 40);
             tableLayoutPanel6.TabIndex = 0;
             // 
             // tbMovieName
             // 
             tbMovieName.Dock = DockStyle.Right;
-            tbMovieName.Location = new Point(339, 3);
+            tbMovieName.Location = new Point(389, 4);
+            tbMovieName.Margin = new Padding(3, 4, 3, 4);
             tbMovieName.Name = "tbMovieName";
-            tbMovieName.Size = new Size(293, 23);
+            tbMovieName.Size = new Size(334, 27);
             tbMovieName.TabIndex = 0;
             // 
             // btnSearch
             // 
-            btnSearch.Location = new Point(638, 3);
+            btnSearch.Location = new Point(729, 4);
+            btnSearch.Margin = new Padding(3, 4, 3, 4);
             btnSearch.Name = "btnSearch";
-            btnSearch.Size = new Size(75, 23);
+            btnSearch.Size = new Size(86, 31);
             btnSearch.TabIndex = 1;
             btnSearch.Text = "Search";
             btnSearch.UseVisualStyleBackColor = true;
@@ -716,16 +760,17 @@
             // tableLayoutPanel7
             // 
             tableLayoutPanel7.ColumnCount = 3;
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 171F));
             tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
+            tableLayoutPanel7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 171F));
             tableLayoutPanel7.Controls.Add(panel14, 1, 0);
             tableLayoutPanel7.Dock = DockStyle.Fill;
-            tableLayoutPanel7.Location = new Point(0, 472);
+            tableLayoutPanel7.Location = new Point(0, 629);
+            tableLayoutPanel7.Margin = new Padding(3, 4, 3, 4);
             tableLayoutPanel7.Name = "tableLayoutPanel7";
             tableLayoutPanel7.RowCount = 1;
             tableLayoutPanel7.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel7.Size = new Size(1472, 588);
+            tableLayoutPanel7.Size = new Size(1682, 593);
             tableLayoutPanel7.TabIndex = 4;
             // 
             // panel14
@@ -733,9 +778,10 @@
             panel14.Controls.Add(flpResult);
             panel14.Controls.Add(panel15);
             panel14.Dock = DockStyle.Fill;
-            panel14.Location = new Point(153, 3);
+            panel14.Location = new Point(174, 4);
+            panel14.Margin = new Padding(3, 4, 3, 4);
             panel14.Name = "panel14";
-            panel14.Size = new Size(1166, 582);
+            panel14.Size = new Size(1334, 585);
             panel14.TabIndex = 0;
             // 
             // flpResult
@@ -746,70 +792,73 @@
             flpResult.Controls.Add(posterCard19);
             flpResult.Controls.Add(posterCard20);
             flpResult.Dock = DockStyle.Fill;
-            flpResult.Location = new Point(0, 46);
+            flpResult.Location = new Point(0, 61);
+            flpResult.Margin = new Padding(3, 4, 3, 4);
             flpResult.Name = "flpResult";
-            flpResult.Size = new Size(1166, 536);
+            flpResult.Size = new Size(1334, 524);
             flpResult.TabIndex = 0;
             // 
             // posterCard17
             // 
             posterCard17.BackColor = SystemColors.ButtonFace;
-            posterCard17.Location = new Point(3, 3);
-            posterCard17.Margin = new Padding(3, 3, 10, 3);
+            posterCard17.Location = new Point(3, 4);
+            posterCard17.Margin = new Padding(3, 4, 11, 4);
             posterCard17.MovieId = null;
             posterCard17.Name = "posterCard17";
-            posterCard17.Size = new Size(200, 344);
+            posterCard17.Size = new Size(229, 459);
             posterCard17.TabIndex = 0;
             // 
             // posterCard18
             // 
             posterCard18.BackColor = SystemColors.ButtonFace;
-            posterCard18.Location = new Point(216, 3);
-            posterCard18.Margin = new Padding(3, 3, 10, 3);
+            posterCard18.Location = new Point(246, 4);
+            posterCard18.Margin = new Padding(3, 4, 11, 4);
             posterCard18.MovieId = null;
             posterCard18.Name = "posterCard18";
-            posterCard18.Size = new Size(200, 344);
+            posterCard18.Size = new Size(229, 459);
             posterCard18.TabIndex = 0;
             // 
             // posterCard19
             // 
             posterCard19.BackColor = SystemColors.ButtonFace;
-            posterCard19.Location = new Point(429, 3);
-            posterCard19.Margin = new Padding(3, 3, 10, 3);
+            posterCard19.Location = new Point(489, 4);
+            posterCard19.Margin = new Padding(3, 4, 11, 4);
             posterCard19.MovieId = null;
             posterCard19.Name = "posterCard19";
-            posterCard19.Size = new Size(200, 344);
+            posterCard19.Size = new Size(229, 459);
             posterCard19.TabIndex = 0;
             // 
             // posterCard20
             // 
             posterCard20.BackColor = SystemColors.ButtonFace;
-            posterCard20.Location = new Point(642, 3);
-            posterCard20.Margin = new Padding(3, 3, 10, 3);
+            posterCard20.Location = new Point(732, 4);
+            posterCard20.Margin = new Padding(3, 4, 11, 4);
             posterCard20.MovieId = null;
             posterCard20.Name = "posterCard20";
-            posterCard20.Size = new Size(200, 344);
+            posterCard20.Size = new Size(229, 459);
             posterCard20.TabIndex = 0;
             // 
             // panel15
             // 
             panel15.Dock = DockStyle.Top;
             panel15.Location = new Point(0, 0);
+            panel15.Margin = new Padding(3, 4, 3, 4);
             panel15.Name = "panel15";
-            panel15.Padding = new Padding(2);
-            panel15.Size = new Size(1166, 46);
+            panel15.Padding = new Padding(2, 3, 2, 3);
+            panel15.Size = new Size(1334, 61);
             panel15.TabIndex = 0;
             // 
             // SearchPage
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(1472, 1060);
+            ClientSize = new Size(1682, 1222);
             ControlBox = false;
             Controls.Add(tableLayoutPanel7);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "SearchPage";
             Text = "SearchPage";
             tableLayoutPanel1.ResumeLayout(false);
