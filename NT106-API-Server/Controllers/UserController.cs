@@ -164,9 +164,14 @@ namespace NT106_API_Server.Controllers
         }
         [Route("gettopmoviesbyimdbscorebutnotinnewmovies")]
         [HttpGet]
-        public IActionResult GetTopMoviesByIMDBScoreButNotInNewMovies()
+        public IActionResult GetTopMoviesByIMDBScoreButNotInNewMovies(string? isTVShows)
         {
             List<MovieModel.Movie> movies = new List<MovieModel.Movie>();
+            if (isTVShows != null)
+            {
+                movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies(isTVShows == "true");
+            }
+            else
             movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies();
             return Ok(movies);
         }

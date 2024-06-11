@@ -124,11 +124,30 @@ namespace NT106_User
             pnMain.Controls.Clear();
             pnMain.Controls.Add(home);
             home.Show();
+            ChangeColorButton(btnHome);
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
         {
-                       
+
+        }
+
+        private void btnMovies_Click(object sender, EventArgs e)
+        {
+            MoviesPage movies = new MoviesPage();
+            movies.TopLevel = false;
+            movies.Dock = DockStyle.Fill;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(movies);
+            movies.Show();
+            ChangeColorButton(btnMovies);
+        }
+        private void ChangeColorButton(Button button)
+        {
+            btnHome.BackColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            btnMovies.BackColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            btnInfo.BackColor = System.Drawing.Color.FromArgb(0, 0, 0);
+            button.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
         }
     }
 }

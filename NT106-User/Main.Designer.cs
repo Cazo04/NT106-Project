@@ -286,6 +286,7 @@
             btnMovies.TabIndex = 2;
             btnMovies.Text = "Movies";
             btnMovies.UseVisualStyleBackColor = false;
+            btnMovies.Click += btnMovies_Click;
             // 
             // btnTvshows
             // 

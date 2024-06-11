@@ -20,14 +20,20 @@ namespace NT106_WebServer.Models
         public List<Cast>? Casts { get; set; }
         public List<string>? Genres { get; set; }
 
-        public static List<Movie> GetNewMovies(int count = 7)
+        public static List<Movie> GetNewMovies(bool? isTVShows = null, int count = 7)
         {
             var movies = new List<Movie>();
+            string tvshow_query = "";
+            if (isTVShows != null)
+            {
+                tvshow_query = " WHERE IsTVShows = " + (isTVShows.Value ? "1" : "0");
+            }
 
             using (var connection = MySQLServer.GetWorkingConnection())
             {
                 string query = @"SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
                          FROM Movies
+                             " + tvshow_query + @"
                          ORDER BY ReleaseDate DESC
                          LIMIT @Count";
 
@@ -56,15 +62,20 @@ namespace NT106_WebServer.Models
 
             return movies;
         }
-        public static List<Movie> GetTopMoviesByIMDbScore(int count = 7)
+        public static List<Movie> GetTopMoviesByIMDbScore(bool? isTVShows = null, int count = 7)
         {
             var movies = new List<Movie>();
+            string tvshow_query = "";
+            if (isTVShows != null)
+            {
+                tvshow_query = " AND IsTVShows = " + (isTVShows.Value ? "1" : "0");
+            }
 
             using (var connection = MySQLServer.GetWorkingConnection())
             {
                 string query = @"SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
                          FROM Movies
-                         WHERE ReleaseDate >= @StartDate
+                         WHERE ReleaseDate >= @StartDate " + tvshow_query + @" 
                          ORDER BY IMDbScore DESC
                          LIMIT @Count";
 
@@ -95,9 +106,14 @@ namespace NT106_WebServer.Models
 
             return movies;
         }
-        public static List<Movie> GetTopMoviesByIMDbScoreButNotInNewMovies(int count = 7)
+        public static List<Movie> GetTopMoviesByIMDbScoreButNotInNewMovies(bool? isTVShows = null, int count = 7)
         {
             var movies = new List<Movie>();
+            string tvshow_query = "";
+            if (isTVShows != null)
+            {
+                tvshow_query = " AND IsTVShows = " + (isTVShows.Value ? "1" : "0");
+            }
 
             using (var connection = MySQLServer.GetWorkingConnection())
             {
@@ -109,7 +125,7 @@ namespace NT106_WebServer.Models
                     )
                     SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
                     FROM Movies
-                    WHERE MovieId NOT IN (SELECT MovieId FROM LatestMovies)
+                    WHERE MovieId NOT IN (SELECT MovieId FROM LatestMovies) " + tvshow_query + @"
                     ORDER BY IMDbScore DESC
                     LIMIT @Count";
 
