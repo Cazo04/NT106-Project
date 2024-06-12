@@ -72,6 +72,7 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             btnImages = new Button();
             btnTrailer = new Button();
+            button1 = new Button();
             panel5 = new Panel();
             tlpSeasons = new TableLayoutPanel();
             flpSeasons = new FlowLayoutPanel();
@@ -599,11 +600,13 @@
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 37F));
             tableLayoutPanel3.Controls.Add(btnImages, 1, 0);
             tableLayoutPanel3.Controls.Add(btnTrailer, 0, 0);
+            tableLayoutPanel3.Controls.Add(button1, 2, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(10, 10);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -619,9 +622,9 @@
             btnImages.FlatAppearance.BorderColor = Color.FromArgb(16, 24, 39);
             btnImages.FlatStyle = FlatStyle.Flat;
             btnImages.ForeColor = SystemColors.ControlLightLight;
-            btnImages.Location = new Point(95, 3);
+            btnImages.Location = new Point(76, 3);
             btnImages.Name = "btnImages";
-            btnImages.Size = new Size(86, 40);
+            btnImages.Size = new Size(67, 40);
             btnImages.TabIndex = 1;
             btnImages.Text = "Images";
             btnImages.UseVisualStyleBackColor = false;
@@ -635,11 +638,21 @@
             btnTrailer.ForeColor = SystemColors.ControlLightLight;
             btnTrailer.Location = new Point(3, 3);
             btnTrailer.Name = "btnTrailer";
-            btnTrailer.Size = new Size(86, 40);
+            btnTrailer.Size = new Size(67, 40);
             btnTrailer.TabIndex = 0;
             btnTrailer.Text = "Trailer";
             btnTrailer.UseVisualStyleBackColor = false;
             btnTrailer.Click += btnTrailer_Click;
+            // 
+            // button1
+            // 
+            button1.BackgroundImage = Properties.Resources.bookmark;
+            button1.BackgroundImageLayout = ImageLayout.Zoom;
+            button1.Location = new Point(149, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(32, 40);
+            button1.TabIndex = 2;
+            button1.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -712,7 +725,7 @@
             lbDescription.ForeColor = SystemColors.ControlLightLight;
             lbDescription.Location = new Point(5, 161);
             lbDescription.Name = "lbDescription";
-            lbDescription.Size = new Size(813, 75);
+            lbDescription.Size = new Size(813, 73);
             lbDescription.TabIndex = 2;
             lbDescription.Text = "Tackling different mysteries in each episode of this game show, seven sleuths get closer to solving the biggest one of all: What happened to Project D?";
             // 
@@ -1081,5 +1094,6 @@
         private Label lbContentRating;
         private Label lbDuration;
         private UserRecentComment userRecentComment1;
+        private Button button1;
     }
 }

@@ -96,10 +96,10 @@
             btnSetting.FlatStyle = FlatStyle.Flat;
             btnSetting.Font = new Font("Segoe UI", 12F);
             btnSetting.ForeColor = SystemColors.ControlLightLight;
-            btnSetting.Location = new Point(0, 102);
+            btnSetting.Location = new Point(0, 108);
             btnSetting.Margin = new Padding(2);
             btnSetting.Name = "btnSetting";
-            btnSetting.Size = new Size(184, 36);
+            btnSetting.Size = new Size(184, 42);
             btnSetting.TabIndex = 2;
             btnSetting.Text = "Setting";
             btnSetting.UseVisualStyleBackColor = false;
@@ -116,7 +116,7 @@
             btnWatctlist.Location = new Point(0, 66);
             btnWatctlist.Margin = new Padding(2);
             btnWatctlist.Name = "btnWatctlist";
-            btnWatctlist.Size = new Size(184, 36);
+            btnWatctlist.Size = new Size(184, 42);
             btnWatctlist.TabIndex = 1;
             btnWatctlist.Text = "Watchlist";
             btnWatctlist.UseVisualStyleBackColor = false;
@@ -143,7 +143,7 @@
             label2.Location = new Point(85, 39);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 23);
+            label2.Size = new Size(33, 17);
             label2.TabIndex = 2;
             label2.Text = "Free";
             // 
@@ -155,7 +155,7 @@
             lbUsername.Location = new Point(85, 11);
             lbUsername.Margin = new Padding(2, 0, 2, 0);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(44, 23);
+            lbUsername.Size = new Size(35, 17);
             lbUsername.TabIndex = 1;
             lbUsername.Text = "User";
             // 
@@ -337,7 +337,7 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);
