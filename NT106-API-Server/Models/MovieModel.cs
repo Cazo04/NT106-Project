@@ -121,7 +121,7 @@ namespace NT106_WebServer.Models
                         SELECT MovieId
                         FROM Movies
                         ORDER BY ReleaseDate DESC
-                        LIMIT 7
+                        LIMIT @Count
                     )
                     SELECT MovieId, MovieName, ContentRating, IMDbScore, PosterURL, IsTVShows
                     FROM Movies

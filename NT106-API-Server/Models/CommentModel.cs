@@ -70,7 +70,7 @@ namespace NT106_API_Server.Models
         FROM Comment c
         JOIN User u ON c.UserId = u.Id
         WHERE c.EpisodeId = @EpisodeId
-        ORDER BY (c.UpVote - c.DownVote) DESC
+        ORDER BY (c.UpVote - c.DownVote) ASC
         LIMIT @Num";
 
             using (MySqlConnection connection = MySQLServer.GetWorkingConnection())

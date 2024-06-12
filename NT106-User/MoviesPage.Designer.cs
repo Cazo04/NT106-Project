@@ -28,12 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label4 = new Label();
-            posterCard10 = new PosterCard();
-            posterCard11 = new PosterCard();
-            posterCard12 = new PosterCard();
-            label2 = new Label();
-            panel10 = new Panel();
             panel11 = new Panel();
             tableLayoutPanel4 = new TableLayoutPanel();
             panel12 = new Panel();
@@ -44,22 +38,6 @@
             posterCard16 = new PosterCard();
             panel13 = new Panel();
             label3 = new Label();
-            panel1 = new Panel();
-            tableLayoutPanel5 = new TableLayoutPanel();
-            panel14 = new Panel();
-            flowLayoutPanel5 = new FlowLayoutPanel();
-            posterCard17 = new PosterCard();
-            posterCard18 = new PosterCard();
-            posterCard19 = new PosterCard();
-            posterCard20 = new PosterCard();
-            panel15 = new Panel();
-            panel16 = new Panel();
-            posterCard9 = new PosterCard();
-            flowLayoutPanel3 = new FlowLayoutPanel();
-            pnOption = new Panel();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            panel8 = new Panel();
-            panel9 = new Panel();
             flpNewReleases = new FlowLayoutPanel();
             posterCard1 = new PosterCard();
             posterCard2 = new PosterCard();
@@ -85,16 +63,6 @@
             panel12.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
             panel13.SuspendLayout();
-            panel1.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
-            panel14.SuspendLayout();
-            flowLayoutPanel5.SuspendLayout();
-            panel15.SuspendLayout();
-            flowLayoutPanel3.SuspendLayout();
-            pnOption.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            panel8.SuspendLayout();
-            panel9.SuspendLayout();
             flpNewReleases.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -106,72 +74,6 @@
             panel6.SuspendLayout();
             pnNewReleases.SuspendLayout();
             SuspendLayout();
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.FromArgb(16, 24, 39);
-            label4.Dock = DockStyle.Left;
-            label4.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(2, 2);
-            label4.Name = "label4";
-            label4.Padding = new Padding(2);
-            label4.Size = new Size(215, 29);
-            label4.TabIndex = 0;
-            label4.Text = "Highly Rated (recently)";
-            // 
-            // posterCard10
-            // 
-            posterCard10.BackColor = SystemColors.ButtonFace;
-            posterCard10.Location = new Point(216, 3);
-            posterCard10.Margin = new Padding(3, 3, 10, 3);
-            posterCard10.MovieId = null;
-            posterCard10.Name = "posterCard10";
-            posterCard10.Size = new Size(200, 344);
-            posterCard10.TabIndex = 0;
-            // 
-            // posterCard11
-            // 
-            posterCard11.BackColor = SystemColors.ButtonFace;
-            posterCard11.Location = new Point(429, 3);
-            posterCard11.Margin = new Padding(3, 3, 10, 3);
-            posterCard11.MovieId = null;
-            posterCard11.Name = "posterCard11";
-            posterCard11.Size = new Size(200, 344);
-            posterCard11.TabIndex = 0;
-            // 
-            // posterCard12
-            // 
-            posterCard12.BackColor = SystemColors.ButtonFace;
-            posterCard12.Location = new Point(642, 3);
-            posterCard12.Margin = new Padding(3, 3, 10, 3);
-            posterCard12.MovieId = null;
-            posterCard12.Name = "posterCard12";
-            posterCard12.Size = new Size(200, 344);
-            posterCard12.TabIndex = 0;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.FromArgb(16, 24, 39);
-            label2.Dock = DockStyle.Left;
-            label2.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
-            label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(2, 2);
-            label2.Name = "label2";
-            label2.Padding = new Padding(2);
-            label2.Size = new Size(215, 29);
-            label2.TabIndex = 0;
-            label2.Text = "Highly Rated (recently)";
-            // 
-            // panel10
-            // 
-            panel10.Dock = DockStyle.Top;
-            panel10.Location = new Point(0, 0);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(1127, 41);
-            panel10.TabIndex = 3;
             // 
             // panel11
             // 
@@ -187,7 +89,7 @@
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
             tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(0, 2637);
+            tableLayoutPanel4.Location = new Point(0, 1614);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
             tableLayoutPanel4.RowCount = 1;
             tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
@@ -199,7 +101,7 @@
             panel12.Controls.Add(flowLayoutPanel4);
             panel12.Controls.Add(panel13);
             panel12.Dock = DockStyle.Fill;
-            panel12.Location = new Point(0, 2637);
+            panel12.Location = new Point(0, 1614);
             panel12.Name = "panel12";
             panel12.Size = new Size(1127, 0);
             panel12.TabIndex = 7;
@@ -282,182 +184,6 @@
             label3.TabIndex = 0;
             label3.Text = "Highly Rated (recently)";
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(tableLayoutPanel5);
-            panel1.Controls.Add(panel16);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(0, 1407);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1127, 1230);
-            panel1.TabIndex = 11;
-            // 
-            // tableLayoutPanel5
-            // 
-            tableLayoutPanel5.ColumnCount = 3;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel5.Controls.Add(panel14, 1, 0);
-            tableLayoutPanel5.Dock = DockStyle.Fill;
-            tableLayoutPanel5.Location = new Point(0, 41);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Size = new Size(1127, 1189);
-            tableLayoutPanel5.TabIndex = 2;
-            // 
-            // panel14
-            // 
-            panel14.Controls.Add(flowLayoutPanel5);
-            panel14.Controls.Add(panel15);
-            panel14.Dock = DockStyle.Fill;
-            panel14.Location = new Point(153, 3);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(821, 1183);
-            panel14.TabIndex = 0;
-            // 
-            // flowLayoutPanel5
-            // 
-            flowLayoutPanel5.AutoScroll = true;
-            flowLayoutPanel5.Controls.Add(posterCard17);
-            flowLayoutPanel5.Controls.Add(posterCard18);
-            flowLayoutPanel5.Controls.Add(posterCard19);
-            flowLayoutPanel5.Controls.Add(posterCard20);
-            flowLayoutPanel5.Dock = DockStyle.Fill;
-            flowLayoutPanel5.Location = new Point(0, 46);
-            flowLayoutPanel5.Name = "flowLayoutPanel5";
-            flowLayoutPanel5.Size = new Size(821, 1137);
-            flowLayoutPanel5.TabIndex = 0;
-            flowLayoutPanel5.WrapContents = false;
-            // 
-            // posterCard17
-            // 
-            posterCard17.BackColor = SystemColors.ButtonFace;
-            posterCard17.Location = new Point(3, 3);
-            posterCard17.Margin = new Padding(3, 3, 10, 3);
-            posterCard17.MovieId = null;
-            posterCard17.Name = "posterCard17";
-            posterCard17.Size = new Size(200, 344);
-            posterCard17.TabIndex = 0;
-            // 
-            // posterCard18
-            // 
-            posterCard18.BackColor = SystemColors.ButtonFace;
-            posterCard18.Location = new Point(216, 3);
-            posterCard18.Margin = new Padding(3, 3, 10, 3);
-            posterCard18.MovieId = null;
-            posterCard18.Name = "posterCard18";
-            posterCard18.Size = new Size(200, 344);
-            posterCard18.TabIndex = 0;
-            // 
-            // posterCard19
-            // 
-            posterCard19.BackColor = SystemColors.ButtonFace;
-            posterCard19.Location = new Point(429, 3);
-            posterCard19.Margin = new Padding(3, 3, 10, 3);
-            posterCard19.MovieId = null;
-            posterCard19.Name = "posterCard19";
-            posterCard19.Size = new Size(200, 344);
-            posterCard19.TabIndex = 0;
-            // 
-            // posterCard20
-            // 
-            posterCard20.BackColor = SystemColors.ButtonFace;
-            posterCard20.Location = new Point(642, 3);
-            posterCard20.Margin = new Padding(3, 3, 10, 3);
-            posterCard20.MovieId = null;
-            posterCard20.Name = "posterCard20";
-            posterCard20.Size = new Size(200, 344);
-            posterCard20.TabIndex = 0;
-            // 
-            // panel15
-            // 
-            panel15.Controls.Add(label4);
-            panel15.Dock = DockStyle.Top;
-            panel15.Location = new Point(0, 0);
-            panel15.Name = "panel15";
-            panel15.Padding = new Padding(2);
-            panel15.Size = new Size(821, 46);
-            panel15.TabIndex = 0;
-            // 
-            // panel16
-            // 
-            panel16.Dock = DockStyle.Top;
-            panel16.Location = new Point(0, 0);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(1127, 41);
-            panel16.TabIndex = 3;
-            // 
-            // posterCard9
-            // 
-            posterCard9.BackColor = SystemColors.ButtonFace;
-            posterCard9.Location = new Point(3, 3);
-            posterCard9.Margin = new Padding(3, 3, 10, 3);
-            posterCard9.MovieId = null;
-            posterCard9.Name = "posterCard9";
-            posterCard9.Size = new Size(200, 344);
-            posterCard9.TabIndex = 0;
-            // 
-            // flowLayoutPanel3
-            // 
-            flowLayoutPanel3.AutoScroll = true;
-            flowLayoutPanel3.Controls.Add(posterCard9);
-            flowLayoutPanel3.Controls.Add(posterCard10);
-            flowLayoutPanel3.Controls.Add(posterCard11);
-            flowLayoutPanel3.Controls.Add(posterCard12);
-            flowLayoutPanel3.Dock = DockStyle.Fill;
-            flowLayoutPanel3.Location = new Point(0, 46);
-            flowLayoutPanel3.Name = "flowLayoutPanel3";
-            flowLayoutPanel3.Size = new Size(821, 380);
-            flowLayoutPanel3.TabIndex = 0;
-            flowLayoutPanel3.WrapContents = false;
-            // 
-            // pnOption
-            // 
-            pnOption.Controls.Add(tableLayoutPanel3);
-            pnOption.Controls.Add(panel10);
-            pnOption.Dock = DockStyle.Top;
-            pnOption.Location = new Point(0, 934);
-            pnOption.Name = "pnOption";
-            pnOption.Size = new Size(1127, 473);
-            pnOption.TabIndex = 10;
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.ColumnCount = 3;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 150F));
-            tableLayoutPanel3.Controls.Add(panel8, 1, 0);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(0, 41);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 1;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(1127, 432);
-            tableLayoutPanel3.TabIndex = 2;
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(flowLayoutPanel3);
-            panel8.Controls.Add(panel9);
-            panel8.Dock = DockStyle.Fill;
-            panel8.Location = new Point(153, 3);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(821, 426);
-            panel8.TabIndex = 0;
-            // 
-            // panel9
-            // 
-            panel9.Controls.Add(label2);
-            panel9.Dock = DockStyle.Top;
-            panel9.Location = new Point(0, 0);
-            panel9.Name = "panel9";
-            panel9.Padding = new Padding(2);
-            panel9.Size = new Size(821, 46);
-            panel9.TabIndex = 0;
-            // 
             // flpNewReleases
             // 
             flpNewReleases.AutoScroll = true;
@@ -468,9 +194,8 @@
             flpNewReleases.Dock = DockStyle.Fill;
             flpNewReleases.Location = new Point(0, 46);
             flpNewReleases.Name = "flpNewReleases";
-            flpNewReleases.Size = new Size(821, 372);
+            flpNewReleases.Size = new Size(821, 715);
             flpNewReleases.TabIndex = 0;
-            flpNewReleases.WrapContents = false;
             // 
             // posterCard1
             // 
@@ -505,7 +230,7 @@
             // posterCard4
             // 
             posterCard4.BackColor = SystemColors.ButtonFace;
-            posterCard4.Location = new Point(642, 3);
+            posterCard4.Location = new Point(3, 353);
             posterCard4.Margin = new Padding(3, 3, 10, 3);
             posterCard4.MovieId = null;
             posterCard4.Name = "posterCard4";
@@ -524,7 +249,7 @@
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Size = new Size(1127, 424);
+            tableLayoutPanel1.Size = new Size(1127, 767);
             tableLayoutPanel1.TabIndex = 2;
             // 
             // panel3
@@ -534,7 +259,7 @@
             panel3.Dock = DockStyle.Fill;
             panel3.Location = new Point(153, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(821, 418);
+            panel3.Size = new Size(821, 761);
             panel3.TabIndex = 0;
             // 
             // panel4
@@ -574,9 +299,9 @@
             pnHighlyRated.Controls.Add(tableLayoutPanel2);
             pnHighlyRated.Controls.Add(panel7);
             pnHighlyRated.Dock = DockStyle.Top;
-            pnHighlyRated.Location = new Point(0, 465);
+            pnHighlyRated.Location = new Point(0, 808);
             pnHighlyRated.Name = "pnHighlyRated";
-            pnHighlyRated.Size = new Size(1127, 469);
+            pnHighlyRated.Size = new Size(1127, 806);
             pnHighlyRated.TabIndex = 9;
             // 
             // tableLayoutPanel2
@@ -591,7 +316,7 @@
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(1127, 428);
+            tableLayoutPanel2.Size = new Size(1127, 765);
             tableLayoutPanel2.TabIndex = 2;
             // 
             // panel5
@@ -601,7 +326,7 @@
             panel5.Dock = DockStyle.Fill;
             panel5.Location = new Point(153, 3);
             panel5.Name = "panel5";
-            panel5.Size = new Size(821, 422);
+            panel5.Size = new Size(821, 759);
             panel5.TabIndex = 0;
             // 
             // flpHighlyRated
@@ -614,9 +339,8 @@
             flpHighlyRated.Dock = DockStyle.Fill;
             flpHighlyRated.Location = new Point(0, 46);
             flpHighlyRated.Name = "flpHighlyRated";
-            flpHighlyRated.Size = new Size(821, 376);
+            flpHighlyRated.Size = new Size(821, 713);
             flpHighlyRated.TabIndex = 0;
-            flpHighlyRated.WrapContents = false;
             // 
             // posterCard5
             // 
@@ -651,7 +375,7 @@
             // posterCard8
             // 
             posterCard8.BackColor = SystemColors.ButtonFace;
-            posterCard8.Location = new Point(642, 3);
+            posterCard8.Location = new Point(3, 353);
             posterCard8.Margin = new Padding(3, 3, 10, 3);
             posterCard8.MovieId = null;
             posterCard8.Name = "posterCard8";
@@ -697,7 +421,7 @@
             pnNewReleases.Dock = DockStyle.Top;
             pnNewReleases.Location = new Point(0, 0);
             pnNewReleases.Name = "pnNewReleases";
-            pnNewReleases.Size = new Size(1127, 465);
+            pnNewReleases.Size = new Size(1127, 808);
             pnNewReleases.TabIndex = 8;
             // 
             // MoviesPage
@@ -711,8 +435,6 @@
             Controls.Add(panel11);
             Controls.Add(tableLayoutPanel4);
             Controls.Add(panel12);
-            Controls.Add(panel1);
-            Controls.Add(pnOption);
             Controls.Add(pnHighlyRated);
             Controls.Add(pnNewReleases);
             FormBorderStyle = FormBorderStyle.None;
@@ -723,18 +445,6 @@
             flowLayoutPanel4.ResumeLayout(false);
             panel13.ResumeLayout(false);
             panel13.PerformLayout();
-            panel1.ResumeLayout(false);
-            tableLayoutPanel5.ResumeLayout(false);
-            panel14.ResumeLayout(false);
-            flowLayoutPanel5.ResumeLayout(false);
-            panel15.ResumeLayout(false);
-            panel15.PerformLayout();
-            flowLayoutPanel3.ResumeLayout(false);
-            pnOption.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
-            panel8.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
             flpNewReleases.ResumeLayout(false);
             tableLayoutPanel1.ResumeLayout(false);
             panel3.ResumeLayout(false);
@@ -751,13 +461,6 @@
         }
 
         #endregion
-
-        private Label label4;
-        private PosterCard posterCard10;
-        private PosterCard posterCard11;
-        private PosterCard posterCard12;
-        private Label label2;
-        private Panel panel10;
         private Panel panel11;
         private TableLayoutPanel tableLayoutPanel4;
         private Panel panel12;
@@ -768,22 +471,6 @@
         private PosterCard posterCard16;
         private Panel panel13;
         private Label label3;
-        private Panel panel1;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Panel panel14;
-        private FlowLayoutPanel flowLayoutPanel5;
-        private PosterCard posterCard17;
-        private PosterCard posterCard18;
-        private PosterCard posterCard19;
-        private PosterCard posterCard20;
-        private Panel panel15;
-        private Panel panel16;
-        private PosterCard posterCard9;
-        private FlowLayoutPanel flowLayoutPanel3;
-        private Panel pnOption;
-        private TableLayoutPanel tableLayoutPanel3;
-        private Panel panel8;
-        private Panel panel9;
         private FlowLayoutPanel flpNewReleases;
         private PosterCard posterCard1;
         private PosterCard posterCard2;

@@ -16,12 +16,13 @@ namespace NT106_API_Server.Controllers
         }
         [HttpGet]
         [Route("getnewmovies")]
-        public IActionResult GetNewMovies(string? isTVShows)
+        public IActionResult GetNewMovies(string? isTVShows, int limit)
         {
             List<MovieModel.Movie> movies = new List<MovieModel.Movie>();
+            limit = limit == 0 ? 14 : limit;
             if (isTVShows != null)
             {
-                movies = MovieModel.GetNewMovies(isTVShows == "true");
+                movies = MovieModel.GetNewMovies(isTVShows == "true", limit);
             } else          
             movies = MovieModel.GetNewMovies();
             return Ok(movies);

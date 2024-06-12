@@ -72,6 +72,7 @@
             tableLayoutPanel3 = new TableLayoutPanel();
             btnImages = new Button();
             btnTrailer = new Button();
+            btnWatchlist = new Button();
             panel5 = new Panel();
             tlpSeasons = new TableLayoutPanel();
             flpSeasons = new FlowLayoutPanel();
@@ -197,7 +198,7 @@
             tableLayoutPanel10.Name = "tableLayoutPanel10";
             tableLayoutPanel10.RowCount = 1;
             tableLayoutPanel10.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel10.Size = new Size(1039, 459);
+            tableLayoutPanel10.Size = new Size(1039, 483);
             tableLayoutPanel10.TabIndex = 8;
             // 
             // panel15
@@ -208,15 +209,16 @@
             panel15.Location = new Point(3, 3);
             panel15.Name = "panel15";
             panel15.Padding = new Padding(3);
-            panel15.Size = new Size(664, 453);
+            panel15.Size = new Size(664, 477);
             panel15.TabIndex = 0;
             // 
             // pnTopComment
             // 
+            pnTopComment.AutoScroll = true;
             pnTopComment.Dock = DockStyle.Fill;
             pnTopComment.Location = new Point(3, 22);
             pnTopComment.Name = "pnTopComment";
-            pnTopComment.Size = new Size(658, 428);
+            pnTopComment.Size = new Size(658, 452);
             pnTopComment.TabIndex = 1;
             // 
             // label12
@@ -239,7 +241,7 @@
             panel16.Location = new Point(673, 3);
             panel16.Name = "panel16";
             panel16.Padding = new Padding(3);
-            panel16.Size = new Size(363, 453);
+            panel16.Size = new Size(363, 477);
             panel16.TabIndex = 1;
             // 
             // flowLayoutPanel9
@@ -248,7 +250,7 @@
             flowLayoutPanel9.Dock = DockStyle.Fill;
             flowLayoutPanel9.Location = new Point(3, 22);
             flowLayoutPanel9.Name = "flowLayoutPanel9";
-            flowLayoutPanel9.Size = new Size(357, 428);
+            flowLayoutPanel9.Size = new Size(357, 452);
             flowLayoutPanel9.TabIndex = 2;
             // 
             // userRecentComment1
@@ -599,11 +601,13 @@
             // 
             // tableLayoutPanel3
             // 
-            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnCount = 3;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 36F));
             tableLayoutPanel3.Controls.Add(btnImages, 1, 0);
             tableLayoutPanel3.Controls.Add(btnTrailer, 0, 0);
+            tableLayoutPanel3.Controls.Add(btnWatchlist, 2, 0);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(10, 10);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -619,9 +623,9 @@
             btnImages.FlatAppearance.BorderColor = Color.FromArgb(16, 24, 39);
             btnImages.FlatStyle = FlatStyle.Flat;
             btnImages.ForeColor = SystemColors.ControlLightLight;
-            btnImages.Location = new Point(95, 3);
+            btnImages.Location = new Point(77, 3);
             btnImages.Name = "btnImages";
-            btnImages.Size = new Size(86, 40);
+            btnImages.Size = new Size(68, 40);
             btnImages.TabIndex = 1;
             btnImages.Text = "Images";
             btnImages.UseVisualStyleBackColor = false;
@@ -635,11 +639,22 @@
             btnTrailer.ForeColor = SystemColors.ControlLightLight;
             btnTrailer.Location = new Point(3, 3);
             btnTrailer.Name = "btnTrailer";
-            btnTrailer.Size = new Size(86, 40);
+            btnTrailer.Size = new Size(68, 40);
             btnTrailer.TabIndex = 0;
             btnTrailer.Text = "Trailer";
             btnTrailer.UseVisualStyleBackColor = false;
             btnTrailer.Click += btnTrailer_Click;
+            // 
+            // btnWatchlist
+            // 
+            btnWatchlist.BackgroundImage = Properties.Resources.bookmark;
+            btnWatchlist.BackgroundImageLayout = ImageLayout.Zoom;
+            btnWatchlist.Dock = DockStyle.Fill;
+            btnWatchlist.Location = new Point(151, 3);
+            btnWatchlist.Name = "btnWatchlist";
+            btnWatchlist.Size = new Size(30, 40);
+            btnWatchlist.TabIndex = 2;
+            btnWatchlist.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -1081,5 +1096,6 @@
         private Label lbContentRating;
         private Label lbDuration;
         private UserRecentComment userRecentComment1;
+        private Button btnWatchlist;
     }
 }

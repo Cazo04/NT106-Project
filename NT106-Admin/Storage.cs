@@ -34,6 +34,7 @@ namespace NT106_Admin
             if (File.Exists(filePath))
                 File.Delete(filePath);
             TempToken = null;
+            TempUserId = null;
         }
 
         private static string EncryptString(string plainText)

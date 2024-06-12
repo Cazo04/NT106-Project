@@ -108,12 +108,23 @@ namespace NT106_API_Server.Controllers
         {
             return Request.Headers["Authorization"].ToString().Replace("Bearer ", "");
         }
+        private string? GetUserId()
+        {
+            UserModel? user = UserModel.GetVeryBasicUserByToken(GetToken());
+            if (user == null) return null;
+            return user.Id;
+        }
         [Route("getuser")]
         [HttpGet]
         [UserValidateToken]
         public IActionResult GetUser([FromQuery] string userId)
         {
-            UserModel user = UserModel.GetUser(userId);
+            string? id = GetUserId();
+            if (id == null)
+            {
+                return BadRequest("Error: User not found.");
+            }
+            UserModel? user = UserModel.GetUser(id);
             if (user == null)
             {
                 return BadRequest("Error: User not found.");
@@ -127,11 +138,17 @@ namespace NT106_API_Server.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (UserModel.ChangePassword(userId, model.OldPassword, model.NewPassword))
+                string? id = GetUserId();
+                if (id == null)
+                {
+                    return BadRequest("Error: User not found.");
+                }
+
+                if (UserModel.ChangePassword(id, model.OldPassword, model.NewPassword))
                 {
                     UserToken userToken = new UserToken
                     {
-                        UserId = userId,
+                        UserId = id,
                         Token = TokenService.GenerateUUID(),
                         Expires = DateTime.Now.AddDays(30),
                         IsRevoked = false
@@ -164,12 +181,13 @@ namespace NT106_API_Server.Controllers
         }
         [Route("gettopmoviesbyimdbscorebutnotinnewmovies")]
         [HttpGet]
-        public IActionResult GetTopMoviesByIMDBScoreButNotInNewMovies(string? isTVShows)
+        public IActionResult GetTopMoviesByIMDBScoreButNotInNewMovies(string? isTVShows, int limit)
         {
             List<MovieModel.Movie> movies = new List<MovieModel.Movie>();
+            limit = limit == 0 ? 14 : limit;
             if (isTVShows != null)
             {
-                movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies(isTVShows == "true");
+                movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies(isTVShows == "true", limit);
             }
             else
             movies = MovieModel.GetTopMoviesByIMDbScoreButNotInNewMovies();
@@ -182,7 +200,13 @@ namespace NT106_API_Server.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CommentModel.HasUserCommented(model.UserId, model.EpisodeId))
+                string? id = GetUserId();
+                if (id == null)
+                {
+                    return BadRequest("Error: User not found.");
+                }
+
+                if (CommentModel.HasUserCommented(id, model.EpisodeId))
                 {
                     return BadRequest("Error: User has already commented.");
                 }
@@ -248,15 +272,21 @@ namespace NT106_API_Server.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CommentModel.HasUserVotedComment(model.CommentId, model.UserId))
+                string? id = GetUserId();
+                if (id == null)
+                {
+                    return BadRequest("Error: User not found.");
+                }
+
+                if (CommentModel.HasUserVotedComment(model.CommentId, id))
                 {
                     return BadRequest("Error: User has already voted.");
                 }
 
                 if (model.IsUpVote)
                 {
-                    CommentModel.AddUpVoteComment(model.CommentId, model.UserId);
-                } else CommentModel.AddDownVoteComment(model.CommentId, model.UserId);
+                    CommentModel.AddUpVoteComment(model.CommentId, id);
+                } else CommentModel.AddDownVoteComment(model.CommentId, id);
                 return Ok();
             }
             return BadRequest(ModelState);
@@ -268,16 +298,22 @@ namespace NT106_API_Server.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (CommentModel.HasUserVotedComment(model.CommentId, model.UserId) == false)
+                string? id = GetUserId();
+                if (id == null)
+                {
+                    return BadRequest("Error: User not found.");
+                }
+
+                if (CommentModel.HasUserVotedComment(model.CommentId, id) == false)
                 {
                     return BadRequest("Error: User has not voted yet.");
                 }
 
                 if (model.IsUpVote)
                 {
-                    CommentModel.RemoveUpVoteComment(model.CommentId, model.UserId);
+                    CommentModel.RemoveUpVoteComment(model.CommentId, id);
                 }
-                else CommentModel.RemoveDownVoteComment(model.CommentId, model.UserId);
+                else CommentModel.RemoveDownVoteComment(model.CommentId, id);
                 return Ok();
             }
             return BadRequest(ModelState);
@@ -299,6 +335,12 @@ namespace NT106_API_Server.Controllers
         [UserValidateToken]
         public IActionResult GetVoteCommentByCommentIdAndUserId([FromBody] CommentModel.Vote model)
         {
+            string? id = GetUserId();
+            if (id == null)
+            {
+                return BadRequest("Error: User not found.");
+            }
+            model.UserId = id;
             CommentModel.Vote vote = CommentModel.GetVoteCommentByCommentIdAndUserId(model);
             if (vote == null)
             {
@@ -323,11 +365,17 @@ namespace NT106_API_Server.Controllers
         [UserValidateToken]
         public IActionResult HasUserCommented([FromQuery] string userId, [FromQuery] string episodeId)
         {
-            if (string.IsNullOrEmpty(userId) || string.IsNullOrEmpty(episodeId))
+            string? id = GetUserId();
+            if (id == null)
             {
-                return BadRequest("Error: User or episode not found.");
+                return BadRequest("Error: User not found.");
             }
-            return Ok(CommentModel.HasUserCommented(userId, episodeId));
+
+            if (string.IsNullOrEmpty(episodeId))
+            {
+                return BadRequest("Error: Episode not found.");
+            }
+            return Ok(CommentModel.HasUserCommented(id, episodeId));
         }
         [Route("searchmovie")]
         [HttpPost]
@@ -339,6 +387,56 @@ namespace NT106_API_Server.Controllers
                 return Ok(movies);
             }
             return BadRequest(ModelState);
+        }
+        [Route("addwatchlist")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult AddWatchlist([FromQuery]string episodeId)
+        {
+            if (!string.IsNullOrEmpty(episodeId))
+            {
+                string? id = GetUserId();
+                if (id == null)
+                {
+                    return BadRequest("Error: User not found.");
+                }
+
+                WatchlistModel.InsertWatchlist(id, episodeId);
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [Route("removewatchlist")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult RemoveWatchlist([FromQuery] string episodeId)
+        {
+            if (!string.IsNullOrEmpty(episodeId))
+            {
+                string? id = GetUserId();
+                if (id == null)
+                {
+                    return BadRequest("Error: User not found.");
+                }
+
+                WatchlistModel.DeleteWatchlist(id, episodeId);
+                return Ok();
+            }
+            return BadRequest();
+        }
+        [Route("getwatchlist")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult GetWatchlist()
+        {
+            string? id = GetUserId();
+            if (id == null)
+            {
+                return BadRequest("Error: User not found.");
+            }
+
+            List<string> watchlist = WatchlistModel.GetUserWatchlist(id);
+            return Ok(watchlist);
         }
     }
 

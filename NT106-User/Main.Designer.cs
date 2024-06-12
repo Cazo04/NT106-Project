@@ -143,7 +143,7 @@
             label2.Location = new Point(85, 39);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(42, 23);
+            label2.Size = new Size(33, 17);
             label2.TabIndex = 2;
             label2.Text = "Free";
             // 
@@ -155,7 +155,7 @@
             lbUsername.Location = new Point(85, 11);
             lbUsername.Margin = new Padding(2, 0, 2, 0);
             lbUsername.Name = "lbUsername";
-            lbUsername.Size = new Size(44, 23);
+            lbUsername.Size = new Size(35, 17);
             lbUsername.TabIndex = 1;
             lbUsername.Text = "User";
             // 
@@ -174,10 +174,10 @@
             // 
             pnMain.AutoScroll = true;
             pnMain.Dock = DockStyle.Fill;
-            pnMain.Location = new Point(0, 39);
+            pnMain.Location = new Point(0, 44);
             pnMain.Margin = new Padding(2);
             pnMain.Name = "pnMain";
-            pnMain.Size = new Size(854, 681);
+            pnMain.Size = new Size(854, 676);
             pnMain.TabIndex = 2;
             // 
             // panel1
@@ -193,7 +193,7 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(854, 39);
+            panel1.Size = new Size(854, 44);
             panel1.TabIndex = 3;
             // 
             // tlpnMiniUser
@@ -209,7 +209,7 @@
             tlpnMiniUser.Padding = new Padding(2);
             tlpnMiniUser.RowCount = 1;
             tlpnMiniUser.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tlpnMiniUser.Size = new Size(158, 39);
+            tlpnMiniUser.Size = new Size(158, 44);
             tlpnMiniUser.TabIndex = 6;
             tlpnMiniUser.Visible = false;
             tlpnMiniUser.Click += tlpnMiniUser_Click;
@@ -221,7 +221,7 @@
             imgMiniAvatar.Location = new Point(4, 4);
             imgMiniAvatar.Margin = new Padding(2);
             imgMiniAvatar.Name = "imgMiniAvatar";
-            imgMiniAvatar.Size = new Size(28, 31);
+            imgMiniAvatar.Size = new Size(28, 36);
             imgMiniAvatar.SizeMode = PictureBoxSizeMode.Zoom;
             imgMiniAvatar.TabIndex = 1;
             imgMiniAvatar.TabStop = false;
@@ -235,7 +235,7 @@
             lbMiniUsername.Location = new Point(47, 2);
             lbMiniUsername.Margin = new Padding(2, 0, 2, 0);
             lbMiniUsername.Name = "lbMiniUsername";
-            lbMiniUsername.Size = new Size(107, 35);
+            lbMiniUsername.Size = new Size(107, 40);
             lbMiniUsername.TabIndex = 2;
             lbMiniUsername.Text = "User";
             lbMiniUsername.TextAlign = ContentAlignment.MiddleLeft;
@@ -251,7 +251,7 @@
             btnMylist.ForeColor = SystemColors.ControlLightLight;
             btnMylist.Location = new Point(385, 0);
             btnMylist.Name = "btnMylist";
-            btnMylist.Size = new Size(86, 39);
+            btnMylist.Size = new Size(86, 44);
             btnMylist.TabIndex = 4;
             btnMylist.Text = "My List";
             btnMylist.UseVisualStyleBackColor = false;
@@ -266,7 +266,7 @@
             btnInfo.ForeColor = SystemColors.ControlLightLight;
             btnInfo.Location = new Point(294, 0);
             btnInfo.Name = "btnInfo";
-            btnInfo.Size = new Size(91, 39);
+            btnInfo.Size = new Size(91, 44);
             btnInfo.TabIndex = 3;
             btnInfo.Text = "Search";
             btnInfo.UseVisualStyleBackColor = false;
@@ -282,7 +282,7 @@
             btnMovies.ForeColor = SystemColors.ControlLightLight;
             btnMovies.Location = new Point(208, 0);
             btnMovies.Name = "btnMovies";
-            btnMovies.Size = new Size(86, 39);
+            btnMovies.Size = new Size(86, 44);
             btnMovies.TabIndex = 2;
             btnMovies.Text = "Movies";
             btnMovies.UseVisualStyleBackColor = false;
@@ -298,7 +298,7 @@
             btnTvshows.ForeColor = SystemColors.ControlLightLight;
             btnTvshows.Location = new Point(86, 0);
             btnTvshows.Name = "btnTvshows";
-            btnTvshows.Size = new Size(122, 39);
+            btnTvshows.Size = new Size(122, 44);
             btnTvshows.TabIndex = 1;
             btnTvshows.Text = "TV Shows";
             btnTvshows.UseVisualStyleBackColor = false;
@@ -313,7 +313,7 @@
             btnHome.ForeColor = SystemColors.ControlLightLight;
             btnHome.Location = new Point(0, 0);
             btnHome.Name = "btnHome";
-            btnHome.Size = new Size(86, 39);
+            btnHome.Size = new Size(86, 44);
             btnHome.TabIndex = 0;
             btnHome.Text = "Home";
             btnHome.UseVisualStyleBackColor = false;
@@ -329,7 +329,7 @@
             btnSignin.ForeColor = SystemColors.ControlLightLight;
             btnSignin.Location = new Point(768, 0);
             btnSignin.Name = "btnSignin";
-            btnSignin.Size = new Size(86, 39);
+            btnSignin.Size = new Size(86, 44);
             btnSignin.TabIndex = 5;
             btnSignin.Text = "Sign in";
             btnSignin.UseVisualStyleBackColor = false;
@@ -337,7 +337,7 @@
             // 
             // Main
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1038, 720);

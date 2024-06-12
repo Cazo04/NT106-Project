@@ -79,8 +79,9 @@ namespace NT106_User
                 pnImgBackground.BackColor = Color.FromArgb(79, 30, 35);
             }
 
-            if (Storage.TempUserId != null && Storage.TempUserId == comment.UserId)
+            if (Storage.TempUserId != null)
             {
+                panel3.Visible = true;
                 panel3.Enabled = false;
 
                 panel6.Visible = true;
@@ -122,7 +123,16 @@ namespace NT106_User
                     panel4.Enabled = false;
                 }
                 panel3.Enabled = true;
-            } else lbYourReview.Visible = false;
+
+                if (Storage.TempUserId == comment.UserId)
+                {
+                    lbYourReview.Visible = true;
+                }
+                else lbYourReview.Visible = false;
+            } else {
+                panel3.Enabled = false;
+                panel3.Visible = false;
+            }
         }
         private async void SendVote(bool isUpVote)
         {
