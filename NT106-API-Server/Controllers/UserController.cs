@@ -117,7 +117,7 @@ namespace NT106_API_Server.Controllers
         [Route("getuser")]
         [HttpGet]
         [UserValidateToken]
-        public IActionResult GetUser([FromQuery] string userId)
+        public IActionResult GetUser()
         {
             string? id = GetUserId();
             if (id == null)
@@ -134,7 +134,7 @@ namespace NT106_API_Server.Controllers
         [Route("changepassword")]
         [HttpPost]
         [UserValidateToken]
-        public IActionResult ChangePassword([FromQuery] string userId,[FromBody] ChangePasswordModel model)
+        public IActionResult ChangePassword([FromBody] ChangePasswordModel model)
         {
             if (ModelState.IsValid)
             {
