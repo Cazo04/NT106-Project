@@ -151,6 +151,9 @@
             label19 = new Label();
             panel15 = new Panel();
             panel16 = new Panel();
+            tableLayoutPanel18 = new TableLayoutPanel();
+            btnEpSubmit = new Button();
+            btnEpUpdate = new Button();
             flowLayoutPanel2 = new FlowLayoutPanel();
             tableLayoutPanel15 = new TableLayoutPanel();
             label20 = new Label();
@@ -183,10 +186,7 @@
             tableLayoutPanel24 = new TableLayoutPanel();
             label30 = new Label();
             tbEpPlot = new TextBox();
-            tableLayoutPanel18 = new TableLayoutPanel();
-            btnEpSubmit = new Button();
-            btnEpUpdate = new Button();
-            label29 = new Label();
+            lbEpData = new Label();
             panel25 = new Panel();
             tableLayoutPanel29 = new TableLayoutPanel();
             btnEpGetData = new Button();
@@ -272,6 +272,7 @@
             tableLayoutPanel14.SuspendLayout();
             panel15.SuspendLayout();
             panel16.SuspendLayout();
+            tableLayoutPanel18.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             tableLayoutPanel15.SuspendLayout();
             tableLayoutPanel28.SuspendLayout();
@@ -284,7 +285,6 @@
             ((System.ComponentModel.ISupportInitialize)imgEpPreviewImage).BeginInit();
             tableLayoutPanel23.SuspendLayout();
             tableLayoutPanel24.SuspendLayout();
-            tableLayoutPanel18.SuspendLayout();
             panel25.SuspendLayout();
             tableLayoutPanel29.SuspendLayout();
             tableLayoutPanel30.SuspendLayout();
@@ -1610,14 +1610,53 @@
             // 
             panel16.BackColor = SystemColors.ActiveBorder;
             panel16.BorderStyle = BorderStyle.FixedSingle;
+            panel16.Controls.Add(tableLayoutPanel18);
             panel16.Controls.Add(flowLayoutPanel2);
-            panel16.Controls.Add(label29);
+            panel16.Controls.Add(lbEpData);
             panel16.Dock = DockStyle.Top;
             panel16.Location = new Point(0, 139);
             panel16.Margin = new Padding(3, 5, 3, 3);
             panel16.Name = "panel16";
             panel16.Size = new Size(351, 1165);
             panel16.TabIndex = 1;
+            // 
+            // tableLayoutPanel18
+            // 
+            tableLayoutPanel18.ColumnCount = 2;
+            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.50562F));
+            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.49438F));
+            tableLayoutPanel18.Controls.Add(btnEpSubmit, 0, 0);
+            tableLayoutPanel18.Controls.Add(btnEpUpdate, 1, 0);
+            tableLayoutPanel18.Dock = DockStyle.Top;
+            tableLayoutPanel18.Location = new Point(0, 1068);
+            tableLayoutPanel18.Name = "tableLayoutPanel18";
+            tableLayoutPanel18.RowCount = 1;
+            tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel18.Size = new Size(349, 45);
+            tableLayoutPanel18.TabIndex = 5;
+            // 
+            // btnEpSubmit
+            // 
+            btnEpSubmit.Dock = DockStyle.Left;
+            btnEpSubmit.Location = new Point(3, 3);
+            btnEpSubmit.Name = "btnEpSubmit";
+            btnEpSubmit.Size = new Size(112, 39);
+            btnEpSubmit.TabIndex = 0;
+            btnEpSubmit.Text = "Submit";
+            btnEpSubmit.UseVisualStyleBackColor = true;
+            btnEpSubmit.Click += btnEpSubmit_Click;
+            // 
+            // btnEpUpdate
+            // 
+            btnEpUpdate.Dock = DockStyle.Left;
+            btnEpUpdate.Enabled = false;
+            btnEpUpdate.Location = new Point(161, 3);
+            btnEpUpdate.Name = "btnEpUpdate";
+            btnEpUpdate.Size = new Size(95, 39);
+            btnEpUpdate.TabIndex = 1;
+            btnEpUpdate.Text = "Update";
+            btnEpUpdate.UseVisualStyleBackColor = true;
+            btnEpUpdate.Visible = false;
             // 
             // flowLayoutPanel2
             // 
@@ -1632,10 +1671,10 @@
             flowLayoutPanel2.Controls.Add(imgEpPreviewImage);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel23);
             flowLayoutPanel2.Controls.Add(tableLayoutPanel24);
-            flowLayoutPanel2.Controls.Add(tableLayoutPanel18);
+            flowLayoutPanel2.Dock = DockStyle.Top;
             flowLayoutPanel2.Location = new Point(0, 25);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(366, 1105);
+            flowLayoutPanel2.Size = new Size(349, 1043);
             flowLayoutPanel2.TabIndex = 1;
             // 
             // tableLayoutPanel15
@@ -1981,50 +2020,16 @@
             tbEpPlot.Size = new Size(353, 106);
             tbEpPlot.TabIndex = 2;
             // 
-            // tableLayoutPanel18
+            // lbEpData
             // 
-            tableLayoutPanel18.ColumnCount = 2;
-            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45.50562F));
-            tableLayoutPanel18.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 54.49438F));
-            tableLayoutPanel18.Controls.Add(btnEpSubmit, 0, 0);
-            tableLayoutPanel18.Controls.Add(btnEpUpdate, 1, 0);
-            tableLayoutPanel18.Location = new Point(3, 1019);
-            tableLayoutPanel18.Name = "tableLayoutPanel18";
-            tableLayoutPanel18.RowCount = 1;
-            tableLayoutPanel18.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel18.Size = new Size(356, 45);
-            tableLayoutPanel18.TabIndex = 5;
-            // 
-            // btnEpSubmit
-            // 
-            btnEpSubmit.Dock = DockStyle.Left;
-            btnEpSubmit.Location = new Point(3, 3);
-            btnEpSubmit.Name = "btnEpSubmit";
-            btnEpSubmit.Size = new Size(112, 39);
-            btnEpSubmit.TabIndex = 0;
-            btnEpSubmit.Text = "Submit";
-            btnEpSubmit.UseVisualStyleBackColor = true;
-            // 
-            // btnEpUpdate
-            // 
-            btnEpUpdate.Dock = DockStyle.Left;
-            btnEpUpdate.Location = new Point(165, 3);
-            btnEpUpdate.Name = "btnEpUpdate";
-            btnEpUpdate.Size = new Size(95, 39);
-            btnEpUpdate.TabIndex = 1;
-            btnEpUpdate.Text = "Update";
-            btnEpUpdate.UseVisualStyleBackColor = true;
-            // 
-            // label29
-            // 
-            label29.AutoSize = true;
-            label29.Dock = DockStyle.Top;
-            label29.Font = new Font("Segoe UI", 13F);
-            label29.Location = new Point(0, 0);
-            label29.Name = "label29";
-            label29.Size = new Size(162, 25);
-            label29.TabIndex = 0;
-            label29.Text = "Episode Data Entry";
+            lbEpData.AutoSize = true;
+            lbEpData.Dock = DockStyle.Top;
+            lbEpData.Font = new Font("Segoe UI", 13F);
+            lbEpData.Location = new Point(0, 0);
+            lbEpData.Name = "lbEpData";
+            lbEpData.Size = new Size(162, 25);
+            lbEpData.TabIndex = 0;
+            lbEpData.Text = "Episode Data Entry";
             // 
             // panel25
             // 
@@ -2540,6 +2545,7 @@
             panel15.ResumeLayout(false);
             panel16.ResumeLayout(false);
             panel16.PerformLayout();
+            tableLayoutPanel18.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel15.ResumeLayout(false);
             tableLayoutPanel15.PerformLayout();
@@ -2562,7 +2568,6 @@
             tableLayoutPanel23.PerformLayout();
             tableLayoutPanel24.ResumeLayout(false);
             tableLayoutPanel24.PerformLayout();
-            tableLayoutPanel18.ResumeLayout(false);
             panel25.ResumeLayout(false);
             panel25.PerformLayout();
             tableLayoutPanel29.ResumeLayout(false);
@@ -2697,7 +2702,7 @@
         private TableLayoutPanel tableLayoutPanel23;
         private Label label28;
         private TextBox tbEpImageCaption;
-        private Label label29;
+        private Label lbEpData;
         private TableLayoutPanel tableLayoutPanel25;
         private Label label31;
         private TextBox tbEpTitle;

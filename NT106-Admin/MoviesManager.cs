@@ -186,12 +186,13 @@ namespace NT106_Admin
             else
             {
                 MovieModel movie = JsonConvert.DeserializeObject<MovieModel>(response);
+                ClearEpisodes();
                 LoadMovieDetail(movie);
             }
 
             progressDialog.CloseProgress(this);
 
-            ClearEpisodes();
+            
         }
 
         private async void LoadMovieDetail(MovieModel movie)
@@ -256,7 +257,11 @@ namespace NT106_Admin
                 panel18.Visible = false;
                 panel19.Visible = false;
                 panel20.Visible = false;
-                panel16.Visible = false;
+                panel9.Visible = false;
+                flowLayoutPanel2.Visible = false;
+                lbEpData.Visible = false;
+                tbEpURL.Text = IMDb_BASE_URL + movie.MovieInfo.MovieId;
+                LoadEpisode(tbMovieId.Text, false);
             }
             else
             {
@@ -265,8 +270,11 @@ namespace NT106_Admin
                 panel18.Visible = true;
                 panel19.Visible = true;
                 panel20.Visible = true;
-                panel16.Visible = true;
-            }
+                lbEpData.Visible = true;
+                flowLayoutPanel2.Visible = true;
+                panel9.Visible = true;
+                tbEpURL.Text = "";
+            }         
         }
 
         private void LoadImageFromURL(string url, PictureBox pictureBox)
@@ -374,21 +382,22 @@ namespace NT106_Admin
             }
             else
             {
+                //ClearEpisodes();
                 MovieModel movie = JsonConvert.DeserializeObject<MovieModel>(response);
                 dgvEpisodes.Rows.Clear();
                 foreach (var episode in movie.Episodess)
                 {
                     dgvEpisodes.Rows.Add(episode.Id, episode.Episode, ((DateTime)episode.ReleaseDate).ToString("yyyy-MM-dd"), episode.Duration, episode.Image, null, episode.Title, episode.AggregateRating, episode.VoteCount);
                 }
+                for (int i = 0; i < dgvEpisodes.Rows.Count; i++)
+                {
+                    string imageUrl = dgvEpisodes.Rows[i].Cells[4].Value.ToString();
+                    LoadImageIntoDataGridViewAsync(imageUrl, i, 5, dgvEpisodes);
+                }
             }
 
             progressDialog.CloseProgress(this);
-
-            for (int i = 0; i < dgvEpisodes.Rows.Count; i++)
-            {
-                string imageUrl = dgvEpisodes.Rows[i].Cells[4].Value.ToString();
-                LoadImageIntoDataGridViewAsync(imageUrl, i, 5, dgvEpisodes);
-            }
+           
             ClearEpisodeDetail();
         }
         public async Task LoadImageIntoDataGridViewAsync(string imageUrl, int rowIndex, int colIndex, DataGridView dgv)
@@ -658,6 +667,10 @@ namespace NT106_Admin
                     var description = descriptionNode != null ? descriptionNode.InnerText : "";
 
                     var releaseDate = episode.SelectSingleNode(".//span[contains(@class,'sc-aafba987-10')]")?.InnerText;
+                    if (releaseDate == null)
+                    {
+                        releaseDate = episode.SelectSingleNode(".//span[contains(@class,'sc-ccd6e31b-10')]")?.InnerText;
+                    }
                     DateTime date = DateTime.Parse(releaseDate);
                     var formattedDate = date.ToString("yyyy-MM-dd");
 
@@ -750,18 +763,26 @@ namespace NT106_Admin
             dialogForm.ShowProgress(this, "Uploading episode detail, please wait...");
 
             MovieModel.Episodes episode = new MovieModel.Episodes();
-            episode.MovieId = tbMovieId.Text;
-            episode.Season = seasonNow;
-            episode.Id = tbEpId.Text;
-            episode.Episode = tbEpisode.Text;
-            episode.ReleaseDate = dtpEpReleaseDate.Value;
-            episode.Duration = int.Parse(tbEpDuration.Text);
-            episode.Image = tbEpImage.Text;
-            episode.ImageCaption = tbEpImageCaption.Text;
-            episode.Title = tbEpTitle.Text;
-            episode.Plot = tbEpPlot.Text;
-            episode.AggregateRating = double.Parse(tbEpAggregateRating.Text);
-            episode.VoteCount = int.Parse(tbEpVoteCount.Text);
+            if (cbIsTVShows.Checked)
+            {
+                episode.MovieId = tbMovieId.Text;
+                episode.Season = seasonNow;
+                episode.Id = tbEpId.Text;
+                episode.Episode = tbEpisode.Text;
+                episode.ReleaseDate = dtpEpReleaseDate.Value;
+                episode.Duration = int.Parse(tbEpDuration.Text);
+                episode.Image = tbEpImage.Text;
+                episode.ImageCaption = tbEpImageCaption.Text;
+                episode.Title = tbEpTitle.Text;
+                episode.Plot = tbEpPlot.Text;
+                episode.AggregateRating = double.Parse(tbEpAggregateRating.Text);
+                episode.VoteCount = int.Parse(tbEpVoteCount.Text);
+            } else
+            {
+                episode.MovieId = tbMovieId.Text;
+                episode.Season = seasonNow = "0";
+                episode.Id = tbMovieId.Text;
+            }
 
             episode.Creators = new List<MovieModel.EpisodeCreator>();
             foreach (DataGridViewRow row in dgvEpCreators.Rows)
@@ -786,11 +807,18 @@ namespace NT106_Admin
             episode.Casts = new List<MovieModel.Cast>();
             foreach (DataGridViewRow row in dgvEpCasts.Rows)
             {
-                episode.Casts.Add(new MovieModel.Cast { Person = new MovieModel.Person { Id = row.Cells[0].Value.ToString(), Name = row.Cells[1].Value.ToString(), Image = (string.IsNullOrEmpty(row.Cells[2].Value.ToString()) ? null : row.Cells[2].Value.ToString()) }, CharacterName = row.Cells[4].Value.ToString() });
+                Cast cast = new MovieModel.Cast();
+                cast.Person = new MovieModel.Person();
+                cast.Person.Id = row.Cells[0].Value.ToString();
+                cast.Person.Name = row.Cells[1].Value.ToString();
+                cast.Person.Image = (row.Cells[2].Value == null ? null : row.Cells[2].Value.ToString());
+                cast.CharacterName = row.Cells[4].Value.ToString();
+                episode.Casts.Add(cast);
             }
 
             HttpClientService service = new HttpClientService(_adminToken.Token);
             string json = JsonConvert.SerializeObject(episode);
+            
             string response = await service.PostAsync("/admin/uploadepisodedata", json);
 
             if (response.Contains("Error"))
@@ -805,8 +833,11 @@ namespace NT106_Admin
             }
             dialogForm.CloseProgress(this);
 
-            LoadListEpisodes(tbMovieId.Text, seasonNow);
-
+            LoadEpisode(episode.Id, cbIsTVShows.Checked);
+            if (cbIsTVShows.Checked)
+            {
+                LoadListEpisodes(tbMovieId.Text, seasonNow);
+            }
         }
 
         private void btnLoadTrailer_Click(object sender, EventArgs e)
