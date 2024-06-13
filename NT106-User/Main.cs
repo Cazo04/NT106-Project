@@ -18,7 +18,7 @@ namespace NT106_User
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            Setting profile = new Setting(userId);
+            Setting profile = new Setting();
             profile.StartPosition = FormStartPosition.CenterParent;
             this.Hide();
             profile.ShowDialog();
@@ -154,6 +154,15 @@ namespace NT106_User
             btnMovies.BackColor = System.Drawing.Color.FromArgb(0, 0, 0);
             btnInfo.BackColor = System.Drawing.Color.FromArgb(0, 0, 0);
             button.BackColor = System.Drawing.Color.FromArgb(64, 64, 64);
+        }
+
+        private void btnWatctlist_Click(object sender, EventArgs e)
+        {
+            Setting watchlist = new Setting("Watchlist");
+            watchlist.StartPosition = FormStartPosition.CenterParent;
+            this.Hide();
+            watchlist.ShowDialog();
+            this.Show();
         }
     }
 }

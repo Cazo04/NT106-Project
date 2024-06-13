@@ -142,9 +142,10 @@ namespace NT106_User
                 }
                 LoadImageAsync(movie.MovieInfo.PosterURL);
             }
+            await CheckingWatchlist();
             progressDialogForm.CloseProgress(this);
 
-            LoadComment();
+            LoadComment();           
         }
         private async Task LoadImageAsync(string imageUrl)
         {
@@ -256,6 +257,71 @@ namespace NT106_User
         {
             TrailerView trailerView = new TrailerView(movie.MovieInfo.TrailerURL);
             trailerView.ShowDialog();
+        }
+        private bool isWatchlisted = false;
+        private async Task CheckingWatchlist()
+        {
+            if (Storage.TempUserId != null)
+            {
+                HttpClientService service = new HttpClientService();
+                string response = await service.GetAsync($"/user/isepisodeinwatchlist?episodeId={movieId}");
+                if (response.StartsWith("Error"))
+                {
+                    //MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    bool hasWatchlisted = JsonConvert.DeserializeObject<bool>(response);
+                    if (hasWatchlisted)
+                    {
+                        btnWatchlist.BackgroundImage = Properties.Resources.bookmark_checked;
+                        isWatchlisted = true;
+                    } else
+                    {
+                        isWatchlisted = false;
+                        btnWatchlist.BackgroundImage = Properties.Resources.bookmark;
+                    }
+                }
+            }
+            else
+            {
+                btnWatchlist.BackgroundImage = Properties.Resources.bookmark;
+            }
+        }
+
+        private async void btnWatchlist_Click(object sender, EventArgs e)
+        {
+            ProgressDialogForm progressDialogForm = new ProgressDialogForm();
+            progressDialogForm.ShowProgress(this);
+
+            HttpClientService service = new HttpClientService();
+
+            if (!isWatchlisted)
+            {
+                string response = await service.GetAsync("/user/addwatchlist?episodeId=" + movieId);
+                if (response.StartsWith("Error"))
+                {
+                    MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Added to watchlist", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                string response = await service.GetAsync("/user/removewatchlist?episodeId=" + movieId);
+                if (response.StartsWith("Error"))
+                {
+                    MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Removed from watchlist", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            await CheckingWatchlist();
+            progressDialogForm.CloseProgress(this);
         }
     }
 }

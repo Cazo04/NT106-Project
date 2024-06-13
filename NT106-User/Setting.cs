@@ -13,11 +13,11 @@ namespace NT106_User
 {
     public partial class Setting : Form
     {
-        private string userId;
-        public Setting(string userId)
+        private string open;
+        public Setting(string open = "Profile")
         {
             InitializeComponent();
-            this.userId = userId;
+            this.open = open;
         }
 
         private void btnlogout_Click(object sender, EventArgs e)
@@ -27,17 +27,30 @@ namespace NT106_User
 
         private void Setting_Load(object sender, EventArgs e)
         {
-            btnProfile.PerformClick();
+            if (open == "Profile")
+                btnProfile.PerformClick();
+            else if (open == "Watchlist")
+                btnWatchlist.PerformClick();
         }
 
         private void btnProfile_Click(object sender, EventArgs e)
         {
-            Profile profile = new Profile(userId);
+            Profile profile = new Profile();
             profile.Dock = DockStyle.Fill;
             profile.TopLevel = false;
             pnMain.Controls.Clear();
-            pnMain.Controls.Add(profile);            
+            pnMain.Controls.Add(profile);
             profile.Show();
+        }
+
+        private void btnWatchlist_Click(object sender, EventArgs e)
+        {
+            Watchlist watchlist = new Watchlist();
+            watchlist.Dock = DockStyle.Fill;
+            watchlist.TopLevel = false;
+            pnMain.Controls.Clear();
+            pnMain.Controls.Add(watchlist);
+            watchlist.Show();
         }
     }
 }

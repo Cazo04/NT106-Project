@@ -172,9 +172,9 @@ namespace NT106_API_Server.Controllers
                 return BadRequest("Error: Movie not found.");
             }
             MovieModel movie = MovieModel.GetMovie(movieId);
-            movie.Writers = MovieModel.GetMovieWriters(movieId);
-            movie.Directors = MovieModel.GetMovieDirectors(movieId);
-            movie.Creators = MovieModel.GetMovieCreators(movieId);
+            //movie.Writers = MovieModel.GetMovieWriters(movieId);
+            //movie.Directors = MovieModel.GetMovieDirectors(movieId);
+            //movie.Creators = MovieModel.GetMovieCreators(movieId);
             movie.Casts = MovieModel.GetCastDetailsByMovieId(movieId);
             movie.Genres = MovieModel.GetGenresByMovieId(movieId);
             return Ok(movie);
@@ -437,6 +437,37 @@ namespace NT106_API_Server.Controllers
 
             List<string> watchlist = WatchlistModel.GetUserWatchlist(id);
             return Ok(watchlist);
+        }
+        [Route("isepisodeinwatchlist")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult IsEpisodeInWatchlist([FromQuery] string episodeId)
+        {
+            string? id = GetUserId();
+            if (id == null)
+            {
+                return BadRequest("Error: User not found.");
+            }
+
+            if (string.IsNullOrEmpty(episodeId))
+            {
+                return BadRequest("Error: Episode not found.");
+            }
+            return Ok(WatchlistModel.IsEpisodeInWatchlist(id, episodeId));
+        }
+        [Route("getmoviesfromwatchlist")]
+        [HttpGet]
+        [UserValidateToken]
+        public IActionResult GetMoviesFromWatchlist()
+        {
+            string? id = GetUserId();
+            if (id == null)
+            {
+                return BadRequest("Error: User not found.");
+            }
+
+            List<MovieModel> movies = WatchlistModel.GetMoviesFromUserWatchlist(id);
+            return Ok(movies);
         }
     }
 

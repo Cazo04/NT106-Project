@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            btnWatchlist = new Button();
             btnlogout = new Button();
             btnProfile = new Button();
             pnMain = new Panel();
@@ -38,6 +39,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(42, 44, 49);
+            panel1.Controls.Add(btnWatchlist);
             panel1.Controls.Add(btnlogout);
             panel1.Controls.Add(btnProfile);
             panel1.Dock = DockStyle.Left;
@@ -45,6 +47,24 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(143, 979);
             panel1.TabIndex = 18;
+            // 
+            // btnWatchlist
+            // 
+            btnWatchlist.BackColor = Color.DimGray;
+            btnWatchlist.Dock = DockStyle.Top;
+            btnWatchlist.FlatAppearance.BorderColor = Color.FromArgb(64, 64, 64);
+            btnWatchlist.FlatAppearance.MouseDownBackColor = Color.White;
+            btnWatchlist.FlatAppearance.MouseOverBackColor = Color.White;
+            btnWatchlist.FlatStyle = FlatStyle.Flat;
+            btnWatchlist.Font = new Font("Segoe UI", 11.25F);
+            btnWatchlist.ForeColor = SystemColors.ControlLightLight;
+            btnWatchlist.Location = new Point(0, 40);
+            btnWatchlist.Name = "btnWatchlist";
+            btnWatchlist.Size = new Size(143, 40);
+            btnWatchlist.TabIndex = 15;
+            btnWatchlist.Text = "Watchlist";
+            btnWatchlist.UseVisualStyleBackColor = false;
+            btnWatchlist.Click += btnWatchlist_Click;
             // 
             // btnlogout
             // 
@@ -110,5 +130,6 @@
         private Button btnlogout;
         private Button btnProfile;
         private Panel pnMain;
+        private Button btnWatchlist;
     }
 }

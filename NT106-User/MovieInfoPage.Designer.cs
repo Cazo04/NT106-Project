@@ -647,14 +647,16 @@
             // 
             // btnWatchlist
             // 
-            btnWatchlist.BackgroundImage = Properties.Resources.bookmark;
+            btnWatchlist.BackColor = Color.FromArgb(0, 0, 0, 0);
+            btnWatchlist.BackgroundImage = Properties.Resources.bookmark_checked;
             btnWatchlist.BackgroundImageLayout = ImageLayout.Zoom;
             btnWatchlist.Dock = DockStyle.Fill;
             btnWatchlist.Location = new Point(151, 3);
             btnWatchlist.Name = "btnWatchlist";
             btnWatchlist.Size = new Size(30, 40);
             btnWatchlist.TabIndex = 2;
-            btnWatchlist.UseVisualStyleBackColor = true;
+            btnWatchlist.UseVisualStyleBackColor = false;
+            btnWatchlist.Click += btnWatchlist_Click;
             // 
             // panel5
             // 

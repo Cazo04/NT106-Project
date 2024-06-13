@@ -15,11 +15,9 @@ namespace NT106_User
 {
     public partial class Profile : Form
     {
-        private string userId;
-        public Profile(string userId)
+        public Profile()
         {
             InitializeComponent();
-            this.userId = userId;
         }
 
         private async void Profile_Load(object sender, EventArgs e)
@@ -28,7 +26,7 @@ namespace NT106_User
             progressDialog.ShowProgress(this, "Loading profile...");
 
             HttpClientService service = new HttpClientService();
-            string response = await service.GetAsync("/user/getuser?userId=" + userId);
+            string response = await service.GetAsync("/user/getuser");
             if (response.StartsWith("Error"))
             {
                 MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -68,7 +66,7 @@ namespace NT106_User
             string json = JsonConvert.SerializeObject(changePasswordModel);
 
             HttpClientService service = new HttpClientService();
-            string response = await service.PostAsync("/user/changepassword?userId=" + userId, json);
+            string response = await service.PostAsync("/user/changepassword", json);
             if (response.StartsWith("Error"))
             {
                 MessageBox.Show(response, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -120,6 +120,7 @@
             btnWatctlist.TabIndex = 1;
             btnWatctlist.Text = "Watchlist";
             btnWatctlist.UseVisualStyleBackColor = false;
+            btnWatctlist.Click += btnWatctlist_Click;
             // 
             // panel3
             // 
