@@ -306,7 +306,7 @@ namespace NT106_User
                 }
                 else
                 {
-                    MessageBox.Show("Added to watchlist", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Added to watchlist", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
@@ -318,7 +318,7 @@ namespace NT106_User
                 }
                 else
                 {
-                    MessageBox.Show("Removed from watchlist", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //MessageBox.Show("Removed from watchlist", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             await CheckingWatchlist();
