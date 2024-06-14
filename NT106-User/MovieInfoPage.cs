@@ -247,8 +247,9 @@ namespace NT106_User
             }
             else
             {
-                MessageBox.Show("Comment successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Comment successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbCommentContent.Text = "";
+                LoadComment();
             }
             progressDialogForm.CloseProgress(this);
         }
