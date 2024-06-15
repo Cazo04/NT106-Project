@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NT106_User
 {
@@ -30,8 +28,22 @@ namespace NT106_User
                         e.Graphics.FillPath(brush, path);
                     }
 
-                    TextRenderer.DrawText(e.Graphics, label.Text, label.Font, label.ClientRectangle, label.ForeColor, TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
+                    using (StringFormat sf = new StringFormat())
+                    {
+                        sf.Alignment = StringAlignment.Center;
+                        sf.LineAlignment = StringAlignment.Center;
+
+                        using (Brush brush = new SolidBrush(label.ForeColor))
+                        {
+                            e.Graphics.DrawString(label.Text, label.Font, brush, label.ClientRectangle, sf);
+                        }
+                    }
                 }
+            };
+
+            label.Resize += (sender, e) =>
+            {
+                label.Invalidate();
             };
         }
     }
