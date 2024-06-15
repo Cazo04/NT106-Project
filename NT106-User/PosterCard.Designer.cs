@@ -1,4 +1,6 @@
-﻿namespace NT106_User
+﻿using System.Drawing.Drawing2D;
+
+namespace NT106_User
 {
     partial class PosterCard
     {

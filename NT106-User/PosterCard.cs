@@ -30,10 +30,11 @@ namespace NT106_User
             InitializeComponent();
             Settings();
 
-            lbType.MakeRounded(10);
-            lbScore.MakeRounded(10);
-            lbContentRating.MakeRounded(10);
-            lbName.MakeRounded(10);
+            this.Load += PosterCard_Load;
+            //lbType.MakeRounded(10);
+            //lbScore.MakeRounded(10);
+            //lbContentRating.MakeRounded(10);
+            //lbName.MakeRounded(10);
 
             foreach (Control control in this.Controls)
             {
@@ -43,6 +44,14 @@ namespace NT106_User
             RegisterMouseClickEventForChildren(Controls);
             originalBackColor = BackColor;
         }
+
+        private void PosterCard_Load(object sender, EventArgs e)
+        {
+            lbType.MakeRounded(10);
+            lbScore.MakeRounded(10);
+            lbContentRating.MakeRounded(10);
+        }
+
         public void SetData(MovieModel.Movie movie)
         {
             MovieId = movie.MovieId;
